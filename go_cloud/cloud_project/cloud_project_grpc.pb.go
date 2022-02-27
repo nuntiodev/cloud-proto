@@ -20,7 +20,9 @@ const _ = grpc.SupportPackageIsVersion7
 type ServiceClient interface {
 	Heartbeat(ctx context.Context, in *Request, opts ...grpc.CallOption) (*Response, error)
 	Create(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
+	SecureApiKey(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
 	RollApiKey(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
+	ValidateApiKey(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
 	UpdateInfo(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
 	Get(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
 	GetByOwner(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
@@ -53,9 +55,27 @@ func (c *serviceClient) Create(ctx context.Context, in *ProjectRequest, opts ...
 	return out, nil
 }
 
+func (c *serviceClient) SecureApiKey(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error) {
+	out := new(ProjectResponse)
+	err := c.cc.Invoke(ctx, "/CloudProject.Service/SecureApiKey", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *serviceClient) RollApiKey(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error) {
 	out := new(ProjectResponse)
 	err := c.cc.Invoke(ctx, "/CloudProject.Service/RollApiKey", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *serviceClient) ValidateApiKey(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error) {
+	out := new(ProjectResponse)
+	err := c.cc.Invoke(ctx, "/CloudProject.Service/ValidateApiKey", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -104,7 +124,9 @@ func (c *serviceClient) Delete(ctx context.Context, in *ProjectRequest, opts ...
 type ServiceServer interface {
 	Heartbeat(context.Context, *Request) (*Response, error)
 	Create(context.Context, *ProjectRequest) (*ProjectResponse, error)
+	SecureApiKey(context.Context, *ProjectRequest) (*ProjectResponse, error)
 	RollApiKey(context.Context, *ProjectRequest) (*ProjectResponse, error)
+	ValidateApiKey(context.Context, *ProjectRequest) (*ProjectResponse, error)
 	UpdateInfo(context.Context, *ProjectRequest) (*ProjectResponse, error)
 	Get(context.Context, *ProjectRequest) (*ProjectResponse, error)
 	GetByOwner(context.Context, *ProjectRequest) (*ProjectResponse, error)
@@ -121,8 +143,14 @@ func (UnimplementedServiceServer) Heartbeat(context.Context, *Request) (*Respons
 func (UnimplementedServiceServer) Create(context.Context, *ProjectRequest) (*ProjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
+func (UnimplementedServiceServer) SecureApiKey(context.Context, *ProjectRequest) (*ProjectResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SecureApiKey not implemented")
+}
 func (UnimplementedServiceServer) RollApiKey(context.Context, *ProjectRequest) (*ProjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RollApiKey not implemented")
+}
+func (UnimplementedServiceServer) ValidateApiKey(context.Context, *ProjectRequest) (*ProjectResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ValidateApiKey not implemented")
 }
 func (UnimplementedServiceServer) UpdateInfo(context.Context, *ProjectRequest) (*ProjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateInfo not implemented")
@@ -184,6 +212,24 @@ func _Service_Create_Handler(srv interface{}, ctx context.Context, dec func(inte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Service_SecureApiKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ProjectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).SecureApiKey(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/CloudProject.Service/SecureApiKey",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).SecureApiKey(ctx, req.(*ProjectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _Service_RollApiKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ProjectRequest)
 	if err := dec(in); err != nil {
@@ -198,6 +244,24 @@ func _Service_RollApiKey_Handler(srv interface{}, ctx context.Context, dec func(
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(ServiceServer).RollApiKey(ctx, req.(*ProjectRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Service_ValidateApiKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ProjectRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(ServiceServer).ValidateApiKey(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/CloudProject.Service/ValidateApiKey",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(ServiceServer).ValidateApiKey(ctx, req.(*ProjectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -290,8 +354,16 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _Service_Create_Handler,
 		},
 		{
+			MethodName: "SecureApiKey",
+			Handler:    _Service_SecureApiKey_Handler,
+		},
+		{
 			MethodName: "RollApiKey",
 			Handler:    _Service_RollApiKey_Handler,
+		},
+		{
+			MethodName: "ValidateApiKey",
+			Handler:    _Service_ValidateApiKey_Handler,
 		},
 		{
 			MethodName: "UpdateInfo",

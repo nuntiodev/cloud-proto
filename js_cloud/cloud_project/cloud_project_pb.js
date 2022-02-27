@@ -518,7 +518,8 @@ proto.CloudProject.ProjectRequest.prototype.toObject = function(opt_includeInsta
 proto.CloudProject.ProjectRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     project: (f = msg.getProject()) && proto.CloudProject.Project.toObject(includeInstance, f),
-    update: (f = msg.getUpdate()) && proto.CloudProject.Project.toObject(includeInstance, f)
+    update: (f = msg.getUpdate()) && proto.CloudProject.Project.toObject(includeInstance, f),
+    apikey: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
   if (includeInstance) {
@@ -565,6 +566,10 @@ proto.CloudProject.ProjectRequest.deserializeBinaryFromReader = function(msg, re
       reader.readMessage(value,proto.CloudProject.Project.deserializeBinaryFromReader);
       msg.setUpdate(value);
       break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setApikey(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -608,6 +613,13 @@ proto.CloudProject.ProjectRequest.serializeBinaryToWriter = function(message, wr
       2,
       f,
       proto.CloudProject.Project.serializeBinaryToWriter
+    );
+  }
+  f = message.getApikey();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
     );
   }
 };
@@ -684,6 +696,24 @@ proto.CloudProject.ProjectRequest.prototype.clearUpdate = function() {
  */
 proto.CloudProject.ProjectRequest.prototype.hasUpdate = function() {
   return jspb.Message.getField(this, 2) != null;
+};
+
+
+/**
+ * optional string apiKey = 3;
+ * @return {string}
+ */
+proto.CloudProject.ProjectRequest.prototype.getApikey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.CloudProject.ProjectRequest} returns this
+ */
+proto.CloudProject.ProjectRequest.prototype.setApikey = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
