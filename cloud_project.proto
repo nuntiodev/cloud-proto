@@ -27,9 +27,7 @@ message Project {
 
 message ProjectRequest {
     Project project = 1;
-    Project update = 2;
-    string namespace = 4;
-}
+    Project update = 2;}
 
 message ProjectResponse {
     Project project = 1;
