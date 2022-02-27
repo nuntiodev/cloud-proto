@@ -20,12 +20,6 @@ jobs:
       - name: update
         run: sudo apt update
 
-      - name: Get tag
-        id: tag
-        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\/v/}
-      - name: Set pubdev tag
-        run: sh build/update-pubdev-version.sh ${{ steps.tag.outputs.VERSION }}
-
       - name: Checkout main branch
         run: git checkout main
 
