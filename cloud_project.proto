@@ -23,6 +23,7 @@ message Project {
     string apiKey = 4;
     bool keySecured = 5;
     google.protobuf.Timestamp createdAt = 6;
+    google.protobuf.Timestamp createdAt = 7;
 }
 
 message ProjectRequest {
