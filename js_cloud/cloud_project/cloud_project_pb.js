@@ -170,7 +170,8 @@ proto.CloudProject.Project.toObject = function(includeInstance, msg) {
     name: jspb.Message.getFieldWithDefault(msg, 3, ""),
     apikey: jspb.Message.getFieldWithDefault(msg, 4, ""),
     keysecured: jspb.Message.getBooleanFieldWithDefault(msg, 5, false),
-    createdat: (f = msg.getCreatedat()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
+    createdat: (f = msg.getCreatedat()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
+    updatedat: (f = msg.getUpdatedat()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -231,6 +232,11 @@ proto.CloudProject.Project.deserializeBinaryFromReader = function(msg, reader) {
       var value = new google_protobuf_timestamp_pb.Timestamp;
       reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
       msg.setCreatedat(value);
+      break;
+    case 7:
+      var value = new google_protobuf_timestamp_pb.Timestamp;
+      reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
+      msg.setUpdatedat(value);
       break;
     default:
       reader.skipField();
@@ -300,6 +306,14 @@ proto.CloudProject.Project.serializeBinaryToWriter = function(message, writer) {
   if (f != null) {
     writer.writeMessage(
       6,
+      f,
+      google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
+    );
+  }
+  f = message.getUpdatedat();
+  if (f != null) {
+    writer.writeMessage(
+      7,
       f,
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
     );
@@ -434,6 +448,43 @@ proto.CloudProject.Project.prototype.hasCreatedat = function() {
 };
 
 
+/**
+ * optional google.protobuf.Timestamp updatedAt = 7;
+ * @return {?proto.google.protobuf.Timestamp}
+ */
+proto.CloudProject.Project.prototype.getUpdatedat = function() {
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
+    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 7));
+};
+
+
+/**
+ * @param {?proto.google.protobuf.Timestamp|undefined} value
+ * @return {!proto.CloudProject.Project} returns this
+*/
+proto.CloudProject.Project.prototype.setUpdatedat = function(value) {
+  return jspb.Message.setWrapperField(this, 7, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.CloudProject.Project} returns this
+ */
+proto.CloudProject.Project.prototype.clearUpdatedat = function() {
+  return this.setUpdatedat(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.CloudProject.Project.prototype.hasUpdatedat = function() {
+  return jspb.Message.getField(this, 7) != null;
+};
+
+
 
 
 
@@ -467,8 +518,7 @@ proto.CloudProject.ProjectRequest.prototype.toObject = function(opt_includeInsta
 proto.CloudProject.ProjectRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     project: (f = msg.getProject()) && proto.CloudProject.Project.toObject(includeInstance, f),
-    update: (f = msg.getUpdate()) && proto.CloudProject.Project.toObject(includeInstance, f),
-    namespace: jspb.Message.getFieldWithDefault(msg, 4, "")
+    update: (f = msg.getUpdate()) && proto.CloudProject.Project.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -515,10 +565,6 @@ proto.CloudProject.ProjectRequest.deserializeBinaryFromReader = function(msg, re
       reader.readMessage(value,proto.CloudProject.Project.deserializeBinaryFromReader);
       msg.setUpdate(value);
       break;
-    case 4:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setNamespace(value);
-      break;
     default:
       reader.skipField();
       break;
@@ -562,13 +608,6 @@ proto.CloudProject.ProjectRequest.serializeBinaryToWriter = function(message, wr
       2,
       f,
       proto.CloudProject.Project.serializeBinaryToWriter
-    );
-  }
-  f = message.getNamespace();
-  if (f.length > 0) {
-    writer.writeString(
-      4,
-      f
     );
   }
 };
@@ -645,24 +684,6 @@ proto.CloudProject.ProjectRequest.prototype.clearUpdate = function() {
  */
 proto.CloudProject.ProjectRequest.prototype.hasUpdate = function() {
   return jspb.Message.getField(this, 2) != null;
-};
-
-
-/**
- * optional string namespace = 4;
- * @return {string}
- */
-proto.CloudProject.ProjectRequest.prototype.getNamespace = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.CloudProject.ProjectRequest} returns this
- */
-proto.CloudProject.ProjectRequest.prototype.setNamespace = function(value) {
-  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
