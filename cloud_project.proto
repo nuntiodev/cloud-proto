@@ -21,7 +21,8 @@ message Project {
     string ownerId = 2;
     string name = 3;
     string apiKey = 4;
-    google.protobuf.Timestamp createdAt = 5;
+    bool keySecured = 5;
+    google.protobuf.Timestamp createdAt = 6;
 }
 
 message ProjectRequest {
