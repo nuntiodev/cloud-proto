@@ -12,10 +12,10 @@ build-project-go-proto:
 	
 .PHONY: build-project-js-proto
 build-project-js-proto:
-	protoc -I. block_network.proto --js_out=import_style=commonjs:./js_cloud/cloud_project --grpc-web_out=import_style=commonjs,mode=grpcwebtext:./js_cloud/cloud_project
+	protoc -I. cloud_project.proto --js_out=import_style=commonjs:./js_cloud/cloud_project --grpc-web_out=import_style=commonjs,mode=grpcwebtext:./js_cloud/cloud_project
 
 .PHONY: build-proto
 build-proto:
 	make build-project-js-proto && \
-	make build-network-js-proto
+	make build-project-js-proto
 	
