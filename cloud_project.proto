@@ -9,8 +9,9 @@ import "google/protobuf/timestamp.proto";
 service Service {
     rpc Heartbeat(Request) returns (Response) {}
     rpc Create(ProjectRequest) returns (ProjectResponse) {}
-    rp SecureApiKey(ProjectRequest) returns (ProjectResponse) {}
+    rpc SecureApiKey(ProjectRequest) returns (ProjectResponse) {}
     rpc RollApiKey(ProjectRequest) returns (ProjectResponse) {}
+    rpc ValidateApiKey(ProjectRequest) returns (ProjectResponse) {}
     rpc UpdateInfo(ProjectRequest) returns (ProjectResponse) {}
     rpc Get(ProjectRequest) returns (ProjectResponse) {}
     rpc GetByOwner(ProjectRequest) returns (ProjectResponse) {}
@@ -29,7 +30,9 @@ message Project {
 
 message ProjectRequest {
     Project project = 1;
-    Project update = 2;}
+    Project update = 2;
+    string apiKey = 3;
+}
 
 message ProjectResponse {
     Project project = 1;
