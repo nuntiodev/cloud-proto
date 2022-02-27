@@ -9,6 +9,7 @@ import "google/protobuf/timestamp.proto";
 service Service {
     rpc Heartbeat(Request) returns (Response) {}
     rpc Create(ProjectRequest) returns (ProjectResponse) {}
+    rp SecureApiKey(ProjectRequest) returns (ProjectResponse) {}
     rpc RollApiKey(ProjectRequest) returns (ProjectResponse) {}
     rpc UpdateInfo(ProjectRequest) returns (ProjectResponse) {}
     rpc Get(ProjectRequest) returns (ProjectResponse) {}
