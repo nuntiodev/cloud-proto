@@ -169,6 +169,7 @@ proto.CloudProject.Project.toObject = function(includeInstance, msg) {
     ownerid: jspb.Message.getFieldWithDefault(msg, 2, ""),
     name: jspb.Message.getFieldWithDefault(msg, 3, ""),
     apikey: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    keysecured: jspb.Message.getBooleanFieldWithDefault(msg, 5, false),
     createdat: (f = msg.getCreatedat()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
   };
 
@@ -223,6 +224,10 @@ proto.CloudProject.Project.deserializeBinaryFromReader = function(msg, reader) {
       msg.setApikey(value);
       break;
     case 5:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setKeysecured(value);
+      break;
+    case 6:
       var value = new google_protobuf_timestamp_pb.Timestamp;
       reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
       msg.setCreatedat(value);
@@ -284,10 +289,17 @@ proto.CloudProject.Project.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
+  f = message.getKeysecured();
+  if (f) {
+    writer.writeBool(
+      5,
+      f
+    );
+  }
   f = message.getCreatedat();
   if (f != null) {
     writer.writeMessage(
-      5,
+      6,
       f,
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
     );
@@ -368,12 +380,30 @@ proto.CloudProject.Project.prototype.setApikey = function(value) {
 
 
 /**
- * optional google.protobuf.Timestamp createdAt = 5;
+ * optional bool keySecured = 5;
+ * @return {boolean}
+ */
+proto.CloudProject.Project.prototype.getKeysecured = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 5, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.CloudProject.Project} returns this
+ */
+proto.CloudProject.Project.prototype.setKeysecured = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 5, value);
+};
+
+
+/**
+ * optional google.protobuf.Timestamp createdAt = 6;
  * @return {?proto.google.protobuf.Timestamp}
  */
 proto.CloudProject.Project.prototype.getCreatedat = function() {
   return /** @type{?proto.google.protobuf.Timestamp} */ (
-    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 5));
+    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 6));
 };
 
 
@@ -382,7 +412,7 @@ proto.CloudProject.Project.prototype.getCreatedat = function() {
  * @return {!proto.CloudProject.Project} returns this
 */
 proto.CloudProject.Project.prototype.setCreatedat = function(value) {
-  return jspb.Message.setWrapperField(this, 5, value);
+  return jspb.Message.setWrapperField(this, 6, value);
 };
 
 
@@ -400,7 +430,7 @@ proto.CloudProject.Project.prototype.clearCreatedat = function() {
  * @return {boolean}
  */
 proto.CloudProject.Project.prototype.hasCreatedat = function() {
-  return jspb.Message.getField(this, 5) != null;
+  return jspb.Message.getField(this, 6) != null;
 };
 
 
