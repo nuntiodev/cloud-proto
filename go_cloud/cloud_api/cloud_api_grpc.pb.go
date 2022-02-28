@@ -22,7 +22,6 @@ type UserServiceClient interface {
 	UpdatePassword(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
 	UpdateEmail(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
 	UpdateProfile(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
-	UpdateNamespace(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
 	Get(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
 	GetAll(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
 	ValidateCredentials(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
@@ -68,15 +67,6 @@ func (c *userServiceClient) UpdateEmail(ctx context.Context, in *ApiRequest, opt
 func (c *userServiceClient) UpdateProfile(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error) {
 	out := new(ApiResponse)
 	err := c.cc.Invoke(ctx, "/CloudApi.UserService/UpdateProfile", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *userServiceClient) UpdateNamespace(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error) {
-	out := new(ApiResponse)
-	err := c.cc.Invoke(ctx, "/CloudApi.UserService/UpdateNamespace", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -136,7 +126,6 @@ type UserServiceServer interface {
 	UpdatePassword(context.Context, *ApiRequest) (*ApiResponse, error)
 	UpdateEmail(context.Context, *ApiRequest) (*ApiResponse, error)
 	UpdateProfile(context.Context, *ApiRequest) (*ApiResponse, error)
-	UpdateNamespace(context.Context, *ApiRequest) (*ApiResponse, error)
 	Get(context.Context, *ApiRequest) (*ApiResponse, error)
 	GetAll(context.Context, *ApiRequest) (*ApiResponse, error)
 	ValidateCredentials(context.Context, *ApiRequest) (*ApiResponse, error)
@@ -159,9 +148,6 @@ func (UnimplementedUserServiceServer) UpdateEmail(context.Context, *ApiRequest) 
 }
 func (UnimplementedUserServiceServer) UpdateProfile(context.Context, *ApiRequest) (*ApiResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateProfile not implemented")
-}
-func (UnimplementedUserServiceServer) UpdateNamespace(context.Context, *ApiRequest) (*ApiResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateNamespace not implemented")
 }
 func (UnimplementedUserServiceServer) Get(context.Context, *ApiRequest) (*ApiResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
@@ -258,24 +244,6 @@ func _UserService_UpdateProfile_Handler(srv interface{}, ctx context.Context, de
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).UpdateProfile(ctx, req.(*ApiRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UserService_UpdateNamespace_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ApiRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UserServiceServer).UpdateNamespace(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/CloudApi.UserService/UpdateNamespace",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).UpdateNamespace(ctx, req.(*ApiRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -392,10 +360,6 @@ var UserService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateProfile",
 			Handler:    _UserService_UpdateProfile_Handler,
-		},
-		{
-			MethodName: "UpdateNamespace",
-			Handler:    _UserService_UpdateNamespace_Handler,
 		},
 		{
 			MethodName: "Get",

@@ -326,67 +326,6 @@ proto.CloudApi.UserServicePromiseClient.prototype.updateProfile =
  *   !proto.CloudApi.ApiRequest,
  *   !proto.CloudApi.ApiResponse>}
  */
-const methodDescriptor_UserService_UpdateNamespace = new grpc.web.MethodDescriptor(
-  '/CloudApi.UserService/UpdateNamespace',
-  grpc.web.MethodType.UNARY,
-  proto.CloudApi.ApiRequest,
-  proto.CloudApi.ApiResponse,
-  /**
-   * @param {!proto.CloudApi.ApiRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.CloudApi.ApiResponse.deserializeBinary
-);
-
-
-/**
- * @param {!proto.CloudApi.ApiRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.CloudApi.ApiResponse)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.CloudApi.ApiResponse>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.CloudApi.UserServiceClient.prototype.updateNamespace =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/CloudApi.UserService/UpdateNamespace',
-      request,
-      metadata || {},
-      methodDescriptor_UserService_UpdateNamespace,
-      callback);
-};
-
-
-/**
- * @param {!proto.CloudApi.ApiRequest} request The
- *     request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.CloudApi.ApiResponse>}
- *     Promise that resolves to the response
- */
-proto.CloudApi.UserServicePromiseClient.prototype.updateNamespace =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/CloudApi.UserService/UpdateNamespace',
-      request,
-      metadata || {},
-      methodDescriptor_UserService_UpdateNamespace);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.CloudApi.ApiRequest,
- *   !proto.CloudApi.ApiResponse>}
- */
 const methodDescriptor_UserService_Get = new grpc.web.MethodDescriptor(
   '/CloudApi.UserService/Get',
   grpc.web.MethodType.UNARY,
