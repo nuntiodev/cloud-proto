@@ -171,7 +171,9 @@ proto.CloudProject.Project.toObject = function(includeInstance, msg) {
     apikey: jspb.Message.getFieldWithDefault(msg, 4, ""),
     keysecured: jspb.Message.getBooleanFieldWithDefault(msg, 5, false),
     createdat: (f = msg.getCreatedat()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
-    updatedat: (f = msg.getUpdatedat()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
+    updatedat: (f = msg.getUpdatedat()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
+    keygeneratedat: (f = msg.getKeygeneratedat()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
+    keysecuredat: (f = msg.getKeysecuredat()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -237,6 +239,16 @@ proto.CloudProject.Project.deserializeBinaryFromReader = function(msg, reader) {
       var value = new google_protobuf_timestamp_pb.Timestamp;
       reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
       msg.setUpdatedat(value);
+      break;
+    case 8:
+      var value = new google_protobuf_timestamp_pb.Timestamp;
+      reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
+      msg.setKeygeneratedat(value);
+      break;
+    case 9:
+      var value = new google_protobuf_timestamp_pb.Timestamp;
+      reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
+      msg.setKeysecuredat(value);
       break;
     default:
       reader.skipField();
@@ -314,6 +326,22 @@ proto.CloudProject.Project.serializeBinaryToWriter = function(message, writer) {
   if (f != null) {
     writer.writeMessage(
       7,
+      f,
+      google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
+    );
+  }
+  f = message.getKeygeneratedat();
+  if (f != null) {
+    writer.writeMessage(
+      8,
+      f,
+      google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
+    );
+  }
+  f = message.getKeysecuredat();
+  if (f != null) {
+    writer.writeMessage(
+      9,
       f,
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
     );
@@ -482,6 +510,80 @@ proto.CloudProject.Project.prototype.clearUpdatedat = function() {
  */
 proto.CloudProject.Project.prototype.hasUpdatedat = function() {
   return jspb.Message.getField(this, 7) != null;
+};
+
+
+/**
+ * optional google.protobuf.Timestamp keyGeneratedAt = 8;
+ * @return {?proto.google.protobuf.Timestamp}
+ */
+proto.CloudProject.Project.prototype.getKeygeneratedat = function() {
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
+    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 8));
+};
+
+
+/**
+ * @param {?proto.google.protobuf.Timestamp|undefined} value
+ * @return {!proto.CloudProject.Project} returns this
+*/
+proto.CloudProject.Project.prototype.setKeygeneratedat = function(value) {
+  return jspb.Message.setWrapperField(this, 8, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.CloudProject.Project} returns this
+ */
+proto.CloudProject.Project.prototype.clearKeygeneratedat = function() {
+  return this.setKeygeneratedat(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.CloudProject.Project.prototype.hasKeygeneratedat = function() {
+  return jspb.Message.getField(this, 8) != null;
+};
+
+
+/**
+ * optional google.protobuf.Timestamp keySecuredAt = 9;
+ * @return {?proto.google.protobuf.Timestamp}
+ */
+proto.CloudProject.Project.prototype.getKeysecuredat = function() {
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
+    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 9));
+};
+
+
+/**
+ * @param {?proto.google.protobuf.Timestamp|undefined} value
+ * @return {!proto.CloudProject.Project} returns this
+*/
+proto.CloudProject.Project.prototype.setKeysecuredat = function(value) {
+  return jspb.Message.setWrapperField(this, 9, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.CloudProject.Project} returns this
+ */
+proto.CloudProject.Project.prototype.clearKeysecuredat = function() {
+  return this.setKeysecuredat(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.CloudProject.Project.prototype.hasKeysecuredat = function() {
+  return jspb.Message.getField(this, 9) != null;
 };
 
 
