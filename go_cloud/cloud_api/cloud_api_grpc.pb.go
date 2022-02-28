@@ -24,6 +24,7 @@ type UserServiceClient interface {
 	UpdateProfile(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
 	Get(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
 	GetAll(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
+	Search(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
 	ValidateCredentials(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
 	Delete(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
 	DeleteNamespace(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
@@ -91,6 +92,15 @@ func (c *userServiceClient) GetAll(ctx context.Context, in *ApiRequest, opts ...
 	return out, nil
 }
 
+func (c *userServiceClient) Search(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error) {
+	out := new(ApiResponse)
+	err := c.cc.Invoke(ctx, "/CloudApi.UserService/Search", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *userServiceClient) ValidateCredentials(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error) {
 	out := new(ApiResponse)
 	err := c.cc.Invoke(ctx, "/CloudApi.UserService/ValidateCredentials", in, out, opts...)
@@ -128,6 +138,7 @@ type UserServiceServer interface {
 	UpdateProfile(context.Context, *ApiRequest) (*ApiResponse, error)
 	Get(context.Context, *ApiRequest) (*ApiResponse, error)
 	GetAll(context.Context, *ApiRequest) (*ApiResponse, error)
+	Search(context.Context, *ApiRequest) (*ApiResponse, error)
 	ValidateCredentials(context.Context, *ApiRequest) (*ApiResponse, error)
 	Delete(context.Context, *ApiRequest) (*ApiResponse, error)
 	DeleteNamespace(context.Context, *ApiRequest) (*ApiResponse, error)
@@ -154,6 +165,9 @@ func (UnimplementedUserServiceServer) Get(context.Context, *ApiRequest) (*ApiRes
 }
 func (UnimplementedUserServiceServer) GetAll(context.Context, *ApiRequest) (*ApiResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAll not implemented")
+}
+func (UnimplementedUserServiceServer) Search(context.Context, *ApiRequest) (*ApiResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Search not implemented")
 }
 func (UnimplementedUserServiceServer) ValidateCredentials(context.Context, *ApiRequest) (*ApiResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ValidateCredentials not implemented")
@@ -284,6 +298,24 @@ func _UserService_GetAll_Handler(srv interface{}, ctx context.Context, dec func(
 	return interceptor(ctx, in, info, handler)
 }
 
+func _UserService_Search_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ApiRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServiceServer).Search(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/CloudApi.UserService/Search",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServiceServer).Search(ctx, req.(*ApiRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _UserService_ValidateCredentials_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ApiRequest)
 	if err := dec(in); err != nil {
@@ -368,6 +400,10 @@ var UserService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetAll",
 			Handler:    _UserService_GetAll_Handler,
+		},
+		{
+			MethodName: "Search",
+			Handler:    _UserService_Search_Handler,
 		},
 		{
 			MethodName: "ValidateCredentials",
