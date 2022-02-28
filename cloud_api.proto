@@ -14,7 +14,6 @@ service UserService {
     rpc UpdatePassword(ApiRequest) returns (ApiResponse) {}
     rpc UpdateEmail(ApiRequest) returns (ApiResponse) {}
     rpc UpdateProfile(ApiRequest) returns (ApiResponse) {}
-    rpc UpdateNamespace(ApiRequest) returns (ApiResponse) {}
     rpc Get(ApiRequest) returns (ApiResponse) {}
     rpc GetAll(ApiRequest) returns (ApiResponse) {}
     rpc ValidateCredentials(ApiRequest) returns (ApiResponse) {}
