@@ -18,7 +18,7 @@ service Service {
 }
 
 message Project {
-    string id = 1 [json_name="_id"];
+    string id = 1 [json_name="id"];
     string ownerId = 2 [json_name="ownerId"];
     string name = 3 [json_name="name"];
     string apiKey = 4 [json_name="apiKey"];
