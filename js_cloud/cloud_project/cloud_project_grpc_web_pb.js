@@ -200,67 +200,6 @@ proto.CloudProject.ServicePromiseClient.prototype.create =
  *   !proto.CloudProject.ProjectRequest,
  *   !proto.CloudProject.ProjectResponse>}
  */
-const methodDescriptor_Service_SecureApiKey = new grpc.web.MethodDescriptor(
-  '/CloudProject.Service/SecureApiKey',
-  grpc.web.MethodType.UNARY,
-  proto.CloudProject.ProjectRequest,
-  proto.CloudProject.ProjectResponse,
-  /**
-   * @param {!proto.CloudProject.ProjectRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.CloudProject.ProjectResponse.deserializeBinary
-);
-
-
-/**
- * @param {!proto.CloudProject.ProjectRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.CloudProject.ProjectResponse)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.ProjectResponse>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.CloudProject.ServiceClient.prototype.secureApiKey =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/CloudProject.Service/SecureApiKey',
-      request,
-      metadata || {},
-      methodDescriptor_Service_SecureApiKey,
-      callback);
-};
-
-
-/**
- * @param {!proto.CloudProject.ProjectRequest} request The
- *     request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.CloudProject.ProjectResponse>}
- *     Promise that resolves to the response
- */
-proto.CloudProject.ServicePromiseClient.prototype.secureApiKey =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/CloudProject.Service/SecureApiKey',
-      request,
-      metadata || {},
-      methodDescriptor_Service_SecureApiKey);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.CloudProject.ProjectRequest,
- *   !proto.CloudProject.ProjectResponse>}
- */
 const methodDescriptor_Service_RollApiKey = new grpc.web.MethodDescriptor(
   '/CloudProject.Service/RollApiKey',
   grpc.web.MethodType.UNARY,
