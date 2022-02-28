@@ -28,9 +28,7 @@ goog.object.extend(proto, block$proto_block_user_pb);
 var block$proto_block_network_pb = require('./block-proto/block_network_pb.js');
 goog.object.extend(proto, block$proto_block_network_pb);
 goog.exportSymbol('proto.CloudApi.ApiRequest', null, global);
-goog.exportSymbol('proto.CloudApi.ApiRequest.ReqCase', null, global);
 goog.exportSymbol('proto.CloudApi.ApiResponse', null, global);
-goog.exportSymbol('proto.CloudApi.ApiResponse.RespCase', null, global);
 goog.exportSymbol('proto.CloudApi.Request', null, global);
 goog.exportSymbol('proto.CloudApi.Response', null, global);
 /**
@@ -44,7 +42,7 @@ goog.exportSymbol('proto.CloudApi.Response', null, global);
  * @constructor
  */
 proto.CloudApi.ApiRequest = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, proto.CloudApi.ApiRequest.oneofGroups_);
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.CloudApi.ApiRequest, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -65,7 +63,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.CloudApi.ApiResponse = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, proto.CloudApi.ApiResponse.oneofGroups_);
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.CloudApi.ApiResponse, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -117,32 +115,6 @@ if (goog.DEBUG && !COMPILED) {
    */
   proto.CloudApi.Response.displayName = 'proto.CloudApi.Response';
 }
-
-/**
- * Oneof group definitions for this message. Each group defines the field
- * numbers belonging to that group. When of these fields' value is set, all
- * other fields in the group are cleared. During deserialization, if multiple
- * fields are encountered for a group, only the last value seen will be kept.
- * @private {!Array<!Array<number>>}
- * @const
- */
-proto.CloudApi.ApiRequest.oneofGroups_ = [[2,3]];
-
-/**
- * @enum {number}
- */
-proto.CloudApi.ApiRequest.ReqCase = {
-  REQ_NOT_SET: 0,
-  USERREQUEST: 2,
-  NETWORKREQUEST: 3
-};
-
-/**
- * @return {proto.CloudApi.ApiRequest.ReqCase}
- */
-proto.CloudApi.ApiRequest.prototype.getReqCase = function() {
-  return /** @type {proto.CloudApi.ApiRequest.ReqCase} */(jspb.Message.computeOneofCase(this, proto.CloudApi.ApiRequest.oneofGroups_[0]));
-};
 
 
 
@@ -316,7 +288,7 @@ proto.CloudApi.ApiRequest.prototype.getUserrequest = function() {
  * @return {!proto.CloudApi.ApiRequest} returns this
 */
 proto.CloudApi.ApiRequest.prototype.setUserrequest = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 2, proto.CloudApi.ApiRequest.oneofGroups_[0], value);
+  return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
@@ -353,7 +325,7 @@ proto.CloudApi.ApiRequest.prototype.getNetworkrequest = function() {
  * @return {!proto.CloudApi.ApiRequest} returns this
 */
 proto.CloudApi.ApiRequest.prototype.setNetworkrequest = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 3, proto.CloudApi.ApiRequest.oneofGroups_[0], value);
+  return jspb.Message.setWrapperField(this, 3, value);
 };
 
 
@@ -375,32 +347,6 @@ proto.CloudApi.ApiRequest.prototype.hasNetworkrequest = function() {
 };
 
 
-
-/**
- * Oneof group definitions for this message. Each group defines the field
- * numbers belonging to that group. When of these fields' value is set, all
- * other fields in the group are cleared. During deserialization, if multiple
- * fields are encountered for a group, only the last value seen will be kept.
- * @private {!Array<!Array<number>>}
- * @const
- */
-proto.CloudApi.ApiResponse.oneofGroups_ = [[1,2]];
-
-/**
- * @enum {number}
- */
-proto.CloudApi.ApiResponse.RespCase = {
-  RESP_NOT_SET: 0,
-  USERRESPONSE: 1,
-  NETWORKRESPONSE: 2
-};
-
-/**
- * @return {proto.CloudApi.ApiResponse.RespCase}
- */
-proto.CloudApi.ApiResponse.prototype.getRespCase = function() {
-  return /** @type {proto.CloudApi.ApiResponse.RespCase} */(jspb.Message.computeOneofCase(this, proto.CloudApi.ApiResponse.oneofGroups_[0]));
-};
 
 
 
@@ -544,7 +490,7 @@ proto.CloudApi.ApiResponse.prototype.getUserresponse = function() {
  * @return {!proto.CloudApi.ApiResponse} returns this
 */
 proto.CloudApi.ApiResponse.prototype.setUserresponse = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 1, proto.CloudApi.ApiResponse.oneofGroups_[0], value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
@@ -581,7 +527,7 @@ proto.CloudApi.ApiResponse.prototype.getNetworkresponse = function() {
  * @return {!proto.CloudApi.ApiResponse} returns this
 */
 proto.CloudApi.ApiResponse.prototype.setNetworkresponse = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 2, proto.CloudApi.ApiResponse.oneofGroups_[0], value);
+  return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
