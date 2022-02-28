@@ -80,7 +80,7 @@ jobs:
         run: rm -rf ./go_cloud/cloud_api/go_block || true
 
       - name: copy go_block to go cloud_api
-        run: cp -R ./block_proto/go_block  ./go_cloud/cloud_api/go_block
+        run: cp -R ./block-proto/go_block  ./go_cloud/cloud_api/go_block
 
       # Build internal proto files
       - name: Build proto
