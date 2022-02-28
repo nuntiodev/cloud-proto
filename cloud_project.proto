@@ -18,15 +18,15 @@ service Service {
 }
 
 message Project {
-    string id = 1;
-    string ownerId = 2;
-    string name = 3;
-    string apiKey = 4;
-    bool keySecured = 5;
-    google.protobuf.Timestamp createdAt = 6;
-    google.protobuf.Timestamp updatedAt = 7;
-    google.protobuf.Timestamp keyGeneratedAt = 8;
-    google.protobuf.Timestamp keySecuredAt = 9;
+    string id = 1 [json_name="_id"];
+    string ownerId = 2 [json_name="ownerId"];
+    string name = 3 [json_name="name"];
+    string apiKey = 4 [json_name="apiKey"];
+    bool keySecured = 5 [json_name="keySecured"];
+    google.protobuf.Timestamp createdAt = 6 [json_name="createdAt"];
+    google.protobuf.Timestamp updatedAt = 7 [json_name="updatedAt"];
+    google.protobuf.Timestamp keyGeneratedAt = 8 [json_name="keyGeneratedAt"];
+    google.protobuf.Timestamp keySecuredAt = 9 [json_name="keySecuredAt"];
 }
 
 message ProjectRequest {
