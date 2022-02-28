@@ -10,7 +10,6 @@ import "block-proto/block_user.proto";
 import "block-proto/block_network.proto";
 
 service UserService {
-    rpc Heartbeat(Request) returns (Response) {}
     rpc Create(ApiRequest) returns (ApiResponse) {}
     rpc UpdatePassword(ApiRequest) returns (ApiResponse) {}
     rpc UpdateEmail(ApiRequest) returns (ApiResponse) {}
@@ -33,17 +32,13 @@ service NetworkService {
 
 message ApiRequest {
     string apiKey = 1;
-    oneof req {
-        BlockUser.UserRequest userRequest = 2;
-        BlockNetwork.NetworkRequest networkRequest = 3;
-    }
+    BlockUser.UserRequest userRequest = 2;
+    BlockNetwork.NetworkRequest networkRequest = 3;
 }
 
 message ApiResponse {
-    oneof resp {
-        BlockUser.UserResponse userResponse = 1;
-        BlockNetwork.NetworkResponse networkResponse = 2;
-    }
+    BlockUser.UserResponse userResponse = 1;
+    BlockNetwork.NetworkResponse networkResponse = 2;
 }
 
 message Request {}
