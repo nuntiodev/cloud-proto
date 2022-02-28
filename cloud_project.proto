@@ -25,6 +25,7 @@ message Project {
     bool keySecured = 5;
     google.protobuf.Timestamp createdAt = 6;
     google.protobuf.Timestamp updatedAt = 7;
+    google.protobuf.Timestamp apiKeyGeneratedAt = 8;
 }
 
 message ProjectRequest {
