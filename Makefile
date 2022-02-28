@@ -8,7 +8,7 @@ build-project-js-proto:
 
 .PHONY: build-api-go-proto
 build-api-go-proto:
-	protoc -I. --go_out=./go_cloud/cloud_api --go-grpc_out=require_unimplemented_servers=false:. ./cloud_api.proto --proto_path=./block-proto/
+	protoc -I. --go_out=. --go-grpc_out=require_unimplemented_servers=false:. ./cloud_api.proto --proto_path=./block-proto/
 	
 .PHONY: build-api-js-proto
 build-api-js-proto:
