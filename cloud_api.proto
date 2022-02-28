@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package CloudApi;
 
-option go_package = "./go_cloud/cloud_api";
+option go_package = "go_cloud/cloud_api";
 
 import "google/protobuf/timestamp.proto";
 
