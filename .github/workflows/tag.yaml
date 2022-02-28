@@ -76,12 +76,6 @@ jobs:
       - name: clone block proto
         run: git clone https://github.com/softcorp-io/block-proto.git
 
-      - name: delete previous package
-        run: rm -rf ./go_block || true
-
-      - name: copy go_block to go cloud_api
-        run: cp -R ./block-proto/go_block  ./go_block
-
       # Build internal proto files
       - name: Build proto
         run: make build-proto
