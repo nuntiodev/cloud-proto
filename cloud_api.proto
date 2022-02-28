@@ -34,8 +34,8 @@ service NetworkService {
 message ApiRequest {
     string apiKey = 1;
     oneof req {
-        BlockUser.UserRequest userRequest = 1;
-        BlockNetwork.NetworkRequest networkRequest = 2;
+        BlockUser.UserRequest userRequest = 2;
+        BlockNetwork.NetworkRequest networkRequest = 3;
     }
 }
 
