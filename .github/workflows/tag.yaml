@@ -77,6 +77,15 @@ jobs:
       - name: Build proto
         run: make build-proto
 
+      # Remname stupid gRPC import names
+      - name: rename gRPC imports
+        working-directory: ./go_cloud/cloud_api
+        run: sed -i 's,block_network "./go_block/block_network","github.com/softcorp-io/block-proto/go_block/block_network",g' cloud_api.pb.go
+
+      - name: rename gRPC imports
+        working-directory: ./go_cloud/cloud_api
+        run: sed -i 's,block_user "./go_block/block_user","github.com/softcorp-io/block-proto/go_block/block_user",g' cloud_api.pb.go
+
       # Remove build files
       - name: remove protobuf zip
         run: rm protoc-3.19.1-linux-x86_64.zip
