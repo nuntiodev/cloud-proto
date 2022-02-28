@@ -6,8 +6,8 @@ option go_package = "go_cloud/cloud_api";
 
 import "google/protobuf/timestamp.proto";
 
-import "block-proto/block_user.proto";
-import "block-proto/block_network.proto";
+import "softcorp-io.github.io/block-proto/block_user.proto";
+import "softcorp-io.github.io/block-proto/block_network.proto";
 
 service UserService {
     rpc Create(ApiRequest) returns (ApiResponse) {}
