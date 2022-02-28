@@ -7,8 +7,8 @@
 package cloud_api
 
 import (
-	block_network "./go_block/block_network"
-	block_user "./go_block/block_user"
+	"github.com/softcorp-io/block-proto/go_block/block_network"
+	"github.com/softcorp-io/block-proto/go_block/block_user"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	_ "google.golang.org/protobuf/types/known/timestamppb"
