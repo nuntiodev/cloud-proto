@@ -16,6 +16,7 @@ service UserService {
     rpc UpdateProfile(ApiRequest) returns (ApiResponse) {}
     rpc Get(ApiRequest) returns (ApiResponse) {}
     rpc GetAll(ApiRequest) returns (ApiResponse) {}
+    rpc Search(ApiRequest) returns (ApiResponse) {}
     rpc ValidateCredentials(ApiRequest) returns (ApiResponse) {}
     rpc Delete(ApiRequest) returns (ApiResponse) {}
     rpc DeleteNamespace(ApiRequest) returns (ApiResponse) {}
