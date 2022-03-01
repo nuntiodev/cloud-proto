@@ -39,7 +39,7 @@ message ProjectRequest {
 message ProjectResponse {
     Project project = 1;
     repeated Project projects = 2;
-    string authToken = 3;
+    string accessToken = 3;
 }
 
 message Request {}
