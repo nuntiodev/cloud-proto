@@ -30,6 +30,12 @@ message Project {
     google.protobuf.Timestamp privateKeySecuredAt = 9 [json_name="privateKeySecuredAt"];
 }
 
+enum KeyType {
+    INVALID_KEY = 0;
+    PRIVATE_KEY = 1;
+    PUBLIC_KEY = 2;
+}
+
 message ProjectRequest {
     Project project = 1;
     Project update = 2;
