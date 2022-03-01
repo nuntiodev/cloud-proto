@@ -21,7 +21,7 @@ type ServiceClient interface {
 	Heartbeat(ctx context.Context, in *Request, opts ...grpc.CallOption) (*Response, error)
 	Create(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
 	RollApiKey(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
-	GenereateAuthToken(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
+	GenerateAuthToken(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
 	ValidateAuthToken(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
 	UpdateInfo(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
 	Get(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
@@ -64,9 +64,9 @@ func (c *serviceClient) RollApiKey(ctx context.Context, in *ProjectRequest, opts
 	return out, nil
 }
 
-func (c *serviceClient) GenereateAuthToken(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error) {
+func (c *serviceClient) GenerateAuthToken(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error) {
 	out := new(ProjectResponse)
-	err := c.cc.Invoke(ctx, "/CloudProject.Service/GenereateAuthToken", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/CloudProject.Service/GenerateAuthToken", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -125,7 +125,7 @@ type ServiceServer interface {
 	Heartbeat(context.Context, *Request) (*Response, error)
 	Create(context.Context, *ProjectRequest) (*ProjectResponse, error)
 	RollApiKey(context.Context, *ProjectRequest) (*ProjectResponse, error)
-	GenereateAuthToken(context.Context, *ProjectRequest) (*ProjectResponse, error)
+	GenerateAuthToken(context.Context, *ProjectRequest) (*ProjectResponse, error)
 	ValidateAuthToken(context.Context, *ProjectRequest) (*ProjectResponse, error)
 	UpdateInfo(context.Context, *ProjectRequest) (*ProjectResponse, error)
 	Get(context.Context, *ProjectRequest) (*ProjectResponse, error)
@@ -146,8 +146,8 @@ func (UnimplementedServiceServer) Create(context.Context, *ProjectRequest) (*Pro
 func (UnimplementedServiceServer) RollApiKey(context.Context, *ProjectRequest) (*ProjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RollApiKey not implemented")
 }
-func (UnimplementedServiceServer) GenereateAuthToken(context.Context, *ProjectRequest) (*ProjectResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GenereateAuthToken not implemented")
+func (UnimplementedServiceServer) GenerateAuthToken(context.Context, *ProjectRequest) (*ProjectResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GenerateAuthToken not implemented")
 }
 func (UnimplementedServiceServer) ValidateAuthToken(context.Context, *ProjectRequest) (*ProjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ValidateAuthToken not implemented")
@@ -230,20 +230,20 @@ func _Service_RollApiKey_Handler(srv interface{}, ctx context.Context, dec func(
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Service_GenereateAuthToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Service_GenerateAuthToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ProjectRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ServiceServer).GenereateAuthToken(ctx, in)
+		return srv.(ServiceServer).GenerateAuthToken(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/CloudProject.Service/GenereateAuthToken",
+		FullMethod: "/CloudProject.Service/GenerateAuthToken",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).GenereateAuthToken(ctx, req.(*ProjectRequest))
+		return srv.(ServiceServer).GenerateAuthToken(ctx, req.(*ProjectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -358,8 +358,8 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _Service_RollApiKey_Handler,
 		},
 		{
-			MethodName: "GenereateAuthToken",
-			Handler:    _Service_GenereateAuthToken_Handler,
+			MethodName: "GenerateAuthToken",
+			Handler:    _Service_GenerateAuthToken_Handler,
 		},
 		{
 			MethodName: "ValidateAuthToken",

@@ -261,8 +261,8 @@ proto.CloudProject.ServicePromiseClient.prototype.rollApiKey =
  *   !proto.CloudProject.ProjectRequest,
  *   !proto.CloudProject.ProjectResponse>}
  */
-const methodDescriptor_Service_GenereateAuthToken = new grpc.web.MethodDescriptor(
-  '/CloudProject.Service/GenereateAuthToken',
+const methodDescriptor_Service_GenerateAuthToken = new grpc.web.MethodDescriptor(
+  '/CloudProject.Service/GenerateAuthToken',
   grpc.web.MethodType.UNARY,
   proto.CloudProject.ProjectRequest,
   proto.CloudProject.ProjectResponse,
@@ -287,13 +287,13 @@ const methodDescriptor_Service_GenereateAuthToken = new grpc.web.MethodDescripto
  * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.ProjectResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.CloudProject.ServiceClient.prototype.genereateAuthToken =
+proto.CloudProject.ServiceClient.prototype.generateAuthToken =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/CloudProject.Service/GenereateAuthToken',
+      '/CloudProject.Service/GenerateAuthToken',
       request,
       metadata || {},
-      methodDescriptor_Service_GenereateAuthToken,
+      methodDescriptor_Service_GenerateAuthToken,
       callback);
 };
 
@@ -306,13 +306,13 @@ proto.CloudProject.ServiceClient.prototype.genereateAuthToken =
  * @return {!Promise<!proto.CloudProject.ProjectResponse>}
  *     Promise that resolves to the response
  */
-proto.CloudProject.ServicePromiseClient.prototype.genereateAuthToken =
+proto.CloudProject.ServicePromiseClient.prototype.generateAuthToken =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/CloudProject.Service/GenereateAuthToken',
+      '/CloudProject.Service/GenerateAuthToken',
       request,
       metadata || {},
-      methodDescriptor_Service_GenereateAuthToken);
+      methodDescriptor_Service_GenerateAuthToken);
 };
 
 
