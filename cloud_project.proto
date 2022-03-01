@@ -19,15 +19,15 @@ service Service {
 }
 
 message Project {
-    string id = 1 [json_name="id"];
-    string ownerId = 2 [json_name="ownerId"];
-    string name = 3 [json_name="name"];
-    string privateKey = 4 [json_name="privateKey"];
-    bool privateKeySecured = 5 [json_name="privateKeySecured"];
-    google.protobuf.Timestamp createdAt = 6 [json_name="createdAt"];
-    google.protobuf.Timestamp updatedAt = 7 [json_name="updatedAt"];
-    google.protobuf.Timestamp privateKeyGeneratedAt = 8 [json_name="privateKeyGeneratedAt"];
-    google.protobuf.Timestamp privateKeySecuredAt = 9 [json_name="privateKeySecuredAt"];
+    string id = 1;
+    string ownerId = 2;
+    string name = 3;
+    string privateKey = 4;
+    bool privateKeySecured = 5;
+    google.protobuf.Timestamp createdAt = 6;
+    google.protobuf.Timestamp updatedAt = 7;
+    google.protobuf.Timestamp privateKeyGeneratedAt = 8;
+    google.protobuf.Timestamp privateKeySecuredAt = 9;
 }
 
 enum KeyType {
