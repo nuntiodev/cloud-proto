@@ -14,6 +14,90 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
+// AccessServiceClient is the client API for AccessService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type AccessServiceClient interface {
+	GenerateAuthToken(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
+}
+
+type accessServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewAccessServiceClient(cc grpc.ClientConnInterface) AccessServiceClient {
+	return &accessServiceClient{cc}
+}
+
+func (c *accessServiceClient) GenerateAuthToken(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error) {
+	out := new(ApiResponse)
+	err := c.cc.Invoke(ctx, "/CloudApi.AccessService/GenerateAuthToken", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AccessServiceServer is the server API for AccessService service.
+// All implementations should embed UnimplementedAccessServiceServer
+// for forward compatibility
+type AccessServiceServer interface {
+	GenerateAuthToken(context.Context, *ApiRequest) (*ApiResponse, error)
+}
+
+// UnimplementedAccessServiceServer should be embedded to have forward compatible implementations.
+type UnimplementedAccessServiceServer struct {
+}
+
+func (UnimplementedAccessServiceServer) GenerateAuthToken(context.Context, *ApiRequest) (*ApiResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GenerateAuthToken not implemented")
+}
+
+// UnsafeAccessServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AccessServiceServer will
+// result in compilation errors.
+type UnsafeAccessServiceServer interface {
+	mustEmbedUnimplementedAccessServiceServer()
+}
+
+func RegisterAccessServiceServer(s grpc.ServiceRegistrar, srv AccessServiceServer) {
+	s.RegisterService(&AccessService_ServiceDesc, srv)
+}
+
+func _AccessService_GenerateAuthToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ApiRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccessServiceServer).GenerateAuthToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/CloudApi.AccessService/GenerateAuthToken",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccessServiceServer).GenerateAuthToken(ctx, req.(*ApiRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// AccessService_ServiceDesc is the grpc.ServiceDesc for AccessService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var AccessService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "CloudApi.AccessService",
+	HandlerType: (*AccessServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GenerateAuthToken",
+			Handler:    _AccessService_GenerateAuthToken_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "cloud_api.proto",
+}
+
 // UserServiceClient is the client API for UserService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.

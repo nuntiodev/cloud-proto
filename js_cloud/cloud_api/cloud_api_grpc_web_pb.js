@@ -32,6 +32,119 @@ proto.CloudApi = require('./cloud_api_pb.js');
  * @struct
  * @final
  */
+proto.CloudApi.AccessServiceClient =
+    function(hostname, credentials, options) {
+  if (!options) options = {};
+  options.format = 'text';
+
+  /**
+   * @private @const {!grpc.web.GrpcWebClientBase} The client
+   */
+  this.client_ = new grpc.web.GrpcWebClientBase(options);
+
+  /**
+   * @private @const {string} The hostname
+   */
+  this.hostname_ = hostname;
+
+};
+
+
+/**
+ * @param {string} hostname
+ * @param {?Object} credentials
+ * @param {?grpc.web.ClientOptions} options
+ * @constructor
+ * @struct
+ * @final
+ */
+proto.CloudApi.AccessServicePromiseClient =
+    function(hostname, credentials, options) {
+  if (!options) options = {};
+  options.format = 'text';
+
+  /**
+   * @private @const {!grpc.web.GrpcWebClientBase} The client
+   */
+  this.client_ = new grpc.web.GrpcWebClientBase(options);
+
+  /**
+   * @private @const {string} The hostname
+   */
+  this.hostname_ = hostname;
+
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.CloudApi.ApiRequest,
+ *   !proto.CloudApi.ApiResponse>}
+ */
+const methodDescriptor_AccessService_GenerateAuthToken = new grpc.web.MethodDescriptor(
+  '/CloudApi.AccessService/GenerateAuthToken',
+  grpc.web.MethodType.UNARY,
+  proto.CloudApi.ApiRequest,
+  proto.CloudApi.ApiResponse,
+  /**
+   * @param {!proto.CloudApi.ApiRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.CloudApi.ApiResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.CloudApi.ApiRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.CloudApi.ApiResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.CloudApi.ApiResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.CloudApi.AccessServiceClient.prototype.generateAuthToken =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/CloudApi.AccessService/GenerateAuthToken',
+      request,
+      metadata || {},
+      methodDescriptor_AccessService_GenerateAuthToken,
+      callback);
+};
+
+
+/**
+ * @param {!proto.CloudApi.ApiRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.CloudApi.ApiResponse>}
+ *     Promise that resolves to the response
+ */
+proto.CloudApi.AccessServicePromiseClient.prototype.generateAuthToken =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/CloudApi.AccessService/GenerateAuthToken',
+      request,
+      metadata || {},
+      methodDescriptor_AccessService_GenerateAuthToken);
+};
+
+
+/**
+ * @param {string} hostname
+ * @param {?Object} credentials
+ * @param {?grpc.web.ClientOptions} options
+ * @constructor
+ * @struct
+ * @final
+ */
 proto.CloudApi.UserServiceClient =
     function(hostname, credentials, options) {
   if (!options) options = {};

@@ -147,7 +147,8 @@ proto.CloudApi.ApiRequest.prototype.toObject = function(opt_includeInstance) {
  */
 proto.CloudApi.ApiRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    authtoken: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    privatekey: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    authtoken: jspb.Message.getFieldWithDefault(msg, 2, ""),
     userrequest: (f = msg.getUserrequest()) && block$proto_block_user_pb.UserRequest.toObject(includeInstance, f),
     networkrequest: (f = msg.getNetworkrequest()) && block$proto_block_network_pb.NetworkRequest.toObject(includeInstance, f)
   };
@@ -188,14 +189,18 @@ proto.CloudApi.ApiRequest.deserializeBinaryFromReader = function(msg, reader) {
     switch (field) {
     case 1:
       var value = /** @type {string} */ (reader.readString());
-      msg.setAuthtoken(value);
+      msg.setPrivatekey(value);
       break;
     case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAuthtoken(value);
+      break;
+    case 3:
       var value = new block$proto_block_user_pb.UserRequest;
       reader.readMessage(value,block$proto_block_user_pb.UserRequest.deserializeBinaryFromReader);
       msg.setUserrequest(value);
       break;
-    case 3:
+    case 4:
       var value = new block$proto_block_network_pb.NetworkRequest;
       reader.readMessage(value,block$proto_block_network_pb.NetworkRequest.deserializeBinaryFromReader);
       msg.setNetworkrequest(value);
@@ -229,17 +234,24 @@ proto.CloudApi.ApiRequest.prototype.serializeBinary = function() {
  */
 proto.CloudApi.ApiRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getAuthtoken();
+  f = message.getPrivatekey();
   if (f.length > 0) {
     writer.writeString(
       1,
       f
     );
   }
+  f = message.getAuthtoken();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
   f = message.getUserrequest();
   if (f != null) {
     writer.writeMessage(
-      2,
+      3,
       f,
       block$proto_block_user_pb.UserRequest.serializeBinaryToWriter
     );
@@ -247,7 +259,7 @@ proto.CloudApi.ApiRequest.serializeBinaryToWriter = function(message, writer) {
   f = message.getNetworkrequest();
   if (f != null) {
     writer.writeMessage(
-      3,
+      4,
       f,
       block$proto_block_network_pb.NetworkRequest.serializeBinaryToWriter
     );
@@ -256,10 +268,10 @@ proto.CloudApi.ApiRequest.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional string authToken = 1;
+ * optional string privateKey = 1;
  * @return {string}
  */
-proto.CloudApi.ApiRequest.prototype.getAuthtoken = function() {
+proto.CloudApi.ApiRequest.prototype.getPrivatekey = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
@@ -268,18 +280,36 @@ proto.CloudApi.ApiRequest.prototype.getAuthtoken = function() {
  * @param {string} value
  * @return {!proto.CloudApi.ApiRequest} returns this
  */
-proto.CloudApi.ApiRequest.prototype.setAuthtoken = function(value) {
+proto.CloudApi.ApiRequest.prototype.setPrivatekey = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
 /**
- * optional BlockUser.UserRequest userRequest = 2;
+ * optional string authToken = 2;
+ * @return {string}
+ */
+proto.CloudApi.ApiRequest.prototype.getAuthtoken = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.CloudApi.ApiRequest} returns this
+ */
+proto.CloudApi.ApiRequest.prototype.setAuthtoken = function(value) {
+  return jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * optional BlockUser.UserRequest userRequest = 3;
  * @return {?proto.BlockUser.UserRequest}
  */
 proto.CloudApi.ApiRequest.prototype.getUserrequest = function() {
   return /** @type{?proto.BlockUser.UserRequest} */ (
-    jspb.Message.getWrapperField(this, block$proto_block_user_pb.UserRequest, 2));
+    jspb.Message.getWrapperField(this, block$proto_block_user_pb.UserRequest, 3));
 };
 
 
@@ -288,7 +318,7 @@ proto.CloudApi.ApiRequest.prototype.getUserrequest = function() {
  * @return {!proto.CloudApi.ApiRequest} returns this
 */
 proto.CloudApi.ApiRequest.prototype.setUserrequest = function(value) {
-  return jspb.Message.setWrapperField(this, 2, value);
+  return jspb.Message.setWrapperField(this, 3, value);
 };
 
 
@@ -306,17 +336,17 @@ proto.CloudApi.ApiRequest.prototype.clearUserrequest = function() {
  * @return {boolean}
  */
 proto.CloudApi.ApiRequest.prototype.hasUserrequest = function() {
-  return jspb.Message.getField(this, 2) != null;
+  return jspb.Message.getField(this, 3) != null;
 };
 
 
 /**
- * optional BlockNetwork.NetworkRequest networkRequest = 3;
+ * optional BlockNetwork.NetworkRequest networkRequest = 4;
  * @return {?proto.BlockNetwork.NetworkRequest}
  */
 proto.CloudApi.ApiRequest.prototype.getNetworkrequest = function() {
   return /** @type{?proto.BlockNetwork.NetworkRequest} */ (
-    jspb.Message.getWrapperField(this, block$proto_block_network_pb.NetworkRequest, 3));
+    jspb.Message.getWrapperField(this, block$proto_block_network_pb.NetworkRequest, 4));
 };
 
 
@@ -325,7 +355,7 @@ proto.CloudApi.ApiRequest.prototype.getNetworkrequest = function() {
  * @return {!proto.CloudApi.ApiRequest} returns this
 */
 proto.CloudApi.ApiRequest.prototype.setNetworkrequest = function(value) {
-  return jspb.Message.setWrapperField(this, 3, value);
+  return jspb.Message.setWrapperField(this, 4, value);
 };
 
 
@@ -343,7 +373,7 @@ proto.CloudApi.ApiRequest.prototype.clearNetworkrequest = function() {
  * @return {boolean}
  */
 proto.CloudApi.ApiRequest.prototype.hasNetworkrequest = function() {
-  return jspb.Message.getField(this, 3) != null;
+  return jspb.Message.getField(this, 4) != null;
 };
 
 
@@ -379,6 +409,7 @@ proto.CloudApi.ApiResponse.prototype.toObject = function(opt_includeInstance) {
  */
 proto.CloudApi.ApiResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
+    authtoken: jspb.Message.getFieldWithDefault(msg, 1, ""),
     userresponse: (f = msg.getUserresponse()) && block$proto_block_user_pb.UserResponse.toObject(includeInstance, f),
     networkresponse: (f = msg.getNetworkresponse()) && block$proto_block_network_pb.NetworkResponse.toObject(includeInstance, f)
   };
@@ -418,11 +449,15 @@ proto.CloudApi.ApiResponse.deserializeBinaryFromReader = function(msg, reader) {
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setAuthtoken(value);
+      break;
+    case 2:
       var value = new block$proto_block_user_pb.UserResponse;
       reader.readMessage(value,block$proto_block_user_pb.UserResponse.deserializeBinaryFromReader);
       msg.setUserresponse(value);
       break;
-    case 2:
+    case 3:
       var value = new block$proto_block_network_pb.NetworkResponse;
       reader.readMessage(value,block$proto_block_network_pb.NetworkResponse.deserializeBinaryFromReader);
       msg.setNetworkresponse(value);
@@ -456,10 +491,17 @@ proto.CloudApi.ApiResponse.prototype.serializeBinary = function() {
  */
 proto.CloudApi.ApiResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getAuthtoken();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
   f = message.getUserresponse();
   if (f != null) {
     writer.writeMessage(
-      1,
+      2,
       f,
       block$proto_block_user_pb.UserResponse.serializeBinaryToWriter
     );
@@ -467,7 +509,7 @@ proto.CloudApi.ApiResponse.serializeBinaryToWriter = function(message, writer) {
   f = message.getNetworkresponse();
   if (f != null) {
     writer.writeMessage(
-      2,
+      3,
       f,
       block$proto_block_network_pb.NetworkResponse.serializeBinaryToWriter
     );
@@ -476,12 +518,30 @@ proto.CloudApi.ApiResponse.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional BlockUser.UserResponse userResponse = 1;
+ * optional string authToken = 1;
+ * @return {string}
+ */
+proto.CloudApi.ApiResponse.prototype.getAuthtoken = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.CloudApi.ApiResponse} returns this
+ */
+proto.CloudApi.ApiResponse.prototype.setAuthtoken = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional BlockUser.UserResponse userResponse = 2;
  * @return {?proto.BlockUser.UserResponse}
  */
 proto.CloudApi.ApiResponse.prototype.getUserresponse = function() {
   return /** @type{?proto.BlockUser.UserResponse} */ (
-    jspb.Message.getWrapperField(this, block$proto_block_user_pb.UserResponse, 1));
+    jspb.Message.getWrapperField(this, block$proto_block_user_pb.UserResponse, 2));
 };
 
 
@@ -490,7 +550,7 @@ proto.CloudApi.ApiResponse.prototype.getUserresponse = function() {
  * @return {!proto.CloudApi.ApiResponse} returns this
 */
 proto.CloudApi.ApiResponse.prototype.setUserresponse = function(value) {
-  return jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
@@ -508,17 +568,17 @@ proto.CloudApi.ApiResponse.prototype.clearUserresponse = function() {
  * @return {boolean}
  */
 proto.CloudApi.ApiResponse.prototype.hasUserresponse = function() {
-  return jspb.Message.getField(this, 1) != null;
+  return jspb.Message.getField(this, 2) != null;
 };
 
 
 /**
- * optional BlockNetwork.NetworkResponse networkResponse = 2;
+ * optional BlockNetwork.NetworkResponse networkResponse = 3;
  * @return {?proto.BlockNetwork.NetworkResponse}
  */
 proto.CloudApi.ApiResponse.prototype.getNetworkresponse = function() {
   return /** @type{?proto.BlockNetwork.NetworkResponse} */ (
-    jspb.Message.getWrapperField(this, block$proto_block_network_pb.NetworkResponse, 2));
+    jspb.Message.getWrapperField(this, block$proto_block_network_pb.NetworkResponse, 3));
 };
 
 
@@ -527,7 +587,7 @@ proto.CloudApi.ApiResponse.prototype.getNetworkresponse = function() {
  * @return {!proto.CloudApi.ApiResponse} returns this
 */
 proto.CloudApi.ApiResponse.prototype.setNetworkresponse = function(value) {
-  return jspb.Message.setWrapperField(this, 2, value);
+  return jspb.Message.setWrapperField(this, 3, value);
 };
 
 
@@ -545,7 +605,7 @@ proto.CloudApi.ApiResponse.prototype.clearNetworkresponse = function() {
  * @return {boolean}
  */
 proto.CloudApi.ApiResponse.prototype.hasNetworkresponse = function() {
-  return jspb.Message.getField(this, 2) != null;
+  return jspb.Message.getField(this, 3) != null;
 };
 
 
