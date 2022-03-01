@@ -9,6 +9,10 @@ import "google/protobuf/timestamp.proto";
 import "block-proto/block_user.proto";
 import "block-proto/block_network.proto";
 
+service AccessService {
+    rpc GenerateAuthToken(ApiRequest) returns (ApiResponse) {}
+}
+
 service UserService {
     rpc Create(ApiRequest) returns (ApiResponse) {}
     rpc UpdatePassword(ApiRequest) returns (ApiResponse) {}
@@ -31,14 +35,16 @@ service NetworkService {
 }
 
 message ApiRequest {
-    string authToken = 1;
-    BlockUser.UserRequest userRequest = 2;
-    BlockNetwork.NetworkRequest networkRequest = 3;
+    string privateKey = 1;
+    string authToken = 2;
+    BlockUser.UserRequest userRequest = 3;
+    BlockNetwork.NetworkRequest networkRequest = 4;
 }
 
 message ApiResponse {
-    BlockUser.UserResponse userResponse = 1;
-    BlockNetwork.NetworkResponse networkResponse = 2;
+    string authToken = 1;
+    BlockUser.UserResponse userResponse = 2;
+    BlockNetwork.NetworkResponse networkResponse = 3;
 }
 
 message Request {}
