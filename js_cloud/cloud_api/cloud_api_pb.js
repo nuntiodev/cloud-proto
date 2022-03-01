@@ -147,7 +147,7 @@ proto.CloudApi.ApiRequest.prototype.toObject = function(opt_includeInstance) {
  */
 proto.CloudApi.ApiRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    apikey: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    authtoken: jspb.Message.getFieldWithDefault(msg, 1, ""),
     userrequest: (f = msg.getUserrequest()) && block$proto_block_user_pb.UserRequest.toObject(includeInstance, f),
     networkrequest: (f = msg.getNetworkrequest()) && block$proto_block_network_pb.NetworkRequest.toObject(includeInstance, f)
   };
@@ -188,7 +188,7 @@ proto.CloudApi.ApiRequest.deserializeBinaryFromReader = function(msg, reader) {
     switch (field) {
     case 1:
       var value = /** @type {string} */ (reader.readString());
-      msg.setApikey(value);
+      msg.setAuthtoken(value);
       break;
     case 2:
       var value = new block$proto_block_user_pb.UserRequest;
@@ -229,7 +229,7 @@ proto.CloudApi.ApiRequest.prototype.serializeBinary = function() {
  */
 proto.CloudApi.ApiRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getApikey();
+  f = message.getAuthtoken();
   if (f.length > 0) {
     writer.writeString(
       1,
@@ -256,10 +256,10 @@ proto.CloudApi.ApiRequest.serializeBinaryToWriter = function(message, writer) {
 
 
 /**
- * optional string apiKey = 1;
+ * optional string authToken = 1;
  * @return {string}
  */
-proto.CloudApi.ApiRequest.prototype.getApikey = function() {
+proto.CloudApi.ApiRequest.prototype.getAuthtoken = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
@@ -268,7 +268,7 @@ proto.CloudApi.ApiRequest.prototype.getApikey = function() {
  * @param {string} value
  * @return {!proto.CloudApi.ApiRequest} returns this
  */
-proto.CloudApi.ApiRequest.prototype.setApikey = function(value) {
+proto.CloudApi.ApiRequest.prototype.setAuthtoken = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
 
