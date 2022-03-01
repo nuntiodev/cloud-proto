@@ -34,6 +34,7 @@ message ProjectRequest {
     Project project = 1;
     Project update = 2;
     string apiKey = 3;
+    string accessToken = 4;
 }
 
 message ProjectResponse {
