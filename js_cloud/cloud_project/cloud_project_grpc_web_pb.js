@@ -261,8 +261,8 @@ proto.CloudProject.ServicePromiseClient.prototype.rollApiKey =
  *   !proto.CloudProject.ProjectRequest,
  *   !proto.CloudProject.ProjectResponse>}
  */
-const methodDescriptor_Service_ValidateApiKey = new grpc.web.MethodDescriptor(
-  '/CloudProject.Service/ValidateApiKey',
+const methodDescriptor_Service_GenereateAuthToken = new grpc.web.MethodDescriptor(
+  '/CloudProject.Service/GenereateAuthToken',
   grpc.web.MethodType.UNARY,
   proto.CloudProject.ProjectRequest,
   proto.CloudProject.ProjectResponse,
@@ -287,13 +287,13 @@ const methodDescriptor_Service_ValidateApiKey = new grpc.web.MethodDescriptor(
  * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.ProjectResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.CloudProject.ServiceClient.prototype.validateApiKey =
+proto.CloudProject.ServiceClient.prototype.genereateAuthToken =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/CloudProject.Service/ValidateApiKey',
+      '/CloudProject.Service/GenereateAuthToken',
       request,
       metadata || {},
-      methodDescriptor_Service_ValidateApiKey,
+      methodDescriptor_Service_GenereateAuthToken,
       callback);
 };
 
@@ -306,13 +306,74 @@ proto.CloudProject.ServiceClient.prototype.validateApiKey =
  * @return {!Promise<!proto.CloudProject.ProjectResponse>}
  *     Promise that resolves to the response
  */
-proto.CloudProject.ServicePromiseClient.prototype.validateApiKey =
+proto.CloudProject.ServicePromiseClient.prototype.genereateAuthToken =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/CloudProject.Service/ValidateApiKey',
+      '/CloudProject.Service/GenereateAuthToken',
       request,
       metadata || {},
-      methodDescriptor_Service_ValidateApiKey);
+      methodDescriptor_Service_GenereateAuthToken);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.CloudProject.ProjectRequest,
+ *   !proto.CloudProject.ProjectResponse>}
+ */
+const methodDescriptor_Service_ValidateAuthToken = new grpc.web.MethodDescriptor(
+  '/CloudProject.Service/ValidateAuthToken',
+  grpc.web.MethodType.UNARY,
+  proto.CloudProject.ProjectRequest,
+  proto.CloudProject.ProjectResponse,
+  /**
+   * @param {!proto.CloudProject.ProjectRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.CloudProject.ProjectResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.CloudProject.ProjectRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.CloudProject.ProjectResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.ProjectResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.CloudProject.ServiceClient.prototype.validateAuthToken =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/CloudProject.Service/ValidateAuthToken',
+      request,
+      metadata || {},
+      methodDescriptor_Service_ValidateAuthToken,
+      callback);
+};
+
+
+/**
+ * @param {!proto.CloudProject.ProjectRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.CloudProject.ProjectResponse>}
+ *     Promise that resolves to the response
+ */
+proto.CloudProject.ServicePromiseClient.prototype.validateAuthToken =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/CloudProject.Service/ValidateAuthToken',
+      request,
+      metadata || {},
+      methodDescriptor_Service_ValidateAuthToken);
 };
 
 
