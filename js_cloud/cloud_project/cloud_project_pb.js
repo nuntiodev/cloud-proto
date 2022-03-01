@@ -23,6 +23,7 @@ var global = (function() {
 
 var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js');
 goog.object.extend(proto, google_protobuf_timestamp_pb);
+goog.exportSymbol('proto.CloudProject.KeyType', null, global);
 goog.exportSymbol('proto.CloudProject.Project', null, global);
 goog.exportSymbol('proto.CloudProject.ProjectRequest', null, global);
 goog.exportSymbol('proto.CloudProject.ProjectResponse', null, global);
@@ -168,12 +169,12 @@ proto.CloudProject.Project.toObject = function(includeInstance, msg) {
     id: jspb.Message.getFieldWithDefault(msg, 1, ""),
     ownerid: jspb.Message.getFieldWithDefault(msg, 2, ""),
     name: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    apikey: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    keysecured: jspb.Message.getBooleanFieldWithDefault(msg, 5, false),
+    privatekey: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    privatekeysecured: jspb.Message.getBooleanFieldWithDefault(msg, 5, false),
     createdat: (f = msg.getCreatedat()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
     updatedat: (f = msg.getUpdatedat()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
-    keygeneratedat: (f = msg.getKeygeneratedat()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
-    keysecuredat: (f = msg.getKeysecuredat()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
+    privatekeygeneratedat: (f = msg.getPrivatekeygeneratedat()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
+    privatekeysecuredat: (f = msg.getPrivatekeysecuredat()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -224,11 +225,11 @@ proto.CloudProject.Project.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 4:
       var value = /** @type {string} */ (reader.readString());
-      msg.setApikey(value);
+      msg.setPrivatekey(value);
       break;
     case 5:
       var value = /** @type {boolean} */ (reader.readBool());
-      msg.setKeysecured(value);
+      msg.setPrivatekeysecured(value);
       break;
     case 6:
       var value = new google_protobuf_timestamp_pb.Timestamp;
@@ -243,12 +244,12 @@ proto.CloudProject.Project.deserializeBinaryFromReader = function(msg, reader) {
     case 8:
       var value = new google_protobuf_timestamp_pb.Timestamp;
       reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
-      msg.setKeygeneratedat(value);
+      msg.setPrivatekeygeneratedat(value);
       break;
     case 9:
       var value = new google_protobuf_timestamp_pb.Timestamp;
       reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
-      msg.setKeysecuredat(value);
+      msg.setPrivatekeysecuredat(value);
       break;
     default:
       reader.skipField();
@@ -300,14 +301,14 @@ proto.CloudProject.Project.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getApikey();
+  f = message.getPrivatekey();
   if (f.length > 0) {
     writer.writeString(
       4,
       f
     );
   }
-  f = message.getKeysecured();
+  f = message.getPrivatekeysecured();
   if (f) {
     writer.writeBool(
       5,
@@ -330,7 +331,7 @@ proto.CloudProject.Project.serializeBinaryToWriter = function(message, writer) {
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
     );
   }
-  f = message.getKeygeneratedat();
+  f = message.getPrivatekeygeneratedat();
   if (f != null) {
     writer.writeMessage(
       8,
@@ -338,7 +339,7 @@ proto.CloudProject.Project.serializeBinaryToWriter = function(message, writer) {
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
     );
   }
-  f = message.getKeysecuredat();
+  f = message.getPrivatekeysecuredat();
   if (f != null) {
     writer.writeMessage(
       9,
@@ -404,10 +405,10 @@ proto.CloudProject.Project.prototype.setName = function(value) {
 
 
 /**
- * optional string apiKey = 4;
+ * optional string privateKey = 4;
  * @return {string}
  */
-proto.CloudProject.Project.prototype.getApikey = function() {
+proto.CloudProject.Project.prototype.getPrivatekey = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
@@ -416,16 +417,16 @@ proto.CloudProject.Project.prototype.getApikey = function() {
  * @param {string} value
  * @return {!proto.CloudProject.Project} returns this
  */
-proto.CloudProject.Project.prototype.setApikey = function(value) {
+proto.CloudProject.Project.prototype.setPrivatekey = function(value) {
   return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
 /**
- * optional bool keySecured = 5;
+ * optional bool privateKeySecured = 5;
  * @return {boolean}
  */
-proto.CloudProject.Project.prototype.getKeysecured = function() {
+proto.CloudProject.Project.prototype.getPrivatekeysecured = function() {
   return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 5, false));
 };
 
@@ -434,7 +435,7 @@ proto.CloudProject.Project.prototype.getKeysecured = function() {
  * @param {boolean} value
  * @return {!proto.CloudProject.Project} returns this
  */
-proto.CloudProject.Project.prototype.setKeysecured = function(value) {
+proto.CloudProject.Project.prototype.setPrivatekeysecured = function(value) {
   return jspb.Message.setProto3BooleanField(this, 5, value);
 };
 
@@ -514,10 +515,10 @@ proto.CloudProject.Project.prototype.hasUpdatedat = function() {
 
 
 /**
- * optional google.protobuf.Timestamp keyGeneratedAt = 8;
+ * optional google.protobuf.Timestamp privateKeyGeneratedAt = 8;
  * @return {?proto.google.protobuf.Timestamp}
  */
-proto.CloudProject.Project.prototype.getKeygeneratedat = function() {
+proto.CloudProject.Project.prototype.getPrivatekeygeneratedat = function() {
   return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 8));
 };
@@ -527,7 +528,7 @@ proto.CloudProject.Project.prototype.getKeygeneratedat = function() {
  * @param {?proto.google.protobuf.Timestamp|undefined} value
  * @return {!proto.CloudProject.Project} returns this
 */
-proto.CloudProject.Project.prototype.setKeygeneratedat = function(value) {
+proto.CloudProject.Project.prototype.setPrivatekeygeneratedat = function(value) {
   return jspb.Message.setWrapperField(this, 8, value);
 };
 
@@ -536,8 +537,8 @@ proto.CloudProject.Project.prototype.setKeygeneratedat = function(value) {
  * Clears the message field making it undefined.
  * @return {!proto.CloudProject.Project} returns this
  */
-proto.CloudProject.Project.prototype.clearKeygeneratedat = function() {
-  return this.setKeygeneratedat(undefined);
+proto.CloudProject.Project.prototype.clearPrivatekeygeneratedat = function() {
+  return this.setPrivatekeygeneratedat(undefined);
 };
 
 
@@ -545,16 +546,16 @@ proto.CloudProject.Project.prototype.clearKeygeneratedat = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.CloudProject.Project.prototype.hasKeygeneratedat = function() {
+proto.CloudProject.Project.prototype.hasPrivatekeygeneratedat = function() {
   return jspb.Message.getField(this, 8) != null;
 };
 
 
 /**
- * optional google.protobuf.Timestamp keySecuredAt = 9;
+ * optional google.protobuf.Timestamp privateKeySecuredAt = 9;
  * @return {?proto.google.protobuf.Timestamp}
  */
-proto.CloudProject.Project.prototype.getKeysecuredat = function() {
+proto.CloudProject.Project.prototype.getPrivatekeysecuredat = function() {
   return /** @type{?proto.google.protobuf.Timestamp} */ (
     jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 9));
 };
@@ -564,7 +565,7 @@ proto.CloudProject.Project.prototype.getKeysecuredat = function() {
  * @param {?proto.google.protobuf.Timestamp|undefined} value
  * @return {!proto.CloudProject.Project} returns this
 */
-proto.CloudProject.Project.prototype.setKeysecuredat = function(value) {
+proto.CloudProject.Project.prototype.setPrivatekeysecuredat = function(value) {
   return jspb.Message.setWrapperField(this, 9, value);
 };
 
@@ -573,8 +574,8 @@ proto.CloudProject.Project.prototype.setKeysecuredat = function(value) {
  * Clears the message field making it undefined.
  * @return {!proto.CloudProject.Project} returns this
  */
-proto.CloudProject.Project.prototype.clearKeysecuredat = function() {
-  return this.setKeysecuredat(undefined);
+proto.CloudProject.Project.prototype.clearPrivatekeysecuredat = function() {
+  return this.setPrivatekeysecuredat(undefined);
 };
 
 
@@ -582,7 +583,7 @@ proto.CloudProject.Project.prototype.clearKeysecuredat = function() {
  * Returns whether this field is set.
  * @return {boolean}
  */
-proto.CloudProject.Project.prototype.hasKeysecuredat = function() {
+proto.CloudProject.Project.prototype.hasPrivatekeysecuredat = function() {
   return jspb.Message.getField(this, 9) != null;
 };
 
@@ -621,7 +622,7 @@ proto.CloudProject.ProjectRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     project: (f = msg.getProject()) && proto.CloudProject.Project.toObject(includeInstance, f),
     update: (f = msg.getUpdate()) && proto.CloudProject.Project.toObject(includeInstance, f),
-    apikey: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    privatekey: jspb.Message.getFieldWithDefault(msg, 3, ""),
     authtoken: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
@@ -671,7 +672,7 @@ proto.CloudProject.ProjectRequest.deserializeBinaryFromReader = function(msg, re
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
-      msg.setApikey(value);
+      msg.setPrivatekey(value);
       break;
     case 4:
       var value = /** @type {string} */ (reader.readString());
@@ -722,7 +723,7 @@ proto.CloudProject.ProjectRequest.serializeBinaryToWriter = function(message, wr
       proto.CloudProject.Project.serializeBinaryToWriter
     );
   }
-  f = message.getApikey();
+  f = message.getPrivatekey();
   if (f.length > 0) {
     writer.writeString(
       3,
@@ -814,10 +815,10 @@ proto.CloudProject.ProjectRequest.prototype.hasUpdate = function() {
 
 
 /**
- * optional string apiKey = 3;
+ * optional string privateKey = 3;
  * @return {string}
  */
-proto.CloudProject.ProjectRequest.prototype.getApikey = function() {
+proto.CloudProject.ProjectRequest.prototype.getPrivatekey = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
@@ -826,7 +827,7 @@ proto.CloudProject.ProjectRequest.prototype.getApikey = function() {
  * @param {string} value
  * @return {!proto.CloudProject.ProjectRequest} returns this
  */
-proto.CloudProject.ProjectRequest.prototype.setApikey = function(value) {
+proto.CloudProject.ProjectRequest.prototype.setPrivatekey = function(value) {
   return jspb.Message.setProto3StringField(this, 3, value);
 };
 
@@ -1320,5 +1321,14 @@ proto.CloudProject.Response.prototype.setMsg = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
 };
 
+
+/**
+ * @enum {number}
+ */
+proto.CloudProject.KeyType = {
+  INVALID_KEY: 0,
+  PRIVATE_KEY: 1,
+  PUBLIC_KEY: 2
+};
 
 goog.object.extend(exports, proto.CloudProject);

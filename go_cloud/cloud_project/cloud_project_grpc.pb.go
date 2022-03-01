@@ -20,7 +20,7 @@ const _ = grpc.SupportPackageIsVersion7
 type ServiceClient interface {
 	Heartbeat(ctx context.Context, in *Request, opts ...grpc.CallOption) (*Response, error)
 	Create(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
-	RollApiKey(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
+	RollPrivateKey(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
 	GenerateAuthToken(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
 	ValidateAuthToken(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
 	UpdateInfo(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
@@ -55,9 +55,9 @@ func (c *serviceClient) Create(ctx context.Context, in *ProjectRequest, opts ...
 	return out, nil
 }
 
-func (c *serviceClient) RollApiKey(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error) {
+func (c *serviceClient) RollPrivateKey(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error) {
 	out := new(ProjectResponse)
-	err := c.cc.Invoke(ctx, "/CloudProject.Service/RollApiKey", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/CloudProject.Service/RollPrivateKey", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -124,7 +124,7 @@ func (c *serviceClient) Delete(ctx context.Context, in *ProjectRequest, opts ...
 type ServiceServer interface {
 	Heartbeat(context.Context, *Request) (*Response, error)
 	Create(context.Context, *ProjectRequest) (*ProjectResponse, error)
-	RollApiKey(context.Context, *ProjectRequest) (*ProjectResponse, error)
+	RollPrivateKey(context.Context, *ProjectRequest) (*ProjectResponse, error)
 	GenerateAuthToken(context.Context, *ProjectRequest) (*ProjectResponse, error)
 	ValidateAuthToken(context.Context, *ProjectRequest) (*ProjectResponse, error)
 	UpdateInfo(context.Context, *ProjectRequest) (*ProjectResponse, error)
@@ -143,8 +143,8 @@ func (UnimplementedServiceServer) Heartbeat(context.Context, *Request) (*Respons
 func (UnimplementedServiceServer) Create(context.Context, *ProjectRequest) (*ProjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (UnimplementedServiceServer) RollApiKey(context.Context, *ProjectRequest) (*ProjectResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method RollApiKey not implemented")
+func (UnimplementedServiceServer) RollPrivateKey(context.Context, *ProjectRequest) (*ProjectResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RollPrivateKey not implemented")
 }
 func (UnimplementedServiceServer) GenerateAuthToken(context.Context, *ProjectRequest) (*ProjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GenerateAuthToken not implemented")
@@ -212,20 +212,20 @@ func _Service_Create_Handler(srv interface{}, ctx context.Context, dec func(inte
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Service_RollApiKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Service_RollPrivateKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ProjectRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ServiceServer).RollApiKey(ctx, in)
+		return srv.(ServiceServer).RollPrivateKey(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/CloudProject.Service/RollApiKey",
+		FullMethod: "/CloudProject.Service/RollPrivateKey",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).RollApiKey(ctx, req.(*ProjectRequest))
+		return srv.(ServiceServer).RollPrivateKey(ctx, req.(*ProjectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -354,8 +354,8 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _Service_Create_Handler,
 		},
 		{
-			MethodName: "RollApiKey",
-			Handler:    _Service_RollApiKey_Handler,
+			MethodName: "RollPrivateKey",
+			Handler:    _Service_RollPrivateKey_Handler,
 		},
 		{
 			MethodName: "GenerateAuthToken",

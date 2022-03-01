@@ -200,8 +200,8 @@ proto.CloudProject.ServicePromiseClient.prototype.create =
  *   !proto.CloudProject.ProjectRequest,
  *   !proto.CloudProject.ProjectResponse>}
  */
-const methodDescriptor_Service_RollApiKey = new grpc.web.MethodDescriptor(
-  '/CloudProject.Service/RollApiKey',
+const methodDescriptor_Service_RollPrivateKey = new grpc.web.MethodDescriptor(
+  '/CloudProject.Service/RollPrivateKey',
   grpc.web.MethodType.UNARY,
   proto.CloudProject.ProjectRequest,
   proto.CloudProject.ProjectResponse,
@@ -226,13 +226,13 @@ const methodDescriptor_Service_RollApiKey = new grpc.web.MethodDescriptor(
  * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.ProjectResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.CloudProject.ServiceClient.prototype.rollApiKey =
+proto.CloudProject.ServiceClient.prototype.rollPrivateKey =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/CloudProject.Service/RollApiKey',
+      '/CloudProject.Service/RollPrivateKey',
       request,
       metadata || {},
-      methodDescriptor_Service_RollApiKey,
+      methodDescriptor_Service_RollPrivateKey,
       callback);
 };
 
@@ -245,13 +245,13 @@ proto.CloudProject.ServiceClient.prototype.rollApiKey =
  * @return {!Promise<!proto.CloudProject.ProjectResponse>}
  *     Promise that resolves to the response
  */
-proto.CloudProject.ServicePromiseClient.prototype.rollApiKey =
+proto.CloudProject.ServicePromiseClient.prototype.rollPrivateKey =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/CloudProject.Service/RollApiKey',
+      '/CloudProject.Service/RollPrivateKey',
       request,
       metadata || {},
-      methodDescriptor_Service_RollApiKey);
+      methodDescriptor_Service_RollPrivateKey);
 };
 
 
