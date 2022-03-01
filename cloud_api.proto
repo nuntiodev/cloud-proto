@@ -31,7 +31,7 @@ service NetworkService {
 }
 
 message ApiRequest {
-    string apiKey = 1;
+    string authToken = 1;
     BlockUser.UserRequest userRequest = 2;
     BlockNetwork.NetworkRequest networkRequest = 3;
 }
