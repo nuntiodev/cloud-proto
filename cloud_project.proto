@@ -10,7 +10,8 @@ service Service {
     rpc Heartbeat(Request) returns (Response) {}
     rpc Create(ProjectRequest) returns (ProjectResponse) {}
     rpc RollApiKey(ProjectRequest) returns (ProjectResponse) {}
-    rpc ValidateApiKey(ProjectRequest) returns (ProjectResponse) {}
+    rpc GenereateAuthToken(ProjectRequest) returns (ProjectResponse) {}
+    rpc ValidateAuthToken(ProjectRequest) returns (ProjectResponse) {}
     rpc UpdateInfo(ProjectRequest) returns (ProjectResponse) {}
     rpc Get(ProjectRequest) returns (ProjectResponse) {}
     rpc GetByOwner(ProjectRequest) returns (ProjectResponse) {}
@@ -38,6 +39,7 @@ message ProjectRequest {
 message ProjectResponse {
     Project project = 1;
     repeated Project projects = 2;
+    string authToken = 3;
 }
 
 message Request {}
