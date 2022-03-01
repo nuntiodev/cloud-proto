@@ -9,7 +9,7 @@ import "google/protobuf/timestamp.proto";
 service Service {
     rpc Heartbeat(Request) returns (Response) {}
     rpc Create(ProjectRequest) returns (ProjectResponse) {}
-    rpc RollApiKey(ProjectRequest) returns (ProjectResponse) {}
+    rpc RollPrivateKey(ProjectRequest) returns (ProjectResponse) {}
     rpc GenerateAuthToken(ProjectRequest) returns (ProjectResponse) {}
     rpc ValidateAuthToken(ProjectRequest) returns (ProjectResponse) {}
     rpc UpdateInfo(ProjectRequest) returns (ProjectResponse) {}
@@ -22,18 +22,18 @@ message Project {
     string id = 1 [json_name="id"];
     string ownerId = 2 [json_name="ownerId"];
     string name = 3 [json_name="name"];
-    string apiKey = 4 [json_name="apiKey"];
-    bool keySecured = 5 [json_name="keySecured"];
+    string privateKey = 4 [json_name="privateKey"];
+    bool privateKeySecured = 5 [json_name="privateKeySecured"];
     google.protobuf.Timestamp createdAt = 6 [json_name="createdAt"];
     google.protobuf.Timestamp updatedAt = 7 [json_name="updatedAt"];
-    google.protobuf.Timestamp keyGeneratedAt = 8 [json_name="keyGeneratedAt"];
-    google.protobuf.Timestamp keySecuredAt = 9 [json_name="keySecuredAt"];
+    google.protobuf.Timestamp privateKeyGeneratedAt = 8 [json_name="privateKeyGeneratedAt"];
+    google.protobuf.Timestamp privateKeySecuredAt = 9 [json_name="privateKeySecuredAt"];
 }
 
 message ProjectRequest {
     Project project = 1;
     Project update = 2;
-    string apiKey = 3;
+    string privateKey = 3;
     string authToken = 4;
 }
 
