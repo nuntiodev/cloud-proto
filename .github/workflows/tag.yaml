@@ -84,6 +84,7 @@ jobs:
       - name: Build proto
         run: make build-proto
 
+      # Remove block proto
       - name: remove block proto
         run:  rm -rf ./block-proto
 
@@ -114,19 +115,10 @@ jobs:
         run: git config --global user.email "dev@softcorp.io" && git config --global user.name "Softcorp Automation"
 
       - name: Add git credentials
-        run: git remote set-url --push origin https://softcorp-admin:$GITHUB_TOKEN@github.com/softcorp-io/cloud-proto
+        run: git remote set-url --push origin https://oscarsoftcorp:$GITHUB_TOKEN@github.com/softcorp-io/cloud-proto
 
       - name: Git commit
         run: git commit -am "updated protobuf files"
 
       - name: Git push
         run: git  push -u origin
-
-      # Push to pubdev
-      #- name: Publish
-      #  uses: sakebook/actions-flutter-pub-publisher@v1.3.1
-      #  with:
-      #    credential: ${{ secrets.PUB_DEV_CREDENTIAL_JSON }}
-      #    skip_test: true
-      #    flutter_package: false
-      #    package_directory: ./dart_softcorp
