@@ -11,9 +11,19 @@ message OrganizationRequest {
     Organization organization = 2;
 }
 
-message OrganizationRespomse {
+message OrganizationResponse {
     Organization organization = 1;
     repeated Organization organizations = 2;
+}
+
+message ProjectRequest {
+    string accessToken = 1;
+    Project project = 2;
+}
+
+message ProjectResponse {
+    Project project = 1;
+    repeated Project projects = 2;
 }
 
 message Organization {
