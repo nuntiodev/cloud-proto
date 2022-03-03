@@ -9,7 +9,11 @@ import "google/protobuf/timestamp.proto";
 message OrganizationRequest {
     string accessToken = 1;
     Organization organization = 2;
+}
 
+message OrganizationRespomse {
+    Organization organization = 1;
+    repeated Organization organizations = 2;
 }
 
 message Organization {
