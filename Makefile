@@ -27,6 +27,8 @@ build-dashboard-js-proto:
 build-proto:
 	make build-project-go-proto && \
 	make build-project-js-proto && \
+	make build-dashboard-go-proto && \
+	make build-dashboard-js-proto && \
 	make build-api-go-proto && \
 	make build-api-js-proto
 	
