@@ -104,7 +104,6 @@ var AccessService_ServiceDesc = grpc.ServiceDesc{
 type UserServiceClient interface {
 	Create(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
 	UpdatePassword(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
-	UpdateEmail(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
 	UpdateProfile(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
 	Get(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
 	GetAll(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
@@ -134,15 +133,6 @@ func (c *userServiceClient) Create(ctx context.Context, in *ApiRequest, opts ...
 func (c *userServiceClient) UpdatePassword(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error) {
 	out := new(ApiResponse)
 	err := c.cc.Invoke(ctx, "/CloudApi.UserService/UpdatePassword", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *userServiceClient) UpdateEmail(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error) {
-	out := new(ApiResponse)
-	err := c.cc.Invoke(ctx, "/CloudApi.UserService/UpdateEmail", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -218,7 +208,6 @@ func (c *userServiceClient) DeleteNamespace(ctx context.Context, in *ApiRequest,
 type UserServiceServer interface {
 	Create(context.Context, *ApiRequest) (*ApiResponse, error)
 	UpdatePassword(context.Context, *ApiRequest) (*ApiResponse, error)
-	UpdateEmail(context.Context, *ApiRequest) (*ApiResponse, error)
 	UpdateProfile(context.Context, *ApiRequest) (*ApiResponse, error)
 	Get(context.Context, *ApiRequest) (*ApiResponse, error)
 	GetAll(context.Context, *ApiRequest) (*ApiResponse, error)
@@ -237,9 +226,6 @@ func (UnimplementedUserServiceServer) Create(context.Context, *ApiRequest) (*Api
 }
 func (UnimplementedUserServiceServer) UpdatePassword(context.Context, *ApiRequest) (*ApiResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdatePassword not implemented")
-}
-func (UnimplementedUserServiceServer) UpdateEmail(context.Context, *ApiRequest) (*ApiResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateEmail not implemented")
 }
 func (UnimplementedUserServiceServer) UpdateProfile(context.Context, *ApiRequest) (*ApiResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateProfile not implemented")
@@ -306,24 +292,6 @@ func _UserService_UpdatePassword_Handler(srv interface{}, ctx context.Context, d
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).UpdatePassword(ctx, req.(*ApiRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UserService_UpdateEmail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ApiRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UserServiceServer).UpdateEmail(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/CloudApi.UserService/UpdateEmail",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).UpdateEmail(ctx, req.(*ApiRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -468,10 +436,6 @@ var UserService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdatePassword",
 			Handler:    _UserService_UpdatePassword_Handler,
-		},
-		{
-			MethodName: "UpdateEmail",
-			Handler:    _UserService_UpdateEmail_Handler,
 		},
 		{
 			MethodName: "UpdateProfile",
