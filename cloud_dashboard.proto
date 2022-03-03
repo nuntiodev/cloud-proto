@@ -6,6 +6,12 @@ option go_package = "go_cloud/cloud_dashboard";
 
 import "google/protobuf/timestamp.proto";
 
+message OrganizationRequest {
+    string accessToken = 1;
+    Organization organization = 2;
+
+}
+
 message Organization {
     string id = 1;
     string name = 2;
