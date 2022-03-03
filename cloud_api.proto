@@ -16,7 +16,6 @@ service AccessService {
 service UserService {
     rpc Create(ApiRequest) returns (ApiResponse) {}
     rpc UpdatePassword(ApiRequest) returns (ApiResponse) {}
-    rpc UpdateEmail(ApiRequest) returns (ApiResponse) {}
     rpc UpdateProfile(ApiRequest) returns (ApiResponse) {}
     rpc Get(ApiRequest) returns (ApiResponse) {}
     rpc GetAll(ApiRequest) returns (ApiResponse) {}
