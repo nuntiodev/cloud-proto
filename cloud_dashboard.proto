@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package CloudDashboard;
+
+option go_package = "go_cloud/cloud_dashboard";
+
+import "google/protobuf/timestamp.proto";
+
+message Organization {
+    string id = 1;
+    string name = 2;
+    string contactEmail = 3;
+    string website = 4;
+    string ownerId = 5;
+    google.protobuf.Timestamp createdAt = 6;
+    google.protobuf.Timestamp updatedAt = 6;
+}
+
+message Project {
+    string id = 1;
+    string organizationId = 2;
+    string name = 3;
+    google.protobuf.Timestamp createdAt = 6;
+    google.protobuf.Timestamp updatedAt = 6;
+}
+
+message Request {}
+
+message Response {
+    string msg = 1;
+}

@@ -1,27 +1,50 @@
 syntax = "proto3";
 
-package CloudDashboard;
+package CloudApi;
 
-option go_package = "go_cloud/cloud_dashboard";
+option go_package = "go_cloud/cloud_api";
 
 import "google/protobuf/timestamp.proto";
 
-message Organization {
-    string id = 1;
-    string name = 2;
-    string contactEmail = 3;
-    string website = 4;
-    string ownerId = 5;
-    google.protobuf.Timestamp createdAt = 6;
-    google.protobuf.Timestamp updatedAt = 6;
+import "block-proto/block_user.proto";
+import "block-proto/block_network.proto";
+
+service AccessService {
+    rpc GenerateAuthToken(ApiRequest) returns (ApiResponse) {}
 }
 
-message Project {
-    string id = 1;
-    string organizationId = 2;
-    string name = 3;
-    google.protobuf.Timestamp createdAt = 6;
-    google.protobuf.Timestamp updatedAt = 6;
+service UserService {
+    rpc Create(ApiRequest) returns (ApiResponse) {}
+    rpc UpdatePassword(ApiRequest) returns (ApiResponse) {}
+    rpc UpdateProfile(ApiRequest) returns (ApiResponse) {}
+    rpc UpdateSecurity(ApiRequest) returns (ApiResponse) {}
+    rpc Get(ApiRequest) returns (ApiResponse) {}
+    rpc GetAll(ApiRequest) returns (ApiResponse) {}
+    rpc Search(ApiRequest) returns (ApiResponse) {}
+    rpc ValidateCredentials(ApiRequest) returns (ApiResponse) {}
+    rpc Delete(ApiRequest) returns (ApiResponse) {}
+    rpc DeleteNamespace(ApiRequest) returns (ApiResponse) {}
+}
+
+service NetworkService {
+    rpc Heartbeat(Request) returns (Response) {}
+    rpc Invite(ApiRequest) returns (ApiResponse) {}
+    rpc Accept(ApiRequest) returns (ApiResponse) {}
+    rpc GetConnections(ApiRequest) returns (ApiResponse) {}
+    rpc Remove(ApiRequest) returns (ApiResponse) {}
+}
+
+message ApiRequest {
+    string privateKey = 1;
+    string authToken = 2;
+    BlockUser.UserRequest userRequest = 3;
+    BlockNetwork.NetworkRequest networkRequest = 4;
+}
+
+message ApiResponse {
+    string authToken = 1;
+    BlockUser.UserResponse userResponse = 2;
+    BlockNetwork.NetworkResponse networkResponse = 3;
 }
 
 message Request {}
