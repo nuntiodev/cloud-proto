@@ -35,16 +35,16 @@ service NetworkService {
 }
 
 message ApiRequest {
-    string privateKey = 1;
-    string authToken = 2;
-    BlockUser.UserRequest userRequest = 3;
-    BlockNetwork.NetworkRequest networkRequest = 4;
+    string private_key = 1;
+    string auth_token = 2;
+    BlockUser.UserRequest user_request = 3;
+    BlockNetwork.NetworkRequest network_request = 4;
 }
 
 message ApiResponse {
-    string authToken = 1;
-    BlockUser.UserResponse userResponse = 2;
-    BlockNetwork.NetworkResponse networkResponse = 3;
+    string auth_token = 1;
+    BlockUser.UserResponse user_response = 2;
+    BlockNetwork.NetworkResponse network_response = 3;
 }
 
 message Request {}

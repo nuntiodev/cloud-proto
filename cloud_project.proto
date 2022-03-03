@@ -20,14 +20,14 @@ service Service {
 
 message Project {
     string id = 1;
-    string ownerId = 2;
+    string owner_id = 2;
     string name = 3;
-    string privateKey = 4;
-    bool privateKeySecured = 5;
-    google.protobuf.Timestamp createdAt = 6;
-    google.protobuf.Timestamp updatedAt = 7;
-    google.protobuf.Timestamp privateKeyGeneratedAt = 8;
-    google.protobuf.Timestamp privateKeySecuredAt = 9;
+    string private_key = 4;
+    bool private_key_secured = 5;
+    google.protobuf.Timestamp created_at = 6;
+    google.protobuf.Timestamp updated_at = 7;
+    google.protobuf.Timestamp private_key_generated_at = 8;
+    google.protobuf.Timestamp private_key_secured_at = 9;
 }
 
 enum KeyType {
@@ -39,14 +39,14 @@ enum KeyType {
 message ProjectRequest {
     Project project = 1;
     Project update = 2;
-    string privateKey = 3;
-    string authToken = 4;
+    string private_key = 3;
+    string auth_token = 4;
 }
 
 message ProjectResponse {
     Project project = 1;
     repeated Project projects = 2;
-    string authToken = 3;
+    string auth_token = 3;
 }
 
 message Request {}
