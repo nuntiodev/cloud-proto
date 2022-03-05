@@ -232,7 +232,8 @@ proto.CloudDashboard.OrganizationRequest.prototype.toObject = function(opt_inclu
 proto.CloudDashboard.OrganizationRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     accesstoken: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    organization: (f = msg.getOrganization()) && proto.CloudDashboard.Organization.toObject(includeInstance, f)
+    organization: (f = msg.getOrganization()) && proto.CloudDashboard.Organization.toObject(includeInstance, f),
+    update: (f = msg.getUpdate()) && proto.CloudDashboard.Organization.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -278,6 +279,11 @@ proto.CloudDashboard.OrganizationRequest.deserializeBinaryFromReader = function(
       reader.readMessage(value,proto.CloudDashboard.Organization.deserializeBinaryFromReader);
       msg.setOrganization(value);
       break;
+    case 3:
+      var value = new proto.CloudDashboard.Organization;
+      reader.readMessage(value,proto.CloudDashboard.Organization.deserializeBinaryFromReader);
+      msg.setUpdate(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -318,6 +324,14 @@ proto.CloudDashboard.OrganizationRequest.serializeBinaryToWriter = function(mess
   if (f != null) {
     writer.writeMessage(
       2,
+      f,
+      proto.CloudDashboard.Organization.serializeBinaryToWriter
+    );
+  }
+  f = message.getUpdate();
+  if (f != null) {
+    writer.writeMessage(
+      3,
       f,
       proto.CloudDashboard.Organization.serializeBinaryToWriter
     );
@@ -377,6 +391,43 @@ proto.CloudDashboard.OrganizationRequest.prototype.clearOrganization = function(
  */
 proto.CloudDashboard.OrganizationRequest.prototype.hasOrganization = function() {
   return jspb.Message.getField(this, 2) != null;
+};
+
+
+/**
+ * optional Organization Update = 3;
+ * @return {?proto.CloudDashboard.Organization}
+ */
+proto.CloudDashboard.OrganizationRequest.prototype.getUpdate = function() {
+  return /** @type{?proto.CloudDashboard.Organization} */ (
+    jspb.Message.getWrapperField(this, proto.CloudDashboard.Organization, 3));
+};
+
+
+/**
+ * @param {?proto.CloudDashboard.Organization|undefined} value
+ * @return {!proto.CloudDashboard.OrganizationRequest} returns this
+*/
+proto.CloudDashboard.OrganizationRequest.prototype.setUpdate = function(value) {
+  return jspb.Message.setWrapperField(this, 3, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.CloudDashboard.OrganizationRequest} returns this
+ */
+proto.CloudDashboard.OrganizationRequest.prototype.clearUpdate = function() {
+  return this.setUpdate(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.CloudDashboard.OrganizationRequest.prototype.hasUpdate = function() {
+  return jspb.Message.getField(this, 3) != null;
 };
 
 
