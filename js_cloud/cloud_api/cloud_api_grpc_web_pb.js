@@ -317,8 +317,8 @@ proto.CloudApi.UserServicePromiseClient.prototype.updatePassword =
  *   !proto.CloudApi.ApiRequest,
  *   !proto.CloudApi.ApiResponse>}
  */
-const methodDescriptor_UserService_UpdateProfile = new grpc.web.MethodDescriptor(
-  '/CloudApi.UserService/UpdateProfile',
+const methodDescriptor_UserService_UpdateMetadata = new grpc.web.MethodDescriptor(
+  '/CloudApi.UserService/UpdateMetadata',
   grpc.web.MethodType.UNARY,
   proto.CloudApi.ApiRequest,
   proto.CloudApi.ApiResponse,
@@ -343,13 +343,13 @@ const methodDescriptor_UserService_UpdateProfile = new grpc.web.MethodDescriptor
  * @return {!grpc.web.ClientReadableStream<!proto.CloudApi.ApiResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.CloudApi.UserServiceClient.prototype.updateProfile =
+proto.CloudApi.UserServiceClient.prototype.updateMetadata =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/CloudApi.UserService/UpdateProfile',
+      '/CloudApi.UserService/UpdateMetadata',
       request,
       metadata || {},
-      methodDescriptor_UserService_UpdateProfile,
+      methodDescriptor_UserService_UpdateMetadata,
       callback);
 };
 
@@ -362,13 +362,135 @@ proto.CloudApi.UserServiceClient.prototype.updateProfile =
  * @return {!Promise<!proto.CloudApi.ApiResponse>}
  *     Promise that resolves to the response
  */
-proto.CloudApi.UserServicePromiseClient.prototype.updateProfile =
+proto.CloudApi.UserServicePromiseClient.prototype.updateMetadata =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/CloudApi.UserService/UpdateProfile',
+      '/CloudApi.UserService/UpdateMetadata',
       request,
       metadata || {},
-      methodDescriptor_UserService_UpdateProfile);
+      methodDescriptor_UserService_UpdateMetadata);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.CloudApi.ApiRequest,
+ *   !proto.CloudApi.ApiResponse>}
+ */
+const methodDescriptor_UserService_UpdateImage = new grpc.web.MethodDescriptor(
+  '/CloudApi.UserService/UpdateImage',
+  grpc.web.MethodType.UNARY,
+  proto.CloudApi.ApiRequest,
+  proto.CloudApi.ApiResponse,
+  /**
+   * @param {!proto.CloudApi.ApiRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.CloudApi.ApiResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.CloudApi.ApiRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.CloudApi.ApiResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.CloudApi.ApiResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.CloudApi.UserServiceClient.prototype.updateImage =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/CloudApi.UserService/UpdateImage',
+      request,
+      metadata || {},
+      methodDescriptor_UserService_UpdateImage,
+      callback);
+};
+
+
+/**
+ * @param {!proto.CloudApi.ApiRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.CloudApi.ApiResponse>}
+ *     Promise that resolves to the response
+ */
+proto.CloudApi.UserServicePromiseClient.prototype.updateImage =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/CloudApi.UserService/UpdateImage',
+      request,
+      metadata || {},
+      methodDescriptor_UserService_UpdateImage);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.CloudApi.ApiRequest,
+ *   !proto.CloudApi.ApiResponse>}
+ */
+const methodDescriptor_UserService_UpdateEmail = new grpc.web.MethodDescriptor(
+  '/CloudApi.UserService/UpdateEmail',
+  grpc.web.MethodType.UNARY,
+  proto.CloudApi.ApiRequest,
+  proto.CloudApi.ApiResponse,
+  /**
+   * @param {!proto.CloudApi.ApiRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.CloudApi.ApiResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.CloudApi.ApiRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.CloudApi.ApiResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.CloudApi.ApiResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.CloudApi.UserServiceClient.prototype.updateEmail =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/CloudApi.UserService/UpdateEmail',
+      request,
+      metadata || {},
+      methodDescriptor_UserService_UpdateEmail,
+      callback);
+};
+
+
+/**
+ * @param {!proto.CloudApi.ApiRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.CloudApi.ApiResponse>}
+ *     Promise that resolves to the response
+ */
+proto.CloudApi.UserServicePromiseClient.prototype.updateEmail =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/CloudApi.UserService/UpdateEmail',
+      request,
+      metadata || {},
+      methodDescriptor_UserService_UpdateEmail);
 };
 
 
@@ -552,67 +674,6 @@ proto.CloudApi.UserServicePromiseClient.prototype.getAll =
       request,
       metadata || {},
       methodDescriptor_UserService_GetAll);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.CloudApi.ApiRequest,
- *   !proto.CloudApi.ApiResponse>}
- */
-const methodDescriptor_UserService_Search = new grpc.web.MethodDescriptor(
-  '/CloudApi.UserService/Search',
-  grpc.web.MethodType.UNARY,
-  proto.CloudApi.ApiRequest,
-  proto.CloudApi.ApiResponse,
-  /**
-   * @param {!proto.CloudApi.ApiRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.CloudApi.ApiResponse.deserializeBinary
-);
-
-
-/**
- * @param {!proto.CloudApi.ApiRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.CloudApi.ApiResponse)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.CloudApi.ApiResponse>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.CloudApi.UserServiceClient.prototype.search =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/CloudApi.UserService/Search',
-      request,
-      metadata || {},
-      methodDescriptor_UserService_Search,
-      callback);
-};
-
-
-/**
- * @param {!proto.CloudApi.ApiRequest} request The
- *     request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.CloudApi.ApiResponse>}
- *     Promise that resolves to the response
- */
-proto.CloudApi.UserServicePromiseClient.prototype.search =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/CloudApi.UserService/Search',
-      request,
-      metadata || {},
-      methodDescriptor_UserService_Search);
 };
 
 

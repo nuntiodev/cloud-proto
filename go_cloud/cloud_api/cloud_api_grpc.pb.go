@@ -104,11 +104,12 @@ var AccessService_ServiceDesc = grpc.ServiceDesc{
 type UserServiceClient interface {
 	Create(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
 	UpdatePassword(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
-	UpdateProfile(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
+	UpdateMetadata(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
+	UpdateImage(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
+	UpdateEmail(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
 	UpdateSecurity(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
 	Get(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
 	GetAll(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
-	Search(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
 	ValidateCredentials(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
 	Delete(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
 	DeleteNamespace(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
@@ -140,9 +141,27 @@ func (c *userServiceClient) UpdatePassword(ctx context.Context, in *ApiRequest, 
 	return out, nil
 }
 
-func (c *userServiceClient) UpdateProfile(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error) {
+func (c *userServiceClient) UpdateMetadata(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error) {
 	out := new(ApiResponse)
-	err := c.cc.Invoke(ctx, "/CloudApi.UserService/UpdateProfile", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/CloudApi.UserService/UpdateMetadata", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *userServiceClient) UpdateImage(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error) {
+	out := new(ApiResponse)
+	err := c.cc.Invoke(ctx, "/CloudApi.UserService/UpdateImage", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *userServiceClient) UpdateEmail(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error) {
+	out := new(ApiResponse)
+	err := c.cc.Invoke(ctx, "/CloudApi.UserService/UpdateEmail", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -170,15 +189,6 @@ func (c *userServiceClient) Get(ctx context.Context, in *ApiRequest, opts ...grp
 func (c *userServiceClient) GetAll(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error) {
 	out := new(ApiResponse)
 	err := c.cc.Invoke(ctx, "/CloudApi.UserService/GetAll", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *userServiceClient) Search(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error) {
-	out := new(ApiResponse)
-	err := c.cc.Invoke(ctx, "/CloudApi.UserService/Search", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -218,11 +228,12 @@ func (c *userServiceClient) DeleteNamespace(ctx context.Context, in *ApiRequest,
 type UserServiceServer interface {
 	Create(context.Context, *ApiRequest) (*ApiResponse, error)
 	UpdatePassword(context.Context, *ApiRequest) (*ApiResponse, error)
-	UpdateProfile(context.Context, *ApiRequest) (*ApiResponse, error)
+	UpdateMetadata(context.Context, *ApiRequest) (*ApiResponse, error)
+	UpdateImage(context.Context, *ApiRequest) (*ApiResponse, error)
+	UpdateEmail(context.Context, *ApiRequest) (*ApiResponse, error)
 	UpdateSecurity(context.Context, *ApiRequest) (*ApiResponse, error)
 	Get(context.Context, *ApiRequest) (*ApiResponse, error)
 	GetAll(context.Context, *ApiRequest) (*ApiResponse, error)
-	Search(context.Context, *ApiRequest) (*ApiResponse, error)
 	ValidateCredentials(context.Context, *ApiRequest) (*ApiResponse, error)
 	Delete(context.Context, *ApiRequest) (*ApiResponse, error)
 	DeleteNamespace(context.Context, *ApiRequest) (*ApiResponse, error)
@@ -238,8 +249,14 @@ func (UnimplementedUserServiceServer) Create(context.Context, *ApiRequest) (*Api
 func (UnimplementedUserServiceServer) UpdatePassword(context.Context, *ApiRequest) (*ApiResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdatePassword not implemented")
 }
-func (UnimplementedUserServiceServer) UpdateProfile(context.Context, *ApiRequest) (*ApiResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateProfile not implemented")
+func (UnimplementedUserServiceServer) UpdateMetadata(context.Context, *ApiRequest) (*ApiResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateMetadata not implemented")
+}
+func (UnimplementedUserServiceServer) UpdateImage(context.Context, *ApiRequest) (*ApiResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateImage not implemented")
+}
+func (UnimplementedUserServiceServer) UpdateEmail(context.Context, *ApiRequest) (*ApiResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateEmail not implemented")
 }
 func (UnimplementedUserServiceServer) UpdateSecurity(context.Context, *ApiRequest) (*ApiResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateSecurity not implemented")
@@ -249,9 +266,6 @@ func (UnimplementedUserServiceServer) Get(context.Context, *ApiRequest) (*ApiRes
 }
 func (UnimplementedUserServiceServer) GetAll(context.Context, *ApiRequest) (*ApiResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetAll not implemented")
-}
-func (UnimplementedUserServiceServer) Search(context.Context, *ApiRequest) (*ApiResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Search not implemented")
 }
 func (UnimplementedUserServiceServer) ValidateCredentials(context.Context, *ApiRequest) (*ApiResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ValidateCredentials not implemented")
@@ -310,20 +324,56 @@ func _UserService_UpdatePassword_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
-func _UserService_UpdateProfile_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _UserService_UpdateMetadata_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ApiRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(UserServiceServer).UpdateProfile(ctx, in)
+		return srv.(UserServiceServer).UpdateMetadata(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/CloudApi.UserService/UpdateProfile",
+		FullMethod: "/CloudApi.UserService/UpdateMetadata",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).UpdateProfile(ctx, req.(*ApiRequest))
+		return srv.(UserServiceServer).UpdateMetadata(ctx, req.(*ApiRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UserService_UpdateImage_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ApiRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServiceServer).UpdateImage(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/CloudApi.UserService/UpdateImage",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServiceServer).UpdateImage(ctx, req.(*ApiRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _UserService_UpdateEmail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ApiRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServiceServer).UpdateEmail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/CloudApi.UserService/UpdateEmail",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServiceServer).UpdateEmail(ctx, req.(*ApiRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -378,24 +428,6 @@ func _UserService_GetAll_Handler(srv interface{}, ctx context.Context, dec func(
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).GetAll(ctx, req.(*ApiRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _UserService_Search_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ApiRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(UserServiceServer).Search(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/CloudApi.UserService/Search",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(UserServiceServer).Search(ctx, req.(*ApiRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -470,8 +502,16 @@ var UserService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _UserService_UpdatePassword_Handler,
 		},
 		{
-			MethodName: "UpdateProfile",
-			Handler:    _UserService_UpdateProfile_Handler,
+			MethodName: "UpdateMetadata",
+			Handler:    _UserService_UpdateMetadata_Handler,
+		},
+		{
+			MethodName: "UpdateImage",
+			Handler:    _UserService_UpdateImage_Handler,
+		},
+		{
+			MethodName: "UpdateEmail",
+			Handler:    _UserService_UpdateEmail_Handler,
 		},
 		{
 			MethodName: "UpdateSecurity",
@@ -484,10 +524,6 @@ var UserService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetAll",
 			Handler:    _UserService_GetAll_Handler,
-		},
-		{
-			MethodName: "Search",
-			Handler:    _UserService_Search_Handler,
 		},
 		{
 			MethodName: "ValidateCredentials",
