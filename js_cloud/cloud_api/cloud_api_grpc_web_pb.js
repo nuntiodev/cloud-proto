@@ -500,6 +500,67 @@ proto.CloudApi.UserServicePromiseClient.prototype.updateEmail =
  *   !proto.CloudApi.ApiRequest,
  *   !proto.CloudApi.ApiResponse>}
  */
+const methodDescriptor_UserService_UpdateOptionalId = new grpc.web.MethodDescriptor(
+  '/CloudApi.UserService/UpdateOptionalId',
+  grpc.web.MethodType.UNARY,
+  proto.CloudApi.ApiRequest,
+  proto.CloudApi.ApiResponse,
+  /**
+   * @param {!proto.CloudApi.ApiRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.CloudApi.ApiResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.CloudApi.ApiRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.CloudApi.ApiResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.CloudApi.ApiResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.CloudApi.UserServiceClient.prototype.updateOptionalId =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/CloudApi.UserService/UpdateOptionalId',
+      request,
+      metadata || {},
+      methodDescriptor_UserService_UpdateOptionalId,
+      callback);
+};
+
+
+/**
+ * @param {!proto.CloudApi.ApiRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.CloudApi.ApiResponse>}
+ *     Promise that resolves to the response
+ */
+proto.CloudApi.UserServicePromiseClient.prototype.updateOptionalId =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/CloudApi.UserService/UpdateOptionalId',
+      request,
+      metadata || {},
+      methodDescriptor_UserService_UpdateOptionalId);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.CloudApi.ApiRequest,
+ *   !proto.CloudApi.ApiResponse>}
+ */
 const methodDescriptor_UserService_UpdateSecurity = new grpc.web.MethodDescriptor(
   '/CloudApi.UserService/UpdateSecurity',
   grpc.web.MethodType.UNARY,
