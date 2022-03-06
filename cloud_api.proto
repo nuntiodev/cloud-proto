@@ -29,7 +29,6 @@ service UserService {
 }
 
 service NetworkService {
-    rpc Heartbeat(Request) returns (Response) {}
     rpc Invite(ApiRequest) returns (ApiResponse) {}
     rpc Accept(ApiRequest) returns (ApiResponse) {}
     rpc GetConnections(ApiRequest) returns (ApiResponse) {}
