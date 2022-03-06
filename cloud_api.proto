@@ -48,9 +48,3 @@ message ApiResponse {
     BlockUser.UserResponse user_response = 2;
     BlockNetwork.NetworkResponse network_response = 3;
 }
-
-message Request {}
-
-message Response {
-    string msg = 1;
-}

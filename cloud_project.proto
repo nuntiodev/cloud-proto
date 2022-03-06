@@ -21,14 +21,13 @@ service Service {
 message Project {
     string id = 1;
     string owner_id = 2;
-    string organization_id = 3;
-    string name = 4;
-    string private_key = 5;
-    bool private_key_secured = 6;
-    google.protobuf.Timestamp created_at = 7;
-    google.protobuf.Timestamp updated_at = 8;
-    google.protobuf.Timestamp private_key_generated_at = 9;
-    google.protobuf.Timestamp private_key_secured_at = 10;
+    string name = 3;
+    string private_key = 4;
+    bool private_key_secured = 5;
+    google.protobuf.Timestamp created_at = 6;
+    google.protobuf.Timestamp updated_at = 7;
+    google.protobuf.Timestamp private_key_generated_at = 8;
+    google.protobuf.Timestamp private_key_secured_at = 9;
 }
 
 enum KeyType {
