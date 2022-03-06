@@ -976,67 +976,6 @@ proto.CloudApi.NetworkServicePromiseClient =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.CloudApi.Request,
- *   !proto.CloudApi.Response>}
- */
-const methodDescriptor_NetworkService_Heartbeat = new grpc.web.MethodDescriptor(
-  '/CloudApi.NetworkService/Heartbeat',
-  grpc.web.MethodType.UNARY,
-  proto.CloudApi.Request,
-  proto.CloudApi.Response,
-  /**
-   * @param {!proto.CloudApi.Request} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.CloudApi.Response.deserializeBinary
-);
-
-
-/**
- * @param {!proto.CloudApi.Request} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.CloudApi.Response)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.CloudApi.Response>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.CloudApi.NetworkServiceClient.prototype.heartbeat =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/CloudApi.NetworkService/Heartbeat',
-      request,
-      metadata || {},
-      methodDescriptor_NetworkService_Heartbeat,
-      callback);
-};
-
-
-/**
- * @param {!proto.CloudApi.Request} request The
- *     request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.CloudApi.Response>}
- *     Promise that resolves to the response
- */
-proto.CloudApi.NetworkServicePromiseClient.prototype.heartbeat =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/CloudApi.NetworkService/Heartbeat',
-      request,
-      metadata || {},
-      methodDescriptor_NetworkService_Heartbeat);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
  *   !proto.CloudApi.ApiRequest,
  *   !proto.CloudApi.ApiResponse>}
  */

@@ -582,7 +582,6 @@ var UserService_ServiceDesc = grpc.ServiceDesc{
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type NetworkServiceClient interface {
-	Heartbeat(ctx context.Context, in *Request, opts ...grpc.CallOption) (*Response, error)
 	Invite(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
 	Accept(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
 	GetConnections(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
@@ -595,15 +594,6 @@ type networkServiceClient struct {
 
 func NewNetworkServiceClient(cc grpc.ClientConnInterface) NetworkServiceClient {
 	return &networkServiceClient{cc}
-}
-
-func (c *networkServiceClient) Heartbeat(ctx context.Context, in *Request, opts ...grpc.CallOption) (*Response, error) {
-	out := new(Response)
-	err := c.cc.Invoke(ctx, "/CloudApi.NetworkService/Heartbeat", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
 }
 
 func (c *networkServiceClient) Invite(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error) {
@@ -646,7 +636,6 @@ func (c *networkServiceClient) Remove(ctx context.Context, in *ApiRequest, opts 
 // All implementations should embed UnimplementedNetworkServiceServer
 // for forward compatibility
 type NetworkServiceServer interface {
-	Heartbeat(context.Context, *Request) (*Response, error)
 	Invite(context.Context, *ApiRequest) (*ApiResponse, error)
 	Accept(context.Context, *ApiRequest) (*ApiResponse, error)
 	GetConnections(context.Context, *ApiRequest) (*ApiResponse, error)
@@ -657,9 +646,6 @@ type NetworkServiceServer interface {
 type UnimplementedNetworkServiceServer struct {
 }
 
-func (UnimplementedNetworkServiceServer) Heartbeat(context.Context, *Request) (*Response, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Heartbeat not implemented")
-}
 func (UnimplementedNetworkServiceServer) Invite(context.Context, *ApiRequest) (*ApiResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Invite not implemented")
 }
@@ -682,24 +668,6 @@ type UnsafeNetworkServiceServer interface {
 
 func RegisterNetworkServiceServer(s grpc.ServiceRegistrar, srv NetworkServiceServer) {
 	s.RegisterService(&NetworkService_ServiceDesc, srv)
-}
-
-func _NetworkService_Heartbeat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(Request)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(NetworkServiceServer).Heartbeat(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/CloudApi.NetworkService/Heartbeat",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(NetworkServiceServer).Heartbeat(ctx, req.(*Request))
-	}
-	return interceptor(ctx, in, info, handler)
 }
 
 func _NetworkService_Invite_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -781,10 +749,6 @@ var NetworkService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "CloudApi.NetworkService",
 	HandlerType: (*NetworkServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
-		{
-			MethodName: "Heartbeat",
-			Handler:    _NetworkService_Heartbeat_Handler,
-		},
 		{
 			MethodName: "Invite",
 			Handler:    _NetworkService_Invite_Handler,
