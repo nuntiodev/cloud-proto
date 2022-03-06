@@ -6,25 +6,6 @@ option go_package = "go_cloud/cloud_dashboard";
 
 import "google/protobuf/timestamp.proto";
 
-service AdminService {
-    rpc Heartbeat(Request) returns (Response) {}
-    rpc CreateOrganization(OrganizationRequest) returns (OrganizationResponse) {}
-    rpc GetOrganization(OrganizationRequest) returns (OrganizationResponse) {}
-    rpc CreateProject(ProjectRequest) returns (ProjectResponse) {}
-    rpc GetProject(ProjectRequest) returns (ProjectResponse) {}
-}
-
-message OrganizationRequest {
-    string accessToken = 1;
-    Organization organization = 2;
-    Organization Update = 3;
-}
-
-message OrganizationResponse {
-    Organization organization = 1;
-    repeated Organization organizations = 2;
-}
-
 message ProjectRequest {
     string accessToken = 1;
     Project project = 2;
@@ -35,19 +16,9 @@ message ProjectResponse {
     repeated Project projects = 2;
 }
 
-message Organization {
-    string id = 1;
-    string name = 2;
-    string contactEmail = 3;
-    string website = 4;
-    string ownerId = 5;
-    google.protobuf.Timestamp created_at = 6;
-    google.protobuf.Timestamp updated_at = 7;
-}
-
 message Project {
     string id = 1;
-    string organizationId = 2;
+    string ownerId = 2;
     string name = 3;
     google.protobuf.Timestamp created_at = 6;
     google.protobuf.Timestamp updated_at = 7;
