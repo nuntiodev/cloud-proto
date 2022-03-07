@@ -82,6 +82,67 @@ proto.CloudApi.AccessServicePromiseClient =
  *   !proto.CloudApi.ApiRequest,
  *   !proto.CloudApi.ApiResponse>}
  */
+const methodDescriptor_AccessService_Heartbeat = new grpc.web.MethodDescriptor(
+  '/CloudApi.AccessService/Heartbeat',
+  grpc.web.MethodType.UNARY,
+  proto.CloudApi.ApiRequest,
+  proto.CloudApi.ApiResponse,
+  /**
+   * @param {!proto.CloudApi.ApiRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.CloudApi.ApiResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.CloudApi.ApiRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.CloudApi.ApiResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.CloudApi.ApiResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.CloudApi.AccessServiceClient.prototype.heartbeat =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/CloudApi.AccessService/Heartbeat',
+      request,
+      metadata || {},
+      methodDescriptor_AccessService_Heartbeat,
+      callback);
+};
+
+
+/**
+ * @param {!proto.CloudApi.ApiRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.CloudApi.ApiResponse>}
+ *     Promise that resolves to the response
+ */
+proto.CloudApi.AccessServicePromiseClient.prototype.heartbeat =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/CloudApi.AccessService/Heartbeat',
+      request,
+      metadata || {},
+      methodDescriptor_AccessService_Heartbeat);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.CloudApi.ApiRequest,
+ *   !proto.CloudApi.ApiResponse>}
+ */
 const methodDescriptor_AccessService_GenerateAuthToken = new grpc.web.MethodDescriptor(
   '/CloudApi.AccessService/GenerateAuthToken',
   grpc.web.MethodType.UNARY,
@@ -186,6 +247,67 @@ proto.CloudApi.UserServicePromiseClient =
    */
   this.hostname_ = hostname;
 
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.CloudApi.ApiRequest,
+ *   !proto.CloudApi.ApiResponse>}
+ */
+const methodDescriptor_UserService_Heartbeat = new grpc.web.MethodDescriptor(
+  '/CloudApi.UserService/Heartbeat',
+  grpc.web.MethodType.UNARY,
+  proto.CloudApi.ApiRequest,
+  proto.CloudApi.ApiResponse,
+  /**
+   * @param {!proto.CloudApi.ApiRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.CloudApi.ApiResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.CloudApi.ApiRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.CloudApi.ApiResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.CloudApi.ApiResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.CloudApi.UserServiceClient.prototype.heartbeat =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/CloudApi.UserService/Heartbeat',
+      request,
+      metadata || {},
+      methodDescriptor_UserService_Heartbeat,
+      callback);
+};
+
+
+/**
+ * @param {!proto.CloudApi.ApiRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.CloudApi.ApiResponse>}
+ *     Promise that resolves to the response
+ */
+proto.CloudApi.UserServicePromiseClient.prototype.heartbeat =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/CloudApi.UserService/Heartbeat',
+      request,
+      metadata || {},
+      methodDescriptor_UserService_Heartbeat);
 };
 
 

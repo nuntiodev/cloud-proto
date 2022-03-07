@@ -18,6 +18,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type AccessServiceClient interface {
+	Heartbeat(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
 	GenerateAuthToken(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
 }
 
@@ -27,6 +28,15 @@ type accessServiceClient struct {
 
 func NewAccessServiceClient(cc grpc.ClientConnInterface) AccessServiceClient {
 	return &accessServiceClient{cc}
+}
+
+func (c *accessServiceClient) Heartbeat(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error) {
+	out := new(ApiResponse)
+	err := c.cc.Invoke(ctx, "/CloudApi.AccessService/Heartbeat", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *accessServiceClient) GenerateAuthToken(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error) {
@@ -42,6 +52,7 @@ func (c *accessServiceClient) GenerateAuthToken(ctx context.Context, in *ApiRequ
 // All implementations should embed UnimplementedAccessServiceServer
 // for forward compatibility
 type AccessServiceServer interface {
+	Heartbeat(context.Context, *ApiRequest) (*ApiResponse, error)
 	GenerateAuthToken(context.Context, *ApiRequest) (*ApiResponse, error)
 }
 
@@ -49,6 +60,9 @@ type AccessServiceServer interface {
 type UnimplementedAccessServiceServer struct {
 }
 
+func (UnimplementedAccessServiceServer) Heartbeat(context.Context, *ApiRequest) (*ApiResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Heartbeat not implemented")
+}
 func (UnimplementedAccessServiceServer) GenerateAuthToken(context.Context, *ApiRequest) (*ApiResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GenerateAuthToken not implemented")
 }
@@ -62,6 +76,24 @@ type UnsafeAccessServiceServer interface {
 
 func RegisterAccessServiceServer(s grpc.ServiceRegistrar, srv AccessServiceServer) {
 	s.RegisterService(&AccessService_ServiceDesc, srv)
+}
+
+func _AccessService_Heartbeat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ApiRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccessServiceServer).Heartbeat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/CloudApi.AccessService/Heartbeat",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccessServiceServer).Heartbeat(ctx, req.(*ApiRequest))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _AccessService_GenerateAuthToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -90,6 +122,10 @@ var AccessService_ServiceDesc = grpc.ServiceDesc{
 	HandlerType: (*AccessServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
+			MethodName: "Heartbeat",
+			Handler:    _AccessService_Heartbeat_Handler,
+		},
+		{
 			MethodName: "GenerateAuthToken",
 			Handler:    _AccessService_GenerateAuthToken_Handler,
 		},
@@ -102,6 +138,7 @@ var AccessService_ServiceDesc = grpc.ServiceDesc{
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type UserServiceClient interface {
+	Heartbeat(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
 	Create(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
 	UpdatePassword(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
 	UpdateMetadata(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error)
@@ -122,6 +159,15 @@ type userServiceClient struct {
 
 func NewUserServiceClient(cc grpc.ClientConnInterface) UserServiceClient {
 	return &userServiceClient{cc}
+}
+
+func (c *userServiceClient) Heartbeat(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error) {
+	out := new(ApiResponse)
+	err := c.cc.Invoke(ctx, "/CloudApi.UserService/Heartbeat", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
 }
 
 func (c *userServiceClient) Create(ctx context.Context, in *ApiRequest, opts ...grpc.CallOption) (*ApiResponse, error) {
@@ -236,6 +282,7 @@ func (c *userServiceClient) DeleteNamespace(ctx context.Context, in *ApiRequest,
 // All implementations should embed UnimplementedUserServiceServer
 // for forward compatibility
 type UserServiceServer interface {
+	Heartbeat(context.Context, *ApiRequest) (*ApiResponse, error)
 	Create(context.Context, *ApiRequest) (*ApiResponse, error)
 	UpdatePassword(context.Context, *ApiRequest) (*ApiResponse, error)
 	UpdateMetadata(context.Context, *ApiRequest) (*ApiResponse, error)
@@ -254,6 +301,9 @@ type UserServiceServer interface {
 type UnimplementedUserServiceServer struct {
 }
 
+func (UnimplementedUserServiceServer) Heartbeat(context.Context, *ApiRequest) (*ApiResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Heartbeat not implemented")
+}
 func (UnimplementedUserServiceServer) Create(context.Context, *ApiRequest) (*ApiResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
@@ -300,6 +350,24 @@ type UnsafeUserServiceServer interface {
 
 func RegisterUserServiceServer(s grpc.ServiceRegistrar, srv UserServiceServer) {
 	s.RegisterService(&UserService_ServiceDesc, srv)
+}
+
+func _UserService_Heartbeat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ApiRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(UserServiceServer).Heartbeat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/CloudApi.UserService/Heartbeat",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(UserServiceServer).Heartbeat(ctx, req.(*ApiRequest))
+	}
+	return interceptor(ctx, in, info, handler)
 }
 
 func _UserService_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
@@ -525,6 +593,10 @@ var UserService_ServiceDesc = grpc.ServiceDesc{
 	ServiceName: "CloudApi.UserService",
 	HandlerType: (*UserServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Heartbeat",
+			Handler:    _UserService_Heartbeat_Handler,
+		},
 		{
 			MethodName: "Create",
 			Handler:    _UserService_Create_Handler,

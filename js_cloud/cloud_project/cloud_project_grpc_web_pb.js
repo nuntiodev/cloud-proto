@@ -75,33 +75,33 @@ proto.CloudProject.ServicePromiseClient =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.CloudProject.Request,
- *   !proto.CloudProject.Response>}
+ *   !proto.CloudProject.ProjectRequest,
+ *   !proto.CloudProject.ProjectRequest>}
  */
 const methodDescriptor_Service_Heartbeat = new grpc.web.MethodDescriptor(
   '/CloudProject.Service/Heartbeat',
   grpc.web.MethodType.UNARY,
-  proto.CloudProject.Request,
-  proto.CloudProject.Response,
+  proto.CloudProject.ProjectRequest,
+  proto.CloudProject.ProjectRequest,
   /**
-   * @param {!proto.CloudProject.Request} request
+   * @param {!proto.CloudProject.ProjectRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.CloudProject.Response.deserializeBinary
+  proto.CloudProject.ProjectRequest.deserializeBinary
 );
 
 
 /**
- * @param {!proto.CloudProject.Request} request The
+ * @param {!proto.CloudProject.ProjectRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.CloudProject.Response)}
+ * @param {function(?grpc.web.RpcError, ?proto.CloudProject.ProjectRequest)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.Response>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.ProjectRequest>|undefined}
  *     The XHR Node Readable Stream
  */
 proto.CloudProject.ServiceClient.prototype.heartbeat =
@@ -116,11 +116,11 @@ proto.CloudProject.ServiceClient.prototype.heartbeat =
 
 
 /**
- * @param {!proto.CloudProject.Request} request The
+ * @param {!proto.CloudProject.ProjectRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.CloudProject.Response>}
+ * @return {!Promise<!proto.CloudProject.ProjectRequest>}
  *     Promise that resolves to the response
  */
 proto.CloudProject.ServicePromiseClient.prototype.heartbeat =
