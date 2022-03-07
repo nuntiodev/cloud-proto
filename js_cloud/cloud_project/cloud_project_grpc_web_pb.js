@@ -76,13 +76,13 @@ proto.CloudProject.ServicePromiseClient =
  * @const
  * @type {!grpc.web.MethodDescriptor<
  *   !proto.CloudProject.ProjectRequest,
- *   !proto.CloudProject.ProjectRequest>}
+ *   !proto.CloudProject.ProjectResponse>}
  */
 const methodDescriptor_Service_Heartbeat = new grpc.web.MethodDescriptor(
   '/CloudProject.Service/Heartbeat',
   grpc.web.MethodType.UNARY,
   proto.CloudProject.ProjectRequest,
-  proto.CloudProject.ProjectRequest,
+  proto.CloudProject.ProjectResponse,
   /**
    * @param {!proto.CloudProject.ProjectRequest} request
    * @return {!Uint8Array}
@@ -90,7 +90,7 @@ const methodDescriptor_Service_Heartbeat = new grpc.web.MethodDescriptor(
   function(request) {
     return request.serializeBinary();
   },
-  proto.CloudProject.ProjectRequest.deserializeBinary
+  proto.CloudProject.ProjectResponse.deserializeBinary
 );
 
 
@@ -99,9 +99,9 @@ const methodDescriptor_Service_Heartbeat = new grpc.web.MethodDescriptor(
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.CloudProject.ProjectRequest)}
+ * @param {function(?grpc.web.RpcError, ?proto.CloudProject.ProjectResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.ProjectRequest>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.ProjectResponse>|undefined}
  *     The XHR Node Readable Stream
  */
 proto.CloudProject.ServiceClient.prototype.heartbeat =
@@ -120,7 +120,7 @@ proto.CloudProject.ServiceClient.prototype.heartbeat =
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.CloudProject.ProjectRequest>}
+ * @return {!Promise<!proto.CloudProject.ProjectResponse>}
  *     Promise that resolves to the response
  */
 proto.CloudProject.ServicePromiseClient.prototype.heartbeat =

@@ -18,7 +18,7 @@ const _ = grpc.SupportPackageIsVersion7
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type ServiceClient interface {
-	Heartbeat(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectRequest, error)
+	Heartbeat(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
 	Create(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
 	RollPrivateKey(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
 	GenerateAuthToken(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
@@ -37,8 +37,8 @@ func NewServiceClient(cc grpc.ClientConnInterface) ServiceClient {
 	return &serviceClient{cc}
 }
 
-func (c *serviceClient) Heartbeat(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectRequest, error) {
-	out := new(ProjectRequest)
+func (c *serviceClient) Heartbeat(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error) {
+	out := new(ProjectResponse)
 	err := c.cc.Invoke(ctx, "/CloudProject.Service/Heartbeat", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -122,7 +122,7 @@ func (c *serviceClient) Delete(ctx context.Context, in *ProjectRequest, opts ...
 // All implementations should embed UnimplementedServiceServer
 // for forward compatibility
 type ServiceServer interface {
-	Heartbeat(context.Context, *ProjectRequest) (*ProjectRequest, error)
+	Heartbeat(context.Context, *ProjectRequest) (*ProjectResponse, error)
 	Create(context.Context, *ProjectRequest) (*ProjectResponse, error)
 	RollPrivateKey(context.Context, *ProjectRequest) (*ProjectResponse, error)
 	GenerateAuthToken(context.Context, *ProjectRequest) (*ProjectResponse, error)
@@ -137,7 +137,7 @@ type ServiceServer interface {
 type UnimplementedServiceServer struct {
 }
 
-func (UnimplementedServiceServer) Heartbeat(context.Context, *ProjectRequest) (*ProjectRequest, error) {
+func (UnimplementedServiceServer) Heartbeat(context.Context, *ProjectRequest) (*ProjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Heartbeat not implemented")
 }
 func (UnimplementedServiceServer) Create(context.Context, *ProjectRequest) (*ProjectResponse, error) {
