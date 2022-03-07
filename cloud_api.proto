@@ -10,10 +10,12 @@ import "block-proto/block_user.proto";
 import "block-proto/block_network.proto";
 
 service AccessService {
+    rpc Heartbeat(ApiRequest) returns (ApiResponse) {}
     rpc GenerateAuthToken(ApiRequest) returns (ApiResponse) {}
 }
 
 service UserService {
+    rpc Heartbeat(ApiRequest) returns (ApiResponse) {}
     rpc Create(ApiRequest) returns (ApiResponse) {}
     rpc UpdatePassword(ApiRequest) returns (ApiResponse) {}
     rpc UpdateMetadata(ApiRequest) returns (ApiResponse) {}
