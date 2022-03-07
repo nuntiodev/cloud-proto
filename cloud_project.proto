@@ -7,7 +7,7 @@ option go_package = "./go_cloud/cloud_project";
 import "google/protobuf/timestamp.proto";
 
 service Service {
-    rpc Heartbeat(ProjectRequest) returns (ProjectRequest) {}
+    rpc Heartbeat(ProjectRequest) returns (ProjectResponse) {}
     rpc Create(ProjectRequest) returns (ProjectResponse) {}
     rpc RollPrivateKey(ProjectRequest) returns (ProjectResponse) {}
     rpc GenerateAuthToken(ProjectRequest) returns (ProjectResponse) {}
