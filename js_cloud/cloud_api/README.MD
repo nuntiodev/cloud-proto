@@ -1,1 +1,0 @@
-# Softcorp Cloud Api Service
