@@ -30,12 +30,6 @@ message Project {
     google.protobuf.Timestamp private_key_secured_at = 9;
 }
 
-enum KeyType {
-    INVALID_KEY = 0;
-    PRIVATE_KEY = 1;
-    PUBLIC_KEY = 2;
-}
-
 message ProjectRequest {
     Project project = 1;
     Project update = 2;

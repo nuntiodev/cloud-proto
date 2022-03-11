@@ -14,22 +14,6 @@ service AccessService {
     rpc GenerateAuthToken(ApiRequest) returns (ApiResponse) {}
 }
 
-service UserService {
-    rpc Heartbeat(ApiRequest) returns (ApiResponse) {}
-    rpc Create(ApiRequest) returns (ApiResponse) {}
-    rpc UpdatePassword(ApiRequest) returns (ApiResponse) {}
-    rpc UpdateMetadata(ApiRequest) returns (ApiResponse) {}
-    rpc UpdateImage(ApiRequest) returns (ApiResponse) {}
-    rpc UpdateEmail(ApiRequest) returns (ApiResponse) {}
-    rpc UpdateOptionalId(ApiRequest) returns (ApiResponse) {}
-    rpc UpdateSecurity(ApiRequest) returns (ApiResponse) {}
-    rpc Get(ApiRequest) returns (ApiResponse) {}
-    rpc GetAll(ApiRequest) returns (ApiResponse) {}
-    rpc ValidateCredentials(ApiRequest) returns (ApiResponse) {}
-    rpc Delete(ApiRequest) returns (ApiResponse) {}
-    rpc DeleteNamespace(ApiRequest) returns (ApiResponse) {}
-}
-
 service NetworkService {
     rpc Invite(ApiRequest) returns (ApiResponse) {}
     rpc Accept(ApiRequest) returns (ApiResponse) {}

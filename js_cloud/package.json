@@ -1,6 +1,6 @@
 {
-  "name": "js_softcorp",
-  "version": "0.0.14",
+  "name": "js_softcorp_cloud",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/softcorp-io/softcorp-proto.git"
+    "url": "git+https://github.com/softcorp-io/cloud-proto.git"
   },
   "author": "softcorp",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/softcorp-io/softcorp-proto/issues"
+    "url": "https://github.com/softcorp-io/cloud-proto/issues"
   },
-  "homepage": "https://github.com/softcorp-io/softcorp-proto#readme"
+  "homepage": "https://github.com/softcorp-io/cloud-proto#readme"
 }
