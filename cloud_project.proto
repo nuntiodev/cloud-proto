@@ -10,8 +10,8 @@ service Service {
     rpc Heartbeat(ProjectRequest) returns (ProjectResponse) {}
     rpc Create(ProjectRequest) returns (ProjectResponse) {}
     rpc RollPrivateKey(ProjectRequest) returns (ProjectResponse) {}
-    rpc GenerateAuthToken(ProjectRequest) returns (ProjectResponse) {}
-    rpc ValidateAuthToken(ProjectRequest) returns (ProjectResponse) {}
+    rpc GenerateAccessToken(ProjectRequest) returns (ProjectResponse) {}
+    rpc ValidateAccessToken(ProjectRequest) returns (ProjectResponse) {}
     rpc UpdateInfo(ProjectRequest) returns (ProjectResponse) {}
     rpc Get(ProjectRequest) returns (ProjectResponse) {}
     rpc GetByOwner(ProjectRequest) returns (ProjectResponse) {}
