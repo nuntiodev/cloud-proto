@@ -23,7 +23,6 @@ var global = (function() {
 
 var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js');
 goog.object.extend(proto, google_protobuf_timestamp_pb);
-goog.exportSymbol('proto.CloudProject.KeyType', null, global);
 goog.exportSymbol('proto.CloudProject.Project', null, global);
 goog.exportSymbol('proto.CloudProject.ProjectRequest', null, global);
 goog.exportSymbol('proto.CloudProject.ProjectResponse', null, global);
@@ -1046,14 +1045,5 @@ proto.CloudProject.ProjectResponse.prototype.setAuthToken = function(value) {
   return jspb.Message.setProto3StringField(this, 3, value);
 };
 
-
-/**
- * @enum {number}
- */
-proto.CloudProject.KeyType = {
-  INVALID_KEY: 0,
-  PRIVATE_KEY: 1,
-  PUBLIC_KEY: 2
-};
 
 goog.object.extend(exports, proto.CloudProject);
