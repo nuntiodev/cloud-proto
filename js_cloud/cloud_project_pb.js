@@ -578,7 +578,7 @@ proto.CloudProject.ProjectRequest.toObject = function(includeInstance, msg) {
     project: (f = msg.getProject()) && proto.CloudProject.Project.toObject(includeInstance, f),
     update: (f = msg.getUpdate()) && proto.CloudProject.Project.toObject(includeInstance, f),
     privateKey: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    authToken: jspb.Message.getFieldWithDefault(msg, 4, "")
+    accessToken: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {
@@ -631,7 +631,7 @@ proto.CloudProject.ProjectRequest.deserializeBinaryFromReader = function(msg, re
       break;
     case 4:
       var value = /** @type {string} */ (reader.readString());
-      msg.setAuthToken(value);
+      msg.setAccessToken(value);
       break;
     default:
       reader.skipField();
@@ -685,7 +685,7 @@ proto.CloudProject.ProjectRequest.serializeBinaryToWriter = function(message, wr
       f
     );
   }
-  f = message.getAuthToken();
+  f = message.getAccessToken();
   if (f.length > 0) {
     writer.writeString(
       4,
@@ -788,10 +788,10 @@ proto.CloudProject.ProjectRequest.prototype.setPrivateKey = function(value) {
 
 
 /**
- * optional string auth_token = 4;
+ * optional string access_token = 4;
  * @return {string}
  */
-proto.CloudProject.ProjectRequest.prototype.getAuthToken = function() {
+proto.CloudProject.ProjectRequest.prototype.getAccessToken = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
@@ -800,7 +800,7 @@ proto.CloudProject.ProjectRequest.prototype.getAuthToken = function() {
  * @param {string} value
  * @return {!proto.CloudProject.ProjectRequest} returns this
  */
-proto.CloudProject.ProjectRequest.prototype.setAuthToken = function(value) {
+proto.CloudProject.ProjectRequest.prototype.setAccessToken = function(value) {
   return jspb.Message.setProto3StringField(this, 4, value);
 };
 
@@ -847,7 +847,7 @@ proto.CloudProject.ProjectResponse.toObject = function(includeInstance, msg) {
     project: (f = msg.getProject()) && proto.CloudProject.Project.toObject(includeInstance, f),
     projectsList: jspb.Message.toObjectList(msg.getProjectsList(),
     proto.CloudProject.Project.toObject, includeInstance),
-    authToken: jspb.Message.getFieldWithDefault(msg, 3, "")
+    accessToken: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
   if (includeInstance) {
@@ -896,7 +896,7 @@ proto.CloudProject.ProjectResponse.deserializeBinaryFromReader = function(msg, r
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
-      msg.setAuthToken(value);
+      msg.setAccessToken(value);
       break;
     default:
       reader.skipField();
@@ -943,7 +943,7 @@ proto.CloudProject.ProjectResponse.serializeBinaryToWriter = function(message, w
       proto.CloudProject.Project.serializeBinaryToWriter
     );
   }
-  f = message.getAuthToken();
+  f = message.getAccessToken();
   if (f.length > 0) {
     writer.writeString(
       3,
@@ -1029,10 +1029,10 @@ proto.CloudProject.ProjectResponse.prototype.clearProjectsList = function() {
 
 
 /**
- * optional string auth_token = 3;
+ * optional string access_token = 3;
  * @return {string}
  */
-proto.CloudProject.ProjectResponse.prototype.getAuthToken = function() {
+proto.CloudProject.ProjectResponse.prototype.getAccessToken = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
@@ -1041,7 +1041,7 @@ proto.CloudProject.ProjectResponse.prototype.getAuthToken = function() {
  * @param {string} value
  * @return {!proto.CloudProject.ProjectResponse} returns this
  */
-proto.CloudProject.ProjectResponse.prototype.setAuthToken = function(value) {
+proto.CloudProject.ProjectResponse.prototype.setAccessToken = function(value) {
   return jspb.Message.setProto3StringField(this, 3, value);
 };
 
