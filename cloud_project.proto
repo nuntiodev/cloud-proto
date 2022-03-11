@@ -34,11 +34,11 @@ message ProjectRequest {
     Project project = 1;
     Project update = 2;
     string private_key = 3;
-    string auth_token = 4;
+    string access_token = 4;
 }
 
 message ProjectResponse {
     Project project = 1;
     repeated Project projects = 2;
-    string auth_token = 3;
+    string access_token = 3;
 }
