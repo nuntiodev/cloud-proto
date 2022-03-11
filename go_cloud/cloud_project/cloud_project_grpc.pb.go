@@ -21,8 +21,8 @@ type ServiceClient interface {
 	Heartbeat(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
 	Create(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
 	RollPrivateKey(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
-	GenerateAuthToken(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
-	ValidateAuthToken(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
+	GenerateAccessToken(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
+	ValidateAccessToken(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
 	UpdateInfo(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
 	Get(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
 	GetByOwner(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
@@ -64,18 +64,18 @@ func (c *serviceClient) RollPrivateKey(ctx context.Context, in *ProjectRequest, 
 	return out, nil
 }
 
-func (c *serviceClient) GenerateAuthToken(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error) {
+func (c *serviceClient) GenerateAccessToken(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error) {
 	out := new(ProjectResponse)
-	err := c.cc.Invoke(ctx, "/CloudProject.Service/GenerateAuthToken", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/CloudProject.Service/GenerateAccessToken", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *serviceClient) ValidateAuthToken(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error) {
+func (c *serviceClient) ValidateAccessToken(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error) {
 	out := new(ProjectResponse)
-	err := c.cc.Invoke(ctx, "/CloudProject.Service/ValidateAuthToken", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/CloudProject.Service/ValidateAccessToken", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -125,8 +125,8 @@ type ServiceServer interface {
 	Heartbeat(context.Context, *ProjectRequest) (*ProjectResponse, error)
 	Create(context.Context, *ProjectRequest) (*ProjectResponse, error)
 	RollPrivateKey(context.Context, *ProjectRequest) (*ProjectResponse, error)
-	GenerateAuthToken(context.Context, *ProjectRequest) (*ProjectResponse, error)
-	ValidateAuthToken(context.Context, *ProjectRequest) (*ProjectResponse, error)
+	GenerateAccessToken(context.Context, *ProjectRequest) (*ProjectResponse, error)
+	ValidateAccessToken(context.Context, *ProjectRequest) (*ProjectResponse, error)
 	UpdateInfo(context.Context, *ProjectRequest) (*ProjectResponse, error)
 	Get(context.Context, *ProjectRequest) (*ProjectResponse, error)
 	GetByOwner(context.Context, *ProjectRequest) (*ProjectResponse, error)
@@ -146,11 +146,11 @@ func (UnimplementedServiceServer) Create(context.Context, *ProjectRequest) (*Pro
 func (UnimplementedServiceServer) RollPrivateKey(context.Context, *ProjectRequest) (*ProjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RollPrivateKey not implemented")
 }
-func (UnimplementedServiceServer) GenerateAuthToken(context.Context, *ProjectRequest) (*ProjectResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GenerateAuthToken not implemented")
+func (UnimplementedServiceServer) GenerateAccessToken(context.Context, *ProjectRequest) (*ProjectResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GenerateAccessToken not implemented")
 }
-func (UnimplementedServiceServer) ValidateAuthToken(context.Context, *ProjectRequest) (*ProjectResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ValidateAuthToken not implemented")
+func (UnimplementedServiceServer) ValidateAccessToken(context.Context, *ProjectRequest) (*ProjectResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ValidateAccessToken not implemented")
 }
 func (UnimplementedServiceServer) UpdateInfo(context.Context, *ProjectRequest) (*ProjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateInfo not implemented")
@@ -230,38 +230,38 @@ func _Service_RollPrivateKey_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Service_GenerateAuthToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Service_GenerateAccessToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ProjectRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ServiceServer).GenerateAuthToken(ctx, in)
+		return srv.(ServiceServer).GenerateAccessToken(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/CloudProject.Service/GenerateAuthToken",
+		FullMethod: "/CloudProject.Service/GenerateAccessToken",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).GenerateAuthToken(ctx, req.(*ProjectRequest))
+		return srv.(ServiceServer).GenerateAccessToken(ctx, req.(*ProjectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Service_ValidateAuthToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Service_ValidateAccessToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ProjectRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ServiceServer).ValidateAuthToken(ctx, in)
+		return srv.(ServiceServer).ValidateAccessToken(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/CloudProject.Service/ValidateAuthToken",
+		FullMethod: "/CloudProject.Service/ValidateAccessToken",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).ValidateAuthToken(ctx, req.(*ProjectRequest))
+		return srv.(ServiceServer).ValidateAccessToken(ctx, req.(*ProjectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -358,12 +358,12 @@ var Service_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _Service_RollPrivateKey_Handler,
 		},
 		{
-			MethodName: "GenerateAuthToken",
-			Handler:    _Service_GenerateAuthToken_Handler,
+			MethodName: "GenerateAccessToken",
+			Handler:    _Service_GenerateAccessToken_Handler,
 		},
 		{
-			MethodName: "ValidateAuthToken",
-			Handler:    _Service_ValidateAuthToken_Handler,
+			MethodName: "ValidateAccessToken",
+			Handler:    _Service_ValidateAccessToken_Handler,
 		},
 		{
 			MethodName: "UpdateInfo",

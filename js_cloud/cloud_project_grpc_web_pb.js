@@ -261,8 +261,8 @@ proto.CloudProject.ServicePromiseClient.prototype.rollPrivateKey =
  *   !proto.CloudProject.ProjectRequest,
  *   !proto.CloudProject.ProjectResponse>}
  */
-const methodDescriptor_Service_GenerateAuthToken = new grpc.web.MethodDescriptor(
-  '/CloudProject.Service/GenerateAuthToken',
+const methodDescriptor_Service_GenerateAccessToken = new grpc.web.MethodDescriptor(
+  '/CloudProject.Service/GenerateAccessToken',
   grpc.web.MethodType.UNARY,
   proto.CloudProject.ProjectRequest,
   proto.CloudProject.ProjectResponse,
@@ -287,13 +287,13 @@ const methodDescriptor_Service_GenerateAuthToken = new grpc.web.MethodDescriptor
  * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.ProjectResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.CloudProject.ServiceClient.prototype.generateAuthToken =
+proto.CloudProject.ServiceClient.prototype.generateAccessToken =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/CloudProject.Service/GenerateAuthToken',
+      '/CloudProject.Service/GenerateAccessToken',
       request,
       metadata || {},
-      methodDescriptor_Service_GenerateAuthToken,
+      methodDescriptor_Service_GenerateAccessToken,
       callback);
 };
 
@@ -306,13 +306,13 @@ proto.CloudProject.ServiceClient.prototype.generateAuthToken =
  * @return {!Promise<!proto.CloudProject.ProjectResponse>}
  *     Promise that resolves to the response
  */
-proto.CloudProject.ServicePromiseClient.prototype.generateAuthToken =
+proto.CloudProject.ServicePromiseClient.prototype.generateAccessToken =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/CloudProject.Service/GenerateAuthToken',
+      '/CloudProject.Service/GenerateAccessToken',
       request,
       metadata || {},
-      methodDescriptor_Service_GenerateAuthToken);
+      methodDescriptor_Service_GenerateAccessToken);
 };
 
 
@@ -322,8 +322,8 @@ proto.CloudProject.ServicePromiseClient.prototype.generateAuthToken =
  *   !proto.CloudProject.ProjectRequest,
  *   !proto.CloudProject.ProjectResponse>}
  */
-const methodDescriptor_Service_ValidateAuthToken = new grpc.web.MethodDescriptor(
-  '/CloudProject.Service/ValidateAuthToken',
+const methodDescriptor_Service_ValidateAccessToken = new grpc.web.MethodDescriptor(
+  '/CloudProject.Service/ValidateAccessToken',
   grpc.web.MethodType.UNARY,
   proto.CloudProject.ProjectRequest,
   proto.CloudProject.ProjectResponse,
@@ -348,13 +348,13 @@ const methodDescriptor_Service_ValidateAuthToken = new grpc.web.MethodDescriptor
  * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.ProjectResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.CloudProject.ServiceClient.prototype.validateAuthToken =
+proto.CloudProject.ServiceClient.prototype.validateAccessToken =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/CloudProject.Service/ValidateAuthToken',
+      '/CloudProject.Service/ValidateAccessToken',
       request,
       metadata || {},
-      methodDescriptor_Service_ValidateAuthToken,
+      methodDescriptor_Service_ValidateAccessToken,
       callback);
 };
 
@@ -367,13 +367,13 @@ proto.CloudProject.ServiceClient.prototype.validateAuthToken =
  * @return {!Promise<!proto.CloudProject.ProjectResponse>}
  *     Promise that resolves to the response
  */
-proto.CloudProject.ServicePromiseClient.prototype.validateAuthToken =
+proto.CloudProject.ServicePromiseClient.prototype.validateAccessToken =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/CloudProject.Service/ValidateAuthToken',
+      '/CloudProject.Service/ValidateAccessToken',
       request,
       metadata || {},
-      methodDescriptor_Service_ValidateAuthToken);
+      methodDescriptor_Service_ValidateAccessToken);
 };
 
 
