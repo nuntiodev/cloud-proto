@@ -28,7 +28,7 @@ proto.CloudProject = require('./cloud_project_pb.js');
  * @struct
  * @final
  */
-proto.CloudProject.ServiceClient =
+proto.CloudProject.ProjectServiceClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
   options.format = 'text';
@@ -54,7 +54,7 @@ proto.CloudProject.ServiceClient =
  * @struct
  * @final
  */
-proto.CloudProject.ServicePromiseClient =
+proto.CloudProject.ProjectServicePromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
   options.format = 'text';
@@ -78,8 +78,8 @@ proto.CloudProject.ServicePromiseClient =
  *   !proto.CloudProject.ProjectRequest,
  *   !proto.CloudProject.ProjectResponse>}
  */
-const methodDescriptor_Service_Heartbeat = new grpc.web.MethodDescriptor(
-  '/CloudProject.Service/Heartbeat',
+const methodDescriptor_ProjectService_Heartbeat = new grpc.web.MethodDescriptor(
+  '/CloudProject.ProjectService/Heartbeat',
   grpc.web.MethodType.UNARY,
   proto.CloudProject.ProjectRequest,
   proto.CloudProject.ProjectResponse,
@@ -104,13 +104,13 @@ const methodDescriptor_Service_Heartbeat = new grpc.web.MethodDescriptor(
  * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.ProjectResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.CloudProject.ServiceClient.prototype.heartbeat =
+proto.CloudProject.ProjectServiceClient.prototype.heartbeat =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/CloudProject.Service/Heartbeat',
+      '/CloudProject.ProjectService/Heartbeat',
       request,
       metadata || {},
-      methodDescriptor_Service_Heartbeat,
+      methodDescriptor_ProjectService_Heartbeat,
       callback);
 };
 
@@ -123,13 +123,13 @@ proto.CloudProject.ServiceClient.prototype.heartbeat =
  * @return {!Promise<!proto.CloudProject.ProjectResponse>}
  *     Promise that resolves to the response
  */
-proto.CloudProject.ServicePromiseClient.prototype.heartbeat =
+proto.CloudProject.ProjectServicePromiseClient.prototype.heartbeat =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/CloudProject.Service/Heartbeat',
+      '/CloudProject.ProjectService/Heartbeat',
       request,
       metadata || {},
-      methodDescriptor_Service_Heartbeat);
+      methodDescriptor_ProjectService_Heartbeat);
 };
 
 
@@ -139,8 +139,8 @@ proto.CloudProject.ServicePromiseClient.prototype.heartbeat =
  *   !proto.CloudProject.ProjectRequest,
  *   !proto.CloudProject.ProjectResponse>}
  */
-const methodDescriptor_Service_Create = new grpc.web.MethodDescriptor(
-  '/CloudProject.Service/Create',
+const methodDescriptor_ProjectService_Create = new grpc.web.MethodDescriptor(
+  '/CloudProject.ProjectService/Create',
   grpc.web.MethodType.UNARY,
   proto.CloudProject.ProjectRequest,
   proto.CloudProject.ProjectResponse,
@@ -165,13 +165,13 @@ const methodDescriptor_Service_Create = new grpc.web.MethodDescriptor(
  * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.ProjectResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.CloudProject.ServiceClient.prototype.create =
+proto.CloudProject.ProjectServiceClient.prototype.create =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/CloudProject.Service/Create',
+      '/CloudProject.ProjectService/Create',
       request,
       metadata || {},
-      methodDescriptor_Service_Create,
+      methodDescriptor_ProjectService_Create,
       callback);
 };
 
@@ -184,13 +184,13 @@ proto.CloudProject.ServiceClient.prototype.create =
  * @return {!Promise<!proto.CloudProject.ProjectResponse>}
  *     Promise that resolves to the response
  */
-proto.CloudProject.ServicePromiseClient.prototype.create =
+proto.CloudProject.ProjectServicePromiseClient.prototype.create =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/CloudProject.Service/Create',
+      '/CloudProject.ProjectService/Create',
       request,
       metadata || {},
-      methodDescriptor_Service_Create);
+      methodDescriptor_ProjectService_Create);
 };
 
 
@@ -200,8 +200,8 @@ proto.CloudProject.ServicePromiseClient.prototype.create =
  *   !proto.CloudProject.ProjectRequest,
  *   !proto.CloudProject.ProjectResponse>}
  */
-const methodDescriptor_Service_RollPrivateKey = new grpc.web.MethodDescriptor(
-  '/CloudProject.Service/RollPrivateKey',
+const methodDescriptor_ProjectService_RollPrivateKey = new grpc.web.MethodDescriptor(
+  '/CloudProject.ProjectService/RollPrivateKey',
   grpc.web.MethodType.UNARY,
   proto.CloudProject.ProjectRequest,
   proto.CloudProject.ProjectResponse,
@@ -226,13 +226,13 @@ const methodDescriptor_Service_RollPrivateKey = new grpc.web.MethodDescriptor(
  * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.ProjectResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.CloudProject.ServiceClient.prototype.rollPrivateKey =
+proto.CloudProject.ProjectServiceClient.prototype.rollPrivateKey =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/CloudProject.Service/RollPrivateKey',
+      '/CloudProject.ProjectService/RollPrivateKey',
       request,
       metadata || {},
-      methodDescriptor_Service_RollPrivateKey,
+      methodDescriptor_ProjectService_RollPrivateKey,
       callback);
 };
 
@@ -245,13 +245,13 @@ proto.CloudProject.ServiceClient.prototype.rollPrivateKey =
  * @return {!Promise<!proto.CloudProject.ProjectResponse>}
  *     Promise that resolves to the response
  */
-proto.CloudProject.ServicePromiseClient.prototype.rollPrivateKey =
+proto.CloudProject.ProjectServicePromiseClient.prototype.rollPrivateKey =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/CloudProject.Service/RollPrivateKey',
+      '/CloudProject.ProjectService/RollPrivateKey',
       request,
       metadata || {},
-      methodDescriptor_Service_RollPrivateKey);
+      methodDescriptor_ProjectService_RollPrivateKey);
 };
 
 
@@ -261,8 +261,8 @@ proto.CloudProject.ServicePromiseClient.prototype.rollPrivateKey =
  *   !proto.CloudProject.ProjectRequest,
  *   !proto.CloudProject.ProjectResponse>}
  */
-const methodDescriptor_Service_GenerateAccessToken = new grpc.web.MethodDescriptor(
-  '/CloudProject.Service/GenerateAccessToken',
+const methodDescriptor_ProjectService_GenerateAccessToken = new grpc.web.MethodDescriptor(
+  '/CloudProject.ProjectService/GenerateAccessToken',
   grpc.web.MethodType.UNARY,
   proto.CloudProject.ProjectRequest,
   proto.CloudProject.ProjectResponse,
@@ -287,13 +287,13 @@ const methodDescriptor_Service_GenerateAccessToken = new grpc.web.MethodDescript
  * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.ProjectResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.CloudProject.ServiceClient.prototype.generateAccessToken =
+proto.CloudProject.ProjectServiceClient.prototype.generateAccessToken =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/CloudProject.Service/GenerateAccessToken',
+      '/CloudProject.ProjectService/GenerateAccessToken',
       request,
       metadata || {},
-      methodDescriptor_Service_GenerateAccessToken,
+      methodDescriptor_ProjectService_GenerateAccessToken,
       callback);
 };
 
@@ -306,13 +306,13 @@ proto.CloudProject.ServiceClient.prototype.generateAccessToken =
  * @return {!Promise<!proto.CloudProject.ProjectResponse>}
  *     Promise that resolves to the response
  */
-proto.CloudProject.ServicePromiseClient.prototype.generateAccessToken =
+proto.CloudProject.ProjectServicePromiseClient.prototype.generateAccessToken =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/CloudProject.Service/GenerateAccessToken',
+      '/CloudProject.ProjectService/GenerateAccessToken',
       request,
       metadata || {},
-      methodDescriptor_Service_GenerateAccessToken);
+      methodDescriptor_ProjectService_GenerateAccessToken);
 };
 
 
@@ -322,8 +322,8 @@ proto.CloudProject.ServicePromiseClient.prototype.generateAccessToken =
  *   !proto.CloudProject.ProjectRequest,
  *   !proto.CloudProject.ProjectResponse>}
  */
-const methodDescriptor_Service_ValidateAccessToken = new grpc.web.MethodDescriptor(
-  '/CloudProject.Service/ValidateAccessToken',
+const methodDescriptor_ProjectService_ValidateAccessToken = new grpc.web.MethodDescriptor(
+  '/CloudProject.ProjectService/ValidateAccessToken',
   grpc.web.MethodType.UNARY,
   proto.CloudProject.ProjectRequest,
   proto.CloudProject.ProjectResponse,
@@ -348,13 +348,13 @@ const methodDescriptor_Service_ValidateAccessToken = new grpc.web.MethodDescript
  * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.ProjectResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.CloudProject.ServiceClient.prototype.validateAccessToken =
+proto.CloudProject.ProjectServiceClient.prototype.validateAccessToken =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/CloudProject.Service/ValidateAccessToken',
+      '/CloudProject.ProjectService/ValidateAccessToken',
       request,
       metadata || {},
-      methodDescriptor_Service_ValidateAccessToken,
+      methodDescriptor_ProjectService_ValidateAccessToken,
       callback);
 };
 
@@ -367,13 +367,13 @@ proto.CloudProject.ServiceClient.prototype.validateAccessToken =
  * @return {!Promise<!proto.CloudProject.ProjectResponse>}
  *     Promise that resolves to the response
  */
-proto.CloudProject.ServicePromiseClient.prototype.validateAccessToken =
+proto.CloudProject.ProjectServicePromiseClient.prototype.validateAccessToken =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/CloudProject.Service/ValidateAccessToken',
+      '/CloudProject.ProjectService/ValidateAccessToken',
       request,
       metadata || {},
-      methodDescriptor_Service_ValidateAccessToken);
+      methodDescriptor_ProjectService_ValidateAccessToken);
 };
 
 
@@ -383,8 +383,8 @@ proto.CloudProject.ServicePromiseClient.prototype.validateAccessToken =
  *   !proto.CloudProject.ProjectRequest,
  *   !proto.CloudProject.ProjectResponse>}
  */
-const methodDescriptor_Service_UpdateInfo = new grpc.web.MethodDescriptor(
-  '/CloudProject.Service/UpdateInfo',
+const methodDescriptor_ProjectService_UpdateInfo = new grpc.web.MethodDescriptor(
+  '/CloudProject.ProjectService/UpdateInfo',
   grpc.web.MethodType.UNARY,
   proto.CloudProject.ProjectRequest,
   proto.CloudProject.ProjectResponse,
@@ -409,13 +409,13 @@ const methodDescriptor_Service_UpdateInfo = new grpc.web.MethodDescriptor(
  * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.ProjectResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.CloudProject.ServiceClient.prototype.updateInfo =
+proto.CloudProject.ProjectServiceClient.prototype.updateInfo =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/CloudProject.Service/UpdateInfo',
+      '/CloudProject.ProjectService/UpdateInfo',
       request,
       metadata || {},
-      methodDescriptor_Service_UpdateInfo,
+      methodDescriptor_ProjectService_UpdateInfo,
       callback);
 };
 
@@ -428,13 +428,13 @@ proto.CloudProject.ServiceClient.prototype.updateInfo =
  * @return {!Promise<!proto.CloudProject.ProjectResponse>}
  *     Promise that resolves to the response
  */
-proto.CloudProject.ServicePromiseClient.prototype.updateInfo =
+proto.CloudProject.ProjectServicePromiseClient.prototype.updateInfo =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/CloudProject.Service/UpdateInfo',
+      '/CloudProject.ProjectService/UpdateInfo',
       request,
       metadata || {},
-      methodDescriptor_Service_UpdateInfo);
+      methodDescriptor_ProjectService_UpdateInfo);
 };
 
 
@@ -444,8 +444,8 @@ proto.CloudProject.ServicePromiseClient.prototype.updateInfo =
  *   !proto.CloudProject.ProjectRequest,
  *   !proto.CloudProject.ProjectResponse>}
  */
-const methodDescriptor_Service_Get = new grpc.web.MethodDescriptor(
-  '/CloudProject.Service/Get',
+const methodDescriptor_ProjectService_Get = new grpc.web.MethodDescriptor(
+  '/CloudProject.ProjectService/Get',
   grpc.web.MethodType.UNARY,
   proto.CloudProject.ProjectRequest,
   proto.CloudProject.ProjectResponse,
@@ -470,13 +470,13 @@ const methodDescriptor_Service_Get = new grpc.web.MethodDescriptor(
  * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.ProjectResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.CloudProject.ServiceClient.prototype.get =
+proto.CloudProject.ProjectServiceClient.prototype.get =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/CloudProject.Service/Get',
+      '/CloudProject.ProjectService/Get',
       request,
       metadata || {},
-      methodDescriptor_Service_Get,
+      methodDescriptor_ProjectService_Get,
       callback);
 };
 
@@ -489,13 +489,13 @@ proto.CloudProject.ServiceClient.prototype.get =
  * @return {!Promise<!proto.CloudProject.ProjectResponse>}
  *     Promise that resolves to the response
  */
-proto.CloudProject.ServicePromiseClient.prototype.get =
+proto.CloudProject.ProjectServicePromiseClient.prototype.get =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/CloudProject.Service/Get',
+      '/CloudProject.ProjectService/Get',
       request,
       metadata || {},
-      methodDescriptor_Service_Get);
+      methodDescriptor_ProjectService_Get);
 };
 
 
@@ -505,8 +505,8 @@ proto.CloudProject.ServicePromiseClient.prototype.get =
  *   !proto.CloudProject.ProjectRequest,
  *   !proto.CloudProject.ProjectResponse>}
  */
-const methodDescriptor_Service_GetByOwner = new grpc.web.MethodDescriptor(
-  '/CloudProject.Service/GetByOwner',
+const methodDescriptor_ProjectService_GetByOwner = new grpc.web.MethodDescriptor(
+  '/CloudProject.ProjectService/GetByOwner',
   grpc.web.MethodType.UNARY,
   proto.CloudProject.ProjectRequest,
   proto.CloudProject.ProjectResponse,
@@ -531,13 +531,13 @@ const methodDescriptor_Service_GetByOwner = new grpc.web.MethodDescriptor(
  * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.ProjectResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.CloudProject.ServiceClient.prototype.getByOwner =
+proto.CloudProject.ProjectServiceClient.prototype.getByOwner =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/CloudProject.Service/GetByOwner',
+      '/CloudProject.ProjectService/GetByOwner',
       request,
       metadata || {},
-      methodDescriptor_Service_GetByOwner,
+      methodDescriptor_ProjectService_GetByOwner,
       callback);
 };
 
@@ -550,13 +550,13 @@ proto.CloudProject.ServiceClient.prototype.getByOwner =
  * @return {!Promise<!proto.CloudProject.ProjectResponse>}
  *     Promise that resolves to the response
  */
-proto.CloudProject.ServicePromiseClient.prototype.getByOwner =
+proto.CloudProject.ProjectServicePromiseClient.prototype.getByOwner =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/CloudProject.Service/GetByOwner',
+      '/CloudProject.ProjectService/GetByOwner',
       request,
       metadata || {},
-      methodDescriptor_Service_GetByOwner);
+      methodDescriptor_ProjectService_GetByOwner);
 };
 
 
@@ -566,8 +566,8 @@ proto.CloudProject.ServicePromiseClient.prototype.getByOwner =
  *   !proto.CloudProject.ProjectRequest,
  *   !proto.CloudProject.ProjectResponse>}
  */
-const methodDescriptor_Service_Delete = new grpc.web.MethodDescriptor(
-  '/CloudProject.Service/Delete',
+const methodDescriptor_ProjectService_Delete = new grpc.web.MethodDescriptor(
+  '/CloudProject.ProjectService/Delete',
   grpc.web.MethodType.UNARY,
   proto.CloudProject.ProjectRequest,
   proto.CloudProject.ProjectResponse,
@@ -592,13 +592,13 @@ const methodDescriptor_Service_Delete = new grpc.web.MethodDescriptor(
  * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.ProjectResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.CloudProject.ServiceClient.prototype.delete =
+proto.CloudProject.ProjectServiceClient.prototype.delete =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/CloudProject.Service/Delete',
+      '/CloudProject.ProjectService/Delete',
       request,
       metadata || {},
-      methodDescriptor_Service_Delete,
+      methodDescriptor_ProjectService_Delete,
       callback);
 };
 
@@ -611,13 +611,13 @@ proto.CloudProject.ServiceClient.prototype.delete =
  * @return {!Promise<!proto.CloudProject.ProjectResponse>}
  *     Promise that resolves to the response
  */
-proto.CloudProject.ServicePromiseClient.prototype.delete =
+proto.CloudProject.ProjectServicePromiseClient.prototype.delete =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/CloudProject.Service/Delete',
+      '/CloudProject.ProjectService/Delete',
       request,
       metadata || {},
-      methodDescriptor_Service_Delete);
+      methodDescriptor_ProjectService_Delete);
 };
 
 

@@ -14,10 +14,10 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-// ServiceClient is the client API for Service service.
+// ProjectServiceClient is the client API for ProjectService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ServiceClient interface {
+type ProjectServiceClient interface {
 	Heartbeat(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
 	Create(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
 	RollPrivateKey(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
@@ -29,99 +29,99 @@ type ServiceClient interface {
 	Delete(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error)
 }
 
-type serviceClient struct {
+type projectServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewServiceClient(cc grpc.ClientConnInterface) ServiceClient {
-	return &serviceClient{cc}
+func NewProjectServiceClient(cc grpc.ClientConnInterface) ProjectServiceClient {
+	return &projectServiceClient{cc}
 }
 
-func (c *serviceClient) Heartbeat(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error) {
+func (c *projectServiceClient) Heartbeat(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error) {
 	out := new(ProjectResponse)
-	err := c.cc.Invoke(ctx, "/CloudProject.Service/Heartbeat", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/CloudProject.ProjectService/Heartbeat", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *serviceClient) Create(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error) {
+func (c *projectServiceClient) Create(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error) {
 	out := new(ProjectResponse)
-	err := c.cc.Invoke(ctx, "/CloudProject.Service/Create", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/CloudProject.ProjectService/Create", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *serviceClient) RollPrivateKey(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error) {
+func (c *projectServiceClient) RollPrivateKey(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error) {
 	out := new(ProjectResponse)
-	err := c.cc.Invoke(ctx, "/CloudProject.Service/RollPrivateKey", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/CloudProject.ProjectService/RollPrivateKey", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *serviceClient) GenerateAccessToken(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error) {
+func (c *projectServiceClient) GenerateAccessToken(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error) {
 	out := new(ProjectResponse)
-	err := c.cc.Invoke(ctx, "/CloudProject.Service/GenerateAccessToken", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/CloudProject.ProjectService/GenerateAccessToken", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *serviceClient) ValidateAccessToken(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error) {
+func (c *projectServiceClient) ValidateAccessToken(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error) {
 	out := new(ProjectResponse)
-	err := c.cc.Invoke(ctx, "/CloudProject.Service/ValidateAccessToken", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/CloudProject.ProjectService/ValidateAccessToken", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *serviceClient) UpdateInfo(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error) {
+func (c *projectServiceClient) UpdateInfo(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error) {
 	out := new(ProjectResponse)
-	err := c.cc.Invoke(ctx, "/CloudProject.Service/UpdateInfo", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/CloudProject.ProjectService/UpdateInfo", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *serviceClient) Get(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error) {
+func (c *projectServiceClient) Get(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error) {
 	out := new(ProjectResponse)
-	err := c.cc.Invoke(ctx, "/CloudProject.Service/Get", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/CloudProject.ProjectService/Get", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *serviceClient) GetByOwner(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error) {
+func (c *projectServiceClient) GetByOwner(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error) {
 	out := new(ProjectResponse)
-	err := c.cc.Invoke(ctx, "/CloudProject.Service/GetByOwner", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/CloudProject.ProjectService/GetByOwner", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *serviceClient) Delete(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error) {
+func (c *projectServiceClient) Delete(ctx context.Context, in *ProjectRequest, opts ...grpc.CallOption) (*ProjectResponse, error) {
 	out := new(ProjectResponse)
-	err := c.cc.Invoke(ctx, "/CloudProject.Service/Delete", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/CloudProject.ProjectService/Delete", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// ServiceServer is the server API for Service service.
-// All implementations should embed UnimplementedServiceServer
+// ProjectServiceServer is the server API for ProjectService service.
+// All implementations should embed UnimplementedProjectServiceServer
 // for forward compatibility
-type ServiceServer interface {
+type ProjectServiceServer interface {
 	Heartbeat(context.Context, *ProjectRequest) (*ProjectResponse, error)
 	Create(context.Context, *ProjectRequest) (*ProjectResponse, error)
 	RollPrivateKey(context.Context, *ProjectRequest) (*ProjectResponse, error)
@@ -133,253 +133,253 @@ type ServiceServer interface {
 	Delete(context.Context, *ProjectRequest) (*ProjectResponse, error)
 }
 
-// UnimplementedServiceServer should be embedded to have forward compatible implementations.
-type UnimplementedServiceServer struct {
+// UnimplementedProjectServiceServer should be embedded to have forward compatible implementations.
+type UnimplementedProjectServiceServer struct {
 }
 
-func (UnimplementedServiceServer) Heartbeat(context.Context, *ProjectRequest) (*ProjectResponse, error) {
+func (UnimplementedProjectServiceServer) Heartbeat(context.Context, *ProjectRequest) (*ProjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Heartbeat not implemented")
 }
-func (UnimplementedServiceServer) Create(context.Context, *ProjectRequest) (*ProjectResponse, error) {
+func (UnimplementedProjectServiceServer) Create(context.Context, *ProjectRequest) (*ProjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (UnimplementedServiceServer) RollPrivateKey(context.Context, *ProjectRequest) (*ProjectResponse, error) {
+func (UnimplementedProjectServiceServer) RollPrivateKey(context.Context, *ProjectRequest) (*ProjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RollPrivateKey not implemented")
 }
-func (UnimplementedServiceServer) GenerateAccessToken(context.Context, *ProjectRequest) (*ProjectResponse, error) {
+func (UnimplementedProjectServiceServer) GenerateAccessToken(context.Context, *ProjectRequest) (*ProjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GenerateAccessToken not implemented")
 }
-func (UnimplementedServiceServer) ValidateAccessToken(context.Context, *ProjectRequest) (*ProjectResponse, error) {
+func (UnimplementedProjectServiceServer) ValidateAccessToken(context.Context, *ProjectRequest) (*ProjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ValidateAccessToken not implemented")
 }
-func (UnimplementedServiceServer) UpdateInfo(context.Context, *ProjectRequest) (*ProjectResponse, error) {
+func (UnimplementedProjectServiceServer) UpdateInfo(context.Context, *ProjectRequest) (*ProjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateInfo not implemented")
 }
-func (UnimplementedServiceServer) Get(context.Context, *ProjectRequest) (*ProjectResponse, error) {
+func (UnimplementedProjectServiceServer) Get(context.Context, *ProjectRequest) (*ProjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
 }
-func (UnimplementedServiceServer) GetByOwner(context.Context, *ProjectRequest) (*ProjectResponse, error) {
+func (UnimplementedProjectServiceServer) GetByOwner(context.Context, *ProjectRequest) (*ProjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetByOwner not implemented")
 }
-func (UnimplementedServiceServer) Delete(context.Context, *ProjectRequest) (*ProjectResponse, error) {
+func (UnimplementedProjectServiceServer) Delete(context.Context, *ProjectRequest) (*ProjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
 }
 
-// UnsafeServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ServiceServer will
+// UnsafeProjectServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ProjectServiceServer will
 // result in compilation errors.
-type UnsafeServiceServer interface {
-	mustEmbedUnimplementedServiceServer()
+type UnsafeProjectServiceServer interface {
+	mustEmbedUnimplementedProjectServiceServer()
 }
 
-func RegisterServiceServer(s grpc.ServiceRegistrar, srv ServiceServer) {
-	s.RegisterService(&Service_ServiceDesc, srv)
+func RegisterProjectServiceServer(s grpc.ServiceRegistrar, srv ProjectServiceServer) {
+	s.RegisterService(&ProjectService_ServiceDesc, srv)
 }
 
-func _Service_Heartbeat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ProjectService_Heartbeat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ProjectRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ServiceServer).Heartbeat(ctx, in)
+		return srv.(ProjectServiceServer).Heartbeat(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/CloudProject.Service/Heartbeat",
+		FullMethod: "/CloudProject.ProjectService/Heartbeat",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).Heartbeat(ctx, req.(*ProjectRequest))
+		return srv.(ProjectServiceServer).Heartbeat(ctx, req.(*ProjectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Service_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ProjectService_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ProjectRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ServiceServer).Create(ctx, in)
+		return srv.(ProjectServiceServer).Create(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/CloudProject.Service/Create",
+		FullMethod: "/CloudProject.ProjectService/Create",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).Create(ctx, req.(*ProjectRequest))
+		return srv.(ProjectServiceServer).Create(ctx, req.(*ProjectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Service_RollPrivateKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ProjectService_RollPrivateKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ProjectRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ServiceServer).RollPrivateKey(ctx, in)
+		return srv.(ProjectServiceServer).RollPrivateKey(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/CloudProject.Service/RollPrivateKey",
+		FullMethod: "/CloudProject.ProjectService/RollPrivateKey",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).RollPrivateKey(ctx, req.(*ProjectRequest))
+		return srv.(ProjectServiceServer).RollPrivateKey(ctx, req.(*ProjectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Service_GenerateAccessToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ProjectService_GenerateAccessToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ProjectRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ServiceServer).GenerateAccessToken(ctx, in)
+		return srv.(ProjectServiceServer).GenerateAccessToken(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/CloudProject.Service/GenerateAccessToken",
+		FullMethod: "/CloudProject.ProjectService/GenerateAccessToken",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).GenerateAccessToken(ctx, req.(*ProjectRequest))
+		return srv.(ProjectServiceServer).GenerateAccessToken(ctx, req.(*ProjectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Service_ValidateAccessToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ProjectService_ValidateAccessToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ProjectRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ServiceServer).ValidateAccessToken(ctx, in)
+		return srv.(ProjectServiceServer).ValidateAccessToken(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/CloudProject.Service/ValidateAccessToken",
+		FullMethod: "/CloudProject.ProjectService/ValidateAccessToken",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).ValidateAccessToken(ctx, req.(*ProjectRequest))
+		return srv.(ProjectServiceServer).ValidateAccessToken(ctx, req.(*ProjectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Service_UpdateInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ProjectService_UpdateInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ProjectRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ServiceServer).UpdateInfo(ctx, in)
+		return srv.(ProjectServiceServer).UpdateInfo(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/CloudProject.Service/UpdateInfo",
+		FullMethod: "/CloudProject.ProjectService/UpdateInfo",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).UpdateInfo(ctx, req.(*ProjectRequest))
+		return srv.(ProjectServiceServer).UpdateInfo(ctx, req.(*ProjectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Service_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ProjectService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ProjectRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ServiceServer).Get(ctx, in)
+		return srv.(ProjectServiceServer).Get(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/CloudProject.Service/Get",
+		FullMethod: "/CloudProject.ProjectService/Get",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).Get(ctx, req.(*ProjectRequest))
+		return srv.(ProjectServiceServer).Get(ctx, req.(*ProjectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Service_GetByOwner_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ProjectService_GetByOwner_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ProjectRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ServiceServer).GetByOwner(ctx, in)
+		return srv.(ProjectServiceServer).GetByOwner(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/CloudProject.Service/GetByOwner",
+		FullMethod: "/CloudProject.ProjectService/GetByOwner",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).GetByOwner(ctx, req.(*ProjectRequest))
+		return srv.(ProjectServiceServer).GetByOwner(ctx, req.(*ProjectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Service_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ProjectService_Delete_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ProjectRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ServiceServer).Delete(ctx, in)
+		return srv.(ProjectServiceServer).Delete(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/CloudProject.Service/Delete",
+		FullMethod: "/CloudProject.ProjectService/Delete",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ServiceServer).Delete(ctx, req.(*ProjectRequest))
+		return srv.(ProjectServiceServer).Delete(ctx, req.(*ProjectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// Service_ServiceDesc is the grpc.ServiceDesc for Service service.
+// ProjectService_ServiceDesc is the grpc.ServiceDesc for ProjectService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var Service_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "CloudProject.Service",
-	HandlerType: (*ServiceServer)(nil),
+var ProjectService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "CloudProject.ProjectService",
+	HandlerType: (*ProjectServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Heartbeat",
-			Handler:    _Service_Heartbeat_Handler,
+			Handler:    _ProjectService_Heartbeat_Handler,
 		},
 		{
 			MethodName: "Create",
-			Handler:    _Service_Create_Handler,
+			Handler:    _ProjectService_Create_Handler,
 		},
 		{
 			MethodName: "RollPrivateKey",
-			Handler:    _Service_RollPrivateKey_Handler,
+			Handler:    _ProjectService_RollPrivateKey_Handler,
 		},
 		{
 			MethodName: "GenerateAccessToken",
-			Handler:    _Service_GenerateAccessToken_Handler,
+			Handler:    _ProjectService_GenerateAccessToken_Handler,
 		},
 		{
 			MethodName: "ValidateAccessToken",
-			Handler:    _Service_ValidateAccessToken_Handler,
+			Handler:    _ProjectService_ValidateAccessToken_Handler,
 		},
 		{
 			MethodName: "UpdateInfo",
-			Handler:    _Service_UpdateInfo_Handler,
+			Handler:    _ProjectService_UpdateInfo_Handler,
 		},
 		{
 			MethodName: "Get",
-			Handler:    _Service_Get_Handler,
+			Handler:    _ProjectService_Get_Handler,
 		},
 		{
 			MethodName: "GetByOwner",
-			Handler:    _Service_GetByOwner_Handler,
+			Handler:    _ProjectService_GetByOwner_Handler,
 		},
 		{
 			MethodName: "Delete",
-			Handler:    _Service_Delete_Handler,
+			Handler:    _ProjectService_Delete_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
