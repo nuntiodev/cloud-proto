@@ -1,0 +1,15 @@
+name: dart_softcorp_cloud
+description: gRPC files from softcorp cloud
+version: 0.0.2
+homepage: https://github.com/softcorp-io
+
+environment:
+  sdk: '>=2.16.2 <3.0.0'
+
+dependencies:
+  protobuf: ^2.0.1
+  grpc: ^3.0.2
+  fixnum: ^1.0.0
+
+dev_dependencies:
+  lints: ^1.0.0
