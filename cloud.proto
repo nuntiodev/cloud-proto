@@ -54,9 +54,8 @@ message PrivateKey {
 message OrganizationRequest {
     Organization organization = 1;
     Organization update = 2;
-    string private_key = 3;
-    string access_token = 4;
-    PrivateKey private_key = 5;
+    string access_token = 3;
+    PrivateKey private_key = 4;
 }
 
 message OrganizationResponse {
