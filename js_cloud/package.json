@@ -1,6 +1,6 @@
 {
-  "name": "js_softcorp_cloud",
-  "version": "0.0.2",
+  "name": "js_nuntio_cloud",
+  "version": "0.0.3",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/softcorp-io/cloud-proto.git"
+    "url": "git+https://github.com/nuntiodev/cloud-proto"
   },
-  "author": "softcorp",
+  "author": "nuntio",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/softcorp-io/cloud-proto/issues"
+    "url": "https://github.com/nuntiodev/cloud-proto/issues"
   },
-  "homepage": "https://github.com/softcorp-io/cloud-proto#readme"
+  "homepage": "https://github.com/nuntiodev/cloud-proto#readme"
 }

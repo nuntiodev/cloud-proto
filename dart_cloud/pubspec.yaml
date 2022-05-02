@@ -1,7 +1,7 @@
-name: dart_softcorp_cloud
-description: gRPC files from softcorp cloud
-version: 0.0.2
-homepage: https://github.com/softcorp-io
+name: nuntio_cloud
+description: gRPC files from nuntio cloud
+version: 0.0.1
+homepage: https://github.com/nuntiodev
 
 environment:
   sdk: '>=2.16.2 <3.0.0'
