@@ -9,7 +9,7 @@ import "google/protobuf/timestamp.proto";
 service ProjectService {
     rpc Heartbeat(ProjectRequest) returns (ProjectResponse) {}
     rpc Create(ProjectRequest) returns (ProjectResponse) {}
-    rpc RollPrivateKey(ProjectRequest) returns (ProjectResponse) {}
+    rpc RemovePrivateKey(ProjectRequest) returns (ProjectResponse) {}
     rpc GenerateAccessToken(ProjectRequest) returns (ProjectResponse) {}
     rpc ValidateAccessToken(ProjectRequest) returns (ProjectResponse) {}
     rpc UpdateInfo(ProjectRequest) returns (ProjectResponse) {}
@@ -22,14 +22,19 @@ message Project {
     string id = 1;
     string owner_id = 2;
     string name = 3;
-    string private_key = 4;
-    bool private_key_secured = 5;
-    google.protobuf.Timestamp created_at = 6;
-    google.protobuf.Timestamp updated_at = 7;
-    google.protobuf.Timestamp private_key_generated_at = 8;
-    google.protobuf.Timestamp private_key_secured_at = 9;
-    repeated strig block_user_apps = 10;
-    repeated strig nuntio_connect_apps = 11;
+    google.protobuf.Timestamp created_at = 4;
+    google.protobuf.Timestamp updated_at = 5;
+    repeated string block_user_apps = 6;
+    repeated string nuntio_connect_apps = 7;
+    repeated PrivateKey private_keys = 8;
+}
+
+message PrivateKey {
+    string key = 1;
+    google.protobuf.Timestamp private_key_generated_at = 2;
+    google.protobuf.Timestamp private_key_secured_at = 3;
+    bool private_key_secured = 4;
+    repeated string block_user_apps = 5;
 }
 
 message ProjectRequest {
@@ -37,6 +42,7 @@ message ProjectRequest {
     Project update = 2;
     string private_key = 3;
     string access_token = 4;
+    PrivateKey private_key = 5;
 }
 
 message ProjectResponse {
