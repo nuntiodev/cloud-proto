@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+package Cloud;
+
+option go_package = "./go_cloud";
+
+import "google/protobuf/timestamp.proto";
+
+service CloudService {
+    rpc Heartbeat(OrganizationRequest) returns (OrganizationResponse) {}
+    rpc Create(OrganizationRequest) returns (OrganizationResponse) {}
+    rpc RemovePrivateKey(OrganizationRequest) returns (OrganizationResponse) {}
+    rpc GenerateAccessToken(OrganizationRequest) returns (OrganizationResponse) {}
+    rpc ValidateAccessToken(OrganizationRequest) returns (OrganizationResponse) {}
+    rpc UpdateInfo(OrganizationRequest) returns (OrganizationResponse) {}
+    rpc Get(OrganizationRequest) returns (OrganizationResponse) {}
+    rpc GetByOwner(OrganizationRequest) returns (OrganizationResponse) {}
+    rpc Delete(OrganizationRequest) returns (OrganizationResponse) {}
+    rpc AvailableApps(AppRequest) returns (AppResponse) {}
+}
+
+message Organization {
+    string id = 1;
+    string owner_id = 2;
+    string name = 3;
+    google.protobuf.Timestamp created_at = 4;
+    google.protobuf.Timestamp updated_at = 5;
+    repeated App installed_apps = 6;
+    repeated PrivateKey private_keys = 7;
+}
+
+enum AppType {
+    INVALID_APP = 0;
+    USER_BLOCK_APP = 1;
+    NUNTIO_CONNECT_APP = 2;
+}
+
+message App {
+    string id = 1;
+    string name = 2;
+    string description = 3;
+    string logo = 4;
+    AppType app_type = 5;
+}
+
+message PrivateKey {
+    string key = 1;
+    google.protobuf.Timestamp private_key_generated_at = 2;
+    google.protobuf.Timestamp private_key_secured_at = 3;
+    bool private_key_secured = 4;
+    repeated string block_user_apps = 5;
+}
+
+message OrganizationRequest {
+    Organization organization = 1;
+    Organization update = 2;
+    string private_key = 3;
+    string access_token = 4;
+    PrivateKey private_key = 5;
+}
+
+message OrganizationResponse {
+    Organization organization = 1;
+    repeated Organization organizations = 2;
+    string access_token = 3;
+}
+
+message AppRequest {
+    App app = 1;
+}
+
+message AppResponse {
+    App app = 1;
+    repeated App apps = 2;
+}
