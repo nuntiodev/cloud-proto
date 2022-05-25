@@ -25,7 +25,6 @@ message Organization {
     string logo = 4;
     google.protobuf.Timestamp created_at = 5;
     google.protobuf.Timestamp updated_at = 6;
-    repeated App installed_apps = 7;
 }
 
 enum AppType {
@@ -36,10 +35,11 @@ enum AppType {
 
 message App {
     string id = 1;
-    string name = 2;
-    string description = 3;
-    string logo = 4;
-    AppType app_type = 5;
+    string organization_id = 2;
+    string name = 3;
+    string description = 4;
+    string logo = 5;
+    AppType app_type = 6;
 }
 
 message PrivateKey {
