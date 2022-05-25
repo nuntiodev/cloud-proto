@@ -23,7 +23,6 @@ class Organization extends $pb.GeneratedMessage {
     ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'logo')
     ..aOM<$1.Timestamp>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'createdAt', subBuilder: $1.Timestamp.create)
     ..aOM<$1.Timestamp>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'updatedAt', subBuilder: $1.Timestamp.create)
-    ..pc<App>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'installedApps', $pb.PbFieldType.PM, subBuilder: App.create)
     ..hasRequiredFields = false
   ;
 
@@ -35,7 +34,6 @@ class Organization extends $pb.GeneratedMessage {
     $core.String? logo,
     $1.Timestamp? createdAt,
     $1.Timestamp? updatedAt,
-    $core.Iterable<App>? installedApps,
   }) {
     final _result = create();
     if (id != null) {
@@ -55,9 +53,6 @@ class Organization extends $pb.GeneratedMessage {
     }
     if (updatedAt != null) {
       _result.updatedAt = updatedAt;
-    }
-    if (installedApps != null) {
-      _result.installedApps.addAll(installedApps);
     }
     return _result;
   }
@@ -139,24 +134,23 @@ class Organization extends $pb.GeneratedMessage {
   void clearUpdatedAt() => clearField(6);
   @$pb.TagNumber(6)
   $1.Timestamp ensureUpdatedAt() => $_ensure(5);
-
-  @$pb.TagNumber(7)
-  $core.List<App> get installedApps => $_getList(6);
 }
 
 class App extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'App', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Cloud'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'description')
-    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'logo')
-    ..e<AppType>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'appType', $pb.PbFieldType.OE, defaultOrMaker: AppType.INVALID_APP, valueOf: AppType.valueOf, enumValues: AppType.values)
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'organizationId')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'description')
+    ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'logo')
+    ..e<AppType>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'appType', $pb.PbFieldType.OE, defaultOrMaker: AppType.INVALID_APP, valueOf: AppType.valueOf, enumValues: AppType.values)
     ..hasRequiredFields = false
   ;
 
   App._() : super();
   factory App({
     $core.String? id,
+    $core.String? organizationId,
     $core.String? name,
     $core.String? description,
     $core.String? logo,
@@ -165,6 +159,9 @@ class App extends $pb.GeneratedMessage {
     final _result = create();
     if (id != null) {
       _result.id = id;
+    }
+    if (organizationId != null) {
+      _result.organizationId = organizationId;
     }
     if (name != null) {
       _result.name = name;
@@ -211,40 +208,49 @@ class App extends $pb.GeneratedMessage {
   void clearId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get name => $_getSZ(1);
+  $core.String get organizationId => $_getSZ(1);
   @$pb.TagNumber(2)
-  set name($core.String v) { $_setString(1, v); }
+  set organizationId($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasName() => $_has(1);
+  $core.bool hasOrganizationId() => $_has(1);
   @$pb.TagNumber(2)
-  void clearName() => clearField(2);
+  void clearOrganizationId() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.String get description => $_getSZ(2);
+  $core.String get name => $_getSZ(2);
   @$pb.TagNumber(3)
-  set description($core.String v) { $_setString(2, v); }
+  set name($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasDescription() => $_has(2);
+  $core.bool hasName() => $_has(2);
   @$pb.TagNumber(3)
-  void clearDescription() => clearField(3);
+  void clearName() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.String get logo => $_getSZ(3);
+  $core.String get description => $_getSZ(3);
   @$pb.TagNumber(4)
-  set logo($core.String v) { $_setString(3, v); }
+  set description($core.String v) { $_setString(3, v); }
   @$pb.TagNumber(4)
-  $core.bool hasLogo() => $_has(3);
+  $core.bool hasDescription() => $_has(3);
   @$pb.TagNumber(4)
-  void clearLogo() => clearField(4);
+  void clearDescription() => clearField(4);
 
   @$pb.TagNumber(5)
-  AppType get appType => $_getN(4);
+  $core.String get logo => $_getSZ(4);
   @$pb.TagNumber(5)
-  set appType(AppType v) { setField(5, v); }
+  set logo($core.String v) { $_setString(4, v); }
   @$pb.TagNumber(5)
-  $core.bool hasAppType() => $_has(4);
+  $core.bool hasLogo() => $_has(4);
   @$pb.TagNumber(5)
-  void clearAppType() => clearField(5);
+  void clearLogo() => clearField(5);
+
+  @$pb.TagNumber(6)
+  AppType get appType => $_getN(5);
+  @$pb.TagNumber(6)
+  set appType(AppType v) { setField(6, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasAppType() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearAppType() => clearField(6);
 }
 
 class PrivateKey extends $pb.GeneratedMessage {

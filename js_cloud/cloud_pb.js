@@ -40,7 +40,7 @@ goog.exportSymbol('proto.Cloud.PrivateKey', null, global);
  * @constructor
  */
 proto.Cloud.Organization = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.Cloud.Organization.repeatedFields_, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.Cloud.Organization, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -135,13 +135,6 @@ if (goog.DEBUG && !COMPILED) {
   proto.Cloud.OrganizationResponse.displayName = 'proto.Cloud.OrganizationResponse';
 }
 
-/**
- * List of repeated fields within this message type.
- * @private {!Array<number>}
- * @const
- */
-proto.Cloud.Organization.repeatedFields_ = [7];
-
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -178,9 +171,7 @@ proto.Cloud.Organization.toObject = function(includeInstance, msg) {
     name: jspb.Message.getFieldWithDefault(msg, 3, ""),
     logo: jspb.Message.getFieldWithDefault(msg, 4, ""),
     createdAt: (f = msg.getCreatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
-    updatedAt: (f = msg.getUpdatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
-    installedAppsList: jspb.Message.toObjectList(msg.getInstalledAppsList(),
-    proto.Cloud.App.toObject, includeInstance)
+    updatedAt: (f = msg.getUpdatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -242,11 +233,6 @@ proto.Cloud.Organization.deserializeBinaryFromReader = function(msg, reader) {
       var value = new google_protobuf_timestamp_pb.Timestamp;
       reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
       msg.setUpdatedAt(value);
-      break;
-    case 7:
-      var value = new proto.Cloud.App;
-      reader.readMessage(value,proto.Cloud.App.deserializeBinaryFromReader);
-      msg.addInstalledApps(value);
       break;
     default:
       reader.skipField();
@@ -319,14 +305,6 @@ proto.Cloud.Organization.serializeBinaryToWriter = function(message, writer) {
       6,
       f,
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
-    );
-  }
-  f = message.getInstalledAppsList();
-  if (f.length > 0) {
-    writer.writeRepeatedMessage(
-      7,
-      f,
-      proto.Cloud.App.serializeBinaryToWriter
     );
   }
 };
@@ -478,44 +456,6 @@ proto.Cloud.Organization.prototype.hasUpdatedAt = function() {
 };
 
 
-/**
- * repeated App installed_apps = 7;
- * @return {!Array<!proto.Cloud.App>}
- */
-proto.Cloud.Organization.prototype.getInstalledAppsList = function() {
-  return /** @type{!Array<!proto.Cloud.App>} */ (
-    jspb.Message.getRepeatedWrapperField(this, proto.Cloud.App, 7));
-};
-
-
-/**
- * @param {!Array<!proto.Cloud.App>} value
- * @return {!proto.Cloud.Organization} returns this
-*/
-proto.Cloud.Organization.prototype.setInstalledAppsList = function(value) {
-  return jspb.Message.setRepeatedWrapperField(this, 7, value);
-};
-
-
-/**
- * @param {!proto.Cloud.App=} opt_value
- * @param {number=} opt_index
- * @return {!proto.Cloud.App}
- */
-proto.Cloud.Organization.prototype.addInstalledApps = function(opt_value, opt_index) {
-  return jspb.Message.addToRepeatedWrapperField(this, 7, opt_value, proto.Cloud.App, opt_index);
-};
-
-
-/**
- * Clears the list making it empty but non-null.
- * @return {!proto.Cloud.Organization} returns this
- */
-proto.Cloud.Organization.prototype.clearInstalledAppsList = function() {
-  return this.setInstalledAppsList([]);
-};
-
-
 
 
 
@@ -549,10 +489,11 @@ proto.Cloud.App.prototype.toObject = function(opt_includeInstance) {
 proto.Cloud.App.toObject = function(includeInstance, msg) {
   var f, obj = {
     id: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    name: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    description: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    logo: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    appType: jspb.Message.getFieldWithDefault(msg, 5, 0)
+    organizationId: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    name: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    description: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    logo: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    appType: jspb.Message.getFieldWithDefault(msg, 6, 0)
   };
 
   if (includeInstance) {
@@ -595,17 +536,21 @@ proto.Cloud.App.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 2:
       var value = /** @type {string} */ (reader.readString());
-      msg.setName(value);
+      msg.setOrganizationId(value);
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
-      msg.setDescription(value);
+      msg.setName(value);
       break;
     case 4:
       var value = /** @type {string} */ (reader.readString());
-      msg.setLogo(value);
+      msg.setDescription(value);
       break;
     case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setLogo(value);
+      break;
+    case 6:
       var value = /** @type {!proto.Cloud.AppType} */ (reader.readEnum());
       msg.setAppType(value);
       break;
@@ -645,31 +590,38 @@ proto.Cloud.App.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getName();
+  f = message.getOrganizationId();
   if (f.length > 0) {
     writer.writeString(
       2,
       f
     );
   }
-  f = message.getDescription();
+  f = message.getName();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = message.getLogo();
+  f = message.getDescription();
   if (f.length > 0) {
     writer.writeString(
       4,
       f
     );
   }
+  f = message.getLogo();
+  if (f.length > 0) {
+    writer.writeString(
+      5,
+      f
+    );
+  }
   f = message.getAppType();
   if (f !== 0.0) {
     writer.writeEnum(
-      5,
+      6,
       f
     );
   }
@@ -695,10 +647,10 @@ proto.Cloud.App.prototype.setId = function(value) {
 
 
 /**
- * optional string name = 2;
+ * optional string organization_id = 2;
  * @return {string}
  */
-proto.Cloud.App.prototype.getName = function() {
+proto.Cloud.App.prototype.getOrganizationId = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
 };
 
@@ -707,16 +659,16 @@ proto.Cloud.App.prototype.getName = function() {
  * @param {string} value
  * @return {!proto.Cloud.App} returns this
  */
-proto.Cloud.App.prototype.setName = function(value) {
+proto.Cloud.App.prototype.setOrganizationId = function(value) {
   return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
 /**
- * optional string description = 3;
+ * optional string name = 3;
  * @return {string}
  */
-proto.Cloud.App.prototype.getDescription = function() {
+proto.Cloud.App.prototype.getName = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
@@ -725,16 +677,16 @@ proto.Cloud.App.prototype.getDescription = function() {
  * @param {string} value
  * @return {!proto.Cloud.App} returns this
  */
-proto.Cloud.App.prototype.setDescription = function(value) {
+proto.Cloud.App.prototype.setName = function(value) {
   return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
 /**
- * optional string logo = 4;
+ * optional string description = 4;
  * @return {string}
  */
-proto.Cloud.App.prototype.getLogo = function() {
+proto.Cloud.App.prototype.getDescription = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
@@ -743,17 +695,35 @@ proto.Cloud.App.prototype.getLogo = function() {
  * @param {string} value
  * @return {!proto.Cloud.App} returns this
  */
-proto.Cloud.App.prototype.setLogo = function(value) {
+proto.Cloud.App.prototype.setDescription = function(value) {
   return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
 /**
- * optional AppType app_type = 5;
+ * optional string logo = 5;
+ * @return {string}
+ */
+proto.Cloud.App.prototype.getLogo = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.Cloud.App} returns this
+ */
+proto.Cloud.App.prototype.setLogo = function(value) {
+  return jspb.Message.setProto3StringField(this, 5, value);
+};
+
+
+/**
+ * optional AppType app_type = 6;
  * @return {!proto.Cloud.AppType}
  */
 proto.Cloud.App.prototype.getAppType = function() {
-  return /** @type {!proto.Cloud.AppType} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
+  return /** @type {!proto.Cloud.AppType} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
 };
 
 
@@ -762,7 +732,7 @@ proto.Cloud.App.prototype.getAppType = function() {
  * @return {!proto.Cloud.App} returns this
  */
 proto.Cloud.App.prototype.setAppType = function(value) {
-  return jspb.Message.setProto3EnumField(this, 5, value);
+  return jspb.Message.setProto3EnumField(this, 6, value);
 };
 
 

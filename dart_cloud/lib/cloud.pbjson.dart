@@ -30,26 +30,26 @@ const Organization$json = const {
     const {'1': 'logo', '3': 4, '4': 1, '5': 9, '10': 'logo'},
     const {'1': 'created_at', '3': 5, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'createdAt'},
     const {'1': 'updated_at', '3': 6, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'updatedAt'},
-    const {'1': 'installed_apps', '3': 7, '4': 3, '5': 11, '6': '.Cloud.App', '10': 'installedApps'},
   ],
 };
 
 /// Descriptor for `Organization`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List organizationDescriptor = $convert.base64Decode('CgxPcmdhbml6YXRpb24SDgoCaWQYASABKAlSAmlkEhkKCG93bmVyX2lkGAIgASgJUgdvd25lcklkEhIKBG5hbWUYAyABKAlSBG5hbWUSEgoEbG9nbxgEIAEoCVIEbG9nbxI5CgpjcmVhdGVkX2F0GAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJY3JlYXRlZEF0EjkKCnVwZGF0ZWRfYXQYBiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgl1cGRhdGVkQXQSMQoOaW5zdGFsbGVkX2FwcHMYByADKAsyCi5DbG91ZC5BcHBSDWluc3RhbGxlZEFwcHM=');
+final $typed_data.Uint8List organizationDescriptor = $convert.base64Decode('CgxPcmdhbml6YXRpb24SDgoCaWQYASABKAlSAmlkEhkKCG93bmVyX2lkGAIgASgJUgdvd25lcklkEhIKBG5hbWUYAyABKAlSBG5hbWUSEgoEbG9nbxgEIAEoCVIEbG9nbxI5CgpjcmVhdGVkX2F0GAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJY3JlYXRlZEF0EjkKCnVwZGF0ZWRfYXQYBiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgl1cGRhdGVkQXQ=');
 @$core.Deprecated('Use appDescriptor instead')
 const App$json = const {
   '1': 'App',
   '2': const [
     const {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
-    const {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
-    const {'1': 'description', '3': 3, '4': 1, '5': 9, '10': 'description'},
-    const {'1': 'logo', '3': 4, '4': 1, '5': 9, '10': 'logo'},
-    const {'1': 'app_type', '3': 5, '4': 1, '5': 14, '6': '.Cloud.AppType', '10': 'appType'},
+    const {'1': 'organization_id', '3': 2, '4': 1, '5': 9, '10': 'organizationId'},
+    const {'1': 'name', '3': 3, '4': 1, '5': 9, '10': 'name'},
+    const {'1': 'description', '3': 4, '4': 1, '5': 9, '10': 'description'},
+    const {'1': 'logo', '3': 5, '4': 1, '5': 9, '10': 'logo'},
+    const {'1': 'app_type', '3': 6, '4': 1, '5': 14, '6': '.Cloud.AppType', '10': 'appType'},
   ],
 };
 
 /// Descriptor for `App`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List appDescriptor = $convert.base64Decode('CgNBcHASDgoCaWQYASABKAlSAmlkEhIKBG5hbWUYAiABKAlSBG5hbWUSIAoLZGVzY3JpcHRpb24YAyABKAlSC2Rlc2NyaXB0aW9uEhIKBGxvZ28YBCABKAlSBGxvZ28SKQoIYXBwX3R5cGUYBSABKA4yDi5DbG91ZC5BcHBUeXBlUgdhcHBUeXBl');
+final $typed_data.Uint8List appDescriptor = $convert.base64Decode('CgNBcHASDgoCaWQYASABKAlSAmlkEicKD29yZ2FuaXphdGlvbl9pZBgCIAEoCVIOb3JnYW5pemF0aW9uSWQSEgoEbmFtZRgDIAEoCVIEbmFtZRIgCgtkZXNjcmlwdGlvbhgEIAEoCVILZGVzY3JpcHRpb24SEgoEbG9nbxgFIAEoCVIEbG9nbxIpCghhcHBfdHlwZRgGIAEoDjIOLkNsb3VkLkFwcFR5cGVSB2FwcFR5cGU=');
 @$core.Deprecated('Use privateKeyDescriptor instead')
 const PrivateKey$json = const {
   '1': 'PrivateKey',
