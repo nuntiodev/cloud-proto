@@ -27,15 +27,15 @@ const Organization$json = const {
     const {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
     const {'1': 'owner_id', '3': 2, '4': 1, '5': 9, '10': 'ownerId'},
     const {'1': 'name', '3': 3, '4': 1, '5': 9, '10': 'name'},
-    const {'1': 'created_at', '3': 4, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'createdAt'},
-    const {'1': 'updated_at', '3': 5, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'updatedAt'},
-    const {'1': 'installed_apps', '3': 6, '4': 3, '5': 11, '6': '.Cloud.App', '10': 'installedApps'},
-    const {'1': 'private_keys', '3': 7, '4': 3, '5': 11, '6': '.Cloud.PrivateKey', '10': 'privateKeys'},
+    const {'1': 'logo', '3': 4, '4': 1, '5': 9, '10': 'logo'},
+    const {'1': 'created_at', '3': 5, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'createdAt'},
+    const {'1': 'updated_at', '3': 6, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'updatedAt'},
+    const {'1': 'installed_apps', '3': 7, '4': 3, '5': 11, '6': '.Cloud.App', '10': 'installedApps'},
   ],
 };
 
 /// Descriptor for `Organization`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List organizationDescriptor = $convert.base64Decode('CgxPcmdhbml6YXRpb24SDgoCaWQYASABKAlSAmlkEhkKCG93bmVyX2lkGAIgASgJUgdvd25lcklkEhIKBG5hbWUYAyABKAlSBG5hbWUSOQoKY3JlYXRlZF9hdBgEIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCWNyZWF0ZWRBdBI5Cgp1cGRhdGVkX2F0GAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJdXBkYXRlZEF0EjEKDmluc3RhbGxlZF9hcHBzGAYgAygLMgouQ2xvdWQuQXBwUg1pbnN0YWxsZWRBcHBzEjQKDHByaXZhdGVfa2V5cxgHIAMoCzIRLkNsb3VkLlByaXZhdGVLZXlSC3ByaXZhdGVLZXlz');
+final $typed_data.Uint8List organizationDescriptor = $convert.base64Decode('CgxPcmdhbml6YXRpb24SDgoCaWQYASABKAlSAmlkEhkKCG93bmVyX2lkGAIgASgJUgdvd25lcklkEhIKBG5hbWUYAyABKAlSBG5hbWUSEgoEbG9nbxgEIAEoCVIEbG9nbxI5CgpjcmVhdGVkX2F0GAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJY3JlYXRlZEF0EjkKCnVwZGF0ZWRfYXQYBiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgl1cGRhdGVkQXQSMQoOaW5zdGFsbGVkX2FwcHMYByADKAsyCi5DbG91ZC5BcHBSDWluc3RhbGxlZEFwcHM=');
 @$core.Deprecated('Use appDescriptor instead')
 const App$json = const {
   '1': 'App',
@@ -54,16 +54,18 @@ final $typed_data.Uint8List appDescriptor = $convert.base64Decode('CgNBcHASDgoCa
 const PrivateKey$json = const {
   '1': 'PrivateKey',
   '2': const [
-    const {'1': 'key', '3': 1, '4': 1, '5': 9, '10': 'key'},
-    const {'1': 'private_key_generated_at', '3': 2, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'privateKeyGeneratedAt'},
-    const {'1': 'private_key_secured_at', '3': 3, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'privateKeySecuredAt'},
-    const {'1': 'private_key_secured', '3': 4, '4': 1, '5': 8, '10': 'privateKeySecured'},
-    const {'1': 'block_user_apps', '3': 5, '4': 3, '5': 9, '10': 'blockUserApps'},
+    const {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+    const {'1': 'organization_id', '3': 2, '4': 1, '5': 9, '10': 'organizationId'},
+    const {'1': 'key', '3': 3, '4': 1, '5': 9, '10': 'key'},
+    const {'1': 'private_key_generated_at', '3': 4, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'privateKeyGeneratedAt'},
+    const {'1': 'private_key_secured_at', '3': 5, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'privateKeySecuredAt'},
+    const {'1': 'private_key_secured', '3': 6, '4': 1, '5': 8, '10': 'privateKeySecured'},
+    const {'1': 'user_block_ids', '3': 7, '4': 3, '5': 9, '10': 'userBlockIds'},
   ],
 };
 
 /// Descriptor for `PrivateKey`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List privateKeyDescriptor = $convert.base64Decode('CgpQcml2YXRlS2V5EhAKA2tleRgBIAEoCVIDa2V5ElMKGHByaXZhdGVfa2V5X2dlbmVyYXRlZF9hdBgCIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSFXByaXZhdGVLZXlHZW5lcmF0ZWRBdBJPChZwcml2YXRlX2tleV9zZWN1cmVkX2F0GAMgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFITcHJpdmF0ZUtleVNlY3VyZWRBdBIuChNwcml2YXRlX2tleV9zZWN1cmVkGAQgASgIUhFwcml2YXRlS2V5U2VjdXJlZBImCg9ibG9ja191c2VyX2FwcHMYBSADKAlSDWJsb2NrVXNlckFwcHM=');
+final $typed_data.Uint8List privateKeyDescriptor = $convert.base64Decode('CgpQcml2YXRlS2V5Eg4KAmlkGAEgASgJUgJpZBInCg9vcmdhbml6YXRpb25faWQYAiABKAlSDm9yZ2FuaXphdGlvbklkEhAKA2tleRgDIAEoCVIDa2V5ElMKGHByaXZhdGVfa2V5X2dlbmVyYXRlZF9hdBgEIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSFXByaXZhdGVLZXlHZW5lcmF0ZWRBdBJPChZwcml2YXRlX2tleV9zZWN1cmVkX2F0GAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFITcHJpdmF0ZUtleVNlY3VyZWRBdBIuChNwcml2YXRlX2tleV9zZWN1cmVkGAYgASgIUhFwcml2YXRlS2V5U2VjdXJlZBIkCg51c2VyX2Jsb2NrX2lkcxgHIAMoCVIMdXNlckJsb2NrSWRz');
 @$core.Deprecated('Use organizationRequestDescriptor instead')
 const OrganizationRequest$json = const {
   '1': 'OrganizationRequest',
@@ -89,24 +91,3 @@ const OrganizationResponse$json = const {
 
 /// Descriptor for `OrganizationResponse`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List organizationResponseDescriptor = $convert.base64Decode('ChRPcmdhbml6YXRpb25SZXNwb25zZRI3Cgxvcmdhbml6YXRpb24YASABKAsyEy5DbG91ZC5Pcmdhbml6YXRpb25SDG9yZ2FuaXphdGlvbhI5Cg1vcmdhbml6YXRpb25zGAIgAygLMhMuQ2xvdWQuT3JnYW5pemF0aW9uUg1vcmdhbml6YXRpb25zEiEKDGFjY2Vzc190b2tlbhgDIAEoCVILYWNjZXNzVG9rZW4=');
-@$core.Deprecated('Use appRequestDescriptor instead')
-const AppRequest$json = const {
-  '1': 'AppRequest',
-  '2': const [
-    const {'1': 'app', '3': 1, '4': 1, '5': 11, '6': '.Cloud.App', '10': 'app'},
-  ],
-};
-
-/// Descriptor for `AppRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List appRequestDescriptor = $convert.base64Decode('CgpBcHBSZXF1ZXN0EhwKA2FwcBgBIAEoCzIKLkNsb3VkLkFwcFIDYXBw');
-@$core.Deprecated('Use appResponseDescriptor instead')
-const AppResponse$json = const {
-  '1': 'AppResponse',
-  '2': const [
-    const {'1': 'app', '3': 1, '4': 1, '5': 11, '6': '.Cloud.App', '10': 'app'},
-    const {'1': 'apps', '3': 2, '4': 3, '5': 11, '6': '.Cloud.App', '10': 'apps'},
-  ],
-};
-
-/// Descriptor for `AppResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List appResponseDescriptor = $convert.base64Decode('CgtBcHBSZXNwb25zZRIcCgNhcHAYASABKAsyCi5DbG91ZC5BcHBSA2FwcBIeCgRhcHBzGAIgAygLMgouQ2xvdWQuQXBwUgRhcHBz');

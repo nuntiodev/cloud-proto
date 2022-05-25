@@ -20,10 +20,10 @@ class Organization extends $pb.GeneratedMessage {
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ownerId')
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
-    ..aOM<$1.Timestamp>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'createdAt', subBuilder: $1.Timestamp.create)
-    ..aOM<$1.Timestamp>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'updatedAt', subBuilder: $1.Timestamp.create)
-    ..pc<App>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'installedApps', $pb.PbFieldType.PM, subBuilder: App.create)
-    ..pc<PrivateKey>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKeys', $pb.PbFieldType.PM, subBuilder: PrivateKey.create)
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'logo')
+    ..aOM<$1.Timestamp>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'createdAt', subBuilder: $1.Timestamp.create)
+    ..aOM<$1.Timestamp>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'updatedAt', subBuilder: $1.Timestamp.create)
+    ..pc<App>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'installedApps', $pb.PbFieldType.PM, subBuilder: App.create)
     ..hasRequiredFields = false
   ;
 
@@ -32,10 +32,10 @@ class Organization extends $pb.GeneratedMessage {
     $core.String? id,
     $core.String? ownerId,
     $core.String? name,
+    $core.String? logo,
     $1.Timestamp? createdAt,
     $1.Timestamp? updatedAt,
     $core.Iterable<App>? installedApps,
-    $core.Iterable<PrivateKey>? privateKeys,
   }) {
     final _result = create();
     if (id != null) {
@@ -47,6 +47,9 @@ class Organization extends $pb.GeneratedMessage {
     if (name != null) {
       _result.name = name;
     }
+    if (logo != null) {
+      _result.logo = logo;
+    }
     if (createdAt != null) {
       _result.createdAt = createdAt;
     }
@@ -55,9 +58,6 @@ class Organization extends $pb.GeneratedMessage {
     }
     if (installedApps != null) {
       _result.installedApps.addAll(installedApps);
-    }
-    if (privateKeys != null) {
-      _result.privateKeys.addAll(privateKeys);
     }
     return _result;
   }
@@ -110,32 +110,38 @@ class Organization extends $pb.GeneratedMessage {
   void clearName() => clearField(3);
 
   @$pb.TagNumber(4)
-  $1.Timestamp get createdAt => $_getN(3);
+  $core.String get logo => $_getSZ(3);
   @$pb.TagNumber(4)
-  set createdAt($1.Timestamp v) { setField(4, v); }
+  set logo($core.String v) { $_setString(3, v); }
   @$pb.TagNumber(4)
-  $core.bool hasCreatedAt() => $_has(3);
+  $core.bool hasLogo() => $_has(3);
   @$pb.TagNumber(4)
-  void clearCreatedAt() => clearField(4);
-  @$pb.TagNumber(4)
-  $1.Timestamp ensureCreatedAt() => $_ensure(3);
+  void clearLogo() => clearField(4);
 
   @$pb.TagNumber(5)
-  $1.Timestamp get updatedAt => $_getN(4);
+  $1.Timestamp get createdAt => $_getN(4);
   @$pb.TagNumber(5)
-  set updatedAt($1.Timestamp v) { setField(5, v); }
+  set createdAt($1.Timestamp v) { setField(5, v); }
   @$pb.TagNumber(5)
-  $core.bool hasUpdatedAt() => $_has(4);
+  $core.bool hasCreatedAt() => $_has(4);
   @$pb.TagNumber(5)
-  void clearUpdatedAt() => clearField(5);
+  void clearCreatedAt() => clearField(5);
   @$pb.TagNumber(5)
-  $1.Timestamp ensureUpdatedAt() => $_ensure(4);
+  $1.Timestamp ensureCreatedAt() => $_ensure(4);
 
   @$pb.TagNumber(6)
-  $core.List<App> get installedApps => $_getList(5);
+  $1.Timestamp get updatedAt => $_getN(5);
+  @$pb.TagNumber(6)
+  set updatedAt($1.Timestamp v) { setField(6, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasUpdatedAt() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearUpdatedAt() => clearField(6);
+  @$pb.TagNumber(6)
+  $1.Timestamp ensureUpdatedAt() => $_ensure(5);
 
   @$pb.TagNumber(7)
-  $core.List<PrivateKey> get privateKeys => $_getList(6);
+  $core.List<App> get installedApps => $_getList(6);
 }
 
 class App extends $pb.GeneratedMessage {
@@ -243,23 +249,33 @@ class App extends $pb.GeneratedMessage {
 
 class PrivateKey extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'PrivateKey', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Cloud'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'key')
-    ..aOM<$1.Timestamp>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKeyGeneratedAt', subBuilder: $1.Timestamp.create)
-    ..aOM<$1.Timestamp>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKeySecuredAt', subBuilder: $1.Timestamp.create)
-    ..aOB(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKeySecured')
-    ..pPS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'blockUserApps')
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'organizationId')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'key')
+    ..aOM<$1.Timestamp>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKeyGeneratedAt', subBuilder: $1.Timestamp.create)
+    ..aOM<$1.Timestamp>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKeySecuredAt', subBuilder: $1.Timestamp.create)
+    ..aOB(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKeySecured')
+    ..pPS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userBlockIds')
     ..hasRequiredFields = false
   ;
 
   PrivateKey._() : super();
   factory PrivateKey({
+    $core.String? id,
+    $core.String? organizationId,
     $core.String? key,
     $1.Timestamp? privateKeyGeneratedAt,
     $1.Timestamp? privateKeySecuredAt,
     $core.bool? privateKeySecured,
-    $core.Iterable<$core.String>? blockUserApps,
+    $core.Iterable<$core.String>? userBlockIds,
   }) {
     final _result = create();
+    if (id != null) {
+      _result.id = id;
+    }
+    if (organizationId != null) {
+      _result.organizationId = organizationId;
+    }
     if (key != null) {
       _result.key = key;
     }
@@ -272,8 +288,8 @@ class PrivateKey extends $pb.GeneratedMessage {
     if (privateKeySecured != null) {
       _result.privateKeySecured = privateKeySecured;
     }
-    if (blockUserApps != null) {
-      _result.blockUserApps.addAll(blockUserApps);
+    if (userBlockIds != null) {
+      _result.userBlockIds.addAll(userBlockIds);
     }
     return _result;
   }
@@ -299,47 +315,65 @@ class PrivateKey extends $pb.GeneratedMessage {
   static PrivateKey? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get key => $_getSZ(0);
+  $core.String get id => $_getSZ(0);
   @$pb.TagNumber(1)
-  set key($core.String v) { $_setString(0, v); }
+  set id($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasKey() => $_has(0);
+  $core.bool hasId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearKey() => clearField(1);
+  void clearId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $1.Timestamp get privateKeyGeneratedAt => $_getN(1);
+  $core.String get organizationId => $_getSZ(1);
   @$pb.TagNumber(2)
-  set privateKeyGeneratedAt($1.Timestamp v) { setField(2, v); }
+  set organizationId($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasPrivateKeyGeneratedAt() => $_has(1);
+  $core.bool hasOrganizationId() => $_has(1);
   @$pb.TagNumber(2)
-  void clearPrivateKeyGeneratedAt() => clearField(2);
-  @$pb.TagNumber(2)
-  $1.Timestamp ensurePrivateKeyGeneratedAt() => $_ensure(1);
+  void clearOrganizationId() => clearField(2);
 
   @$pb.TagNumber(3)
-  $1.Timestamp get privateKeySecuredAt => $_getN(2);
+  $core.String get key => $_getSZ(2);
   @$pb.TagNumber(3)
-  set privateKeySecuredAt($1.Timestamp v) { setField(3, v); }
+  set key($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasPrivateKeySecuredAt() => $_has(2);
+  $core.bool hasKey() => $_has(2);
   @$pb.TagNumber(3)
-  void clearPrivateKeySecuredAt() => clearField(3);
-  @$pb.TagNumber(3)
-  $1.Timestamp ensurePrivateKeySecuredAt() => $_ensure(2);
+  void clearKey() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.bool get privateKeySecured => $_getBF(3);
+  $1.Timestamp get privateKeyGeneratedAt => $_getN(3);
   @$pb.TagNumber(4)
-  set privateKeySecured($core.bool v) { $_setBool(3, v); }
+  set privateKeyGeneratedAt($1.Timestamp v) { setField(4, v); }
   @$pb.TagNumber(4)
-  $core.bool hasPrivateKeySecured() => $_has(3);
+  $core.bool hasPrivateKeyGeneratedAt() => $_has(3);
   @$pb.TagNumber(4)
-  void clearPrivateKeySecured() => clearField(4);
+  void clearPrivateKeyGeneratedAt() => clearField(4);
+  @$pb.TagNumber(4)
+  $1.Timestamp ensurePrivateKeyGeneratedAt() => $_ensure(3);
 
   @$pb.TagNumber(5)
-  $core.List<$core.String> get blockUserApps => $_getList(4);
+  $1.Timestamp get privateKeySecuredAt => $_getN(4);
+  @$pb.TagNumber(5)
+  set privateKeySecuredAt($1.Timestamp v) { setField(5, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasPrivateKeySecuredAt() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearPrivateKeySecuredAt() => clearField(5);
+  @$pb.TagNumber(5)
+  $1.Timestamp ensurePrivateKeySecuredAt() => $_ensure(4);
+
+  @$pb.TagNumber(6)
+  $core.bool get privateKeySecured => $_getBF(5);
+  @$pb.TagNumber(6)
+  set privateKeySecured($core.bool v) { $_setBool(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasPrivateKeySecured() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearPrivateKeySecured() => clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.List<$core.String> get userBlockIds => $_getList(6);
 }
 
 class OrganizationRequest extends $pb.GeneratedMessage {
@@ -506,111 +540,5 @@ class OrganizationResponse extends $pb.GeneratedMessage {
   $core.bool hasAccessToken() => $_has(2);
   @$pb.TagNumber(3)
   void clearAccessToken() => clearField(3);
-}
-
-class AppRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'AppRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Cloud'), createEmptyInstance: create)
-    ..aOM<App>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'app', subBuilder: App.create)
-    ..hasRequiredFields = false
-  ;
-
-  AppRequest._() : super();
-  factory AppRequest({
-    App? app,
-  }) {
-    final _result = create();
-    if (app != null) {
-      _result.app = app;
-    }
-    return _result;
-  }
-  factory AppRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory AppRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  AppRequest clone() => AppRequest()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  AppRequest copyWith(void Function(AppRequest) updates) => super.copyWith((message) => updates(message as AppRequest)) as AppRequest; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static AppRequest create() => AppRequest._();
-  AppRequest createEmptyInstance() => create();
-  static $pb.PbList<AppRequest> createRepeated() => $pb.PbList<AppRequest>();
-  @$core.pragma('dart2js:noInline')
-  static AppRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<AppRequest>(create);
-  static AppRequest? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  App get app => $_getN(0);
-  @$pb.TagNumber(1)
-  set app(App v) { setField(1, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasApp() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearApp() => clearField(1);
-  @$pb.TagNumber(1)
-  App ensureApp() => $_ensure(0);
-}
-
-class AppResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'AppResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Cloud'), createEmptyInstance: create)
-    ..aOM<App>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'app', subBuilder: App.create)
-    ..pc<App>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'apps', $pb.PbFieldType.PM, subBuilder: App.create)
-    ..hasRequiredFields = false
-  ;
-
-  AppResponse._() : super();
-  factory AppResponse({
-    App? app,
-    $core.Iterable<App>? apps,
-  }) {
-    final _result = create();
-    if (app != null) {
-      _result.app = app;
-    }
-    if (apps != null) {
-      _result.apps.addAll(apps);
-    }
-    return _result;
-  }
-  factory AppResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory AppResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  AppResponse clone() => AppResponse()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  AppResponse copyWith(void Function(AppResponse) updates) => super.copyWith((message) => updates(message as AppResponse)) as AppResponse; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static AppResponse create() => AppResponse._();
-  AppResponse createEmptyInstance() => create();
-  static $pb.PbList<AppResponse> createRepeated() => $pb.PbList<AppResponse>();
-  @$core.pragma('dart2js:noInline')
-  static AppResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<AppResponse>(create);
-  static AppResponse? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  App get app => $_getN(0);
-  @$pb.TagNumber(1)
-  set app(App v) { setField(1, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasApp() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearApp() => clearField(1);
-  @$pb.TagNumber(1)
-  App ensureApp() => $_ensure(0);
-
-  @$pb.TagNumber(2)
-  $core.List<App> get apps => $_getList(1);
 }
 

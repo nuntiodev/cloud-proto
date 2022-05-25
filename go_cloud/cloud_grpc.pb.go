@@ -20,14 +20,13 @@ const _ = grpc.SupportPackageIsVersion7
 type CloudServiceClient interface {
 	Heartbeat(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error)
 	Create(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error)
-	RemovePrivateKey(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error)
-	GenerateAccessToken(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error)
-	ValidateAccessToken(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error)
-	UpdateInfo(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error)
+	CreatePrivateKey(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error)
+	DeletePrivateKey(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error)
+	ValidatePrivateKey(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error)
+	Update(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error)
 	Get(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error)
 	GetByOwner(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error)
 	Delete(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error)
-	AvailableApps(ctx context.Context, in *AppRequest, opts ...grpc.CallOption) (*AppResponse, error)
 }
 
 type cloudServiceClient struct {
@@ -56,36 +55,36 @@ func (c *cloudServiceClient) Create(ctx context.Context, in *OrganizationRequest
 	return out, nil
 }
 
-func (c *cloudServiceClient) RemovePrivateKey(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error) {
+func (c *cloudServiceClient) CreatePrivateKey(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error) {
 	out := new(OrganizationResponse)
-	err := c.cc.Invoke(ctx, "/Cloud.CloudService/RemovePrivateKey", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Cloud.CloudService/CreatePrivateKey", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *cloudServiceClient) GenerateAccessToken(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error) {
+func (c *cloudServiceClient) DeletePrivateKey(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error) {
 	out := new(OrganizationResponse)
-	err := c.cc.Invoke(ctx, "/Cloud.CloudService/GenerateAccessToken", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Cloud.CloudService/DeletePrivateKey", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *cloudServiceClient) ValidateAccessToken(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error) {
+func (c *cloudServiceClient) ValidatePrivateKey(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error) {
 	out := new(OrganizationResponse)
-	err := c.cc.Invoke(ctx, "/Cloud.CloudService/ValidateAccessToken", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Cloud.CloudService/ValidatePrivateKey", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *cloudServiceClient) UpdateInfo(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error) {
+func (c *cloudServiceClient) Update(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error) {
 	out := new(OrganizationResponse)
-	err := c.cc.Invoke(ctx, "/Cloud.CloudService/UpdateInfo", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Cloud.CloudService/Update", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -119,29 +118,19 @@ func (c *cloudServiceClient) Delete(ctx context.Context, in *OrganizationRequest
 	return out, nil
 }
 
-func (c *cloudServiceClient) AvailableApps(ctx context.Context, in *AppRequest, opts ...grpc.CallOption) (*AppResponse, error) {
-	out := new(AppResponse)
-	err := c.cc.Invoke(ctx, "/Cloud.CloudService/AvailableApps", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // CloudServiceServer is the server API for CloudService service.
 // All implementations should embed UnimplementedCloudServiceServer
 // for forward compatibility
 type CloudServiceServer interface {
 	Heartbeat(context.Context, *OrganizationRequest) (*OrganizationResponse, error)
 	Create(context.Context, *OrganizationRequest) (*OrganizationResponse, error)
-	RemovePrivateKey(context.Context, *OrganizationRequest) (*OrganizationResponse, error)
-	GenerateAccessToken(context.Context, *OrganizationRequest) (*OrganizationResponse, error)
-	ValidateAccessToken(context.Context, *OrganizationRequest) (*OrganizationResponse, error)
-	UpdateInfo(context.Context, *OrganizationRequest) (*OrganizationResponse, error)
+	CreatePrivateKey(context.Context, *OrganizationRequest) (*OrganizationResponse, error)
+	DeletePrivateKey(context.Context, *OrganizationRequest) (*OrganizationResponse, error)
+	ValidatePrivateKey(context.Context, *OrganizationRequest) (*OrganizationResponse, error)
+	Update(context.Context, *OrganizationRequest) (*OrganizationResponse, error)
 	Get(context.Context, *OrganizationRequest) (*OrganizationResponse, error)
 	GetByOwner(context.Context, *OrganizationRequest) (*OrganizationResponse, error)
 	Delete(context.Context, *OrganizationRequest) (*OrganizationResponse, error)
-	AvailableApps(context.Context, *AppRequest) (*AppResponse, error)
 }
 
 // UnimplementedCloudServiceServer should be embedded to have forward compatible implementations.
@@ -154,17 +143,17 @@ func (UnimplementedCloudServiceServer) Heartbeat(context.Context, *OrganizationR
 func (UnimplementedCloudServiceServer) Create(context.Context, *OrganizationRequest) (*OrganizationResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
 }
-func (UnimplementedCloudServiceServer) RemovePrivateKey(context.Context, *OrganizationRequest) (*OrganizationResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method RemovePrivateKey not implemented")
+func (UnimplementedCloudServiceServer) CreatePrivateKey(context.Context, *OrganizationRequest) (*OrganizationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreatePrivateKey not implemented")
 }
-func (UnimplementedCloudServiceServer) GenerateAccessToken(context.Context, *OrganizationRequest) (*OrganizationResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GenerateAccessToken not implemented")
+func (UnimplementedCloudServiceServer) DeletePrivateKey(context.Context, *OrganizationRequest) (*OrganizationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeletePrivateKey not implemented")
 }
-func (UnimplementedCloudServiceServer) ValidateAccessToken(context.Context, *OrganizationRequest) (*OrganizationResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ValidateAccessToken not implemented")
+func (UnimplementedCloudServiceServer) ValidatePrivateKey(context.Context, *OrganizationRequest) (*OrganizationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ValidatePrivateKey not implemented")
 }
-func (UnimplementedCloudServiceServer) UpdateInfo(context.Context, *OrganizationRequest) (*OrganizationResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateInfo not implemented")
+func (UnimplementedCloudServiceServer) Update(context.Context, *OrganizationRequest) (*OrganizationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
 }
 func (UnimplementedCloudServiceServer) Get(context.Context, *OrganizationRequest) (*OrganizationResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
@@ -174,9 +163,6 @@ func (UnimplementedCloudServiceServer) GetByOwner(context.Context, *Organization
 }
 func (UnimplementedCloudServiceServer) Delete(context.Context, *OrganizationRequest) (*OrganizationResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Delete not implemented")
-}
-func (UnimplementedCloudServiceServer) AvailableApps(context.Context, *AppRequest) (*AppResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method AvailableApps not implemented")
 }
 
 // UnsafeCloudServiceServer may be embedded to opt out of forward compatibility for this service.
@@ -226,74 +212,74 @@ func _CloudService_Create_Handler(srv interface{}, ctx context.Context, dec func
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CloudService_RemovePrivateKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _CloudService_CreatePrivateKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(OrganizationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CloudServiceServer).RemovePrivateKey(ctx, in)
+		return srv.(CloudServiceServer).CreatePrivateKey(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/Cloud.CloudService/RemovePrivateKey",
+		FullMethod: "/Cloud.CloudService/CreatePrivateKey",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CloudServiceServer).RemovePrivateKey(ctx, req.(*OrganizationRequest))
+		return srv.(CloudServiceServer).CreatePrivateKey(ctx, req.(*OrganizationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CloudService_GenerateAccessToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _CloudService_DeletePrivateKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(OrganizationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CloudServiceServer).GenerateAccessToken(ctx, in)
+		return srv.(CloudServiceServer).DeletePrivateKey(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/Cloud.CloudService/GenerateAccessToken",
+		FullMethod: "/Cloud.CloudService/DeletePrivateKey",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CloudServiceServer).GenerateAccessToken(ctx, req.(*OrganizationRequest))
+		return srv.(CloudServiceServer).DeletePrivateKey(ctx, req.(*OrganizationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CloudService_ValidateAccessToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _CloudService_ValidatePrivateKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(OrganizationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CloudServiceServer).ValidateAccessToken(ctx, in)
+		return srv.(CloudServiceServer).ValidatePrivateKey(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/Cloud.CloudService/ValidateAccessToken",
+		FullMethod: "/Cloud.CloudService/ValidatePrivateKey",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CloudServiceServer).ValidateAccessToken(ctx, req.(*OrganizationRequest))
+		return srv.(CloudServiceServer).ValidatePrivateKey(ctx, req.(*OrganizationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CloudService_UpdateInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _CloudService_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(OrganizationRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(CloudServiceServer).UpdateInfo(ctx, in)
+		return srv.(CloudServiceServer).Update(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/Cloud.CloudService/UpdateInfo",
+		FullMethod: "/Cloud.CloudService/Update",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CloudServiceServer).UpdateInfo(ctx, req.(*OrganizationRequest))
+		return srv.(CloudServiceServer).Update(ctx, req.(*OrganizationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -352,24 +338,6 @@ func _CloudService_Delete_Handler(srv interface{}, ctx context.Context, dec func
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CloudService_AvailableApps_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(AppRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CloudServiceServer).AvailableApps(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/Cloud.CloudService/AvailableApps",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CloudServiceServer).AvailableApps(ctx, req.(*AppRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 // CloudService_ServiceDesc is the grpc.ServiceDesc for CloudService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -386,20 +354,20 @@ var CloudService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CloudService_Create_Handler,
 		},
 		{
-			MethodName: "RemovePrivateKey",
-			Handler:    _CloudService_RemovePrivateKey_Handler,
+			MethodName: "CreatePrivateKey",
+			Handler:    _CloudService_CreatePrivateKey_Handler,
 		},
 		{
-			MethodName: "GenerateAccessToken",
-			Handler:    _CloudService_GenerateAccessToken_Handler,
+			MethodName: "DeletePrivateKey",
+			Handler:    _CloudService_DeletePrivateKey_Handler,
 		},
 		{
-			MethodName: "ValidateAccessToken",
-			Handler:    _CloudService_ValidateAccessToken_Handler,
+			MethodName: "ValidatePrivateKey",
+			Handler:    _CloudService_ValidatePrivateKey_Handler,
 		},
 		{
-			MethodName: "UpdateInfo",
-			Handler:    _CloudService_UpdateInfo_Handler,
+			MethodName: "Update",
+			Handler:    _CloudService_Update_Handler,
 		},
 		{
 			MethodName: "Get",
@@ -412,10 +380,6 @@ var CloudService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Delete",
 			Handler:    _CloudService_Delete_Handler,
-		},
-		{
-			MethodName: "AvailableApps",
-			Handler:    _CloudService_AvailableApps_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

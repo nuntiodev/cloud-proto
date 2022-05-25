@@ -26,27 +26,27 @@ class CloudServiceClient extends $grpc.Client {
           ($0.OrganizationRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.OrganizationResponse.fromBuffer(value));
-  static final _$removePrivateKey =
+  static final _$createPrivateKey =
       $grpc.ClientMethod<$0.OrganizationRequest, $0.OrganizationResponse>(
-          '/Cloud.CloudService/RemovePrivateKey',
+          '/Cloud.CloudService/CreatePrivateKey',
           ($0.OrganizationRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.OrganizationResponse.fromBuffer(value));
-  static final _$generateAccessToken =
+  static final _$deletePrivateKey =
       $grpc.ClientMethod<$0.OrganizationRequest, $0.OrganizationResponse>(
-          '/Cloud.CloudService/GenerateAccessToken',
+          '/Cloud.CloudService/DeletePrivateKey',
           ($0.OrganizationRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.OrganizationResponse.fromBuffer(value));
-  static final _$validateAccessToken =
+  static final _$validatePrivateKey =
       $grpc.ClientMethod<$0.OrganizationRequest, $0.OrganizationResponse>(
-          '/Cloud.CloudService/ValidateAccessToken',
+          '/Cloud.CloudService/ValidatePrivateKey',
           ($0.OrganizationRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.OrganizationResponse.fromBuffer(value));
-  static final _$updateInfo =
+  static final _$update =
       $grpc.ClientMethod<$0.OrganizationRequest, $0.OrganizationResponse>(
-          '/Cloud.CloudService/UpdateInfo',
+          '/Cloud.CloudService/Update',
           ($0.OrganizationRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.OrganizationResponse.fromBuffer(value));
@@ -68,11 +68,6 @@ class CloudServiceClient extends $grpc.Client {
           ($0.OrganizationRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.OrganizationResponse.fromBuffer(value));
-  static final _$availableApps =
-      $grpc.ClientMethod<$0.AppRequest, $0.AppResponse>(
-          '/Cloud.CloudService/AvailableApps',
-          ($0.AppRequest value) => value.writeToBuffer(),
-          ($core.List<$core.int> value) => $0.AppResponse.fromBuffer(value));
 
   CloudServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -91,28 +86,28 @@ class CloudServiceClient extends $grpc.Client {
     return $createUnaryCall(_$create, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.OrganizationResponse> removePrivateKey(
+  $grpc.ResponseFuture<$0.OrganizationResponse> createPrivateKey(
       $0.OrganizationRequest request,
       {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$removePrivateKey, request, options: options);
+    return $createUnaryCall(_$createPrivateKey, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.OrganizationResponse> generateAccessToken(
+  $grpc.ResponseFuture<$0.OrganizationResponse> deletePrivateKey(
       $0.OrganizationRequest request,
       {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$generateAccessToken, request, options: options);
+    return $createUnaryCall(_$deletePrivateKey, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.OrganizationResponse> validateAccessToken(
+  $grpc.ResponseFuture<$0.OrganizationResponse> validatePrivateKey(
       $0.OrganizationRequest request,
       {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$validateAccessToken, request, options: options);
+    return $createUnaryCall(_$validatePrivateKey, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.OrganizationResponse> updateInfo(
+  $grpc.ResponseFuture<$0.OrganizationResponse> update(
       $0.OrganizationRequest request,
       {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$updateInfo, request, options: options);
+    return $createUnaryCall(_$update, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.OrganizationResponse> get(
@@ -131,11 +126,6 @@ class CloudServiceClient extends $grpc.Client {
       $0.OrganizationRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$delete, request, options: options);
-  }
-
-  $grpc.ResponseFuture<$0.AppResponse> availableApps($0.AppRequest request,
-      {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$availableApps, request, options: options);
   }
 }
 
@@ -163,8 +153,8 @@ abstract class CloudServiceBase extends $grpc.Service {
             ($0.OrganizationResponse value) => value.writeToBuffer()));
     $addMethod(
         $grpc.ServiceMethod<$0.OrganizationRequest, $0.OrganizationResponse>(
-            'RemovePrivateKey',
-            removePrivateKey_Pre,
+            'CreatePrivateKey',
+            createPrivateKey_Pre,
             false,
             false,
             ($core.List<$core.int> value) =>
@@ -172,8 +162,8 @@ abstract class CloudServiceBase extends $grpc.Service {
             ($0.OrganizationResponse value) => value.writeToBuffer()));
     $addMethod(
         $grpc.ServiceMethod<$0.OrganizationRequest, $0.OrganizationResponse>(
-            'GenerateAccessToken',
-            generateAccessToken_Pre,
+            'DeletePrivateKey',
+            deletePrivateKey_Pre,
             false,
             false,
             ($core.List<$core.int> value) =>
@@ -181,8 +171,8 @@ abstract class CloudServiceBase extends $grpc.Service {
             ($0.OrganizationResponse value) => value.writeToBuffer()));
     $addMethod(
         $grpc.ServiceMethod<$0.OrganizationRequest, $0.OrganizationResponse>(
-            'ValidateAccessToken',
-            validateAccessToken_Pre,
+            'ValidatePrivateKey',
+            validatePrivateKey_Pre,
             false,
             false,
             ($core.List<$core.int> value) =>
@@ -190,8 +180,8 @@ abstract class CloudServiceBase extends $grpc.Service {
             ($0.OrganizationResponse value) => value.writeToBuffer()));
     $addMethod(
         $grpc.ServiceMethod<$0.OrganizationRequest, $0.OrganizationResponse>(
-            'UpdateInfo',
-            updateInfo_Pre,
+            'Update',
+            update_Pre,
             false,
             false,
             ($core.List<$core.int> value) =>
@@ -224,13 +214,6 @@ abstract class CloudServiceBase extends $grpc.Service {
             ($core.List<$core.int> value) =>
                 $0.OrganizationRequest.fromBuffer(value),
             ($0.OrganizationResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.AppRequest, $0.AppResponse>(
-        'AvailableApps',
-        availableApps_Pre,
-        false,
-        false,
-        ($core.List<$core.int> value) => $0.AppRequest.fromBuffer(value),
-        ($0.AppResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.OrganizationResponse> heartbeat_Pre($grpc.ServiceCall call,
@@ -243,27 +226,27 @@ abstract class CloudServiceBase extends $grpc.Service {
     return create(call, await request);
   }
 
-  $async.Future<$0.OrganizationResponse> removePrivateKey_Pre(
+  $async.Future<$0.OrganizationResponse> createPrivateKey_Pre(
       $grpc.ServiceCall call,
       $async.Future<$0.OrganizationRequest> request) async {
-    return removePrivateKey(call, await request);
+    return createPrivateKey(call, await request);
   }
 
-  $async.Future<$0.OrganizationResponse> generateAccessToken_Pre(
+  $async.Future<$0.OrganizationResponse> deletePrivateKey_Pre(
       $grpc.ServiceCall call,
       $async.Future<$0.OrganizationRequest> request) async {
-    return generateAccessToken(call, await request);
+    return deletePrivateKey(call, await request);
   }
 
-  $async.Future<$0.OrganizationResponse> validateAccessToken_Pre(
+  $async.Future<$0.OrganizationResponse> validatePrivateKey_Pre(
       $grpc.ServiceCall call,
       $async.Future<$0.OrganizationRequest> request) async {
-    return validateAccessToken(call, await request);
+    return validatePrivateKey(call, await request);
   }
 
-  $async.Future<$0.OrganizationResponse> updateInfo_Pre($grpc.ServiceCall call,
+  $async.Future<$0.OrganizationResponse> update_Pre($grpc.ServiceCall call,
       $async.Future<$0.OrganizationRequest> request) async {
-    return updateInfo(call, await request);
+    return update(call, await request);
   }
 
   $async.Future<$0.OrganizationResponse> get_Pre($grpc.ServiceCall call,
@@ -281,22 +264,17 @@ abstract class CloudServiceBase extends $grpc.Service {
     return delete(call, await request);
   }
 
-  $async.Future<$0.AppResponse> availableApps_Pre(
-      $grpc.ServiceCall call, $async.Future<$0.AppRequest> request) async {
-    return availableApps(call, await request);
-  }
-
   $async.Future<$0.OrganizationResponse> heartbeat(
       $grpc.ServiceCall call, $0.OrganizationRequest request);
   $async.Future<$0.OrganizationResponse> create(
       $grpc.ServiceCall call, $0.OrganizationRequest request);
-  $async.Future<$0.OrganizationResponse> removePrivateKey(
+  $async.Future<$0.OrganizationResponse> createPrivateKey(
       $grpc.ServiceCall call, $0.OrganizationRequest request);
-  $async.Future<$0.OrganizationResponse> generateAccessToken(
+  $async.Future<$0.OrganizationResponse> deletePrivateKey(
       $grpc.ServiceCall call, $0.OrganizationRequest request);
-  $async.Future<$0.OrganizationResponse> validateAccessToken(
+  $async.Future<$0.OrganizationResponse> validatePrivateKey(
       $grpc.ServiceCall call, $0.OrganizationRequest request);
-  $async.Future<$0.OrganizationResponse> updateInfo(
+  $async.Future<$0.OrganizationResponse> update(
       $grpc.ServiceCall call, $0.OrganizationRequest request);
   $async.Future<$0.OrganizationResponse> get(
       $grpc.ServiceCall call, $0.OrganizationRequest request);
@@ -304,6 +282,4 @@ abstract class CloudServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.OrganizationRequest request);
   $async.Future<$0.OrganizationResponse> delete(
       $grpc.ServiceCall call, $0.OrganizationRequest request);
-  $async.Future<$0.AppResponse> availableApps(
-      $grpc.ServiceCall call, $0.AppRequest request);
 }

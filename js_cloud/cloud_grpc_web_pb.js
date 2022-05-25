@@ -200,8 +200,8 @@ proto.Cloud.CloudServicePromiseClient.prototype.create =
  *   !proto.Cloud.OrganizationRequest,
  *   !proto.Cloud.OrganizationResponse>}
  */
-const methodDescriptor_CloudService_RemovePrivateKey = new grpc.web.MethodDescriptor(
-  '/Cloud.CloudService/RemovePrivateKey',
+const methodDescriptor_CloudService_CreatePrivateKey = new grpc.web.MethodDescriptor(
+  '/Cloud.CloudService/CreatePrivateKey',
   grpc.web.MethodType.UNARY,
   proto.Cloud.OrganizationRequest,
   proto.Cloud.OrganizationResponse,
@@ -226,13 +226,13 @@ const methodDescriptor_CloudService_RemovePrivateKey = new grpc.web.MethodDescri
  * @return {!grpc.web.ClientReadableStream<!proto.Cloud.OrganizationResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.Cloud.CloudServiceClient.prototype.removePrivateKey =
+proto.Cloud.CloudServiceClient.prototype.createPrivateKey =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/Cloud.CloudService/RemovePrivateKey',
+      '/Cloud.CloudService/CreatePrivateKey',
       request,
       metadata || {},
-      methodDescriptor_CloudService_RemovePrivateKey,
+      methodDescriptor_CloudService_CreatePrivateKey,
       callback);
 };
 
@@ -245,13 +245,13 @@ proto.Cloud.CloudServiceClient.prototype.removePrivateKey =
  * @return {!Promise<!proto.Cloud.OrganizationResponse>}
  *     Promise that resolves to the response
  */
-proto.Cloud.CloudServicePromiseClient.prototype.removePrivateKey =
+proto.Cloud.CloudServicePromiseClient.prototype.createPrivateKey =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/Cloud.CloudService/RemovePrivateKey',
+      '/Cloud.CloudService/CreatePrivateKey',
       request,
       metadata || {},
-      methodDescriptor_CloudService_RemovePrivateKey);
+      methodDescriptor_CloudService_CreatePrivateKey);
 };
 
 
@@ -261,8 +261,8 @@ proto.Cloud.CloudServicePromiseClient.prototype.removePrivateKey =
  *   !proto.Cloud.OrganizationRequest,
  *   !proto.Cloud.OrganizationResponse>}
  */
-const methodDescriptor_CloudService_GenerateAccessToken = new grpc.web.MethodDescriptor(
-  '/Cloud.CloudService/GenerateAccessToken',
+const methodDescriptor_CloudService_DeletePrivateKey = new grpc.web.MethodDescriptor(
+  '/Cloud.CloudService/DeletePrivateKey',
   grpc.web.MethodType.UNARY,
   proto.Cloud.OrganizationRequest,
   proto.Cloud.OrganizationResponse,
@@ -287,13 +287,13 @@ const methodDescriptor_CloudService_GenerateAccessToken = new grpc.web.MethodDes
  * @return {!grpc.web.ClientReadableStream<!proto.Cloud.OrganizationResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.Cloud.CloudServiceClient.prototype.generateAccessToken =
+proto.Cloud.CloudServiceClient.prototype.deletePrivateKey =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/Cloud.CloudService/GenerateAccessToken',
+      '/Cloud.CloudService/DeletePrivateKey',
       request,
       metadata || {},
-      methodDescriptor_CloudService_GenerateAccessToken,
+      methodDescriptor_CloudService_DeletePrivateKey,
       callback);
 };
 
@@ -306,13 +306,13 @@ proto.Cloud.CloudServiceClient.prototype.generateAccessToken =
  * @return {!Promise<!proto.Cloud.OrganizationResponse>}
  *     Promise that resolves to the response
  */
-proto.Cloud.CloudServicePromiseClient.prototype.generateAccessToken =
+proto.Cloud.CloudServicePromiseClient.prototype.deletePrivateKey =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/Cloud.CloudService/GenerateAccessToken',
+      '/Cloud.CloudService/DeletePrivateKey',
       request,
       metadata || {},
-      methodDescriptor_CloudService_GenerateAccessToken);
+      methodDescriptor_CloudService_DeletePrivateKey);
 };
 
 
@@ -322,8 +322,8 @@ proto.Cloud.CloudServicePromiseClient.prototype.generateAccessToken =
  *   !proto.Cloud.OrganizationRequest,
  *   !proto.Cloud.OrganizationResponse>}
  */
-const methodDescriptor_CloudService_ValidateAccessToken = new grpc.web.MethodDescriptor(
-  '/Cloud.CloudService/ValidateAccessToken',
+const methodDescriptor_CloudService_ValidatePrivateKey = new grpc.web.MethodDescriptor(
+  '/Cloud.CloudService/ValidatePrivateKey',
   grpc.web.MethodType.UNARY,
   proto.Cloud.OrganizationRequest,
   proto.Cloud.OrganizationResponse,
@@ -348,13 +348,13 @@ const methodDescriptor_CloudService_ValidateAccessToken = new grpc.web.MethodDes
  * @return {!grpc.web.ClientReadableStream<!proto.Cloud.OrganizationResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.Cloud.CloudServiceClient.prototype.validateAccessToken =
+proto.Cloud.CloudServiceClient.prototype.validatePrivateKey =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/Cloud.CloudService/ValidateAccessToken',
+      '/Cloud.CloudService/ValidatePrivateKey',
       request,
       metadata || {},
-      methodDescriptor_CloudService_ValidateAccessToken,
+      methodDescriptor_CloudService_ValidatePrivateKey,
       callback);
 };
 
@@ -367,13 +367,13 @@ proto.Cloud.CloudServiceClient.prototype.validateAccessToken =
  * @return {!Promise<!proto.Cloud.OrganizationResponse>}
  *     Promise that resolves to the response
  */
-proto.Cloud.CloudServicePromiseClient.prototype.validateAccessToken =
+proto.Cloud.CloudServicePromiseClient.prototype.validatePrivateKey =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/Cloud.CloudService/ValidateAccessToken',
+      '/Cloud.CloudService/ValidatePrivateKey',
       request,
       metadata || {},
-      methodDescriptor_CloudService_ValidateAccessToken);
+      methodDescriptor_CloudService_ValidatePrivateKey);
 };
 
 
@@ -383,8 +383,8 @@ proto.Cloud.CloudServicePromiseClient.prototype.validateAccessToken =
  *   !proto.Cloud.OrganizationRequest,
  *   !proto.Cloud.OrganizationResponse>}
  */
-const methodDescriptor_CloudService_UpdateInfo = new grpc.web.MethodDescriptor(
-  '/Cloud.CloudService/UpdateInfo',
+const methodDescriptor_CloudService_Update = new grpc.web.MethodDescriptor(
+  '/Cloud.CloudService/Update',
   grpc.web.MethodType.UNARY,
   proto.Cloud.OrganizationRequest,
   proto.Cloud.OrganizationResponse,
@@ -409,13 +409,13 @@ const methodDescriptor_CloudService_UpdateInfo = new grpc.web.MethodDescriptor(
  * @return {!grpc.web.ClientReadableStream<!proto.Cloud.OrganizationResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.Cloud.CloudServiceClient.prototype.updateInfo =
+proto.Cloud.CloudServiceClient.prototype.update =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/Cloud.CloudService/UpdateInfo',
+      '/Cloud.CloudService/Update',
       request,
       metadata || {},
-      methodDescriptor_CloudService_UpdateInfo,
+      methodDescriptor_CloudService_Update,
       callback);
 };
 
@@ -428,13 +428,13 @@ proto.Cloud.CloudServiceClient.prototype.updateInfo =
  * @return {!Promise<!proto.Cloud.OrganizationResponse>}
  *     Promise that resolves to the response
  */
-proto.Cloud.CloudServicePromiseClient.prototype.updateInfo =
+proto.Cloud.CloudServicePromiseClient.prototype.update =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/Cloud.CloudService/UpdateInfo',
+      '/Cloud.CloudService/Update',
       request,
       metadata || {},
-      methodDescriptor_CloudService_UpdateInfo);
+      methodDescriptor_CloudService_Update);
 };
 
 
@@ -618,67 +618,6 @@ proto.Cloud.CloudServicePromiseClient.prototype.delete =
       request,
       metadata || {},
       methodDescriptor_CloudService_Delete);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.Cloud.AppRequest,
- *   !proto.Cloud.AppResponse>}
- */
-const methodDescriptor_CloudService_AvailableApps = new grpc.web.MethodDescriptor(
-  '/Cloud.CloudService/AvailableApps',
-  grpc.web.MethodType.UNARY,
-  proto.Cloud.AppRequest,
-  proto.Cloud.AppResponse,
-  /**
-   * @param {!proto.Cloud.AppRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.Cloud.AppResponse.deserializeBinary
-);
-
-
-/**
- * @param {!proto.Cloud.AppRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.Cloud.AppResponse)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.Cloud.AppResponse>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.Cloud.CloudServiceClient.prototype.availableApps =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/Cloud.CloudService/AvailableApps',
-      request,
-      metadata || {},
-      methodDescriptor_CloudService_AvailableApps,
-      callback);
-};
-
-
-/**
- * @param {!proto.Cloud.AppRequest} request The
- *     request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.Cloud.AppResponse>}
- *     Promise that resolves to the response
- */
-proto.Cloud.CloudServicePromiseClient.prototype.availableApps =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/Cloud.CloudService/AvailableApps',
-      request,
-      metadata || {},
-      methodDescriptor_CloudService_AvailableApps);
 };
 
 
