@@ -200,6 +200,67 @@ proto.Cloud.CloudServicePromiseClient.prototype.create =
  *   !proto.Cloud.OrganizationRequest,
  *   !proto.Cloud.OrganizationResponse>}
  */
+const methodDescriptor_CloudService_GetPrivateKeys = new grpc.web.MethodDescriptor(
+  '/Cloud.CloudService/GetPrivateKeys',
+  grpc.web.MethodType.UNARY,
+  proto.Cloud.OrganizationRequest,
+  proto.Cloud.OrganizationResponse,
+  /**
+   * @param {!proto.Cloud.OrganizationRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.Cloud.OrganizationResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.Cloud.OrganizationRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.Cloud.OrganizationResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.Cloud.OrganizationResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.Cloud.CloudServiceClient.prototype.getPrivateKeys =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/Cloud.CloudService/GetPrivateKeys',
+      request,
+      metadata || {},
+      methodDescriptor_CloudService_GetPrivateKeys,
+      callback);
+};
+
+
+/**
+ * @param {!proto.Cloud.OrganizationRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.Cloud.OrganizationResponse>}
+ *     Promise that resolves to the response
+ */
+proto.Cloud.CloudServicePromiseClient.prototype.getPrivateKeys =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/Cloud.CloudService/GetPrivateKeys',
+      request,
+      metadata || {},
+      methodDescriptor_CloudService_GetPrivateKeys);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.Cloud.OrganizationRequest,
+ *   !proto.Cloud.OrganizationResponse>}
+ */
 const methodDescriptor_CloudService_CreatePrivateKey = new grpc.web.MethodDescriptor(
   '/Cloud.CloudService/CreatePrivateKey',
   grpc.web.MethodType.UNARY,

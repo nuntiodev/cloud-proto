@@ -26,6 +26,12 @@ class CloudServiceClient extends $grpc.Client {
           ($0.OrganizationRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.OrganizationResponse.fromBuffer(value));
+  static final _$getPrivateKeys =
+      $grpc.ClientMethod<$0.OrganizationRequest, $0.OrganizationResponse>(
+          '/Cloud.CloudService/GetPrivateKeys',
+          ($0.OrganizationRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) =>
+              $0.OrganizationResponse.fromBuffer(value));
   static final _$createPrivateKey =
       $grpc.ClientMethod<$0.OrganizationRequest, $0.OrganizationResponse>(
           '/Cloud.CloudService/CreatePrivateKey',
@@ -84,6 +90,12 @@ class CloudServiceClient extends $grpc.Client {
       $0.OrganizationRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$create, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.OrganizationResponse> getPrivateKeys(
+      $0.OrganizationRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getPrivateKeys, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.OrganizationResponse> createPrivateKey(
@@ -146,6 +158,15 @@ abstract class CloudServiceBase extends $grpc.Service {
         $grpc.ServiceMethod<$0.OrganizationRequest, $0.OrganizationResponse>(
             'Create',
             create_Pre,
+            false,
+            false,
+            ($core.List<$core.int> value) =>
+                $0.OrganizationRequest.fromBuffer(value),
+            ($0.OrganizationResponse value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$0.OrganizationRequest, $0.OrganizationResponse>(
+            'GetPrivateKeys',
+            getPrivateKeys_Pre,
             false,
             false,
             ($core.List<$core.int> value) =>
@@ -226,6 +247,12 @@ abstract class CloudServiceBase extends $grpc.Service {
     return create(call, await request);
   }
 
+  $async.Future<$0.OrganizationResponse> getPrivateKeys_Pre(
+      $grpc.ServiceCall call,
+      $async.Future<$0.OrganizationRequest> request) async {
+    return getPrivateKeys(call, await request);
+  }
+
   $async.Future<$0.OrganizationResponse> createPrivateKey_Pre(
       $grpc.ServiceCall call,
       $async.Future<$0.OrganizationRequest> request) async {
@@ -267,6 +294,8 @@ abstract class CloudServiceBase extends $grpc.Service {
   $async.Future<$0.OrganizationResponse> heartbeat(
       $grpc.ServiceCall call, $0.OrganizationRequest request);
   $async.Future<$0.OrganizationResponse> create(
+      $grpc.ServiceCall call, $0.OrganizationRequest request);
+  $async.Future<$0.OrganizationResponse> getPrivateKeys(
       $grpc.ServiceCall call, $0.OrganizationRequest request);
   $async.Future<$0.OrganizationResponse> createPrivateKey(
       $grpc.ServiceCall call, $0.OrganizationRequest request);

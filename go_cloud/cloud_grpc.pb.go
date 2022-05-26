@@ -20,6 +20,7 @@ const _ = grpc.SupportPackageIsVersion7
 type CloudServiceClient interface {
 	Heartbeat(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error)
 	Create(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error)
+	GetPrivateKeys(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error)
 	CreatePrivateKey(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error)
 	DeletePrivateKey(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error)
 	ValidatePrivateKey(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error)
@@ -49,6 +50,15 @@ func (c *cloudServiceClient) Heartbeat(ctx context.Context, in *OrganizationRequ
 func (c *cloudServiceClient) Create(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error) {
 	out := new(OrganizationResponse)
 	err := c.cc.Invoke(ctx, "/Cloud.CloudService/Create", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) GetPrivateKeys(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error) {
+	out := new(OrganizationResponse)
+	err := c.cc.Invoke(ctx, "/Cloud.CloudService/GetPrivateKeys", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -124,6 +134,7 @@ func (c *cloudServiceClient) Delete(ctx context.Context, in *OrganizationRequest
 type CloudServiceServer interface {
 	Heartbeat(context.Context, *OrganizationRequest) (*OrganizationResponse, error)
 	Create(context.Context, *OrganizationRequest) (*OrganizationResponse, error)
+	GetPrivateKeys(context.Context, *OrganizationRequest) (*OrganizationResponse, error)
 	CreatePrivateKey(context.Context, *OrganizationRequest) (*OrganizationResponse, error)
 	DeletePrivateKey(context.Context, *OrganizationRequest) (*OrganizationResponse, error)
 	ValidatePrivateKey(context.Context, *OrganizationRequest) (*OrganizationResponse, error)
@@ -142,6 +153,9 @@ func (UnimplementedCloudServiceServer) Heartbeat(context.Context, *OrganizationR
 }
 func (UnimplementedCloudServiceServer) Create(context.Context, *OrganizationRequest) (*OrganizationResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
+}
+func (UnimplementedCloudServiceServer) GetPrivateKeys(context.Context, *OrganizationRequest) (*OrganizationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPrivateKeys not implemented")
 }
 func (UnimplementedCloudServiceServer) CreatePrivateKey(context.Context, *OrganizationRequest) (*OrganizationResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreatePrivateKey not implemented")
@@ -208,6 +222,24 @@ func _CloudService_Create_Handler(srv interface{}, ctx context.Context, dec func
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CloudServiceServer).Create(ctx, req.(*OrganizationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_GetPrivateKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OrganizationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).GetPrivateKeys(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/Cloud.CloudService/GetPrivateKeys",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).GetPrivateKeys(ctx, req.(*OrganizationRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -352,6 +384,10 @@ var CloudService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Create",
 			Handler:    _CloudService_Create_Handler,
+		},
+		{
+			MethodName: "GetPrivateKeys",
+			Handler:    _CloudService_GetPrivateKeys_Handler,
 		},
 		{
 			MethodName: "CreatePrivateKey",
