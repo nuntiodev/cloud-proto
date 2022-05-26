@@ -9,6 +9,7 @@ import "google/protobuf/timestamp.proto";
 service CloudService {
     rpc Heartbeat(OrganizationRequest) returns (OrganizationResponse) {}
     rpc Create(OrganizationRequest) returns (OrganizationResponse) {}
+    rpc GetPrivateKeys(OrganizationRequest) returns (OrganizationResponse) {}
     rpc CreatePrivateKey(OrganizationRequest) returns (OrganizationResponse) {}
     rpc DeletePrivateKey(OrganizationRequest) returns (OrganizationResponse) {}
     rpc ValidatePrivateKey(OrganizationRequest) returns (OrganizationResponse) {}
