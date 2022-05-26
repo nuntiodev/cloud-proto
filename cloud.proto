@@ -49,7 +49,7 @@ message PrivateKey {
     google.protobuf.Timestamp private_key_generated_at = 4;
     google.protobuf.Timestamp private_key_secured_at = 5;
     bool private_key_secured = 6;
-    repeated string authorized_for_app_ids = 7;
+    repeated string authorized_apps = 7;
 }
 
 message OrganizationRequest {
