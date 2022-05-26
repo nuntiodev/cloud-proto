@@ -261,7 +261,7 @@ class PrivateKey extends $pb.GeneratedMessage {
     ..aOM<$1.Timestamp>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKeyGeneratedAt', subBuilder: $1.Timestamp.create)
     ..aOM<$1.Timestamp>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKeySecuredAt', subBuilder: $1.Timestamp.create)
     ..aOB(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKeySecured')
-    ..pPS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userBlockIds')
+    ..pPS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'authorizedApps')
     ..hasRequiredFields = false
   ;
 
@@ -273,7 +273,7 @@ class PrivateKey extends $pb.GeneratedMessage {
     $1.Timestamp? privateKeyGeneratedAt,
     $1.Timestamp? privateKeySecuredAt,
     $core.bool? privateKeySecured,
-    $core.Iterable<$core.String>? userBlockIds,
+    $core.Iterable<$core.String>? authorizedApps,
   }) {
     final _result = create();
     if (id != null) {
@@ -294,8 +294,8 @@ class PrivateKey extends $pb.GeneratedMessage {
     if (privateKeySecured != null) {
       _result.privateKeySecured = privateKeySecured;
     }
-    if (userBlockIds != null) {
-      _result.userBlockIds.addAll(userBlockIds);
+    if (authorizedApps != null) {
+      _result.authorizedApps.addAll(authorizedApps);
     }
     return _result;
   }
@@ -379,7 +379,7 @@ class PrivateKey extends $pb.GeneratedMessage {
   void clearPrivateKeySecured() => clearField(6);
 
   @$pb.TagNumber(7)
-  $core.List<$core.String> get userBlockIds => $_getList(6);
+  $core.List<$core.String> get authorizedApps => $_getList(6);
 }
 
 class OrganizationRequest extends $pb.GeneratedMessage {

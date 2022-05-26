@@ -60,12 +60,12 @@ const PrivateKey$json = const {
     const {'1': 'private_key_generated_at', '3': 4, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'privateKeyGeneratedAt'},
     const {'1': 'private_key_secured_at', '3': 5, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'privateKeySecuredAt'},
     const {'1': 'private_key_secured', '3': 6, '4': 1, '5': 8, '10': 'privateKeySecured'},
-    const {'1': 'user_block_ids', '3': 7, '4': 3, '5': 9, '10': 'userBlockIds'},
+    const {'1': 'authorized_apps', '3': 7, '4': 3, '5': 9, '10': 'authorizedApps'},
   ],
 };
 
 /// Descriptor for `PrivateKey`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List privateKeyDescriptor = $convert.base64Decode('CgpQcml2YXRlS2V5Eg4KAmlkGAEgASgJUgJpZBInCg9vcmdhbml6YXRpb25faWQYAiABKAlSDm9yZ2FuaXphdGlvbklkEhAKA2tleRgDIAEoCVIDa2V5ElMKGHByaXZhdGVfa2V5X2dlbmVyYXRlZF9hdBgEIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSFXByaXZhdGVLZXlHZW5lcmF0ZWRBdBJPChZwcml2YXRlX2tleV9zZWN1cmVkX2F0GAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFITcHJpdmF0ZUtleVNlY3VyZWRBdBIuChNwcml2YXRlX2tleV9zZWN1cmVkGAYgASgIUhFwcml2YXRlS2V5U2VjdXJlZBIkCg51c2VyX2Jsb2NrX2lkcxgHIAMoCVIMdXNlckJsb2NrSWRz');
+final $typed_data.Uint8List privateKeyDescriptor = $convert.base64Decode('CgpQcml2YXRlS2V5Eg4KAmlkGAEgASgJUgJpZBInCg9vcmdhbml6YXRpb25faWQYAiABKAlSDm9yZ2FuaXphdGlvbklkEhAKA2tleRgDIAEoCVIDa2V5ElMKGHByaXZhdGVfa2V5X2dlbmVyYXRlZF9hdBgEIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSFXByaXZhdGVLZXlHZW5lcmF0ZWRBdBJPChZwcml2YXRlX2tleV9zZWN1cmVkX2F0GAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFITcHJpdmF0ZUtleVNlY3VyZWRBdBIuChNwcml2YXRlX2tleV9zZWN1cmVkGAYgASgIUhFwcml2YXRlS2V5U2VjdXJlZBInCg9hdXRob3JpemVkX2FwcHMYByADKAlSDmF1dGhvcml6ZWRBcHBz');
 @$core.Deprecated('Use organizationRequestDescriptor instead')
 const OrganizationRequest$json = const {
   '1': 'OrganizationRequest',

@@ -781,7 +781,7 @@ proto.Cloud.PrivateKey.toObject = function(includeInstance, msg) {
     privateKeyGeneratedAt: (f = msg.getPrivateKeyGeneratedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
     privateKeySecuredAt: (f = msg.getPrivateKeySecuredAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
     privateKeySecured: jspb.Message.getBooleanFieldWithDefault(msg, 6, false),
-    userBlockIdsList: (f = jspb.Message.getRepeatedField(msg, 7)) == null ? undefined : f
+    authorizedAppsList: (f = jspb.Message.getRepeatedField(msg, 7)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -846,7 +846,7 @@ proto.Cloud.PrivateKey.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 7:
       var value = /** @type {string} */ (reader.readString());
-      msg.addUserBlockIds(value);
+      msg.addAuthorizedApps(value);
       break;
     default:
       reader.skipField();
@@ -921,7 +921,7 @@ proto.Cloud.PrivateKey.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getUserBlockIdsList();
+  f = message.getAuthorizedAppsList();
   if (f.length > 0) {
     writer.writeRepeatedString(
       7,
@@ -1078,10 +1078,10 @@ proto.Cloud.PrivateKey.prototype.setPrivateKeySecured = function(value) {
 
 
 /**
- * repeated string user_block_ids = 7;
+ * repeated string authorized_apps = 7;
  * @return {!Array<string>}
  */
-proto.Cloud.PrivateKey.prototype.getUserBlockIdsList = function() {
+proto.Cloud.PrivateKey.prototype.getAuthorizedAppsList = function() {
   return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 7));
 };
 
@@ -1090,7 +1090,7 @@ proto.Cloud.PrivateKey.prototype.getUserBlockIdsList = function() {
  * @param {!Array<string>} value
  * @return {!proto.Cloud.PrivateKey} returns this
  */
-proto.Cloud.PrivateKey.prototype.setUserBlockIdsList = function(value) {
+proto.Cloud.PrivateKey.prototype.setAuthorizedAppsList = function(value) {
   return jspb.Message.setField(this, 7, value || []);
 };
 
@@ -1100,7 +1100,7 @@ proto.Cloud.PrivateKey.prototype.setUserBlockIdsList = function(value) {
  * @param {number=} opt_index
  * @return {!proto.Cloud.PrivateKey} returns this
  */
-proto.Cloud.PrivateKey.prototype.addUserBlockIds = function(value, opt_index) {
+proto.Cloud.PrivateKey.prototype.addAuthorizedApps = function(value, opt_index) {
   return jspb.Message.addToRepeatedField(this, 7, value, opt_index);
 };
 
@@ -1109,8 +1109,8 @@ proto.Cloud.PrivateKey.prototype.addUserBlockIds = function(value, opt_index) {
  * Clears the list making it empty but non-null.
  * @return {!proto.Cloud.PrivateKey} returns this
  */
-proto.Cloud.PrivateKey.prototype.clearUserBlockIdsList = function() {
-  return this.setUserBlockIdsList([]);
+proto.Cloud.PrivateKey.prototype.clearAuthorizedAppsList = function() {
+  return this.setAuthorizedAppsList([]);
 };
 
 
