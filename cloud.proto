@@ -6,23 +6,19 @@ option go_package = "./go_cloud";
 
 import "google/protobuf/timestamp.proto";
 
-service ProjectService {
-    rpc Heartbeat(ProjectRequest) returns (ProjectResponse) {}
-    rpc Create(ProjectRequest) returns (ProjectResponse) {}
-    rpc RollPrivateKey(ProjectRequest) returns (ProjectResponse) {}
-    rpc GenerateAccessToken(ProjectRequest) returns (ProjectResponse) {}
-    rpc ValidateAccessToken(ProjectRequest) returns (ProjectResponse) {}
-    rpc Update(ProjectRequest) returns (ProjectResponse) {}
-    rpc Get(ProjectRequest) returns (ProjectResponse) {}
-    rpc GetByOwner(ProjectRequest) returns (ProjectResponse) {}
-    rpc Delete(ProjectRequest) returns (ProjectResponse) {}
-}
-
-service OrganizationService {
-    rpc Heartbeat(OrganizationRequest) returns (OrganizationResponse) {}
-    rpc Create(OrganizationRequest) returns (OrganizationResponse) {}
-    rpc Get(OrganizationRequest) returns (OrganizationResponse) {}
-    rpc Update(OrganizationRequest) returns (OrganizationResponse) {}
+service CloudService {
+    rpc Heartbeat(CloudRequest) returns (CloudResponse) {}
+    rpc CreateProject(CloudRequest) returns (CloudResponse) {}
+    rpc RollPrivateKey(CloudRequest) returns (CloudResponse) {}
+    rpc GenerateAccessToken(CloudRequest) returns (CloudResponse) {}
+    rpc ValidateAccessToken(CloudRequest) returns (CloudResponse) {}
+    rpc UpdateProject(CloudRequest) returns (CloudResponse) {}
+    rpc GetProject(CloudRequest) returns (CloudResponse) {}
+    rpc GetProjectsInOrganization(CloudRequest) returns (CloudResponse) {}
+    rpc DeleteProject(CloudRequest) returns (CloudResponse) {}
+    rpc CreateOrganization(CloudRequest) returns (CloudResponse) {}
+    rpc GetOrganization(CloudRequest) returns (CloudResponse) {}
+    rpc UpdateOrganization(CloudRequest) returns (CloudResponse) {}
 }
 
 message Organization {
@@ -44,23 +40,16 @@ message Project {
     string logo = 10;
 }
 
-message ProjectRequest {
+message CloudRequest {
     Project project = 1;
-    Project update = 2;
-    string private_key = 3;
-    string access_token = 4;
+    string private_key = 2;
+    string access_token = 3;
+    Organization organization = 4;
 }
 
-message ProjectResponse {
+message CloudResponse {
     Project project = 1;
     repeated Project projects = 2;
     string access_token = 3;
-}
-
-message OrganizationRequest {
-    Organization organization = 1;
-}
-
-message OrganizationResponse {
-    Organization organization = 1;
+    Organization organization = 4;
 }
