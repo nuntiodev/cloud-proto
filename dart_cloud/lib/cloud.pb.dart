@@ -130,6 +130,8 @@ class Project extends $pb.GeneratedMessage {
     ..aOM<$1.Timestamp>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKeyGeneratedAt', subBuilder: $1.Timestamp.create)
     ..aOM<$1.Timestamp>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKeySecuredAt', subBuilder: $1.Timestamp.create)
     ..aOS(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'logo')
+    ..pPS(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'viewers')
+    ..pPS(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'editors')
     ..hasRequiredFields = false
   ;
 
@@ -145,6 +147,8 @@ class Project extends $pb.GeneratedMessage {
     $1.Timestamp? privateKeyGeneratedAt,
     $1.Timestamp? privateKeySecuredAt,
     $core.String? logo,
+    $core.Iterable<$core.String>? viewers,
+    $core.Iterable<$core.String>? editors,
   }) {
     final _result = create();
     if (id != null) {
@@ -176,6 +180,12 @@ class Project extends $pb.GeneratedMessage {
     }
     if (logo != null) {
       _result.logo = logo;
+    }
+    if (viewers != null) {
+      _result.viewers.addAll(viewers);
+    }
+    if (editors != null) {
+      _result.editors.addAll(editors);
     }
     return _result;
   }
@@ -297,6 +307,12 @@ class Project extends $pb.GeneratedMessage {
   $core.bool hasLogo() => $_has(9);
   @$pb.TagNumber(10)
   void clearLogo() => clearField(10);
+
+  @$pb.TagNumber(11)
+  $core.List<$core.String> get viewers => $_getList(10);
+
+  @$pb.TagNumber(12)
+  $core.List<$core.String> get editors => $_getList(11);
 }
 
 class CloudRequest extends $pb.GeneratedMessage {

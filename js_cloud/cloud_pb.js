@@ -59,7 +59,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.CloudProject.Project = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.CloudProject.Project.repeatedFields_, null);
 };
 goog.inherits(proto.CloudProject.Project, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -404,6 +404,13 @@ proto.CloudProject.Organization.prototype.hasUpdatedAt = function() {
 
 
 
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.CloudProject.Project.repeatedFields_ = [11,12];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -444,7 +451,9 @@ proto.CloudProject.Project.toObject = function(includeInstance, msg) {
     updatedAt: (f = msg.getUpdatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
     privateKeyGeneratedAt: (f = msg.getPrivateKeyGeneratedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
     privateKeySecuredAt: (f = msg.getPrivateKeySecuredAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
-    logo: jspb.Message.getFieldWithDefault(msg, 10, "")
+    logo: jspb.Message.getFieldWithDefault(msg, 10, ""),
+    viewersList: (f = jspb.Message.getRepeatedField(msg, 11)) == null ? undefined : f,
+    editorsList: (f = jspb.Message.getRepeatedField(msg, 12)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -524,6 +533,14 @@ proto.CloudProject.Project.deserializeBinaryFromReader = function(msg, reader) {
     case 10:
       var value = /** @type {string} */ (reader.readString());
       msg.setLogo(value);
+      break;
+    case 11:
+      var value = /** @type {string} */ (reader.readString());
+      msg.addViewers(value);
+      break;
+    case 12:
+      var value = /** @type {string} */ (reader.readString());
+      msg.addEditors(value);
       break;
     default:
       reader.skipField();
@@ -625,6 +642,20 @@ proto.CloudProject.Project.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeString(
       10,
+      f
+    );
+  }
+  f = message.getViewersList();
+  if (f.length > 0) {
+    writer.writeRepeatedString(
+      11,
+      f
+    );
+  }
+  f = message.getEditorsList();
+  if (f.length > 0) {
+    writer.writeRepeatedString(
+      12,
       f
     );
   }
@@ -884,6 +915,80 @@ proto.CloudProject.Project.prototype.getLogo = function() {
  */
 proto.CloudProject.Project.prototype.setLogo = function(value) {
   return jspb.Message.setProto3StringField(this, 10, value);
+};
+
+
+/**
+ * repeated string viewers = 11;
+ * @return {!Array<string>}
+ */
+proto.CloudProject.Project.prototype.getViewersList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 11));
+};
+
+
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.CloudProject.Project} returns this
+ */
+proto.CloudProject.Project.prototype.setViewersList = function(value) {
+  return jspb.Message.setField(this, 11, value || []);
+};
+
+
+/**
+ * @param {string} value
+ * @param {number=} opt_index
+ * @return {!proto.CloudProject.Project} returns this
+ */
+proto.CloudProject.Project.prototype.addViewers = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 11, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.CloudProject.Project} returns this
+ */
+proto.CloudProject.Project.prototype.clearViewersList = function() {
+  return this.setViewersList([]);
+};
+
+
+/**
+ * repeated string editors = 12;
+ * @return {!Array<string>}
+ */
+proto.CloudProject.Project.prototype.getEditorsList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 12));
+};
+
+
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.CloudProject.Project} returns this
+ */
+proto.CloudProject.Project.prototype.setEditorsList = function(value) {
+  return jspb.Message.setField(this, 12, value || []);
+};
+
+
+/**
+ * @param {string} value
+ * @param {number=} opt_index
+ * @return {!proto.CloudProject.Project} returns this
+ */
+proto.CloudProject.Project.prototype.addEditors = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 12, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.CloudProject.Project} returns this
+ */
+proto.CloudProject.Project.prototype.clearEditorsList = function() {
+  return this.setEditorsList([]);
 };
 
 
