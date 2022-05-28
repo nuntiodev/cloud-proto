@@ -11,10 +11,85 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'google/protobuf/timestamp.pb.dart' as $1;
 
+class Organization extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Organization', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CloudProject'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ownerUserId')
+    ..hasRequiredFields = false
+  ;
+
+  Organization._() : super();
+  factory Organization({
+    $core.String? id,
+    $core.String? name,
+    $core.String? ownerUserId,
+  }) {
+    final _result = create();
+    if (id != null) {
+      _result.id = id;
+    }
+    if (name != null) {
+      _result.name = name;
+    }
+    if (ownerUserId != null) {
+      _result.ownerUserId = ownerUserId;
+    }
+    return _result;
+  }
+  factory Organization.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Organization.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  Organization clone() => Organization()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  Organization copyWith(void Function(Organization) updates) => super.copyWith((message) => updates(message as Organization)) as Organization; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static Organization create() => Organization._();
+  Organization createEmptyInstance() => create();
+  static $pb.PbList<Organization> createRepeated() => $pb.PbList<Organization>();
+  @$core.pragma('dart2js:noInline')
+  static Organization getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Organization>(create);
+  static Organization? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get id => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set id($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get name => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set name($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasName() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearName() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get ownerUserId => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set ownerUserId($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasOwnerUserId() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearOwnerUserId() => clearField(3);
+}
+
 class Project extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Project', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CloudProject'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ownerId')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'organizationId')
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
     ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKey')
     ..aOB(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKeySecured')
@@ -22,13 +97,14 @@ class Project extends $pb.GeneratedMessage {
     ..aOM<$1.Timestamp>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'updatedAt', subBuilder: $1.Timestamp.create)
     ..aOM<$1.Timestamp>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKeyGeneratedAt', subBuilder: $1.Timestamp.create)
     ..aOM<$1.Timestamp>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKeySecuredAt', subBuilder: $1.Timestamp.create)
+    ..aOS(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'logo')
     ..hasRequiredFields = false
   ;
 
   Project._() : super();
   factory Project({
     $core.String? id,
-    $core.String? ownerId,
+    $core.String? organizationId,
     $core.String? name,
     $core.String? privateKey,
     $core.bool? privateKeySecured,
@@ -36,13 +112,14 @@ class Project extends $pb.GeneratedMessage {
     $1.Timestamp? updatedAt,
     $1.Timestamp? privateKeyGeneratedAt,
     $1.Timestamp? privateKeySecuredAt,
+    $core.String? logo,
   }) {
     final _result = create();
     if (id != null) {
       _result.id = id;
     }
-    if (ownerId != null) {
-      _result.ownerId = ownerId;
+    if (organizationId != null) {
+      _result.organizationId = organizationId;
     }
     if (name != null) {
       _result.name = name;
@@ -64,6 +141,9 @@ class Project extends $pb.GeneratedMessage {
     }
     if (privateKeySecuredAt != null) {
       _result.privateKeySecuredAt = privateKeySecuredAt;
+    }
+    if (logo != null) {
+      _result.logo = logo;
     }
     return _result;
   }
@@ -98,13 +178,13 @@ class Project extends $pb.GeneratedMessage {
   void clearId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get ownerId => $_getSZ(1);
+  $core.String get organizationId => $_getSZ(1);
   @$pb.TagNumber(2)
-  set ownerId($core.String v) { $_setString(1, v); }
+  set organizationId($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasOwnerId() => $_has(1);
+  $core.bool hasOrganizationId() => $_has(1);
   @$pb.TagNumber(2)
-  void clearOwnerId() => clearField(2);
+  void clearOrganizationId() => clearField(2);
 
   @$pb.TagNumber(3)
   $core.String get name => $_getSZ(2);
@@ -176,6 +256,15 @@ class Project extends $pb.GeneratedMessage {
   void clearPrivateKeySecuredAt() => clearField(9);
   @$pb.TagNumber(9)
   $1.Timestamp ensurePrivateKeySecuredAt() => $_ensure(8);
+
+  @$pb.TagNumber(10)
+  $core.String get logo => $_getSZ(9);
+  @$pb.TagNumber(10)
+  set logo($core.String v) { $_setString(9, v); }
+  @$pb.TagNumber(10)
+  $core.bool hasLogo() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearLogo() => clearField(10);
 }
 
 class ProjectRequest extends $pb.GeneratedMessage {
@@ -340,5 +429,103 @@ class ProjectResponse extends $pb.GeneratedMessage {
   $core.bool hasAccessToken() => $_has(2);
   @$pb.TagNumber(3)
   void clearAccessToken() => clearField(3);
+}
+
+class OrganizationRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'OrganizationRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CloudProject'), createEmptyInstance: create)
+    ..aOM<Organization>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'organization', subBuilder: Organization.create)
+    ..hasRequiredFields = false
+  ;
+
+  OrganizationRequest._() : super();
+  factory OrganizationRequest({
+    Organization? organization,
+  }) {
+    final _result = create();
+    if (organization != null) {
+      _result.organization = organization;
+    }
+    return _result;
+  }
+  factory OrganizationRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory OrganizationRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  OrganizationRequest clone() => OrganizationRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  OrganizationRequest copyWith(void Function(OrganizationRequest) updates) => super.copyWith((message) => updates(message as OrganizationRequest)) as OrganizationRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static OrganizationRequest create() => OrganizationRequest._();
+  OrganizationRequest createEmptyInstance() => create();
+  static $pb.PbList<OrganizationRequest> createRepeated() => $pb.PbList<OrganizationRequest>();
+  @$core.pragma('dart2js:noInline')
+  static OrganizationRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<OrganizationRequest>(create);
+  static OrganizationRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  Organization get organization => $_getN(0);
+  @$pb.TagNumber(1)
+  set organization(Organization v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasOrganization() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearOrganization() => clearField(1);
+  @$pb.TagNumber(1)
+  Organization ensureOrganization() => $_ensure(0);
+}
+
+class OrganizationResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'OrganizationResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CloudProject'), createEmptyInstance: create)
+    ..aOM<Organization>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'organization', subBuilder: Organization.create)
+    ..hasRequiredFields = false
+  ;
+
+  OrganizationResponse._() : super();
+  factory OrganizationResponse({
+    Organization? organization,
+  }) {
+    final _result = create();
+    if (organization != null) {
+      _result.organization = organization;
+    }
+    return _result;
+  }
+  factory OrganizationResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory OrganizationResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  OrganizationResponse clone() => OrganizationResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  OrganizationResponse copyWith(void Function(OrganizationResponse) updates) => super.copyWith((message) => updates(message as OrganizationResponse)) as OrganizationResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static OrganizationResponse create() => OrganizationResponse._();
+  OrganizationResponse createEmptyInstance() => create();
+  static $pb.PbList<OrganizationResponse> createRepeated() => $pb.PbList<OrganizationResponse>();
+  @$core.pragma('dart2js:noInline')
+  static OrganizationResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<OrganizationResponse>(create);
+  static OrganizationResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  Organization get organization => $_getN(0);
+  @$pb.TagNumber(1)
+  set organization(Organization v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasOrganization() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearOrganization() => clearField(1);
+  @$pb.TagNumber(1)
+  Organization ensureOrganization() => $_ensure(0);
 }
 

@@ -385,3 +385,195 @@ var ProjectService_ServiceDesc = grpc.ServiceDesc{
 	Streams:  []grpc.StreamDesc{},
 	Metadata: "cloud.proto",
 }
+
+// OrganizationServiceClient is the client API for OrganizationService service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type OrganizationServiceClient interface {
+	Heartbeat(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error)
+	Create(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error)
+	Get(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error)
+	Update(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error)
+}
+
+type organizationServiceClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewOrganizationServiceClient(cc grpc.ClientConnInterface) OrganizationServiceClient {
+	return &organizationServiceClient{cc}
+}
+
+func (c *organizationServiceClient) Heartbeat(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error) {
+	out := new(OrganizationResponse)
+	err := c.cc.Invoke(ctx, "/CloudProject.OrganizationService/Heartbeat", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *organizationServiceClient) Create(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error) {
+	out := new(OrganizationResponse)
+	err := c.cc.Invoke(ctx, "/CloudProject.OrganizationService/Create", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *organizationServiceClient) Get(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error) {
+	out := new(OrganizationResponse)
+	err := c.cc.Invoke(ctx, "/CloudProject.OrganizationService/Get", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *organizationServiceClient) Update(ctx context.Context, in *OrganizationRequest, opts ...grpc.CallOption) (*OrganizationResponse, error) {
+	out := new(OrganizationResponse)
+	err := c.cc.Invoke(ctx, "/CloudProject.OrganizationService/Update", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// OrganizationServiceServer is the server API for OrganizationService service.
+// All implementations should embed UnimplementedOrganizationServiceServer
+// for forward compatibility
+type OrganizationServiceServer interface {
+	Heartbeat(context.Context, *OrganizationRequest) (*OrganizationResponse, error)
+	Create(context.Context, *OrganizationRequest) (*OrganizationResponse, error)
+	Get(context.Context, *OrganizationRequest) (*OrganizationResponse, error)
+	Update(context.Context, *OrganizationRequest) (*OrganizationResponse, error)
+}
+
+// UnimplementedOrganizationServiceServer should be embedded to have forward compatible implementations.
+type UnimplementedOrganizationServiceServer struct {
+}
+
+func (UnimplementedOrganizationServiceServer) Heartbeat(context.Context, *OrganizationRequest) (*OrganizationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Heartbeat not implemented")
+}
+func (UnimplementedOrganizationServiceServer) Create(context.Context, *OrganizationRequest) (*OrganizationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Create not implemented")
+}
+func (UnimplementedOrganizationServiceServer) Get(context.Context, *OrganizationRequest) (*OrganizationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Get not implemented")
+}
+func (UnimplementedOrganizationServiceServer) Update(context.Context, *OrganizationRequest) (*OrganizationResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Update not implemented")
+}
+
+// UnsafeOrganizationServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to OrganizationServiceServer will
+// result in compilation errors.
+type UnsafeOrganizationServiceServer interface {
+	mustEmbedUnimplementedOrganizationServiceServer()
+}
+
+func RegisterOrganizationServiceServer(s grpc.ServiceRegistrar, srv OrganizationServiceServer) {
+	s.RegisterService(&OrganizationService_ServiceDesc, srv)
+}
+
+func _OrganizationService_Heartbeat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OrganizationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OrganizationServiceServer).Heartbeat(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/CloudProject.OrganizationService/Heartbeat",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OrganizationServiceServer).Heartbeat(ctx, req.(*OrganizationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OrganizationService_Create_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OrganizationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OrganizationServiceServer).Create(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/CloudProject.OrganizationService/Create",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OrganizationServiceServer).Create(ctx, req.(*OrganizationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OrganizationService_Get_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OrganizationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OrganizationServiceServer).Get(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/CloudProject.OrganizationService/Get",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OrganizationServiceServer).Get(ctx, req.(*OrganizationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _OrganizationService_Update_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(OrganizationRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OrganizationServiceServer).Update(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/CloudProject.OrganizationService/Update",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OrganizationServiceServer).Update(ctx, req.(*OrganizationRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// OrganizationService_ServiceDesc is the grpc.ServiceDesc for OrganizationService service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var OrganizationService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "CloudProject.OrganizationService",
+	HandlerType: (*OrganizationServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "Heartbeat",
+			Handler:    _OrganizationService_Heartbeat_Handler,
+		},
+		{
+			MethodName: "Create",
+			Handler:    _OrganizationService_Create_Handler,
+		},
+		{
+			MethodName: "Get",
+			Handler:    _OrganizationService_Get_Handler,
+		},
+		{
+			MethodName: "Update",
+			Handler:    _OrganizationService_Update_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "cloud.proto",
+}
