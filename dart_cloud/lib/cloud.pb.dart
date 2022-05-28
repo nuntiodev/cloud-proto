@@ -305,6 +305,7 @@ class CloudRequest extends $pb.GeneratedMessage {
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKey')
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'accessToken')
     ..aOM<Organization>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'organization', subBuilder: Organization.create)
+    ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'cloudToken')
     ..hasRequiredFields = false
   ;
 
@@ -314,6 +315,7 @@ class CloudRequest extends $pb.GeneratedMessage {
     $core.String? privateKey,
     $core.String? accessToken,
     Organization? organization,
+    $core.String? cloudToken,
   }) {
     final _result = create();
     if (project != null) {
@@ -327,6 +329,9 @@ class CloudRequest extends $pb.GeneratedMessage {
     }
     if (organization != null) {
       _result.organization = organization;
+    }
+    if (cloudToken != null) {
+      _result.cloudToken = cloudToken;
     }
     return _result;
   }
@@ -390,6 +395,15 @@ class CloudRequest extends $pb.GeneratedMessage {
   void clearOrganization() => clearField(4);
   @$pb.TagNumber(4)
   Organization ensureOrganization() => $_ensure(3);
+
+  @$pb.TagNumber(5)
+  $core.String get cloudToken => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set cloudToken($core.String v) { $_setString(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasCloudToken() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearCloudToken() => clearField(5);
 }
 
 class CloudResponse extends $pb.GeneratedMessage {

@@ -922,7 +922,8 @@ proto.CloudProject.CloudRequest.toObject = function(includeInstance, msg) {
     project: (f = msg.getProject()) && proto.CloudProject.Project.toObject(includeInstance, f),
     privateKey: jspb.Message.getFieldWithDefault(msg, 2, ""),
     accessToken: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    organization: (f = msg.getOrganization()) && proto.CloudProject.Organization.toObject(includeInstance, f)
+    organization: (f = msg.getOrganization()) && proto.CloudProject.Organization.toObject(includeInstance, f),
+    cloudToken: jspb.Message.getFieldWithDefault(msg, 5, "")
   };
 
   if (includeInstance) {
@@ -976,6 +977,10 @@ proto.CloudProject.CloudRequest.deserializeBinaryFromReader = function(msg, read
       var value = new proto.CloudProject.Organization;
       reader.readMessage(value,proto.CloudProject.Organization.deserializeBinaryFromReader);
       msg.setOrganization(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setCloudToken(value);
       break;
     default:
       reader.skipField();
@@ -1034,6 +1039,13 @@ proto.CloudProject.CloudRequest.serializeBinaryToWriter = function(message, writ
       4,
       f,
       proto.CloudProject.Organization.serializeBinaryToWriter
+    );
+  }
+  f = message.getCloudToken();
+  if (f.length > 0) {
+    writer.writeString(
+      5,
+      f
     );
   }
 };
@@ -1146,6 +1158,24 @@ proto.CloudProject.CloudRequest.prototype.clearOrganization = function() {
  */
 proto.CloudProject.CloudRequest.prototype.hasOrganization = function() {
   return jspb.Message.getField(this, 4) != null;
+};
+
+
+/**
+ * optional string cloud_token = 5;
+ * @return {string}
+ */
+proto.CloudProject.CloudRequest.prototype.getCloudToken = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.CloudProject.CloudRequest} returns this
+ */
+proto.CloudProject.CloudRequest.prototype.setCloudToken = function(value) {
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 

@@ -49,11 +49,12 @@ const CloudRequest$json = const {
     const {'1': 'private_key', '3': 2, '4': 1, '5': 9, '10': 'privateKey'},
     const {'1': 'access_token', '3': 3, '4': 1, '5': 9, '10': 'accessToken'},
     const {'1': 'organization', '3': 4, '4': 1, '5': 11, '6': '.CloudProject.Organization', '10': 'organization'},
+    const {'1': 'cloud_token', '3': 5, '4': 1, '5': 9, '10': 'cloudToken'},
   ],
 };
 
 /// Descriptor for `CloudRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List cloudRequestDescriptor = $convert.base64Decode('CgxDbG91ZFJlcXVlc3QSLwoHcHJvamVjdBgBIAEoCzIVLkNsb3VkUHJvamVjdC5Qcm9qZWN0Ugdwcm9qZWN0Eh8KC3ByaXZhdGVfa2V5GAIgASgJUgpwcml2YXRlS2V5EiEKDGFjY2Vzc190b2tlbhgDIAEoCVILYWNjZXNzVG9rZW4SPgoMb3JnYW5pemF0aW9uGAQgASgLMhouQ2xvdWRQcm9qZWN0Lk9yZ2FuaXphdGlvblIMb3JnYW5pemF0aW9u');
+final $typed_data.Uint8List cloudRequestDescriptor = $convert.base64Decode('CgxDbG91ZFJlcXVlc3QSLwoHcHJvamVjdBgBIAEoCzIVLkNsb3VkUHJvamVjdC5Qcm9qZWN0Ugdwcm9qZWN0Eh8KC3ByaXZhdGVfa2V5GAIgASgJUgpwcml2YXRlS2V5EiEKDGFjY2Vzc190b2tlbhgDIAEoCVILYWNjZXNzVG9rZW4SPgoMb3JnYW5pemF0aW9uGAQgASgLMhouQ2xvdWRQcm9qZWN0Lk9yZ2FuaXphdGlvblIMb3JnYW5pemF0aW9uEh8KC2Nsb3VkX3Rva2VuGAUgASgJUgpjbG91ZFRva2Vu');
 @$core.Deprecated('Use cloudResponseDescriptor instead')
 const CloudResponse$json = const {
   '1': 'CloudResponse',
