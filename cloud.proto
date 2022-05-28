@@ -1,67 +1,44 @@
 syntax = "proto3";
 
-package Cloud;
+package CloudProject;
 
 option go_package = "./go_cloud";
 
 import "google/protobuf/timestamp.proto";
 
-service CloudService {
-    rpc Heartbeat(OrganizationRequest) returns (OrganizationResponse) {}
-    rpc Create(OrganizationRequest) returns (OrganizationResponse) {}
-    rpc GetPrivateKeys(OrganizationRequest) returns (OrganizationResponse) {}
-    rpc CreatePrivateKey(OrganizationRequest) returns (OrganizationResponse) {}
-    rpc DeletePrivateKey(OrganizationRequest) returns (OrganizationResponse) {}
-    rpc ValidatePrivateKey(OrganizationRequest) returns (OrganizationResponse) {}
-    rpc Update(OrganizationRequest) returns (OrganizationResponse) {}
-    rpc Get(OrganizationRequest) returns (OrganizationResponse) {}
-    rpc GetByOwner(OrganizationRequest) returns (OrganizationResponse) {}
-    rpc Delete(OrganizationRequest) returns (OrganizationResponse) {}
+service ProjectService {
+    rpc Heartbeat(ProjectRequest) returns (ProjectResponse) {}
+    rpc Create(ProjectRequest) returns (ProjectResponse) {}
+    rpc RollPrivateKey(ProjectRequest) returns (ProjectResponse) {}
+    rpc GenerateAccessToken(ProjectRequest) returns (ProjectResponse) {}
+    rpc ValidateAccessToken(ProjectRequest) returns (ProjectResponse) {}
+    rpc Update(ProjectRequest) returns (ProjectResponse) {}
+    rpc Get(ProjectRequest) returns (ProjectResponse) {}
+    rpc GetByOwner(ProjectRequest) returns (ProjectResponse) {}
+    rpc Delete(ProjectRequest) returns (ProjectResponse) {}
 }
 
-message Organization {
+message Project {
     string id = 1;
     string owner_id = 2;
     string name = 3;
-    string logo = 4;
-    google.protobuf.Timestamp created_at = 5;
-    google.protobuf.Timestamp updated_at = 6;
+    string private_key = 4;
+    bool private_key_secured = 5;
+    google.protobuf.Timestamp created_at = 6;
+    google.protobuf.Timestamp updated_at = 7;
+    google.protobuf.Timestamp private_key_generated_at = 8;
+    google.protobuf.Timestamp private_key_secured_at = 9;
 }
 
-enum AppType {
-    INVALID_APP = 0;
-    USER_BLOCK_APP = 1;
-    NUNTIO_CONNECT_APP = 2;
+message ProjectRequest {
+    Project project = 1;
+    Project update = 2;
+    string private_key = 3;
+    string access_token = 4;
 }
 
-message App {
-    string id = 1;
-    string organization_id = 2;
-    string name = 3;
-    string description = 4;
-    string logo = 5;
-    AppType app_type = 6;
-}
-
-message PrivateKey {
-    string id = 1;
-    string organization_id = 2;
-    string key = 3;
-    google.protobuf.Timestamp private_key_generated_at = 4;
-    google.protobuf.Timestamp private_key_secured_at = 5;
-    bool private_key_secured = 6;
-    repeated string authorized_apps = 7;
-}
-
-message OrganizationRequest {
-    Organization organization = 1;
-    Organization update = 2;
-    string access_token = 3;
-    PrivateKey private_key = 4;
-}
-
-message OrganizationResponse {
-    Organization organization = 1;
-    repeated Organization organizations = 2;
+message ProjectResponse {
+    Project project = 1;
+    repeated Project projects = 2;
     string access_token = 3;
 }
