@@ -40,6 +40,8 @@ message Project {
     google.protobuf.Timestamp private_key_generated_at = 8;
     google.protobuf.Timestamp private_key_secured_at = 9;
     string logo = 10;
+    repeated string viewers = 11;
+    repeated string editors = 12;
 }
 
 message CloudRequest {
