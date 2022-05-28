@@ -16,6 +16,8 @@ class Organization extends $pb.GeneratedMessage {
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ownerUserId')
+    ..aOM<$1.Timestamp>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'createdAt', subBuilder: $1.Timestamp.create)
+    ..aOM<$1.Timestamp>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'updatedAt', subBuilder: $1.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -24,6 +26,8 @@ class Organization extends $pb.GeneratedMessage {
     $core.String? id,
     $core.String? name,
     $core.String? ownerUserId,
+    $1.Timestamp? createdAt,
+    $1.Timestamp? updatedAt,
   }) {
     final _result = create();
     if (id != null) {
@@ -34,6 +38,12 @@ class Organization extends $pb.GeneratedMessage {
     }
     if (ownerUserId != null) {
       _result.ownerUserId = ownerUserId;
+    }
+    if (createdAt != null) {
+      _result.createdAt = createdAt;
+    }
+    if (updatedAt != null) {
+      _result.updatedAt = updatedAt;
     }
     return _result;
   }
@@ -84,6 +94,28 @@ class Organization extends $pb.GeneratedMessage {
   $core.bool hasOwnerUserId() => $_has(2);
   @$pb.TagNumber(3)
   void clearOwnerUserId() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $1.Timestamp get createdAt => $_getN(3);
+  @$pb.TagNumber(4)
+  set createdAt($1.Timestamp v) { setField(4, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasCreatedAt() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearCreatedAt() => clearField(4);
+  @$pb.TagNumber(4)
+  $1.Timestamp ensureCreatedAt() => $_ensure(3);
+
+  @$pb.TagNumber(5)
+  $1.Timestamp get updatedAt => $_getN(4);
+  @$pb.TagNumber(5)
+  set updatedAt($1.Timestamp v) { setField(5, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasUpdatedAt() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearUpdatedAt() => clearField(5);
+  @$pb.TagNumber(5)
+  $1.Timestamp ensureUpdatedAt() => $_ensure(4);
 }
 
 class Project extends $pb.GeneratedMessage {

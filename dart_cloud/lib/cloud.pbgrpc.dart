@@ -19,6 +19,21 @@ class CloudServiceClient extends $grpc.Client {
           '/CloudProject.CloudService/Heartbeat',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
+  static final _$createOrganization =
+      $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
+          '/CloudProject.CloudService/CreateOrganization',
+          ($0.CloudRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
+  static final _$getOrganization =
+      $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
+          '/CloudProject.CloudService/GetOrganization',
+          ($0.CloudRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
+  static final _$updateOrganization =
+      $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
+          '/CloudProject.CloudService/UpdateOrganization',
+          ($0.CloudRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
   static final _$createProject =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
           '/CloudProject.CloudService/CreateProject',
@@ -59,21 +74,6 @@ class CloudServiceClient extends $grpc.Client {
           '/CloudProject.CloudService/DeleteProject',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
-  static final _$createOrganization =
-      $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/CloudProject.CloudService/CreateOrganization',
-          ($0.CloudRequest value) => value.writeToBuffer(),
-          ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
-  static final _$getOrganization =
-      $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/CloudProject.CloudService/GetOrganization',
-          ($0.CloudRequest value) => value.writeToBuffer(),
-          ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
-  static final _$updateOrganization =
-      $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/CloudProject.CloudService/UpdateOrganization',
-          ($0.CloudRequest value) => value.writeToBuffer(),
-          ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
 
   CloudServiceClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -83,6 +83,24 @@ class CloudServiceClient extends $grpc.Client {
   $grpc.ResponseFuture<$0.CloudResponse> heartbeat($0.CloudRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$heartbeat, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.CloudResponse> createOrganization(
+      $0.CloudRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$createOrganization, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.CloudResponse> getOrganization(
+      $0.CloudRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getOrganization, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.CloudResponse> updateOrganization(
+      $0.CloudRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$updateOrganization, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.CloudResponse> createProject($0.CloudRequest request,
@@ -128,24 +146,6 @@ class CloudServiceClient extends $grpc.Client {
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$deleteProject, request, options: options);
   }
-
-  $grpc.ResponseFuture<$0.CloudResponse> createOrganization(
-      $0.CloudRequest request,
-      {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$createOrganization, request, options: options);
-  }
-
-  $grpc.ResponseFuture<$0.CloudResponse> getOrganization(
-      $0.CloudRequest request,
-      {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$getOrganization, request, options: options);
-  }
-
-  $grpc.ResponseFuture<$0.CloudResponse> updateOrganization(
-      $0.CloudRequest request,
-      {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$updateOrganization, request, options: options);
-  }
 }
 
 abstract class CloudServiceBase extends $grpc.Service {
@@ -155,6 +155,27 @@ abstract class CloudServiceBase extends $grpc.Service {
     $addMethod($grpc.ServiceMethod<$0.CloudRequest, $0.CloudResponse>(
         'Heartbeat',
         heartbeat_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CloudRequest.fromBuffer(value),
+        ($0.CloudResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CloudRequest, $0.CloudResponse>(
+        'CreateOrganization',
+        createOrganization_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CloudRequest.fromBuffer(value),
+        ($0.CloudResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CloudRequest, $0.CloudResponse>(
+        'GetOrganization',
+        getOrganization_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CloudRequest.fromBuffer(value),
+        ($0.CloudResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CloudRequest, $0.CloudResponse>(
+        'UpdateOrganization',
+        updateOrganization_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $0.CloudRequest.fromBuffer(value),
@@ -215,32 +236,26 @@ abstract class CloudServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.CloudRequest.fromBuffer(value),
         ($0.CloudResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CloudRequest, $0.CloudResponse>(
-        'CreateOrganization',
-        createOrganization_Pre,
-        false,
-        false,
-        ($core.List<$core.int> value) => $0.CloudRequest.fromBuffer(value),
-        ($0.CloudResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CloudRequest, $0.CloudResponse>(
-        'GetOrganization',
-        getOrganization_Pre,
-        false,
-        false,
-        ($core.List<$core.int> value) => $0.CloudRequest.fromBuffer(value),
-        ($0.CloudResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CloudRequest, $0.CloudResponse>(
-        'UpdateOrganization',
-        updateOrganization_Pre,
-        false,
-        false,
-        ($core.List<$core.int> value) => $0.CloudRequest.fromBuffer(value),
-        ($0.CloudResponse value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.CloudResponse> heartbeat_Pre(
       $grpc.ServiceCall call, $async.Future<$0.CloudRequest> request) async {
     return heartbeat(call, await request);
+  }
+
+  $async.Future<$0.CloudResponse> createOrganization_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.CloudRequest> request) async {
+    return createOrganization(call, await request);
+  }
+
+  $async.Future<$0.CloudResponse> getOrganization_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.CloudRequest> request) async {
+    return getOrganization(call, await request);
+  }
+
+  $async.Future<$0.CloudResponse> updateOrganization_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.CloudRequest> request) async {
+    return updateOrganization(call, await request);
   }
 
   $async.Future<$0.CloudResponse> createProject_Pre(
@@ -283,22 +298,13 @@ abstract class CloudServiceBase extends $grpc.Service {
     return deleteProject(call, await request);
   }
 
-  $async.Future<$0.CloudResponse> createOrganization_Pre(
-      $grpc.ServiceCall call, $async.Future<$0.CloudRequest> request) async {
-    return createOrganization(call, await request);
-  }
-
-  $async.Future<$0.CloudResponse> getOrganization_Pre(
-      $grpc.ServiceCall call, $async.Future<$0.CloudRequest> request) async {
-    return getOrganization(call, await request);
-  }
-
-  $async.Future<$0.CloudResponse> updateOrganization_Pre(
-      $grpc.ServiceCall call, $async.Future<$0.CloudRequest> request) async {
-    return updateOrganization(call, await request);
-  }
-
   $async.Future<$0.CloudResponse> heartbeat(
+      $grpc.ServiceCall call, $0.CloudRequest request);
+  $async.Future<$0.CloudResponse> createOrganization(
+      $grpc.ServiceCall call, $0.CloudRequest request);
+  $async.Future<$0.CloudResponse> getOrganization(
+      $grpc.ServiceCall call, $0.CloudRequest request);
+  $async.Future<$0.CloudResponse> updateOrganization(
       $grpc.ServiceCall call, $0.CloudRequest request);
   $async.Future<$0.CloudResponse> createProject(
       $grpc.ServiceCall call, $0.CloudRequest request);
@@ -315,11 +321,5 @@ abstract class CloudServiceBase extends $grpc.Service {
   $async.Future<$0.CloudResponse> getProjectsInOrganization(
       $grpc.ServiceCall call, $0.CloudRequest request);
   $async.Future<$0.CloudResponse> deleteProject(
-      $grpc.ServiceCall call, $0.CloudRequest request);
-  $async.Future<$0.CloudResponse> createOrganization(
-      $grpc.ServiceCall call, $0.CloudRequest request);
-  $async.Future<$0.CloudResponse> getOrganization(
-      $grpc.ServiceCall call, $0.CloudRequest request);
-  $async.Future<$0.CloudResponse> updateOrganization(
       $grpc.ServiceCall call, $0.CloudRequest request);
 }

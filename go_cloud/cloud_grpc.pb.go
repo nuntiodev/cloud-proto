@@ -19,6 +19,9 @@ const _ = grpc.SupportPackageIsVersion7
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type CloudServiceClient interface {
 	Heartbeat(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
+	CreateOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
+	GetOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
+	UpdateOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	CreateProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	RollPrivateKey(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	GenerateAccessToken(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
@@ -27,9 +30,6 @@ type CloudServiceClient interface {
 	GetProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	GetProjectsInOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	DeleteProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
-	CreateOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
-	GetOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
-	UpdateOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 }
 
 type cloudServiceClient struct {
@@ -43,6 +43,33 @@ func NewCloudServiceClient(cc grpc.ClientConnInterface) CloudServiceClient {
 func (c *cloudServiceClient) Heartbeat(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
 	err := c.cc.Invoke(ctx, "/CloudProject.CloudService/Heartbeat", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) CreateOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
+	out := new(CloudResponse)
+	err := c.cc.Invoke(ctx, "/CloudProject.CloudService/CreateOrganization", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) GetOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
+	out := new(CloudResponse)
+	err := c.cc.Invoke(ctx, "/CloudProject.CloudService/GetOrganization", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) UpdateOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
+	out := new(CloudResponse)
+	err := c.cc.Invoke(ctx, "/CloudProject.CloudService/UpdateOrganization", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -121,38 +148,14 @@ func (c *cloudServiceClient) DeleteProject(ctx context.Context, in *CloudRequest
 	return out, nil
 }
 
-func (c *cloudServiceClient) CreateOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
-	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/CloudProject.CloudService/CreateOrganization", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cloudServiceClient) GetOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
-	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/CloudProject.CloudService/GetOrganization", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cloudServiceClient) UpdateOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
-	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/CloudProject.CloudService/UpdateOrganization", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // CloudServiceServer is the server API for CloudService service.
 // All implementations should embed UnimplementedCloudServiceServer
 // for forward compatibility
 type CloudServiceServer interface {
 	Heartbeat(context.Context, *CloudRequest) (*CloudResponse, error)
+	CreateOrganization(context.Context, *CloudRequest) (*CloudResponse, error)
+	GetOrganization(context.Context, *CloudRequest) (*CloudResponse, error)
+	UpdateOrganization(context.Context, *CloudRequest) (*CloudResponse, error)
 	CreateProject(context.Context, *CloudRequest) (*CloudResponse, error)
 	RollPrivateKey(context.Context, *CloudRequest) (*CloudResponse, error)
 	GenerateAccessToken(context.Context, *CloudRequest) (*CloudResponse, error)
@@ -161,9 +164,6 @@ type CloudServiceServer interface {
 	GetProject(context.Context, *CloudRequest) (*CloudResponse, error)
 	GetProjectsInOrganization(context.Context, *CloudRequest) (*CloudResponse, error)
 	DeleteProject(context.Context, *CloudRequest) (*CloudResponse, error)
-	CreateOrganization(context.Context, *CloudRequest) (*CloudResponse, error)
-	GetOrganization(context.Context, *CloudRequest) (*CloudResponse, error)
-	UpdateOrganization(context.Context, *CloudRequest) (*CloudResponse, error)
 }
 
 // UnimplementedCloudServiceServer should be embedded to have forward compatible implementations.
@@ -172,6 +172,15 @@ type UnimplementedCloudServiceServer struct {
 
 func (UnimplementedCloudServiceServer) Heartbeat(context.Context, *CloudRequest) (*CloudResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Heartbeat not implemented")
+}
+func (UnimplementedCloudServiceServer) CreateOrganization(context.Context, *CloudRequest) (*CloudResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateOrganization not implemented")
+}
+func (UnimplementedCloudServiceServer) GetOrganization(context.Context, *CloudRequest) (*CloudResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetOrganization not implemented")
+}
+func (UnimplementedCloudServiceServer) UpdateOrganization(context.Context, *CloudRequest) (*CloudResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateOrganization not implemented")
 }
 func (UnimplementedCloudServiceServer) CreateProject(context.Context, *CloudRequest) (*CloudResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateProject not implemented")
@@ -196,15 +205,6 @@ func (UnimplementedCloudServiceServer) GetProjectsInOrganization(context.Context
 }
 func (UnimplementedCloudServiceServer) DeleteProject(context.Context, *CloudRequest) (*CloudResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteProject not implemented")
-}
-func (UnimplementedCloudServiceServer) CreateOrganization(context.Context, *CloudRequest) (*CloudResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreateOrganization not implemented")
-}
-func (UnimplementedCloudServiceServer) GetOrganization(context.Context, *CloudRequest) (*CloudResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetOrganization not implemented")
-}
-func (UnimplementedCloudServiceServer) UpdateOrganization(context.Context, *CloudRequest) (*CloudResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateOrganization not implemented")
 }
 
 // UnsafeCloudServiceServer may be embedded to opt out of forward compatibility for this service.
@@ -232,6 +232,60 @@ func _CloudService_Heartbeat_Handler(srv interface{}, ctx context.Context, dec f
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CloudServiceServer).Heartbeat(ctx, req.(*CloudRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_CreateOrganization_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloudRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).CreateOrganization(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/CloudProject.CloudService/CreateOrganization",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).CreateOrganization(ctx, req.(*CloudRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_GetOrganization_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloudRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).GetOrganization(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/CloudProject.CloudService/GetOrganization",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).GetOrganization(ctx, req.(*CloudRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_UpdateOrganization_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloudRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).UpdateOrganization(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/CloudProject.CloudService/UpdateOrganization",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).UpdateOrganization(ctx, req.(*CloudRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -380,60 +434,6 @@ func _CloudService_DeleteProject_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CloudService_CreateOrganization_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloudRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CloudServiceServer).CreateOrganization(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/CloudProject.CloudService/CreateOrganization",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CloudServiceServer).CreateOrganization(ctx, req.(*CloudRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CloudService_GetOrganization_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloudRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CloudServiceServer).GetOrganization(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/CloudProject.CloudService/GetOrganization",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CloudServiceServer).GetOrganization(ctx, req.(*CloudRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CloudService_UpdateOrganization_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloudRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CloudServiceServer).UpdateOrganization(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/CloudProject.CloudService/UpdateOrganization",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CloudServiceServer).UpdateOrganization(ctx, req.(*CloudRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 // CloudService_ServiceDesc is the grpc.ServiceDesc for CloudService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -444,6 +444,18 @@ var CloudService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Heartbeat",
 			Handler:    _CloudService_Heartbeat_Handler,
+		},
+		{
+			MethodName: "CreateOrganization",
+			Handler:    _CloudService_CreateOrganization_Handler,
+		},
+		{
+			MethodName: "GetOrganization",
+			Handler:    _CloudService_GetOrganization_Handler,
+		},
+		{
+			MethodName: "UpdateOrganization",
+			Handler:    _CloudService_UpdateOrganization_Handler,
 		},
 		{
 			MethodName: "CreateProject",
@@ -476,18 +488,6 @@ var CloudService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DeleteProject",
 			Handler:    _CloudService_DeleteProject_Handler,
-		},
-		{
-			MethodName: "CreateOrganization",
-			Handler:    _CloudService_CreateOrganization_Handler,
-		},
-		{
-			MethodName: "GetOrganization",
-			Handler:    _CloudService_GetOrganization_Handler,
-		},
-		{
-			MethodName: "UpdateOrganization",
-			Handler:    _CloudService_UpdateOrganization_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
