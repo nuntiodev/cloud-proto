@@ -47,6 +47,7 @@ message CloudRequest {
     string private_key = 2;
     string access_token = 3;
     Organization organization = 4;
+    string cloud_token = 5;
 }
 
 message CloudResponse {
