@@ -8,6 +8,9 @@ import "google/protobuf/timestamp.proto";
 
 service CloudService {
     rpc Heartbeat(CloudRequest) returns (CloudResponse) {}
+    rpc CreateOrganization(CloudRequest) returns (CloudResponse) {}
+    rpc GetOrganization(CloudRequest) returns (CloudResponse) {}
+    rpc UpdateOrganization(CloudRequest) returns (CloudResponse) {}
     rpc CreateProject(CloudRequest) returns (CloudResponse) {}
     rpc RollPrivateKey(CloudRequest) returns (CloudResponse) {}
     rpc GenerateAccessToken(CloudRequest) returns (CloudResponse) {}
@@ -16,15 +19,14 @@ service CloudService {
     rpc GetProject(CloudRequest) returns (CloudResponse) {}
     rpc GetProjectsInOrganization(CloudRequest) returns (CloudResponse) {}
     rpc DeleteProject(CloudRequest) returns (CloudResponse) {}
-    rpc CreateOrganization(CloudRequest) returns (CloudResponse) {}
-    rpc GetOrganization(CloudRequest) returns (CloudResponse) {}
-    rpc UpdateOrganization(CloudRequest) returns (CloudResponse) {}
 }
 
 message Organization {
     string id = 1;
     string name = 2;
     string owner_user_id = 3;
+    google.protobuf.Timestamp created_at = 4;
+    google.protobuf.Timestamp updated_at = 5;
 }
 
 message Project {
