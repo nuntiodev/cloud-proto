@@ -29,6 +29,22 @@ enum SubscriptionType {
     ENTERPRISE = 4;
 }
 
+enum MemberType {
+    INVALID_MEMBER_TYPE = 0;
+    OWNER = 1;
+    EDITOR = 2;
+    VIEWER = 3;
+}
+
+message Member {
+    string id = 1;
+    string project_id = 2;
+    string user_id = 3;
+    MemberType type = 4;
+    google.protobuf.Timestamp created_at = 5;
+    google.protobuf.Timestamp updated_at = 6;
+}
+
 message Organization {
     string id = 1;
     string name = 2;
@@ -60,6 +76,7 @@ message CloudRequest {
     string access_token = 3;
     Organization organization = 4;
     string cloud_token = 5;
+    Collaboration access = 6;
 }
 
 message CloudResponse {
@@ -67,4 +84,6 @@ message CloudResponse {
     repeated Project projects = 2;
     string access_token = 3;
     Organization organization = 4;
+    Member member = 5;
+    repeated Member members = 6;
 }
