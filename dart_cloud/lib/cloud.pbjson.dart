@@ -8,6 +8,20 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
+@$core.Deprecated('Use subscriptionTypeDescriptor instead')
+const SubscriptionType$json = const {
+  '1': 'SubscriptionType',
+  '2': const [
+    const {'1': 'INVALID_SUBSCRIPTION', '2': 0},
+    const {'1': 'FREEMIUM', '2': 1},
+    const {'1': 'STARTUP', '2': 2},
+    const {'1': 'SCALEUP', '2': 3},
+    const {'1': 'ENTERPRISE', '2': 4},
+  ],
+};
+
+/// Descriptor for `SubscriptionType`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List subscriptionTypeDescriptor = $convert.base64Decode('ChBTdWJzY3JpcHRpb25UeXBlEhgKFElOVkFMSURfU1VCU0NSSVBUSU9OEAASDAoIRlJFRU1JVU0QARILCgdTVEFSVFVQEAISCwoHU0NBTEVVUBADEg4KCkVOVEVSUFJJU0UQBA==');
 @$core.Deprecated('Use organizationDescriptor instead')
 const Organization$json = const {
   '1': 'Organization',
@@ -19,11 +33,12 @@ const Organization$json = const {
     const {'1': 'updated_at', '3': 5, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'updatedAt'},
     const {'1': 'viewers', '3': 6, '4': 3, '5': 9, '10': 'viewers'},
     const {'1': 'editors', '3': 7, '4': 3, '5': 9, '10': 'editors'},
+    const {'1': 'subscription_type', '3': 8, '4': 1, '5': 14, '6': '.CloudProject.SubscriptionType', '10': 'subscriptionType'},
   ],
 };
 
 /// Descriptor for `Organization`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List organizationDescriptor = $convert.base64Decode('CgxPcmdhbml6YXRpb24SDgoCaWQYASABKAlSAmlkEhIKBG5hbWUYAiABKAlSBG5hbWUSIgoNb3duZXJfdXNlcl9pZBgDIAEoCVILb3duZXJVc2VySWQSOQoKY3JlYXRlZF9hdBgEIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCWNyZWF0ZWRBdBI5Cgp1cGRhdGVkX2F0GAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJdXBkYXRlZEF0EhgKB3ZpZXdlcnMYBiADKAlSB3ZpZXdlcnMSGAoHZWRpdG9ycxgHIAMoCVIHZWRpdG9ycw==');
+final $typed_data.Uint8List organizationDescriptor = $convert.base64Decode('CgxPcmdhbml6YXRpb24SDgoCaWQYASABKAlSAmlkEhIKBG5hbWUYAiABKAlSBG5hbWUSIgoNb3duZXJfdXNlcl9pZBgDIAEoCVILb3duZXJVc2VySWQSOQoKY3JlYXRlZF9hdBgEIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCWNyZWF0ZWRBdBI5Cgp1cGRhdGVkX2F0GAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJdXBkYXRlZEF0EhgKB3ZpZXdlcnMYBiADKAlSB3ZpZXdlcnMSGAoHZWRpdG9ycxgHIAMoCVIHZWRpdG9ycxJLChFzdWJzY3JpcHRpb25fdHlwZRgIIAEoDjIeLkNsb3VkUHJvamVjdC5TdWJzY3JpcHRpb25UeXBlUhBzdWJzY3JpcHRpb25UeXBl');
 @$core.Deprecated('Use projectDescriptor instead')
 const Project$json = const {
   '1': 'Project',
