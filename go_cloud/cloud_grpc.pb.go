@@ -28,6 +28,7 @@ type CloudServiceClient interface {
 	ValidateAccessToken(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	UpdateProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	GetProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
+	GetUserProjects(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	GetProjectsInOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	DeleteProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 }
@@ -130,6 +131,15 @@ func (c *cloudServiceClient) GetProject(ctx context.Context, in *CloudRequest, o
 	return out, nil
 }
 
+func (c *cloudServiceClient) GetUserProjects(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
+	out := new(CloudResponse)
+	err := c.cc.Invoke(ctx, "/CloudProject.CloudService/GetUserProjects", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *cloudServiceClient) GetProjectsInOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
 	err := c.cc.Invoke(ctx, "/CloudProject.CloudService/GetProjectsInOrganization", in, out, opts...)
@@ -162,6 +172,7 @@ type CloudServiceServer interface {
 	ValidateAccessToken(context.Context, *CloudRequest) (*CloudResponse, error)
 	UpdateProject(context.Context, *CloudRequest) (*CloudResponse, error)
 	GetProject(context.Context, *CloudRequest) (*CloudResponse, error)
+	GetUserProjects(context.Context, *CloudRequest) (*CloudResponse, error)
 	GetProjectsInOrganization(context.Context, *CloudRequest) (*CloudResponse, error)
 	DeleteProject(context.Context, *CloudRequest) (*CloudResponse, error)
 }
@@ -199,6 +210,9 @@ func (UnimplementedCloudServiceServer) UpdateProject(context.Context, *CloudRequ
 }
 func (UnimplementedCloudServiceServer) GetProject(context.Context, *CloudRequest) (*CloudResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetProject not implemented")
+}
+func (UnimplementedCloudServiceServer) GetUserProjects(context.Context, *CloudRequest) (*CloudResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserProjects not implemented")
 }
 func (UnimplementedCloudServiceServer) GetProjectsInOrganization(context.Context, *CloudRequest) (*CloudResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetProjectsInOrganization not implemented")
@@ -398,6 +412,24 @@ func _CloudService_GetProject_Handler(srv interface{}, ctx context.Context, dec 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CloudService_GetUserProjects_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloudRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).GetUserProjects(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/CloudProject.CloudService/GetUserProjects",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).GetUserProjects(ctx, req.(*CloudRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CloudService_GetProjectsInOrganization_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CloudRequest)
 	if err := dec(in); err != nil {
@@ -480,6 +512,10 @@ var CloudService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetProject",
 			Handler:    _CloudService_GetProject_Handler,
+		},
+		{
+			MethodName: "GetUserProjects",
+			Handler:    _CloudService_GetUserProjects_Handler,
 		},
 		{
 			MethodName: "GetProjectsInOrganization",

@@ -64,6 +64,11 @@ class CloudServiceClient extends $grpc.Client {
           '/CloudProject.CloudService/GetProject',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
+  static final _$getUserProjects =
+      $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
+          '/CloudProject.CloudService/GetUserProjects',
+          ($0.CloudRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
   static final _$getProjectsInOrganization =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
           '/CloudProject.CloudService/GetProjectsInOrganization',
@@ -133,6 +138,12 @@ class CloudServiceClient extends $grpc.Client {
   $grpc.ResponseFuture<$0.CloudResponse> getProject($0.CloudRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getProject, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.CloudResponse> getUserProjects(
+      $0.CloudRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getUserProjects, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.CloudResponse> getProjectsInOrganization(
@@ -223,6 +234,13 @@ abstract class CloudServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) => $0.CloudRequest.fromBuffer(value),
         ($0.CloudResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.CloudRequest, $0.CloudResponse>(
+        'GetUserProjects',
+        getUserProjects_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CloudRequest.fromBuffer(value),
+        ($0.CloudResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CloudRequest, $0.CloudResponse>(
         'GetProjectsInOrganization',
         getProjectsInOrganization_Pre,
         false,
@@ -288,6 +306,11 @@ abstract class CloudServiceBase extends $grpc.Service {
     return getProject(call, await request);
   }
 
+  $async.Future<$0.CloudResponse> getUserProjects_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.CloudRequest> request) async {
+    return getUserProjects(call, await request);
+  }
+
   $async.Future<$0.CloudResponse> getProjectsInOrganization_Pre(
       $grpc.ServiceCall call, $async.Future<$0.CloudRequest> request) async {
     return getProjectsInOrganization(call, await request);
@@ -317,6 +340,8 @@ abstract class CloudServiceBase extends $grpc.Service {
   $async.Future<$0.CloudResponse> updateProject(
       $grpc.ServiceCall call, $0.CloudRequest request);
   $async.Future<$0.CloudResponse> getProject(
+      $grpc.ServiceCall call, $0.CloudRequest request);
+  $async.Future<$0.CloudResponse> getUserProjects(
       $grpc.ServiceCall call, $0.CloudRequest request);
   $async.Future<$0.CloudResponse> getProjectsInOrganization(
       $grpc.ServiceCall call, $0.CloudRequest request);

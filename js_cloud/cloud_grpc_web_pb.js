@@ -688,6 +688,67 @@ proto.CloudProject.CloudServicePromiseClient.prototype.getProject =
  *   !proto.CloudProject.CloudRequest,
  *   !proto.CloudProject.CloudResponse>}
  */
+const methodDescriptor_CloudService_GetUserProjects = new grpc.web.MethodDescriptor(
+  '/CloudProject.CloudService/GetUserProjects',
+  grpc.web.MethodType.UNARY,
+  proto.CloudProject.CloudRequest,
+  proto.CloudProject.CloudResponse,
+  /**
+   * @param {!proto.CloudProject.CloudRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.CloudProject.CloudResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.CloudProject.CloudRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.CloudProject.CloudResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.CloudResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.CloudProject.CloudServiceClient.prototype.getUserProjects =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/CloudProject.CloudService/GetUserProjects',
+      request,
+      metadata || {},
+      methodDescriptor_CloudService_GetUserProjects,
+      callback);
+};
+
+
+/**
+ * @param {!proto.CloudProject.CloudRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.CloudProject.CloudResponse>}
+ *     Promise that resolves to the response
+ */
+proto.CloudProject.CloudServicePromiseClient.prototype.getUserProjects =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/CloudProject.CloudService/GetUserProjects',
+      request,
+      metadata || {},
+      methodDescriptor_CloudService_GetUserProjects);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.CloudProject.CloudRequest,
+ *   !proto.CloudProject.CloudResponse>}
+ */
 const methodDescriptor_CloudService_GetProjectsInOrganization = new grpc.web.MethodDescriptor(
   '/CloudProject.CloudService/GetProjectsInOrganization',
   grpc.web.MethodType.UNARY,
