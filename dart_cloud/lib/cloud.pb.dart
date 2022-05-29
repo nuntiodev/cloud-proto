@@ -11,6 +11,10 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'google/protobuf/timestamp.pb.dart' as $1;
 
+import 'cloud.pbenum.dart';
+
+export 'cloud.pbenum.dart';
+
 class Organization extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Organization', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CloudProject'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
@@ -20,6 +24,7 @@ class Organization extends $pb.GeneratedMessage {
     ..aOM<$1.Timestamp>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'updatedAt', subBuilder: $1.Timestamp.create)
     ..pPS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'viewers')
     ..pPS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'editors')
+    ..e<SubscriptionType>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'subscriptionType', $pb.PbFieldType.OE, defaultOrMaker: SubscriptionType.INVALID_SUBSCRIPTION, valueOf: SubscriptionType.valueOf, enumValues: SubscriptionType.values)
     ..hasRequiredFields = false
   ;
 
@@ -32,6 +37,7 @@ class Organization extends $pb.GeneratedMessage {
     $1.Timestamp? updatedAt,
     $core.Iterable<$core.String>? viewers,
     $core.Iterable<$core.String>? editors,
+    SubscriptionType? subscriptionType,
   }) {
     final _result = create();
     if (id != null) {
@@ -54,6 +60,9 @@ class Organization extends $pb.GeneratedMessage {
     }
     if (editors != null) {
       _result.editors.addAll(editors);
+    }
+    if (subscriptionType != null) {
+      _result.subscriptionType = subscriptionType;
     }
     return _result;
   }
@@ -132,6 +141,15 @@ class Organization extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(7)
   $core.List<$core.String> get editors => $_getList(6);
+
+  @$pb.TagNumber(8)
+  SubscriptionType get subscriptionType => $_getN(7);
+  @$pb.TagNumber(8)
+  set subscriptionType(SubscriptionType v) { setField(8, v); }
+  @$pb.TagNumber(8)
+  $core.bool hasSubscriptionType() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearSubscriptionType() => clearField(8);
 }
 
 class Project extends $pb.GeneratedMessage {
