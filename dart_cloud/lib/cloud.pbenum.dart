@@ -30,3 +30,22 @@ class SubscriptionType extends $pb.ProtobufEnum {
   const SubscriptionType._($core.int v, $core.String n) : super(v, n);
 }
 
+class MemberType extends $pb.ProtobufEnum {
+  static const MemberType INVALID_MEMBER_TYPE = MemberType._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'INVALID_MEMBER_TYPE');
+  static const MemberType OWNER = MemberType._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'OWNER');
+  static const MemberType EDITOR = MemberType._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'EDITOR');
+  static const MemberType VIEWER = MemberType._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'VIEWER');
+
+  static const $core.List<MemberType> values = <MemberType> [
+    INVALID_MEMBER_TYPE,
+    OWNER,
+    EDITOR,
+    VIEWER,
+  ];
+
+  static final $core.Map<$core.int, MemberType> _byValue = $pb.ProtobufEnum.initByValue(values);
+  static MemberType? valueOf($core.int value) => _byValue[value];
+
+  const MemberType._($core.int v, $core.String n) : super(v, n);
+}
+

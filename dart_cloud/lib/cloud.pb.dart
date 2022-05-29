@@ -15,6 +15,127 @@ import 'cloud.pbenum.dart';
 
 export 'cloud.pbenum.dart';
 
+class Member extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Member', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CloudProject'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'projectId')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userId')
+    ..e<MemberType>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'type', $pb.PbFieldType.OE, defaultOrMaker: MemberType.INVALID_MEMBER_TYPE, valueOf: MemberType.valueOf, enumValues: MemberType.values)
+    ..aOM<$1.Timestamp>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'createdAt', subBuilder: $1.Timestamp.create)
+    ..aOM<$1.Timestamp>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'updatedAt', subBuilder: $1.Timestamp.create)
+    ..hasRequiredFields = false
+  ;
+
+  Member._() : super();
+  factory Member({
+    $core.String? id,
+    $core.String? projectId,
+    $core.String? userId,
+    MemberType? type,
+    $1.Timestamp? createdAt,
+    $1.Timestamp? updatedAt,
+  }) {
+    final _result = create();
+    if (id != null) {
+      _result.id = id;
+    }
+    if (projectId != null) {
+      _result.projectId = projectId;
+    }
+    if (userId != null) {
+      _result.userId = userId;
+    }
+    if (type != null) {
+      _result.type = type;
+    }
+    if (createdAt != null) {
+      _result.createdAt = createdAt;
+    }
+    if (updatedAt != null) {
+      _result.updatedAt = updatedAt;
+    }
+    return _result;
+  }
+  factory Member.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Member.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  Member clone() => Member()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  Member copyWith(void Function(Member) updates) => super.copyWith((message) => updates(message as Member)) as Member; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static Member create() => Member._();
+  Member createEmptyInstance() => create();
+  static $pb.PbList<Member> createRepeated() => $pb.PbList<Member>();
+  @$core.pragma('dart2js:noInline')
+  static Member getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Member>(create);
+  static Member? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get id => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set id($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get projectId => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set projectId($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasProjectId() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearProjectId() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get userId => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set userId($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasUserId() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearUserId() => clearField(3);
+
+  @$pb.TagNumber(4)
+  MemberType get type => $_getN(3);
+  @$pb.TagNumber(4)
+  set type(MemberType v) { setField(4, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasType() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearType() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $1.Timestamp get createdAt => $_getN(4);
+  @$pb.TagNumber(5)
+  set createdAt($1.Timestamp v) { setField(5, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasCreatedAt() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearCreatedAt() => clearField(5);
+  @$pb.TagNumber(5)
+  $1.Timestamp ensureCreatedAt() => $_ensure(4);
+
+  @$pb.TagNumber(6)
+  $1.Timestamp get updatedAt => $_getN(5);
+  @$pb.TagNumber(6)
+  set updatedAt($1.Timestamp v) { setField(6, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasUpdatedAt() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearUpdatedAt() => clearField(6);
+  @$pb.TagNumber(6)
+  $1.Timestamp ensureUpdatedAt() => $_ensure(5);
+}
+
 class Organization extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Organization', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CloudProject'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
@@ -354,6 +475,8 @@ class CloudRequest extends $pb.GeneratedMessage {
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'accessToken')
     ..aOM<Organization>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'organization', subBuilder: Organization.create)
     ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'cloudToken')
+    ..aOM<Member>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'member', subBuilder: Member.create)
+    ..pc<Member>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'members', $pb.PbFieldType.PM, subBuilder: Member.create)
     ..hasRequiredFields = false
   ;
 
@@ -364,6 +487,8 @@ class CloudRequest extends $pb.GeneratedMessage {
     $core.String? accessToken,
     Organization? organization,
     $core.String? cloudToken,
+    Member? member,
+    $core.Iterable<Member>? members,
   }) {
     final _result = create();
     if (project != null) {
@@ -380,6 +505,12 @@ class CloudRequest extends $pb.GeneratedMessage {
     }
     if (cloudToken != null) {
       _result.cloudToken = cloudToken;
+    }
+    if (member != null) {
+      _result.member = member;
+    }
+    if (members != null) {
+      _result.members.addAll(members);
     }
     return _result;
   }
@@ -452,6 +583,20 @@ class CloudRequest extends $pb.GeneratedMessage {
   $core.bool hasCloudToken() => $_has(4);
   @$pb.TagNumber(5)
   void clearCloudToken() => clearField(5);
+
+  @$pb.TagNumber(6)
+  Member get member => $_getN(5);
+  @$pb.TagNumber(6)
+  set member(Member v) { setField(6, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasMember() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearMember() => clearField(6);
+  @$pb.TagNumber(6)
+  Member ensureMember() => $_ensure(5);
+
+  @$pb.TagNumber(7)
+  $core.List<Member> get members => $_getList(6);
 }
 
 class CloudResponse extends $pb.GeneratedMessage {
@@ -460,6 +605,8 @@ class CloudResponse extends $pb.GeneratedMessage {
     ..pc<Project>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'projects', $pb.PbFieldType.PM, subBuilder: Project.create)
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'accessToken')
     ..aOM<Organization>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'organization', subBuilder: Organization.create)
+    ..aOM<Member>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'member', subBuilder: Member.create)
+    ..pc<Member>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'members', $pb.PbFieldType.PM, subBuilder: Member.create)
     ..hasRequiredFields = false
   ;
 
@@ -469,6 +616,8 @@ class CloudResponse extends $pb.GeneratedMessage {
     $core.Iterable<Project>? projects,
     $core.String? accessToken,
     Organization? organization,
+    Member? member,
+    $core.Iterable<Member>? members,
   }) {
     final _result = create();
     if (project != null) {
@@ -482,6 +631,12 @@ class CloudResponse extends $pb.GeneratedMessage {
     }
     if (organization != null) {
       _result.organization = organization;
+    }
+    if (member != null) {
+      _result.member = member;
+    }
+    if (members != null) {
+      _result.members.addAll(members);
     }
     return _result;
   }
@@ -539,5 +694,19 @@ class CloudResponse extends $pb.GeneratedMessage {
   void clearOrganization() => clearField(4);
   @$pb.TagNumber(4)
   Organization ensureOrganization() => $_ensure(3);
+
+  @$pb.TagNumber(5)
+  Member get member => $_getN(4);
+  @$pb.TagNumber(5)
+  set member(Member v) { setField(5, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasMember() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearMember() => clearField(5);
+  @$pb.TagNumber(5)
+  Member ensureMember() => $_ensure(4);
+
+  @$pb.TagNumber(6)
+  $core.List<Member> get members => $_getList(5);
 }
 
