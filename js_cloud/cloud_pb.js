@@ -409,7 +409,7 @@ proto.CloudProject.Organization.prototype.hasUpdatedAt = function() {
  * @private {!Array<number>}
  * @const
  */
-proto.CloudProject.Project.repeatedFields_ = [11,12];
+proto.CloudProject.Project.repeatedFields_ = [12,13];
 
 
 
@@ -444,16 +444,17 @@ proto.CloudProject.Project.toObject = function(includeInstance, msg) {
   var f, obj = {
     id: jspb.Message.getFieldWithDefault(msg, 1, ""),
     organizationId: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    name: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    privateKey: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    privateKeySecured: jspb.Message.getBooleanFieldWithDefault(msg, 5, false),
+    ownerUserId: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    name: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    privateKey: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    privateKeySecured: jspb.Message.getBooleanFieldWithDefault(msg, 6, false),
     createdAt: (f = msg.getCreatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
     updatedAt: (f = msg.getUpdatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
     privateKeyGeneratedAt: (f = msg.getPrivateKeyGeneratedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
     privateKeySecuredAt: (f = msg.getPrivateKeySecuredAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
-    logo: jspb.Message.getFieldWithDefault(msg, 10, ""),
-    viewersList: (f = jspb.Message.getRepeatedField(msg, 11)) == null ? undefined : f,
-    editorsList: (f = jspb.Message.getRepeatedField(msg, 12)) == null ? undefined : f
+    logo: jspb.Message.getFieldWithDefault(msg, 11, ""),
+    viewersList: (f = jspb.Message.getRepeatedField(msg, 12)) == null ? undefined : f,
+    editorsList: (f = jspb.Message.getRepeatedField(msg, 13)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -500,45 +501,49 @@ proto.CloudProject.Project.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 3:
       var value = /** @type {string} */ (reader.readString());
-      msg.setName(value);
+      msg.setOwnerUserId(value);
       break;
     case 4:
       var value = /** @type {string} */ (reader.readString());
-      msg.setPrivateKey(value);
+      msg.setName(value);
       break;
     case 5:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setPrivateKeySecured(value);
+      var value = /** @type {string} */ (reader.readString());
+      msg.setPrivateKey(value);
       break;
     case 6:
-      var value = new google_protobuf_timestamp_pb.Timestamp;
-      reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
-      msg.setCreatedAt(value);
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setPrivateKeySecured(value);
       break;
     case 7:
       var value = new google_protobuf_timestamp_pb.Timestamp;
       reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
-      msg.setUpdatedAt(value);
+      msg.setCreatedAt(value);
       break;
     case 8:
       var value = new google_protobuf_timestamp_pb.Timestamp;
       reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
-      msg.setPrivateKeyGeneratedAt(value);
+      msg.setUpdatedAt(value);
       break;
     case 9:
       var value = new google_protobuf_timestamp_pb.Timestamp;
       reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
-      msg.setPrivateKeySecuredAt(value);
+      msg.setPrivateKeyGeneratedAt(value);
       break;
     case 10:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setLogo(value);
+      var value = new google_protobuf_timestamp_pb.Timestamp;
+      reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
+      msg.setPrivateKeySecuredAt(value);
       break;
     case 11:
       var value = /** @type {string} */ (reader.readString());
-      msg.addViewers(value);
+      msg.setLogo(value);
       break;
     case 12:
+      var value = /** @type {string} */ (reader.readString());
+      msg.addViewers(value);
+      break;
+    case 13:
       var value = /** @type {string} */ (reader.readString());
       msg.addEditors(value);
       break;
@@ -585,36 +590,35 @@ proto.CloudProject.Project.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getName();
+  f = message.getOwnerUserId();
   if (f.length > 0) {
     writer.writeString(
       3,
       f
     );
   }
-  f = message.getPrivateKey();
+  f = message.getName();
   if (f.length > 0) {
     writer.writeString(
       4,
       f
     );
   }
-  f = message.getPrivateKeySecured();
-  if (f) {
-    writer.writeBool(
+  f = message.getPrivateKey();
+  if (f.length > 0) {
+    writer.writeString(
       5,
       f
     );
   }
-  f = message.getCreatedAt();
-  if (f != null) {
-    writer.writeMessage(
+  f = message.getPrivateKeySecured();
+  if (f) {
+    writer.writeBool(
       6,
-      f,
-      google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
+      f
     );
   }
-  f = message.getUpdatedAt();
+  f = message.getCreatedAt();
   if (f != null) {
     writer.writeMessage(
       7,
@@ -622,7 +626,7 @@ proto.CloudProject.Project.serializeBinaryToWriter = function(message, writer) {
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
     );
   }
-  f = message.getPrivateKeyGeneratedAt();
+  f = message.getUpdatedAt();
   if (f != null) {
     writer.writeMessage(
       8,
@@ -630,7 +634,7 @@ proto.CloudProject.Project.serializeBinaryToWriter = function(message, writer) {
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
     );
   }
-  f = message.getPrivateKeySecuredAt();
+  f = message.getPrivateKeyGeneratedAt();
   if (f != null) {
     writer.writeMessage(
       9,
@@ -638,24 +642,32 @@ proto.CloudProject.Project.serializeBinaryToWriter = function(message, writer) {
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
     );
   }
+  f = message.getPrivateKeySecuredAt();
+  if (f != null) {
+    writer.writeMessage(
+      10,
+      f,
+      google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
+    );
+  }
   f = message.getLogo();
   if (f.length > 0) {
     writer.writeString(
-      10,
+      11,
       f
     );
   }
   f = message.getViewersList();
   if (f.length > 0) {
     writer.writeRepeatedString(
-      11,
+      12,
       f
     );
   }
   f = message.getEditorsList();
   if (f.length > 0) {
     writer.writeRepeatedString(
-      12,
+      13,
       f
     );
   }
@@ -699,10 +711,10 @@ proto.CloudProject.Project.prototype.setOrganizationId = function(value) {
 
 
 /**
- * optional string name = 3;
+ * optional string owner_user_id = 3;
  * @return {string}
  */
-proto.CloudProject.Project.prototype.getName = function() {
+proto.CloudProject.Project.prototype.getOwnerUserId = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
@@ -711,16 +723,16 @@ proto.CloudProject.Project.prototype.getName = function() {
  * @param {string} value
  * @return {!proto.CloudProject.Project} returns this
  */
-proto.CloudProject.Project.prototype.setName = function(value) {
+proto.CloudProject.Project.prototype.setOwnerUserId = function(value) {
   return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
 /**
- * optional string private_key = 4;
+ * optional string name = 4;
  * @return {string}
  */
-proto.CloudProject.Project.prototype.getPrivateKey = function() {
+proto.CloudProject.Project.prototype.getName = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
 };
 
@@ -729,17 +741,35 @@ proto.CloudProject.Project.prototype.getPrivateKey = function() {
  * @param {string} value
  * @return {!proto.CloudProject.Project} returns this
  */
-proto.CloudProject.Project.prototype.setPrivateKey = function(value) {
+proto.CloudProject.Project.prototype.setName = function(value) {
   return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
 /**
- * optional bool private_key_secured = 5;
+ * optional string private_key = 5;
+ * @return {string}
+ */
+proto.CloudProject.Project.prototype.getPrivateKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.CloudProject.Project} returns this
+ */
+proto.CloudProject.Project.prototype.setPrivateKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 5, value);
+};
+
+
+/**
+ * optional bool private_key_secured = 6;
  * @return {boolean}
  */
 proto.CloudProject.Project.prototype.getPrivateKeySecured = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 5, false));
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 6, false));
 };
 
 
@@ -748,17 +778,17 @@ proto.CloudProject.Project.prototype.getPrivateKeySecured = function() {
  * @return {!proto.CloudProject.Project} returns this
  */
 proto.CloudProject.Project.prototype.setPrivateKeySecured = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 5, value);
+  return jspb.Message.setProto3BooleanField(this, 6, value);
 };
 
 
 /**
- * optional google.protobuf.Timestamp created_at = 6;
+ * optional google.protobuf.Timestamp created_at = 7;
  * @return {?proto.google.protobuf.Timestamp}
  */
 proto.CloudProject.Project.prototype.getCreatedAt = function() {
   return /** @type{?proto.google.protobuf.Timestamp} */ (
-    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 6));
+    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 7));
 };
 
 
@@ -767,7 +797,7 @@ proto.CloudProject.Project.prototype.getCreatedAt = function() {
  * @return {!proto.CloudProject.Project} returns this
 */
 proto.CloudProject.Project.prototype.setCreatedAt = function(value) {
-  return jspb.Message.setWrapperField(this, 6, value);
+  return jspb.Message.setWrapperField(this, 7, value);
 };
 
 
@@ -785,17 +815,17 @@ proto.CloudProject.Project.prototype.clearCreatedAt = function() {
  * @return {boolean}
  */
 proto.CloudProject.Project.prototype.hasCreatedAt = function() {
-  return jspb.Message.getField(this, 6) != null;
+  return jspb.Message.getField(this, 7) != null;
 };
 
 
 /**
- * optional google.protobuf.Timestamp updated_at = 7;
+ * optional google.protobuf.Timestamp updated_at = 8;
  * @return {?proto.google.protobuf.Timestamp}
  */
 proto.CloudProject.Project.prototype.getUpdatedAt = function() {
   return /** @type{?proto.google.protobuf.Timestamp} */ (
-    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 7));
+    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 8));
 };
 
 
@@ -804,7 +834,7 @@ proto.CloudProject.Project.prototype.getUpdatedAt = function() {
  * @return {!proto.CloudProject.Project} returns this
 */
 proto.CloudProject.Project.prototype.setUpdatedAt = function(value) {
-  return jspb.Message.setWrapperField(this, 7, value);
+  return jspb.Message.setWrapperField(this, 8, value);
 };
 
 
@@ -822,17 +852,17 @@ proto.CloudProject.Project.prototype.clearUpdatedAt = function() {
  * @return {boolean}
  */
 proto.CloudProject.Project.prototype.hasUpdatedAt = function() {
-  return jspb.Message.getField(this, 7) != null;
+  return jspb.Message.getField(this, 8) != null;
 };
 
 
 /**
- * optional google.protobuf.Timestamp private_key_generated_at = 8;
+ * optional google.protobuf.Timestamp private_key_generated_at = 9;
  * @return {?proto.google.protobuf.Timestamp}
  */
 proto.CloudProject.Project.prototype.getPrivateKeyGeneratedAt = function() {
   return /** @type{?proto.google.protobuf.Timestamp} */ (
-    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 8));
+    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 9));
 };
 
 
@@ -841,7 +871,7 @@ proto.CloudProject.Project.prototype.getPrivateKeyGeneratedAt = function() {
  * @return {!proto.CloudProject.Project} returns this
 */
 proto.CloudProject.Project.prototype.setPrivateKeyGeneratedAt = function(value) {
-  return jspb.Message.setWrapperField(this, 8, value);
+  return jspb.Message.setWrapperField(this, 9, value);
 };
 
 
@@ -859,17 +889,17 @@ proto.CloudProject.Project.prototype.clearPrivateKeyGeneratedAt = function() {
  * @return {boolean}
  */
 proto.CloudProject.Project.prototype.hasPrivateKeyGeneratedAt = function() {
-  return jspb.Message.getField(this, 8) != null;
+  return jspb.Message.getField(this, 9) != null;
 };
 
 
 /**
- * optional google.protobuf.Timestamp private_key_secured_at = 9;
+ * optional google.protobuf.Timestamp private_key_secured_at = 10;
  * @return {?proto.google.protobuf.Timestamp}
  */
 proto.CloudProject.Project.prototype.getPrivateKeySecuredAt = function() {
   return /** @type{?proto.google.protobuf.Timestamp} */ (
-    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 9));
+    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 10));
 };
 
 
@@ -878,7 +908,7 @@ proto.CloudProject.Project.prototype.getPrivateKeySecuredAt = function() {
  * @return {!proto.CloudProject.Project} returns this
 */
 proto.CloudProject.Project.prototype.setPrivateKeySecuredAt = function(value) {
-  return jspb.Message.setWrapperField(this, 9, value);
+  return jspb.Message.setWrapperField(this, 10, value);
 };
 
 
@@ -896,16 +926,16 @@ proto.CloudProject.Project.prototype.clearPrivateKeySecuredAt = function() {
  * @return {boolean}
  */
 proto.CloudProject.Project.prototype.hasPrivateKeySecuredAt = function() {
-  return jspb.Message.getField(this, 9) != null;
+  return jspb.Message.getField(this, 10) != null;
 };
 
 
 /**
- * optional string logo = 10;
+ * optional string logo = 11;
  * @return {string}
  */
 proto.CloudProject.Project.prototype.getLogo = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 10, ""));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 11, ""));
 };
 
 
@@ -914,16 +944,16 @@ proto.CloudProject.Project.prototype.getLogo = function() {
  * @return {!proto.CloudProject.Project} returns this
  */
 proto.CloudProject.Project.prototype.setLogo = function(value) {
-  return jspb.Message.setProto3StringField(this, 10, value);
+  return jspb.Message.setProto3StringField(this, 11, value);
 };
 
 
 /**
- * repeated string viewers = 11;
+ * repeated string viewers = 12;
  * @return {!Array<string>}
  */
 proto.CloudProject.Project.prototype.getViewersList = function() {
-  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 11));
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 12));
 };
 
 
@@ -932,7 +962,7 @@ proto.CloudProject.Project.prototype.getViewersList = function() {
  * @return {!proto.CloudProject.Project} returns this
  */
 proto.CloudProject.Project.prototype.setViewersList = function(value) {
-  return jspb.Message.setField(this, 11, value || []);
+  return jspb.Message.setField(this, 12, value || []);
 };
 
 
@@ -942,7 +972,7 @@ proto.CloudProject.Project.prototype.setViewersList = function(value) {
  * @return {!proto.CloudProject.Project} returns this
  */
 proto.CloudProject.Project.prototype.addViewers = function(value, opt_index) {
-  return jspb.Message.addToRepeatedField(this, 11, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 12, value, opt_index);
 };
 
 
@@ -956,11 +986,11 @@ proto.CloudProject.Project.prototype.clearViewersList = function() {
 
 
 /**
- * repeated string editors = 12;
+ * repeated string editors = 13;
  * @return {!Array<string>}
  */
 proto.CloudProject.Project.prototype.getEditorsList = function() {
-  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 12));
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 13));
 };
 
 
@@ -969,7 +999,7 @@ proto.CloudProject.Project.prototype.getEditorsList = function() {
  * @return {!proto.CloudProject.Project} returns this
  */
 proto.CloudProject.Project.prototype.setEditorsList = function(value) {
-  return jspb.Message.setField(this, 12, value || []);
+  return jspb.Message.setField(this, 13, value || []);
 };
 
 
@@ -979,7 +1009,7 @@ proto.CloudProject.Project.prototype.setEditorsList = function(value) {
  * @return {!proto.CloudProject.Project} returns this
  */
 proto.CloudProject.Project.prototype.addEditors = function(value, opt_index) {
-  return jspb.Message.addToRepeatedField(this, 12, value, opt_index);
+  return jspb.Message.addToRepeatedField(this, 13, value, opt_index);
 };
 
 

@@ -28,21 +28,22 @@ const Project$json = const {
   '2': const [
     const {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
     const {'1': 'organization_id', '3': 2, '4': 1, '5': 9, '10': 'organizationId'},
-    const {'1': 'name', '3': 3, '4': 1, '5': 9, '10': 'name'},
-    const {'1': 'private_key', '3': 4, '4': 1, '5': 9, '10': 'privateKey'},
-    const {'1': 'private_key_secured', '3': 5, '4': 1, '5': 8, '10': 'privateKeySecured'},
-    const {'1': 'created_at', '3': 6, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'createdAt'},
-    const {'1': 'updated_at', '3': 7, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'updatedAt'},
-    const {'1': 'private_key_generated_at', '3': 8, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'privateKeyGeneratedAt'},
-    const {'1': 'private_key_secured_at', '3': 9, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'privateKeySecuredAt'},
-    const {'1': 'logo', '3': 10, '4': 1, '5': 9, '10': 'logo'},
-    const {'1': 'viewers', '3': 11, '4': 3, '5': 9, '10': 'viewers'},
-    const {'1': 'editors', '3': 12, '4': 3, '5': 9, '10': 'editors'},
+    const {'1': 'owner_user_id', '3': 3, '4': 1, '5': 9, '10': 'ownerUserId'},
+    const {'1': 'name', '3': 4, '4': 1, '5': 9, '10': 'name'},
+    const {'1': 'private_key', '3': 5, '4': 1, '5': 9, '10': 'privateKey'},
+    const {'1': 'private_key_secured', '3': 6, '4': 1, '5': 8, '10': 'privateKeySecured'},
+    const {'1': 'created_at', '3': 7, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'createdAt'},
+    const {'1': 'updated_at', '3': 8, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'updatedAt'},
+    const {'1': 'private_key_generated_at', '3': 9, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'privateKeyGeneratedAt'},
+    const {'1': 'private_key_secured_at', '3': 10, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'privateKeySecuredAt'},
+    const {'1': 'logo', '3': 11, '4': 1, '5': 9, '10': 'logo'},
+    const {'1': 'viewers', '3': 12, '4': 3, '5': 9, '10': 'viewers'},
+    const {'1': 'editors', '3': 13, '4': 3, '5': 9, '10': 'editors'},
   ],
 };
 
 /// Descriptor for `Project`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List projectDescriptor = $convert.base64Decode('CgdQcm9qZWN0Eg4KAmlkGAEgASgJUgJpZBInCg9vcmdhbml6YXRpb25faWQYAiABKAlSDm9yZ2FuaXphdGlvbklkEhIKBG5hbWUYAyABKAlSBG5hbWUSHwoLcHJpdmF0ZV9rZXkYBCABKAlSCnByaXZhdGVLZXkSLgoTcHJpdmF0ZV9rZXlfc2VjdXJlZBgFIAEoCFIRcHJpdmF0ZUtleVNlY3VyZWQSOQoKY3JlYXRlZF9hdBgGIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCWNyZWF0ZWRBdBI5Cgp1cGRhdGVkX2F0GAcgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJdXBkYXRlZEF0ElMKGHByaXZhdGVfa2V5X2dlbmVyYXRlZF9hdBgIIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSFXByaXZhdGVLZXlHZW5lcmF0ZWRBdBJPChZwcml2YXRlX2tleV9zZWN1cmVkX2F0GAkgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFITcHJpdmF0ZUtleVNlY3VyZWRBdBISCgRsb2dvGAogASgJUgRsb2dvEhgKB3ZpZXdlcnMYCyADKAlSB3ZpZXdlcnMSGAoHZWRpdG9ycxgMIAMoCVIHZWRpdG9ycw==');
+final $typed_data.Uint8List projectDescriptor = $convert.base64Decode('CgdQcm9qZWN0Eg4KAmlkGAEgASgJUgJpZBInCg9vcmdhbml6YXRpb25faWQYAiABKAlSDm9yZ2FuaXphdGlvbklkEiIKDW93bmVyX3VzZXJfaWQYAyABKAlSC293bmVyVXNlcklkEhIKBG5hbWUYBCABKAlSBG5hbWUSHwoLcHJpdmF0ZV9rZXkYBSABKAlSCnByaXZhdGVLZXkSLgoTcHJpdmF0ZV9rZXlfc2VjdXJlZBgGIAEoCFIRcHJpdmF0ZUtleVNlY3VyZWQSOQoKY3JlYXRlZF9hdBgHIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCWNyZWF0ZWRBdBI5Cgp1cGRhdGVkX2F0GAggASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJdXBkYXRlZEF0ElMKGHByaXZhdGVfa2V5X2dlbmVyYXRlZF9hdBgJIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSFXByaXZhdGVLZXlHZW5lcmF0ZWRBdBJPChZwcml2YXRlX2tleV9zZWN1cmVkX2F0GAogASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFITcHJpdmF0ZUtleVNlY3VyZWRBdBISCgRsb2dvGAsgASgJUgRsb2dvEhgKB3ZpZXdlcnMYDCADKAlSB3ZpZXdlcnMSGAoHZWRpdG9ycxgNIAMoCVIHZWRpdG9ycw==');
 @$core.Deprecated('Use cloudRequestDescriptor instead')
 const CloudRequest$json = const {
   '1': 'CloudRequest',

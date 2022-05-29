@@ -122,16 +122,17 @@ class Project extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Project', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CloudProject'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'organizationId')
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
-    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKey')
-    ..aOB(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKeySecured')
-    ..aOM<$1.Timestamp>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'createdAt', subBuilder: $1.Timestamp.create)
-    ..aOM<$1.Timestamp>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'updatedAt', subBuilder: $1.Timestamp.create)
-    ..aOM<$1.Timestamp>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKeyGeneratedAt', subBuilder: $1.Timestamp.create)
-    ..aOM<$1.Timestamp>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKeySecuredAt', subBuilder: $1.Timestamp.create)
-    ..aOS(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'logo')
-    ..pPS(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'viewers')
-    ..pPS(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'editors')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ownerUserId')
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
+    ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKey')
+    ..aOB(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKeySecured')
+    ..aOM<$1.Timestamp>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'createdAt', subBuilder: $1.Timestamp.create)
+    ..aOM<$1.Timestamp>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'updatedAt', subBuilder: $1.Timestamp.create)
+    ..aOM<$1.Timestamp>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKeyGeneratedAt', subBuilder: $1.Timestamp.create)
+    ..aOM<$1.Timestamp>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKeySecuredAt', subBuilder: $1.Timestamp.create)
+    ..aOS(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'logo')
+    ..pPS(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'viewers')
+    ..pPS(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'editors')
     ..hasRequiredFields = false
   ;
 
@@ -139,6 +140,7 @@ class Project extends $pb.GeneratedMessage {
   factory Project({
     $core.String? id,
     $core.String? organizationId,
+    $core.String? ownerUserId,
     $core.String? name,
     $core.String? privateKey,
     $core.bool? privateKeySecured,
@@ -156,6 +158,9 @@ class Project extends $pb.GeneratedMessage {
     }
     if (organizationId != null) {
       _result.organizationId = organizationId;
+    }
+    if (ownerUserId != null) {
+      _result.ownerUserId = ownerUserId;
     }
     if (name != null) {
       _result.name = name;
@@ -229,90 +234,99 @@ class Project extends $pb.GeneratedMessage {
   void clearOrganizationId() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.String get name => $_getSZ(2);
+  $core.String get ownerUserId => $_getSZ(2);
   @$pb.TagNumber(3)
-  set name($core.String v) { $_setString(2, v); }
+  set ownerUserId($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasName() => $_has(2);
+  $core.bool hasOwnerUserId() => $_has(2);
   @$pb.TagNumber(3)
-  void clearName() => clearField(3);
+  void clearOwnerUserId() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.String get privateKey => $_getSZ(3);
+  $core.String get name => $_getSZ(3);
   @$pb.TagNumber(4)
-  set privateKey($core.String v) { $_setString(3, v); }
+  set name($core.String v) { $_setString(3, v); }
   @$pb.TagNumber(4)
-  $core.bool hasPrivateKey() => $_has(3);
+  $core.bool hasName() => $_has(3);
   @$pb.TagNumber(4)
-  void clearPrivateKey() => clearField(4);
+  void clearName() => clearField(4);
 
   @$pb.TagNumber(5)
-  $core.bool get privateKeySecured => $_getBF(4);
+  $core.String get privateKey => $_getSZ(4);
   @$pb.TagNumber(5)
-  set privateKeySecured($core.bool v) { $_setBool(4, v); }
+  set privateKey($core.String v) { $_setString(4, v); }
   @$pb.TagNumber(5)
-  $core.bool hasPrivateKeySecured() => $_has(4);
+  $core.bool hasPrivateKey() => $_has(4);
   @$pb.TagNumber(5)
-  void clearPrivateKeySecured() => clearField(5);
+  void clearPrivateKey() => clearField(5);
 
   @$pb.TagNumber(6)
-  $1.Timestamp get createdAt => $_getN(5);
+  $core.bool get privateKeySecured => $_getBF(5);
   @$pb.TagNumber(6)
-  set createdAt($1.Timestamp v) { setField(6, v); }
+  set privateKeySecured($core.bool v) { $_setBool(5, v); }
   @$pb.TagNumber(6)
-  $core.bool hasCreatedAt() => $_has(5);
+  $core.bool hasPrivateKeySecured() => $_has(5);
   @$pb.TagNumber(6)
-  void clearCreatedAt() => clearField(6);
-  @$pb.TagNumber(6)
-  $1.Timestamp ensureCreatedAt() => $_ensure(5);
+  void clearPrivateKeySecured() => clearField(6);
 
   @$pb.TagNumber(7)
-  $1.Timestamp get updatedAt => $_getN(6);
+  $1.Timestamp get createdAt => $_getN(6);
   @$pb.TagNumber(7)
-  set updatedAt($1.Timestamp v) { setField(7, v); }
+  set createdAt($1.Timestamp v) { setField(7, v); }
   @$pb.TagNumber(7)
-  $core.bool hasUpdatedAt() => $_has(6);
+  $core.bool hasCreatedAt() => $_has(6);
   @$pb.TagNumber(7)
-  void clearUpdatedAt() => clearField(7);
+  void clearCreatedAt() => clearField(7);
   @$pb.TagNumber(7)
-  $1.Timestamp ensureUpdatedAt() => $_ensure(6);
+  $1.Timestamp ensureCreatedAt() => $_ensure(6);
 
   @$pb.TagNumber(8)
-  $1.Timestamp get privateKeyGeneratedAt => $_getN(7);
+  $1.Timestamp get updatedAt => $_getN(7);
   @$pb.TagNumber(8)
-  set privateKeyGeneratedAt($1.Timestamp v) { setField(8, v); }
+  set updatedAt($1.Timestamp v) { setField(8, v); }
   @$pb.TagNumber(8)
-  $core.bool hasPrivateKeyGeneratedAt() => $_has(7);
+  $core.bool hasUpdatedAt() => $_has(7);
   @$pb.TagNumber(8)
-  void clearPrivateKeyGeneratedAt() => clearField(8);
+  void clearUpdatedAt() => clearField(8);
   @$pb.TagNumber(8)
-  $1.Timestamp ensurePrivateKeyGeneratedAt() => $_ensure(7);
+  $1.Timestamp ensureUpdatedAt() => $_ensure(7);
 
   @$pb.TagNumber(9)
-  $1.Timestamp get privateKeySecuredAt => $_getN(8);
+  $1.Timestamp get privateKeyGeneratedAt => $_getN(8);
   @$pb.TagNumber(9)
-  set privateKeySecuredAt($1.Timestamp v) { setField(9, v); }
+  set privateKeyGeneratedAt($1.Timestamp v) { setField(9, v); }
   @$pb.TagNumber(9)
-  $core.bool hasPrivateKeySecuredAt() => $_has(8);
+  $core.bool hasPrivateKeyGeneratedAt() => $_has(8);
   @$pb.TagNumber(9)
-  void clearPrivateKeySecuredAt() => clearField(9);
+  void clearPrivateKeyGeneratedAt() => clearField(9);
   @$pb.TagNumber(9)
-  $1.Timestamp ensurePrivateKeySecuredAt() => $_ensure(8);
+  $1.Timestamp ensurePrivateKeyGeneratedAt() => $_ensure(8);
 
   @$pb.TagNumber(10)
-  $core.String get logo => $_getSZ(9);
+  $1.Timestamp get privateKeySecuredAt => $_getN(9);
   @$pb.TagNumber(10)
-  set logo($core.String v) { $_setString(9, v); }
+  set privateKeySecuredAt($1.Timestamp v) { setField(10, v); }
   @$pb.TagNumber(10)
-  $core.bool hasLogo() => $_has(9);
+  $core.bool hasPrivateKeySecuredAt() => $_has(9);
   @$pb.TagNumber(10)
-  void clearLogo() => clearField(10);
+  void clearPrivateKeySecuredAt() => clearField(10);
+  @$pb.TagNumber(10)
+  $1.Timestamp ensurePrivateKeySecuredAt() => $_ensure(9);
 
   @$pb.TagNumber(11)
-  $core.List<$core.String> get viewers => $_getList(10);
+  $core.String get logo => $_getSZ(10);
+  @$pb.TagNumber(11)
+  set logo($core.String v) { $_setString(10, v); }
+  @$pb.TagNumber(11)
+  $core.bool hasLogo() => $_has(10);
+  @$pb.TagNumber(11)
+  void clearLogo() => clearField(11);
 
   @$pb.TagNumber(12)
-  $core.List<$core.String> get editors => $_getList(11);
+  $core.List<$core.String> get viewers => $_getList(11);
+
+  @$pb.TagNumber(13)
+  $core.List<$core.String> get editors => $_getList(12);
 }
 
 class CloudRequest extends $pb.GeneratedMessage {
