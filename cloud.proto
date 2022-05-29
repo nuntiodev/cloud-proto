@@ -21,6 +21,14 @@ service CloudService {
     rpc DeleteProject(CloudRequest) returns (CloudResponse) {}
 }
 
+enum SubscriptionType {
+    INVALID_SUBSCRIPTION = 0;
+    FREEMIUM = 1;
+    STARTUP = 2;
+    SCALEUP = 3;
+    ENTERPRISE = 4;
+}
+
 message Organization {
     string id = 1;
     string name = 2;
@@ -29,6 +37,7 @@ message Organization {
     google.protobuf.Timestamp updated_at = 5;
     repeated string viewers = 6;
     repeated string editors = 7;
+    SubscriptionType subscription_type = 8;
 }
 
 message Project {
