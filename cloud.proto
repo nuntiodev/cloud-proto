@@ -76,7 +76,8 @@ message CloudRequest {
     string access_token = 3;
     Organization organization = 4;
     string cloud_token = 5;
-    Collaboration access = 6;
+    Member member = 6;
+    repeated Member members = 7;
 }
 
 message CloudResponse {
