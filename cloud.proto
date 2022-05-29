@@ -17,6 +17,7 @@ service CloudService {
     rpc ValidateAccessToken(CloudRequest) returns (CloudResponse) {}
     rpc UpdateProject(CloudRequest) returns (CloudResponse) {}
     rpc GetProject(CloudRequest) returns (CloudResponse) {}
+    rpc GetUserProjects(CloudRequest) returns (CloudResponse) {}
     rpc GetProjectsInOrganization(CloudRequest) returns (CloudResponse) {}
     rpc DeleteProject(CloudRequest) returns (CloudResponse) {}
 }
