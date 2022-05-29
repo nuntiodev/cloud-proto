@@ -32,16 +32,17 @@ message Organization {
 message Project {
     string id = 1;
     string organization_id = 2;
-    string name = 3;
-    string private_key = 4;
-    bool private_key_secured = 5;
-    google.protobuf.Timestamp created_at = 6;
-    google.protobuf.Timestamp updated_at = 7;
-    google.protobuf.Timestamp private_key_generated_at = 8;
-    google.protobuf.Timestamp private_key_secured_at = 9;
-    string logo = 10;
-    repeated string viewers = 11;
-    repeated string editors = 12;
+    string owner_user_id = 3;
+    string name = 4;
+    string private_key = 5;
+    bool private_key_secured = 6;
+    google.protobuf.Timestamp created_at = 7;
+    google.protobuf.Timestamp updated_at = 8;
+    google.protobuf.Timestamp private_key_generated_at = 9;
+    google.protobuf.Timestamp private_key_secured_at = 10;
+    string logo = 11;
+    repeated string viewers = 12;
+    repeated string editors = 13;
 }
 
 message CloudRequest {
