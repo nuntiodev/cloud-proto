@@ -18,6 +18,8 @@ class Organization extends $pb.GeneratedMessage {
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ownerUserId')
     ..aOM<$1.Timestamp>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'createdAt', subBuilder: $1.Timestamp.create)
     ..aOM<$1.Timestamp>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'updatedAt', subBuilder: $1.Timestamp.create)
+    ..pPS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'viewers')
+    ..pPS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'editors')
     ..hasRequiredFields = false
   ;
 
@@ -28,6 +30,8 @@ class Organization extends $pb.GeneratedMessage {
     $core.String? ownerUserId,
     $1.Timestamp? createdAt,
     $1.Timestamp? updatedAt,
+    $core.Iterable<$core.String>? viewers,
+    $core.Iterable<$core.String>? editors,
   }) {
     final _result = create();
     if (id != null) {
@@ -44,6 +48,12 @@ class Organization extends $pb.GeneratedMessage {
     }
     if (updatedAt != null) {
       _result.updatedAt = updatedAt;
+    }
+    if (viewers != null) {
+      _result.viewers.addAll(viewers);
+    }
+    if (editors != null) {
+      _result.editors.addAll(editors);
     }
     return _result;
   }
@@ -116,6 +126,12 @@ class Organization extends $pb.GeneratedMessage {
   void clearUpdatedAt() => clearField(5);
   @$pb.TagNumber(5)
   $1.Timestamp ensureUpdatedAt() => $_ensure(4);
+
+  @$pb.TagNumber(6)
+  $core.List<$core.String> get viewers => $_getList(5);
+
+  @$pb.TagNumber(7)
+  $core.List<$core.String> get editors => $_getList(6);
 }
 
 class Project extends $pb.GeneratedMessage {
@@ -131,8 +147,6 @@ class Project extends $pb.GeneratedMessage {
     ..aOM<$1.Timestamp>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKeyGeneratedAt', subBuilder: $1.Timestamp.create)
     ..aOM<$1.Timestamp>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKeySecuredAt', subBuilder: $1.Timestamp.create)
     ..aOS(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'logo')
-    ..pPS(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'viewers')
-    ..pPS(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'editors')
     ..hasRequiredFields = false
   ;
 
@@ -149,8 +163,6 @@ class Project extends $pb.GeneratedMessage {
     $1.Timestamp? privateKeyGeneratedAt,
     $1.Timestamp? privateKeySecuredAt,
     $core.String? logo,
-    $core.Iterable<$core.String>? viewers,
-    $core.Iterable<$core.String>? editors,
   }) {
     final _result = create();
     if (id != null) {
@@ -185,12 +197,6 @@ class Project extends $pb.GeneratedMessage {
     }
     if (logo != null) {
       _result.logo = logo;
-    }
-    if (viewers != null) {
-      _result.viewers.addAll(viewers);
-    }
-    if (editors != null) {
-      _result.editors.addAll(editors);
     }
     return _result;
   }
@@ -321,12 +327,6 @@ class Project extends $pb.GeneratedMessage {
   $core.bool hasLogo() => $_has(10);
   @$pb.TagNumber(11)
   void clearLogo() => clearField(11);
-
-  @$pb.TagNumber(12)
-  $core.List<$core.String> get viewers => $_getList(11);
-
-  @$pb.TagNumber(13)
-  $core.List<$core.String> get editors => $_getList(12);
 }
 
 class CloudRequest extends $pb.GeneratedMessage {

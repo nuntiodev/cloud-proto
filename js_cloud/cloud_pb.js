@@ -38,7 +38,7 @@ goog.exportSymbol('proto.CloudProject.Project', null, global);
  * @constructor
  */
 proto.CloudProject.Organization = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, proto.CloudProject.Organization.repeatedFields_, null);
 };
 goog.inherits(proto.CloudProject.Organization, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -59,7 +59,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.CloudProject.Project = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, proto.CloudProject.Project.repeatedFields_, null);
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.CloudProject.Project, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -112,6 +112,13 @@ if (goog.DEBUG && !COMPILED) {
   proto.CloudProject.CloudResponse.displayName = 'proto.CloudProject.CloudResponse';
 }
 
+/**
+ * List of repeated fields within this message type.
+ * @private {!Array<number>}
+ * @const
+ */
+proto.CloudProject.Organization.repeatedFields_ = [6,7];
+
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -147,7 +154,9 @@ proto.CloudProject.Organization.toObject = function(includeInstance, msg) {
     name: jspb.Message.getFieldWithDefault(msg, 2, ""),
     ownerUserId: jspb.Message.getFieldWithDefault(msg, 3, ""),
     createdAt: (f = msg.getCreatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
-    updatedAt: (f = msg.getUpdatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
+    updatedAt: (f = msg.getUpdatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
+    viewersList: (f = jspb.Message.getRepeatedField(msg, 6)) == null ? undefined : f,
+    editorsList: (f = jspb.Message.getRepeatedField(msg, 7)) == null ? undefined : f
   };
 
   if (includeInstance) {
@@ -205,6 +214,14 @@ proto.CloudProject.Organization.deserializeBinaryFromReader = function(msg, read
       var value = new google_protobuf_timestamp_pb.Timestamp;
       reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
       msg.setUpdatedAt(value);
+      break;
+    case 6:
+      var value = /** @type {string} */ (reader.readString());
+      msg.addViewers(value);
+      break;
+    case 7:
+      var value = /** @type {string} */ (reader.readString());
+      msg.addEditors(value);
       break;
     default:
       reader.skipField();
@@ -270,6 +287,20 @@ proto.CloudProject.Organization.serializeBinaryToWriter = function(message, writ
       5,
       f,
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
+    );
+  }
+  f = message.getViewersList();
+  if (f.length > 0) {
+    writer.writeRepeatedString(
+      6,
+      f
+    );
+  }
+  f = message.getEditorsList();
+  if (f.length > 0) {
+    writer.writeRepeatedString(
+      7,
+      f
     );
   }
 };
@@ -403,13 +434,80 @@ proto.CloudProject.Organization.prototype.hasUpdatedAt = function() {
 };
 
 
+/**
+ * repeated string viewers = 6;
+ * @return {!Array<string>}
+ */
+proto.CloudProject.Organization.prototype.getViewersList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 6));
+};
+
 
 /**
- * List of repeated fields within this message type.
- * @private {!Array<number>}
- * @const
+ * @param {!Array<string>} value
+ * @return {!proto.CloudProject.Organization} returns this
  */
-proto.CloudProject.Project.repeatedFields_ = [12,13];
+proto.CloudProject.Organization.prototype.setViewersList = function(value) {
+  return jspb.Message.setField(this, 6, value || []);
+};
+
+
+/**
+ * @param {string} value
+ * @param {number=} opt_index
+ * @return {!proto.CloudProject.Organization} returns this
+ */
+proto.CloudProject.Organization.prototype.addViewers = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 6, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.CloudProject.Organization} returns this
+ */
+proto.CloudProject.Organization.prototype.clearViewersList = function() {
+  return this.setViewersList([]);
+};
+
+
+/**
+ * repeated string editors = 7;
+ * @return {!Array<string>}
+ */
+proto.CloudProject.Organization.prototype.getEditorsList = function() {
+  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 7));
+};
+
+
+/**
+ * @param {!Array<string>} value
+ * @return {!proto.CloudProject.Organization} returns this
+ */
+proto.CloudProject.Organization.prototype.setEditorsList = function(value) {
+  return jspb.Message.setField(this, 7, value || []);
+};
+
+
+/**
+ * @param {string} value
+ * @param {number=} opt_index
+ * @return {!proto.CloudProject.Organization} returns this
+ */
+proto.CloudProject.Organization.prototype.addEditors = function(value, opt_index) {
+  return jspb.Message.addToRepeatedField(this, 7, value, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.CloudProject.Organization} returns this
+ */
+proto.CloudProject.Organization.prototype.clearEditorsList = function() {
+  return this.setEditorsList([]);
+};
+
+
 
 
 
@@ -452,9 +550,7 @@ proto.CloudProject.Project.toObject = function(includeInstance, msg) {
     updatedAt: (f = msg.getUpdatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
     privateKeyGeneratedAt: (f = msg.getPrivateKeyGeneratedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
     privateKeySecuredAt: (f = msg.getPrivateKeySecuredAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
-    logo: jspb.Message.getFieldWithDefault(msg, 11, ""),
-    viewersList: (f = jspb.Message.getRepeatedField(msg, 12)) == null ? undefined : f,
-    editorsList: (f = jspb.Message.getRepeatedField(msg, 13)) == null ? undefined : f
+    logo: jspb.Message.getFieldWithDefault(msg, 11, "")
   };
 
   if (includeInstance) {
@@ -538,14 +634,6 @@ proto.CloudProject.Project.deserializeBinaryFromReader = function(msg, reader) {
     case 11:
       var value = /** @type {string} */ (reader.readString());
       msg.setLogo(value);
-      break;
-    case 12:
-      var value = /** @type {string} */ (reader.readString());
-      msg.addViewers(value);
-      break;
-    case 13:
-      var value = /** @type {string} */ (reader.readString());
-      msg.addEditors(value);
       break;
     default:
       reader.skipField();
@@ -654,20 +742,6 @@ proto.CloudProject.Project.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeString(
       11,
-      f
-    );
-  }
-  f = message.getViewersList();
-  if (f.length > 0) {
-    writer.writeRepeatedString(
-      12,
-      f
-    );
-  }
-  f = message.getEditorsList();
-  if (f.length > 0) {
-    writer.writeRepeatedString(
-      13,
       f
     );
   }
@@ -945,80 +1019,6 @@ proto.CloudProject.Project.prototype.getLogo = function() {
  */
 proto.CloudProject.Project.prototype.setLogo = function(value) {
   return jspb.Message.setProto3StringField(this, 11, value);
-};
-
-
-/**
- * repeated string viewers = 12;
- * @return {!Array<string>}
- */
-proto.CloudProject.Project.prototype.getViewersList = function() {
-  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 12));
-};
-
-
-/**
- * @param {!Array<string>} value
- * @return {!proto.CloudProject.Project} returns this
- */
-proto.CloudProject.Project.prototype.setViewersList = function(value) {
-  return jspb.Message.setField(this, 12, value || []);
-};
-
-
-/**
- * @param {string} value
- * @param {number=} opt_index
- * @return {!proto.CloudProject.Project} returns this
- */
-proto.CloudProject.Project.prototype.addViewers = function(value, opt_index) {
-  return jspb.Message.addToRepeatedField(this, 12, value, opt_index);
-};
-
-
-/**
- * Clears the list making it empty but non-null.
- * @return {!proto.CloudProject.Project} returns this
- */
-proto.CloudProject.Project.prototype.clearViewersList = function() {
-  return this.setViewersList([]);
-};
-
-
-/**
- * repeated string editors = 13;
- * @return {!Array<string>}
- */
-proto.CloudProject.Project.prototype.getEditorsList = function() {
-  return /** @type {!Array<string>} */ (jspb.Message.getRepeatedField(this, 13));
-};
-
-
-/**
- * @param {!Array<string>} value
- * @return {!proto.CloudProject.Project} returns this
- */
-proto.CloudProject.Project.prototype.setEditorsList = function(value) {
-  return jspb.Message.setField(this, 13, value || []);
-};
-
-
-/**
- * @param {string} value
- * @param {number=} opt_index
- * @return {!proto.CloudProject.Project} returns this
- */
-proto.CloudProject.Project.prototype.addEditors = function(value, opt_index) {
-  return jspb.Message.addToRepeatedField(this, 13, value, opt_index);
-};
-
-
-/**
- * Clears the list making it empty but non-null.
- * @return {!proto.CloudProject.Project} returns this
- */
-proto.CloudProject.Project.prototype.clearEditorsList = function() {
-  return this.setEditorsList([]);
 };
 
 
