@@ -21,6 +21,7 @@ type CloudServiceClient interface {
 	Heartbeat(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	CreateOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	GetOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
+	GetOrganizations(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	UpdateOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	CreateProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	RollPrivateKey(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
@@ -62,6 +63,15 @@ func (c *cloudServiceClient) CreateOrganization(ctx context.Context, in *CloudRe
 func (c *cloudServiceClient) GetOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
 	err := c.cc.Invoke(ctx, "/CloudProject.CloudService/GetOrganization", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) GetOrganizations(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
+	out := new(CloudResponse)
+	err := c.cc.Invoke(ctx, "/CloudProject.CloudService/GetOrganizations", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -165,6 +175,7 @@ type CloudServiceServer interface {
 	Heartbeat(context.Context, *CloudRequest) (*CloudResponse, error)
 	CreateOrganization(context.Context, *CloudRequest) (*CloudResponse, error)
 	GetOrganization(context.Context, *CloudRequest) (*CloudResponse, error)
+	GetOrganizations(context.Context, *CloudRequest) (*CloudResponse, error)
 	UpdateOrganization(context.Context, *CloudRequest) (*CloudResponse, error)
 	CreateProject(context.Context, *CloudRequest) (*CloudResponse, error)
 	RollPrivateKey(context.Context, *CloudRequest) (*CloudResponse, error)
@@ -189,6 +200,9 @@ func (UnimplementedCloudServiceServer) CreateOrganization(context.Context, *Clou
 }
 func (UnimplementedCloudServiceServer) GetOrganization(context.Context, *CloudRequest) (*CloudResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetOrganization not implemented")
+}
+func (UnimplementedCloudServiceServer) GetOrganizations(context.Context, *CloudRequest) (*CloudResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetOrganizations not implemented")
 }
 func (UnimplementedCloudServiceServer) UpdateOrganization(context.Context, *CloudRequest) (*CloudResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateOrganization not implemented")
@@ -282,6 +296,24 @@ func _CloudService_GetOrganization_Handler(srv interface{}, ctx context.Context,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CloudServiceServer).GetOrganization(ctx, req.(*CloudRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_GetOrganizations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloudRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).GetOrganizations(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/CloudProject.CloudService/GetOrganizations",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).GetOrganizations(ctx, req.(*CloudRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -484,6 +516,10 @@ var CloudService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetOrganization",
 			Handler:    _CloudService_GetOrganization_Handler,
+		},
+		{
+			MethodName: "GetOrganizations",
+			Handler:    _CloudService_GetOrganizations_Handler,
 		},
 		{
 			MethodName: "UpdateOrganization",

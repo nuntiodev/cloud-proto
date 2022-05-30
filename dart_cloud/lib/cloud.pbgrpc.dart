@@ -29,6 +29,11 @@ class CloudServiceClient extends $grpc.Client {
           '/CloudProject.CloudService/GetOrganization',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
+  static final _$getOrganizations =
+      $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
+          '/CloudProject.CloudService/GetOrganizations',
+          ($0.CloudRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
   static final _$updateOrganization =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
           '/CloudProject.CloudService/UpdateOrganization',
@@ -100,6 +105,12 @@ class CloudServiceClient extends $grpc.Client {
       $0.CloudRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getOrganization, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.CloudResponse> getOrganizations(
+      $0.CloudRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getOrganizations, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.CloudResponse> updateOrganization(
@@ -180,6 +191,13 @@ abstract class CloudServiceBase extends $grpc.Service {
     $addMethod($grpc.ServiceMethod<$0.CloudRequest, $0.CloudResponse>(
         'GetOrganization',
         getOrganization_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CloudRequest.fromBuffer(value),
+        ($0.CloudResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CloudRequest, $0.CloudResponse>(
+        'GetOrganizations',
+        getOrganizations_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $0.CloudRequest.fromBuffer(value),
@@ -271,6 +289,11 @@ abstract class CloudServiceBase extends $grpc.Service {
     return getOrganization(call, await request);
   }
 
+  $async.Future<$0.CloudResponse> getOrganizations_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.CloudRequest> request) async {
+    return getOrganizations(call, await request);
+  }
+
   $async.Future<$0.CloudResponse> updateOrganization_Pre(
       $grpc.ServiceCall call, $async.Future<$0.CloudRequest> request) async {
     return updateOrganization(call, await request);
@@ -326,6 +349,8 @@ abstract class CloudServiceBase extends $grpc.Service {
   $async.Future<$0.CloudResponse> createOrganization(
       $grpc.ServiceCall call, $0.CloudRequest request);
   $async.Future<$0.CloudResponse> getOrganization(
+      $grpc.ServiceCall call, $0.CloudRequest request);
+  $async.Future<$0.CloudResponse> getOrganizations(
       $grpc.ServiceCall call, $0.CloudRequest request);
   $async.Future<$0.CloudResponse> updateOrganization(
       $grpc.ServiceCall call, $0.CloudRequest request);
