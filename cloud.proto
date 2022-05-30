@@ -89,4 +89,5 @@ message CloudResponse {
     Organization organization = 4;
     Member member = 5;
     repeated Member members = 6;
+    repeated Organization organizations = 7;
 }
