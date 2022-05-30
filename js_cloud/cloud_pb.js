@@ -1807,7 +1807,7 @@ proto.CloudProject.CloudRequest.prototype.clearMembersList = function() {
  * @private {!Array<number>}
  * @const
  */
-proto.CloudProject.CloudResponse.repeatedFields_ = [2,6];
+proto.CloudProject.CloudResponse.repeatedFields_ = [2,6,7];
 
 
 
@@ -1847,7 +1847,9 @@ proto.CloudProject.CloudResponse.toObject = function(includeInstance, msg) {
     organization: (f = msg.getOrganization()) && proto.CloudProject.Organization.toObject(includeInstance, f),
     member: (f = msg.getMember()) && proto.CloudProject.Member.toObject(includeInstance, f),
     membersList: jspb.Message.toObjectList(msg.getMembersList(),
-    proto.CloudProject.Member.toObject, includeInstance)
+    proto.CloudProject.Member.toObject, includeInstance),
+    organizationsList: jspb.Message.toObjectList(msg.getOrganizationsList(),
+    proto.CloudProject.Organization.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -1912,6 +1914,11 @@ proto.CloudProject.CloudResponse.deserializeBinaryFromReader = function(msg, rea
       var value = new proto.CloudProject.Member;
       reader.readMessage(value,proto.CloudProject.Member.deserializeBinaryFromReader);
       msg.addMembers(value);
+      break;
+    case 7:
+      var value = new proto.CloudProject.Organization;
+      reader.readMessage(value,proto.CloudProject.Organization.deserializeBinaryFromReader);
+      msg.addOrganizations(value);
       break;
     default:
       reader.skipField();
@@ -1987,6 +1994,14 @@ proto.CloudProject.CloudResponse.serializeBinaryToWriter = function(message, wri
       6,
       f,
       proto.CloudProject.Member.serializeBinaryToWriter
+    );
+  }
+  f = message.getOrganizationsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      7,
+      f,
+      proto.CloudProject.Organization.serializeBinaryToWriter
     );
   }
 };
@@ -2194,6 +2209,44 @@ proto.CloudProject.CloudResponse.prototype.addMembers = function(opt_value, opt_
  */
 proto.CloudProject.CloudResponse.prototype.clearMembersList = function() {
   return this.setMembersList([]);
+};
+
+
+/**
+ * repeated Organization organizations = 7;
+ * @return {!Array<!proto.CloudProject.Organization>}
+ */
+proto.CloudProject.CloudResponse.prototype.getOrganizationsList = function() {
+  return /** @type{!Array<!proto.CloudProject.Organization>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.CloudProject.Organization, 7));
+};
+
+
+/**
+ * @param {!Array<!proto.CloudProject.Organization>} value
+ * @return {!proto.CloudProject.CloudResponse} returns this
+*/
+proto.CloudProject.CloudResponse.prototype.setOrganizationsList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 7, value);
+};
+
+
+/**
+ * @param {!proto.CloudProject.Organization=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.CloudProject.Organization}
+ */
+proto.CloudProject.CloudResponse.prototype.addOrganizations = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 7, opt_value, proto.CloudProject.Organization, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.CloudProject.CloudResponse} returns this
+ */
+proto.CloudProject.CloudResponse.prototype.clearOrganizationsList = function() {
+  return this.setOrganizationsList([]);
 };
 
 

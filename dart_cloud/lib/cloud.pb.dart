@@ -607,6 +607,7 @@ class CloudResponse extends $pb.GeneratedMessage {
     ..aOM<Organization>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'organization', subBuilder: Organization.create)
     ..aOM<Member>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'member', subBuilder: Member.create)
     ..pc<Member>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'members', $pb.PbFieldType.PM, subBuilder: Member.create)
+    ..pc<Organization>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'organizations', $pb.PbFieldType.PM, subBuilder: Organization.create)
     ..hasRequiredFields = false
   ;
 
@@ -618,6 +619,7 @@ class CloudResponse extends $pb.GeneratedMessage {
     Organization? organization,
     Member? member,
     $core.Iterable<Member>? members,
+    $core.Iterable<Organization>? organizations,
   }) {
     final _result = create();
     if (project != null) {
@@ -637,6 +639,9 @@ class CloudResponse extends $pb.GeneratedMessage {
     }
     if (members != null) {
       _result.members.addAll(members);
+    }
+    if (organizations != null) {
+      _result.organizations.addAll(organizations);
     }
     return _result;
   }
@@ -708,5 +713,8 @@ class CloudResponse extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(6)
   $core.List<Member> get members => $_getList(5);
+
+  @$pb.TagNumber(7)
+  $core.List<Organization> get organizations => $_getList(6);
 }
 
