@@ -10,7 +10,7 @@ service CloudService {
     rpc Heartbeat(CloudRequest) returns (CloudResponse) {}
     rpc CreateOrganization(CloudRequest) returns (CloudResponse) {}
     rpc GetOrganization(CloudRequest) returns (CloudResponse) {}
-    rpc GetUsersOrganizations(CloudRequest) returns (CloudResponse) {}
+    rpc GetUserOrganizations(CloudRequest) returns (CloudResponse) {}
     rpc UpdateOrganization(CloudRequest) returns (CloudResponse) {}
     rpc CreateProject(CloudRequest) returns (CloudResponse) {}
     rpc RollPrivateKey(CloudRequest) returns (CloudResponse) {}
