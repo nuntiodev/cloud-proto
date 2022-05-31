@@ -261,8 +261,8 @@ proto.CloudProject.CloudServicePromiseClient.prototype.getOrganization =
  *   !proto.CloudProject.CloudRequest,
  *   !proto.CloudProject.CloudResponse>}
  */
-const methodDescriptor_CloudService_GetOrganizations = new grpc.web.MethodDescriptor(
-  '/CloudProject.CloudService/GetOrganizations',
+const methodDescriptor_CloudService_GetUsersOrganizations = new grpc.web.MethodDescriptor(
+  '/CloudProject.CloudService/GetUsersOrganizations',
   grpc.web.MethodType.UNARY,
   proto.CloudProject.CloudRequest,
   proto.CloudProject.CloudResponse,
@@ -287,13 +287,13 @@ const methodDescriptor_CloudService_GetOrganizations = new grpc.web.MethodDescri
  * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.CloudResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.CloudProject.CloudServiceClient.prototype.getOrganizations =
+proto.CloudProject.CloudServiceClient.prototype.getUsersOrganizations =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/CloudProject.CloudService/GetOrganizations',
+      '/CloudProject.CloudService/GetUsersOrganizations',
       request,
       metadata || {},
-      methodDescriptor_CloudService_GetOrganizations,
+      methodDescriptor_CloudService_GetUsersOrganizations,
       callback);
 };
 
@@ -306,13 +306,13 @@ proto.CloudProject.CloudServiceClient.prototype.getOrganizations =
  * @return {!Promise<!proto.CloudProject.CloudResponse>}
  *     Promise that resolves to the response
  */
-proto.CloudProject.CloudServicePromiseClient.prototype.getOrganizations =
+proto.CloudProject.CloudServicePromiseClient.prototype.getUsersOrganizations =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/CloudProject.CloudService/GetOrganizations',
+      '/CloudProject.CloudService/GetUsersOrganizations',
       request,
       metadata || {},
-      methodDescriptor_CloudService_GetOrganizations);
+      methodDescriptor_CloudService_GetUsersOrganizations);
 };
 
 
