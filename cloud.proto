@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package CloudProject;
+package Cloud;
 
 option go_package = "./go_cloud";
 
