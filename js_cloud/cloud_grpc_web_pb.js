@@ -261,8 +261,8 @@ proto.CloudProject.CloudServicePromiseClient.prototype.getOrganization =
  *   !proto.CloudProject.CloudRequest,
  *   !proto.CloudProject.CloudResponse>}
  */
-const methodDescriptor_CloudService_GetUsersOrganizations = new grpc.web.MethodDescriptor(
-  '/CloudProject.CloudService/GetUsersOrganizations',
+const methodDescriptor_CloudService_GetUserOrganizations = new grpc.web.MethodDescriptor(
+  '/CloudProject.CloudService/GetUserOrganizations',
   grpc.web.MethodType.UNARY,
   proto.CloudProject.CloudRequest,
   proto.CloudProject.CloudResponse,
@@ -287,13 +287,13 @@ const methodDescriptor_CloudService_GetUsersOrganizations = new grpc.web.MethodD
  * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.CloudResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.CloudProject.CloudServiceClient.prototype.getUsersOrganizations =
+proto.CloudProject.CloudServiceClient.prototype.getUserOrganizations =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/CloudProject.CloudService/GetUsersOrganizations',
+      '/CloudProject.CloudService/GetUserOrganizations',
       request,
       metadata || {},
-      methodDescriptor_CloudService_GetUsersOrganizations,
+      methodDescriptor_CloudService_GetUserOrganizations,
       callback);
 };
 
@@ -306,13 +306,13 @@ proto.CloudProject.CloudServiceClient.prototype.getUsersOrganizations =
  * @return {!Promise<!proto.CloudProject.CloudResponse>}
  *     Promise that resolves to the response
  */
-proto.CloudProject.CloudServicePromiseClient.prototype.getUsersOrganizations =
+proto.CloudProject.CloudServicePromiseClient.prototype.getUserOrganizations =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/CloudProject.CloudService/GetUsersOrganizations',
+      '/CloudProject.CloudService/GetUserOrganizations',
       request,
       metadata || {},
-      methodDescriptor_CloudService_GetUsersOrganizations);
+      methodDescriptor_CloudService_GetUserOrganizations);
 };
 
 
