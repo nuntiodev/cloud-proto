@@ -16,72 +16,72 @@ export 'cloud.pb.dart';
 class CloudServiceClient extends $grpc.Client {
   static final _$heartbeat =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/CloudProject.CloudService/Heartbeat',
+          '/Cloud.CloudService/Heartbeat',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
   static final _$createOrganization =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/CloudProject.CloudService/CreateOrganization',
+          '/Cloud.CloudService/CreateOrganization',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
   static final _$getOrganization =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/CloudProject.CloudService/GetOrganization',
+          '/Cloud.CloudService/GetOrganization',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
   static final _$getUserOrganizations =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/CloudProject.CloudService/GetUserOrganizations',
+          '/Cloud.CloudService/GetUserOrganizations',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
   static final _$updateOrganization =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/CloudProject.CloudService/UpdateOrganization',
+          '/Cloud.CloudService/UpdateOrganization',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
   static final _$createProject =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/CloudProject.CloudService/CreateProject',
+          '/Cloud.CloudService/CreateProject',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
   static final _$rollPrivateKey =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/CloudProject.CloudService/RollPrivateKey',
+          '/Cloud.CloudService/RollPrivateKey',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
   static final _$generateAccessToken =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/CloudProject.CloudService/GenerateAccessToken',
+          '/Cloud.CloudService/GenerateAccessToken',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
   static final _$validateAccessToken =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/CloudProject.CloudService/ValidateAccessToken',
+          '/Cloud.CloudService/ValidateAccessToken',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
   static final _$updateProject =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/CloudProject.CloudService/UpdateProject',
+          '/Cloud.CloudService/UpdateProject',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
   static final _$getProject =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/CloudProject.CloudService/GetProject',
+          '/Cloud.CloudService/GetProject',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
   static final _$getUserProjects =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/CloudProject.CloudService/GetUserProjects',
+          '/Cloud.CloudService/GetUserProjects',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
   static final _$getProjectsInOrganization =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/CloudProject.CloudService/GetProjectsInOrganization',
+          '/Cloud.CloudService/GetProjectsInOrganization',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
   static final _$deleteProject =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/CloudProject.CloudService/DeleteProject',
+          '/Cloud.CloudService/DeleteProject',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
 
@@ -171,7 +171,7 @@ class CloudServiceClient extends $grpc.Client {
 }
 
 abstract class CloudServiceBase extends $grpc.Service {
-  $core.String get $name => 'CloudProject.CloudService';
+  $core.String get $name => 'Cloud.CloudService';
 
   CloudServiceBase() {
     $addMethod($grpc.ServiceMethod<$0.CloudRequest, $0.CloudResponse>(

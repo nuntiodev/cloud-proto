@@ -1,5 +1,5 @@
 /**
- * @fileoverview gRPC-Web generated client stub for CloudProject
+ * @fileoverview gRPC-Web generated client stub for Cloud
  * @enhanceable
  * @public
  */
@@ -18,7 +18,7 @@ grpc.web = require('grpc-web');
 
 var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js')
 const proto = {};
-proto.CloudProject = require('./cloud_pb.js');
+proto.Cloud = require('./cloud_pb.js');
 
 /**
  * @param {string} hostname
@@ -28,7 +28,7 @@ proto.CloudProject = require('./cloud_pb.js');
  * @struct
  * @final
  */
-proto.CloudProject.CloudServiceClient =
+proto.Cloud.CloudServiceClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
   options.format = 'text';
@@ -54,7 +54,7 @@ proto.CloudProject.CloudServiceClient =
  * @struct
  * @final
  */
-proto.CloudProject.CloudServicePromiseClient =
+proto.Cloud.CloudServicePromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
   options.format = 'text';
@@ -75,39 +75,39 @@ proto.CloudProject.CloudServicePromiseClient =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.CloudProject.CloudRequest,
- *   !proto.CloudProject.CloudResponse>}
+ *   !proto.Cloud.CloudRequest,
+ *   !proto.Cloud.CloudResponse>}
  */
 const methodDescriptor_CloudService_Heartbeat = new grpc.web.MethodDescriptor(
-  '/CloudProject.CloudService/Heartbeat',
+  '/Cloud.CloudService/Heartbeat',
   grpc.web.MethodType.UNARY,
-  proto.CloudProject.CloudRequest,
-  proto.CloudProject.CloudResponse,
+  proto.Cloud.CloudRequest,
+  proto.Cloud.CloudResponse,
   /**
-   * @param {!proto.CloudProject.CloudRequest} request
+   * @param {!proto.Cloud.CloudRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.CloudProject.CloudResponse.deserializeBinary
+  proto.Cloud.CloudResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.CloudProject.CloudRequest} request The
+ * @param {!proto.Cloud.CloudRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.CloudProject.CloudResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.Cloud.CloudResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.CloudResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.CloudProject.CloudServiceClient.prototype.heartbeat =
+proto.Cloud.CloudServiceClient.prototype.heartbeat =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/CloudProject.CloudService/Heartbeat',
+      '/Cloud.CloudService/Heartbeat',
       request,
       metadata || {},
       methodDescriptor_CloudService_Heartbeat,
@@ -116,17 +116,17 @@ proto.CloudProject.CloudServiceClient.prototype.heartbeat =
 
 
 /**
- * @param {!proto.CloudProject.CloudRequest} request The
+ * @param {!proto.Cloud.CloudRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.CloudProject.CloudResponse>}
+ * @return {!Promise<!proto.Cloud.CloudResponse>}
  *     Promise that resolves to the response
  */
-proto.CloudProject.CloudServicePromiseClient.prototype.heartbeat =
+proto.Cloud.CloudServicePromiseClient.prototype.heartbeat =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/CloudProject.CloudService/Heartbeat',
+      '/Cloud.CloudService/Heartbeat',
       request,
       metadata || {},
       methodDescriptor_CloudService_Heartbeat);
@@ -136,39 +136,39 @@ proto.CloudProject.CloudServicePromiseClient.prototype.heartbeat =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.CloudProject.CloudRequest,
- *   !proto.CloudProject.CloudResponse>}
+ *   !proto.Cloud.CloudRequest,
+ *   !proto.Cloud.CloudResponse>}
  */
 const methodDescriptor_CloudService_CreateOrganization = new grpc.web.MethodDescriptor(
-  '/CloudProject.CloudService/CreateOrganization',
+  '/Cloud.CloudService/CreateOrganization',
   grpc.web.MethodType.UNARY,
-  proto.CloudProject.CloudRequest,
-  proto.CloudProject.CloudResponse,
+  proto.Cloud.CloudRequest,
+  proto.Cloud.CloudResponse,
   /**
-   * @param {!proto.CloudProject.CloudRequest} request
+   * @param {!proto.Cloud.CloudRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.CloudProject.CloudResponse.deserializeBinary
+  proto.Cloud.CloudResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.CloudProject.CloudRequest} request The
+ * @param {!proto.Cloud.CloudRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.CloudProject.CloudResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.Cloud.CloudResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.CloudResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.CloudProject.CloudServiceClient.prototype.createOrganization =
+proto.Cloud.CloudServiceClient.prototype.createOrganization =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/CloudProject.CloudService/CreateOrganization',
+      '/Cloud.CloudService/CreateOrganization',
       request,
       metadata || {},
       methodDescriptor_CloudService_CreateOrganization,
@@ -177,17 +177,17 @@ proto.CloudProject.CloudServiceClient.prototype.createOrganization =
 
 
 /**
- * @param {!proto.CloudProject.CloudRequest} request The
+ * @param {!proto.Cloud.CloudRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.CloudProject.CloudResponse>}
+ * @return {!Promise<!proto.Cloud.CloudResponse>}
  *     Promise that resolves to the response
  */
-proto.CloudProject.CloudServicePromiseClient.prototype.createOrganization =
+proto.Cloud.CloudServicePromiseClient.prototype.createOrganization =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/CloudProject.CloudService/CreateOrganization',
+      '/Cloud.CloudService/CreateOrganization',
       request,
       metadata || {},
       methodDescriptor_CloudService_CreateOrganization);
@@ -197,39 +197,39 @@ proto.CloudProject.CloudServicePromiseClient.prototype.createOrganization =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.CloudProject.CloudRequest,
- *   !proto.CloudProject.CloudResponse>}
+ *   !proto.Cloud.CloudRequest,
+ *   !proto.Cloud.CloudResponse>}
  */
 const methodDescriptor_CloudService_GetOrganization = new grpc.web.MethodDescriptor(
-  '/CloudProject.CloudService/GetOrganization',
+  '/Cloud.CloudService/GetOrganization',
   grpc.web.MethodType.UNARY,
-  proto.CloudProject.CloudRequest,
-  proto.CloudProject.CloudResponse,
+  proto.Cloud.CloudRequest,
+  proto.Cloud.CloudResponse,
   /**
-   * @param {!proto.CloudProject.CloudRequest} request
+   * @param {!proto.Cloud.CloudRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.CloudProject.CloudResponse.deserializeBinary
+  proto.Cloud.CloudResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.CloudProject.CloudRequest} request The
+ * @param {!proto.Cloud.CloudRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.CloudProject.CloudResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.Cloud.CloudResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.CloudResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.CloudProject.CloudServiceClient.prototype.getOrganization =
+proto.Cloud.CloudServiceClient.prototype.getOrganization =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/CloudProject.CloudService/GetOrganization',
+      '/Cloud.CloudService/GetOrganization',
       request,
       metadata || {},
       methodDescriptor_CloudService_GetOrganization,
@@ -238,17 +238,17 @@ proto.CloudProject.CloudServiceClient.prototype.getOrganization =
 
 
 /**
- * @param {!proto.CloudProject.CloudRequest} request The
+ * @param {!proto.Cloud.CloudRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.CloudProject.CloudResponse>}
+ * @return {!Promise<!proto.Cloud.CloudResponse>}
  *     Promise that resolves to the response
  */
-proto.CloudProject.CloudServicePromiseClient.prototype.getOrganization =
+proto.Cloud.CloudServicePromiseClient.prototype.getOrganization =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/CloudProject.CloudService/GetOrganization',
+      '/Cloud.CloudService/GetOrganization',
       request,
       metadata || {},
       methodDescriptor_CloudService_GetOrganization);
@@ -258,39 +258,39 @@ proto.CloudProject.CloudServicePromiseClient.prototype.getOrganization =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.CloudProject.CloudRequest,
- *   !proto.CloudProject.CloudResponse>}
+ *   !proto.Cloud.CloudRequest,
+ *   !proto.Cloud.CloudResponse>}
  */
 const methodDescriptor_CloudService_GetUserOrganizations = new grpc.web.MethodDescriptor(
-  '/CloudProject.CloudService/GetUserOrganizations',
+  '/Cloud.CloudService/GetUserOrganizations',
   grpc.web.MethodType.UNARY,
-  proto.CloudProject.CloudRequest,
-  proto.CloudProject.CloudResponse,
+  proto.Cloud.CloudRequest,
+  proto.Cloud.CloudResponse,
   /**
-   * @param {!proto.CloudProject.CloudRequest} request
+   * @param {!proto.Cloud.CloudRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.CloudProject.CloudResponse.deserializeBinary
+  proto.Cloud.CloudResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.CloudProject.CloudRequest} request The
+ * @param {!proto.Cloud.CloudRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.CloudProject.CloudResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.Cloud.CloudResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.CloudResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.CloudProject.CloudServiceClient.prototype.getUserOrganizations =
+proto.Cloud.CloudServiceClient.prototype.getUserOrganizations =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/CloudProject.CloudService/GetUserOrganizations',
+      '/Cloud.CloudService/GetUserOrganizations',
       request,
       metadata || {},
       methodDescriptor_CloudService_GetUserOrganizations,
@@ -299,17 +299,17 @@ proto.CloudProject.CloudServiceClient.prototype.getUserOrganizations =
 
 
 /**
- * @param {!proto.CloudProject.CloudRequest} request The
+ * @param {!proto.Cloud.CloudRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.CloudProject.CloudResponse>}
+ * @return {!Promise<!proto.Cloud.CloudResponse>}
  *     Promise that resolves to the response
  */
-proto.CloudProject.CloudServicePromiseClient.prototype.getUserOrganizations =
+proto.Cloud.CloudServicePromiseClient.prototype.getUserOrganizations =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/CloudProject.CloudService/GetUserOrganizations',
+      '/Cloud.CloudService/GetUserOrganizations',
       request,
       metadata || {},
       methodDescriptor_CloudService_GetUserOrganizations);
@@ -319,39 +319,39 @@ proto.CloudProject.CloudServicePromiseClient.prototype.getUserOrganizations =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.CloudProject.CloudRequest,
- *   !proto.CloudProject.CloudResponse>}
+ *   !proto.Cloud.CloudRequest,
+ *   !proto.Cloud.CloudResponse>}
  */
 const methodDescriptor_CloudService_UpdateOrganization = new grpc.web.MethodDescriptor(
-  '/CloudProject.CloudService/UpdateOrganization',
+  '/Cloud.CloudService/UpdateOrganization',
   grpc.web.MethodType.UNARY,
-  proto.CloudProject.CloudRequest,
-  proto.CloudProject.CloudResponse,
+  proto.Cloud.CloudRequest,
+  proto.Cloud.CloudResponse,
   /**
-   * @param {!proto.CloudProject.CloudRequest} request
+   * @param {!proto.Cloud.CloudRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.CloudProject.CloudResponse.deserializeBinary
+  proto.Cloud.CloudResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.CloudProject.CloudRequest} request The
+ * @param {!proto.Cloud.CloudRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.CloudProject.CloudResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.Cloud.CloudResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.CloudResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.CloudProject.CloudServiceClient.prototype.updateOrganization =
+proto.Cloud.CloudServiceClient.prototype.updateOrganization =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/CloudProject.CloudService/UpdateOrganization',
+      '/Cloud.CloudService/UpdateOrganization',
       request,
       metadata || {},
       methodDescriptor_CloudService_UpdateOrganization,
@@ -360,17 +360,17 @@ proto.CloudProject.CloudServiceClient.prototype.updateOrganization =
 
 
 /**
- * @param {!proto.CloudProject.CloudRequest} request The
+ * @param {!proto.Cloud.CloudRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.CloudProject.CloudResponse>}
+ * @return {!Promise<!proto.Cloud.CloudResponse>}
  *     Promise that resolves to the response
  */
-proto.CloudProject.CloudServicePromiseClient.prototype.updateOrganization =
+proto.Cloud.CloudServicePromiseClient.prototype.updateOrganization =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/CloudProject.CloudService/UpdateOrganization',
+      '/Cloud.CloudService/UpdateOrganization',
       request,
       metadata || {},
       methodDescriptor_CloudService_UpdateOrganization);
@@ -380,39 +380,39 @@ proto.CloudProject.CloudServicePromiseClient.prototype.updateOrganization =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.CloudProject.CloudRequest,
- *   !proto.CloudProject.CloudResponse>}
+ *   !proto.Cloud.CloudRequest,
+ *   !proto.Cloud.CloudResponse>}
  */
 const methodDescriptor_CloudService_CreateProject = new grpc.web.MethodDescriptor(
-  '/CloudProject.CloudService/CreateProject',
+  '/Cloud.CloudService/CreateProject',
   grpc.web.MethodType.UNARY,
-  proto.CloudProject.CloudRequest,
-  proto.CloudProject.CloudResponse,
+  proto.Cloud.CloudRequest,
+  proto.Cloud.CloudResponse,
   /**
-   * @param {!proto.CloudProject.CloudRequest} request
+   * @param {!proto.Cloud.CloudRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.CloudProject.CloudResponse.deserializeBinary
+  proto.Cloud.CloudResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.CloudProject.CloudRequest} request The
+ * @param {!proto.Cloud.CloudRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.CloudProject.CloudResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.Cloud.CloudResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.CloudResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.CloudProject.CloudServiceClient.prototype.createProject =
+proto.Cloud.CloudServiceClient.prototype.createProject =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/CloudProject.CloudService/CreateProject',
+      '/Cloud.CloudService/CreateProject',
       request,
       metadata || {},
       methodDescriptor_CloudService_CreateProject,
@@ -421,17 +421,17 @@ proto.CloudProject.CloudServiceClient.prototype.createProject =
 
 
 /**
- * @param {!proto.CloudProject.CloudRequest} request The
+ * @param {!proto.Cloud.CloudRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.CloudProject.CloudResponse>}
+ * @return {!Promise<!proto.Cloud.CloudResponse>}
  *     Promise that resolves to the response
  */
-proto.CloudProject.CloudServicePromiseClient.prototype.createProject =
+proto.Cloud.CloudServicePromiseClient.prototype.createProject =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/CloudProject.CloudService/CreateProject',
+      '/Cloud.CloudService/CreateProject',
       request,
       metadata || {},
       methodDescriptor_CloudService_CreateProject);
@@ -441,39 +441,39 @@ proto.CloudProject.CloudServicePromiseClient.prototype.createProject =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.CloudProject.CloudRequest,
- *   !proto.CloudProject.CloudResponse>}
+ *   !proto.Cloud.CloudRequest,
+ *   !proto.Cloud.CloudResponse>}
  */
 const methodDescriptor_CloudService_RollPrivateKey = new grpc.web.MethodDescriptor(
-  '/CloudProject.CloudService/RollPrivateKey',
+  '/Cloud.CloudService/RollPrivateKey',
   grpc.web.MethodType.UNARY,
-  proto.CloudProject.CloudRequest,
-  proto.CloudProject.CloudResponse,
+  proto.Cloud.CloudRequest,
+  proto.Cloud.CloudResponse,
   /**
-   * @param {!proto.CloudProject.CloudRequest} request
+   * @param {!proto.Cloud.CloudRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.CloudProject.CloudResponse.deserializeBinary
+  proto.Cloud.CloudResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.CloudProject.CloudRequest} request The
+ * @param {!proto.Cloud.CloudRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.CloudProject.CloudResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.Cloud.CloudResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.CloudResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.CloudProject.CloudServiceClient.prototype.rollPrivateKey =
+proto.Cloud.CloudServiceClient.prototype.rollPrivateKey =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/CloudProject.CloudService/RollPrivateKey',
+      '/Cloud.CloudService/RollPrivateKey',
       request,
       metadata || {},
       methodDescriptor_CloudService_RollPrivateKey,
@@ -482,17 +482,17 @@ proto.CloudProject.CloudServiceClient.prototype.rollPrivateKey =
 
 
 /**
- * @param {!proto.CloudProject.CloudRequest} request The
+ * @param {!proto.Cloud.CloudRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.CloudProject.CloudResponse>}
+ * @return {!Promise<!proto.Cloud.CloudResponse>}
  *     Promise that resolves to the response
  */
-proto.CloudProject.CloudServicePromiseClient.prototype.rollPrivateKey =
+proto.Cloud.CloudServicePromiseClient.prototype.rollPrivateKey =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/CloudProject.CloudService/RollPrivateKey',
+      '/Cloud.CloudService/RollPrivateKey',
       request,
       metadata || {},
       methodDescriptor_CloudService_RollPrivateKey);
@@ -502,39 +502,39 @@ proto.CloudProject.CloudServicePromiseClient.prototype.rollPrivateKey =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.CloudProject.CloudRequest,
- *   !proto.CloudProject.CloudResponse>}
+ *   !proto.Cloud.CloudRequest,
+ *   !proto.Cloud.CloudResponse>}
  */
 const methodDescriptor_CloudService_GenerateAccessToken = new grpc.web.MethodDescriptor(
-  '/CloudProject.CloudService/GenerateAccessToken',
+  '/Cloud.CloudService/GenerateAccessToken',
   grpc.web.MethodType.UNARY,
-  proto.CloudProject.CloudRequest,
-  proto.CloudProject.CloudResponse,
+  proto.Cloud.CloudRequest,
+  proto.Cloud.CloudResponse,
   /**
-   * @param {!proto.CloudProject.CloudRequest} request
+   * @param {!proto.Cloud.CloudRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.CloudProject.CloudResponse.deserializeBinary
+  proto.Cloud.CloudResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.CloudProject.CloudRequest} request The
+ * @param {!proto.Cloud.CloudRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.CloudProject.CloudResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.Cloud.CloudResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.CloudResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.CloudProject.CloudServiceClient.prototype.generateAccessToken =
+proto.Cloud.CloudServiceClient.prototype.generateAccessToken =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/CloudProject.CloudService/GenerateAccessToken',
+      '/Cloud.CloudService/GenerateAccessToken',
       request,
       metadata || {},
       methodDescriptor_CloudService_GenerateAccessToken,
@@ -543,17 +543,17 @@ proto.CloudProject.CloudServiceClient.prototype.generateAccessToken =
 
 
 /**
- * @param {!proto.CloudProject.CloudRequest} request The
+ * @param {!proto.Cloud.CloudRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.CloudProject.CloudResponse>}
+ * @return {!Promise<!proto.Cloud.CloudResponse>}
  *     Promise that resolves to the response
  */
-proto.CloudProject.CloudServicePromiseClient.prototype.generateAccessToken =
+proto.Cloud.CloudServicePromiseClient.prototype.generateAccessToken =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/CloudProject.CloudService/GenerateAccessToken',
+      '/Cloud.CloudService/GenerateAccessToken',
       request,
       metadata || {},
       methodDescriptor_CloudService_GenerateAccessToken);
@@ -563,39 +563,39 @@ proto.CloudProject.CloudServicePromiseClient.prototype.generateAccessToken =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.CloudProject.CloudRequest,
- *   !proto.CloudProject.CloudResponse>}
+ *   !proto.Cloud.CloudRequest,
+ *   !proto.Cloud.CloudResponse>}
  */
 const methodDescriptor_CloudService_ValidateAccessToken = new grpc.web.MethodDescriptor(
-  '/CloudProject.CloudService/ValidateAccessToken',
+  '/Cloud.CloudService/ValidateAccessToken',
   grpc.web.MethodType.UNARY,
-  proto.CloudProject.CloudRequest,
-  proto.CloudProject.CloudResponse,
+  proto.Cloud.CloudRequest,
+  proto.Cloud.CloudResponse,
   /**
-   * @param {!proto.CloudProject.CloudRequest} request
+   * @param {!proto.Cloud.CloudRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.CloudProject.CloudResponse.deserializeBinary
+  proto.Cloud.CloudResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.CloudProject.CloudRequest} request The
+ * @param {!proto.Cloud.CloudRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.CloudProject.CloudResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.Cloud.CloudResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.CloudResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.CloudProject.CloudServiceClient.prototype.validateAccessToken =
+proto.Cloud.CloudServiceClient.prototype.validateAccessToken =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/CloudProject.CloudService/ValidateAccessToken',
+      '/Cloud.CloudService/ValidateAccessToken',
       request,
       metadata || {},
       methodDescriptor_CloudService_ValidateAccessToken,
@@ -604,17 +604,17 @@ proto.CloudProject.CloudServiceClient.prototype.validateAccessToken =
 
 
 /**
- * @param {!proto.CloudProject.CloudRequest} request The
+ * @param {!proto.Cloud.CloudRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.CloudProject.CloudResponse>}
+ * @return {!Promise<!proto.Cloud.CloudResponse>}
  *     Promise that resolves to the response
  */
-proto.CloudProject.CloudServicePromiseClient.prototype.validateAccessToken =
+proto.Cloud.CloudServicePromiseClient.prototype.validateAccessToken =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/CloudProject.CloudService/ValidateAccessToken',
+      '/Cloud.CloudService/ValidateAccessToken',
       request,
       metadata || {},
       methodDescriptor_CloudService_ValidateAccessToken);
@@ -624,39 +624,39 @@ proto.CloudProject.CloudServicePromiseClient.prototype.validateAccessToken =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.CloudProject.CloudRequest,
- *   !proto.CloudProject.CloudResponse>}
+ *   !proto.Cloud.CloudRequest,
+ *   !proto.Cloud.CloudResponse>}
  */
 const methodDescriptor_CloudService_UpdateProject = new grpc.web.MethodDescriptor(
-  '/CloudProject.CloudService/UpdateProject',
+  '/Cloud.CloudService/UpdateProject',
   grpc.web.MethodType.UNARY,
-  proto.CloudProject.CloudRequest,
-  proto.CloudProject.CloudResponse,
+  proto.Cloud.CloudRequest,
+  proto.Cloud.CloudResponse,
   /**
-   * @param {!proto.CloudProject.CloudRequest} request
+   * @param {!proto.Cloud.CloudRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.CloudProject.CloudResponse.deserializeBinary
+  proto.Cloud.CloudResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.CloudProject.CloudRequest} request The
+ * @param {!proto.Cloud.CloudRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.CloudProject.CloudResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.Cloud.CloudResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.CloudResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.CloudProject.CloudServiceClient.prototype.updateProject =
+proto.Cloud.CloudServiceClient.prototype.updateProject =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/CloudProject.CloudService/UpdateProject',
+      '/Cloud.CloudService/UpdateProject',
       request,
       metadata || {},
       methodDescriptor_CloudService_UpdateProject,
@@ -665,17 +665,17 @@ proto.CloudProject.CloudServiceClient.prototype.updateProject =
 
 
 /**
- * @param {!proto.CloudProject.CloudRequest} request The
+ * @param {!proto.Cloud.CloudRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.CloudProject.CloudResponse>}
+ * @return {!Promise<!proto.Cloud.CloudResponse>}
  *     Promise that resolves to the response
  */
-proto.CloudProject.CloudServicePromiseClient.prototype.updateProject =
+proto.Cloud.CloudServicePromiseClient.prototype.updateProject =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/CloudProject.CloudService/UpdateProject',
+      '/Cloud.CloudService/UpdateProject',
       request,
       metadata || {},
       methodDescriptor_CloudService_UpdateProject);
@@ -685,39 +685,39 @@ proto.CloudProject.CloudServicePromiseClient.prototype.updateProject =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.CloudProject.CloudRequest,
- *   !proto.CloudProject.CloudResponse>}
+ *   !proto.Cloud.CloudRequest,
+ *   !proto.Cloud.CloudResponse>}
  */
 const methodDescriptor_CloudService_GetProject = new grpc.web.MethodDescriptor(
-  '/CloudProject.CloudService/GetProject',
+  '/Cloud.CloudService/GetProject',
   grpc.web.MethodType.UNARY,
-  proto.CloudProject.CloudRequest,
-  proto.CloudProject.CloudResponse,
+  proto.Cloud.CloudRequest,
+  proto.Cloud.CloudResponse,
   /**
-   * @param {!proto.CloudProject.CloudRequest} request
+   * @param {!proto.Cloud.CloudRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.CloudProject.CloudResponse.deserializeBinary
+  proto.Cloud.CloudResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.CloudProject.CloudRequest} request The
+ * @param {!proto.Cloud.CloudRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.CloudProject.CloudResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.Cloud.CloudResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.CloudResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.CloudProject.CloudServiceClient.prototype.getProject =
+proto.Cloud.CloudServiceClient.prototype.getProject =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/CloudProject.CloudService/GetProject',
+      '/Cloud.CloudService/GetProject',
       request,
       metadata || {},
       methodDescriptor_CloudService_GetProject,
@@ -726,17 +726,17 @@ proto.CloudProject.CloudServiceClient.prototype.getProject =
 
 
 /**
- * @param {!proto.CloudProject.CloudRequest} request The
+ * @param {!proto.Cloud.CloudRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.CloudProject.CloudResponse>}
+ * @return {!Promise<!proto.Cloud.CloudResponse>}
  *     Promise that resolves to the response
  */
-proto.CloudProject.CloudServicePromiseClient.prototype.getProject =
+proto.Cloud.CloudServicePromiseClient.prototype.getProject =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/CloudProject.CloudService/GetProject',
+      '/Cloud.CloudService/GetProject',
       request,
       metadata || {},
       methodDescriptor_CloudService_GetProject);
@@ -746,39 +746,39 @@ proto.CloudProject.CloudServicePromiseClient.prototype.getProject =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.CloudProject.CloudRequest,
- *   !proto.CloudProject.CloudResponse>}
+ *   !proto.Cloud.CloudRequest,
+ *   !proto.Cloud.CloudResponse>}
  */
 const methodDescriptor_CloudService_GetUserProjects = new grpc.web.MethodDescriptor(
-  '/CloudProject.CloudService/GetUserProjects',
+  '/Cloud.CloudService/GetUserProjects',
   grpc.web.MethodType.UNARY,
-  proto.CloudProject.CloudRequest,
-  proto.CloudProject.CloudResponse,
+  proto.Cloud.CloudRequest,
+  proto.Cloud.CloudResponse,
   /**
-   * @param {!proto.CloudProject.CloudRequest} request
+   * @param {!proto.Cloud.CloudRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.CloudProject.CloudResponse.deserializeBinary
+  proto.Cloud.CloudResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.CloudProject.CloudRequest} request The
+ * @param {!proto.Cloud.CloudRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.CloudProject.CloudResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.Cloud.CloudResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.CloudResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.CloudProject.CloudServiceClient.prototype.getUserProjects =
+proto.Cloud.CloudServiceClient.prototype.getUserProjects =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/CloudProject.CloudService/GetUserProjects',
+      '/Cloud.CloudService/GetUserProjects',
       request,
       metadata || {},
       methodDescriptor_CloudService_GetUserProjects,
@@ -787,17 +787,17 @@ proto.CloudProject.CloudServiceClient.prototype.getUserProjects =
 
 
 /**
- * @param {!proto.CloudProject.CloudRequest} request The
+ * @param {!proto.Cloud.CloudRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.CloudProject.CloudResponse>}
+ * @return {!Promise<!proto.Cloud.CloudResponse>}
  *     Promise that resolves to the response
  */
-proto.CloudProject.CloudServicePromiseClient.prototype.getUserProjects =
+proto.Cloud.CloudServicePromiseClient.prototype.getUserProjects =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/CloudProject.CloudService/GetUserProjects',
+      '/Cloud.CloudService/GetUserProjects',
       request,
       metadata || {},
       methodDescriptor_CloudService_GetUserProjects);
@@ -807,39 +807,39 @@ proto.CloudProject.CloudServicePromiseClient.prototype.getUserProjects =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.CloudProject.CloudRequest,
- *   !proto.CloudProject.CloudResponse>}
+ *   !proto.Cloud.CloudRequest,
+ *   !proto.Cloud.CloudResponse>}
  */
 const methodDescriptor_CloudService_GetProjectsInOrganization = new grpc.web.MethodDescriptor(
-  '/CloudProject.CloudService/GetProjectsInOrganization',
+  '/Cloud.CloudService/GetProjectsInOrganization',
   grpc.web.MethodType.UNARY,
-  proto.CloudProject.CloudRequest,
-  proto.CloudProject.CloudResponse,
+  proto.Cloud.CloudRequest,
+  proto.Cloud.CloudResponse,
   /**
-   * @param {!proto.CloudProject.CloudRequest} request
+   * @param {!proto.Cloud.CloudRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.CloudProject.CloudResponse.deserializeBinary
+  proto.Cloud.CloudResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.CloudProject.CloudRequest} request The
+ * @param {!proto.Cloud.CloudRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.CloudProject.CloudResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.Cloud.CloudResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.CloudResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.CloudProject.CloudServiceClient.prototype.getProjectsInOrganization =
+proto.Cloud.CloudServiceClient.prototype.getProjectsInOrganization =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/CloudProject.CloudService/GetProjectsInOrganization',
+      '/Cloud.CloudService/GetProjectsInOrganization',
       request,
       metadata || {},
       methodDescriptor_CloudService_GetProjectsInOrganization,
@@ -848,17 +848,17 @@ proto.CloudProject.CloudServiceClient.prototype.getProjectsInOrganization =
 
 
 /**
- * @param {!proto.CloudProject.CloudRequest} request The
+ * @param {!proto.Cloud.CloudRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.CloudProject.CloudResponse>}
+ * @return {!Promise<!proto.Cloud.CloudResponse>}
  *     Promise that resolves to the response
  */
-proto.CloudProject.CloudServicePromiseClient.prototype.getProjectsInOrganization =
+proto.Cloud.CloudServicePromiseClient.prototype.getProjectsInOrganization =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/CloudProject.CloudService/GetProjectsInOrganization',
+      '/Cloud.CloudService/GetProjectsInOrganization',
       request,
       metadata || {},
       methodDescriptor_CloudService_GetProjectsInOrganization);
@@ -868,39 +868,39 @@ proto.CloudProject.CloudServicePromiseClient.prototype.getProjectsInOrganization
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
- *   !proto.CloudProject.CloudRequest,
- *   !proto.CloudProject.CloudResponse>}
+ *   !proto.Cloud.CloudRequest,
+ *   !proto.Cloud.CloudResponse>}
  */
 const methodDescriptor_CloudService_DeleteProject = new grpc.web.MethodDescriptor(
-  '/CloudProject.CloudService/DeleteProject',
+  '/Cloud.CloudService/DeleteProject',
   grpc.web.MethodType.UNARY,
-  proto.CloudProject.CloudRequest,
-  proto.CloudProject.CloudResponse,
+  proto.Cloud.CloudRequest,
+  proto.Cloud.CloudResponse,
   /**
-   * @param {!proto.CloudProject.CloudRequest} request
+   * @param {!proto.Cloud.CloudRequest} request
    * @return {!Uint8Array}
    */
   function(request) {
     return request.serializeBinary();
   },
-  proto.CloudProject.CloudResponse.deserializeBinary
+  proto.Cloud.CloudResponse.deserializeBinary
 );
 
 
 /**
- * @param {!proto.CloudProject.CloudRequest} request The
+ * @param {!proto.Cloud.CloudRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.CloudProject.CloudResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.Cloud.CloudResponse)}
  *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.CloudProject.CloudResponse>|undefined}
+ * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.CloudProject.CloudServiceClient.prototype.deleteProject =
+proto.Cloud.CloudServiceClient.prototype.deleteProject =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/CloudProject.CloudService/DeleteProject',
+      '/Cloud.CloudService/DeleteProject',
       request,
       metadata || {},
       methodDescriptor_CloudService_DeleteProject,
@@ -909,22 +909,22 @@ proto.CloudProject.CloudServiceClient.prototype.deleteProject =
 
 
 /**
- * @param {!proto.CloudProject.CloudRequest} request The
+ * @param {!proto.Cloud.CloudRequest} request The
  *     request proto
  * @param {?Object<string, string>=} metadata User defined
  *     call metadata
- * @return {!Promise<!proto.CloudProject.CloudResponse>}
+ * @return {!Promise<!proto.Cloud.CloudResponse>}
  *     Promise that resolves to the response
  */
-proto.CloudProject.CloudServicePromiseClient.prototype.deleteProject =
+proto.Cloud.CloudServicePromiseClient.prototype.deleteProject =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/CloudProject.CloudService/DeleteProject',
+      '/Cloud.CloudService/DeleteProject',
       request,
       metadata || {},
       methodDescriptor_CloudService_DeleteProject);
 };
 
 
-module.exports = proto.CloudProject;
+module.exports = proto.Cloud;
 

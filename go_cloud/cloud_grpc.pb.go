@@ -44,7 +44,7 @@ func NewCloudServiceClient(cc grpc.ClientConnInterface) CloudServiceClient {
 
 func (c *cloudServiceClient) Heartbeat(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/CloudProject.CloudService/Heartbeat", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Cloud.CloudService/Heartbeat", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -53,7 +53,7 @@ func (c *cloudServiceClient) Heartbeat(ctx context.Context, in *CloudRequest, op
 
 func (c *cloudServiceClient) CreateOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/CloudProject.CloudService/CreateOrganization", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Cloud.CloudService/CreateOrganization", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -62,7 +62,7 @@ func (c *cloudServiceClient) CreateOrganization(ctx context.Context, in *CloudRe
 
 func (c *cloudServiceClient) GetOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/CloudProject.CloudService/GetOrganization", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Cloud.CloudService/GetOrganization", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -71,7 +71,7 @@ func (c *cloudServiceClient) GetOrganization(ctx context.Context, in *CloudReque
 
 func (c *cloudServiceClient) GetUserOrganizations(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/CloudProject.CloudService/GetUserOrganizations", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Cloud.CloudService/GetUserOrganizations", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +80,7 @@ func (c *cloudServiceClient) GetUserOrganizations(ctx context.Context, in *Cloud
 
 func (c *cloudServiceClient) UpdateOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/CloudProject.CloudService/UpdateOrganization", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Cloud.CloudService/UpdateOrganization", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -89,7 +89,7 @@ func (c *cloudServiceClient) UpdateOrganization(ctx context.Context, in *CloudRe
 
 func (c *cloudServiceClient) CreateProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/CloudProject.CloudService/CreateProject", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Cloud.CloudService/CreateProject", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -98,7 +98,7 @@ func (c *cloudServiceClient) CreateProject(ctx context.Context, in *CloudRequest
 
 func (c *cloudServiceClient) RollPrivateKey(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/CloudProject.CloudService/RollPrivateKey", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Cloud.CloudService/RollPrivateKey", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -107,7 +107,7 @@ func (c *cloudServiceClient) RollPrivateKey(ctx context.Context, in *CloudReques
 
 func (c *cloudServiceClient) GenerateAccessToken(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/CloudProject.CloudService/GenerateAccessToken", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Cloud.CloudService/GenerateAccessToken", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -116,7 +116,7 @@ func (c *cloudServiceClient) GenerateAccessToken(ctx context.Context, in *CloudR
 
 func (c *cloudServiceClient) ValidateAccessToken(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/CloudProject.CloudService/ValidateAccessToken", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Cloud.CloudService/ValidateAccessToken", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -125,7 +125,7 @@ func (c *cloudServiceClient) ValidateAccessToken(ctx context.Context, in *CloudR
 
 func (c *cloudServiceClient) UpdateProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/CloudProject.CloudService/UpdateProject", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Cloud.CloudService/UpdateProject", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -134,7 +134,7 @@ func (c *cloudServiceClient) UpdateProject(ctx context.Context, in *CloudRequest
 
 func (c *cloudServiceClient) GetProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/CloudProject.CloudService/GetProject", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Cloud.CloudService/GetProject", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -143,7 +143,7 @@ func (c *cloudServiceClient) GetProject(ctx context.Context, in *CloudRequest, o
 
 func (c *cloudServiceClient) GetUserProjects(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/CloudProject.CloudService/GetUserProjects", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Cloud.CloudService/GetUserProjects", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -152,7 +152,7 @@ func (c *cloudServiceClient) GetUserProjects(ctx context.Context, in *CloudReque
 
 func (c *cloudServiceClient) GetProjectsInOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/CloudProject.CloudService/GetProjectsInOrganization", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Cloud.CloudService/GetProjectsInOrganization", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -161,7 +161,7 @@ func (c *cloudServiceClient) GetProjectsInOrganization(ctx context.Context, in *
 
 func (c *cloudServiceClient) DeleteProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/CloudProject.CloudService/DeleteProject", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Cloud.CloudService/DeleteProject", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -256,7 +256,7 @@ func _CloudService_Heartbeat_Handler(srv interface{}, ctx context.Context, dec f
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/CloudProject.CloudService/Heartbeat",
+		FullMethod: "/Cloud.CloudService/Heartbeat",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CloudServiceServer).Heartbeat(ctx, req.(*CloudRequest))
@@ -274,7 +274,7 @@ func _CloudService_CreateOrganization_Handler(srv interface{}, ctx context.Conte
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/CloudProject.CloudService/CreateOrganization",
+		FullMethod: "/Cloud.CloudService/CreateOrganization",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CloudServiceServer).CreateOrganization(ctx, req.(*CloudRequest))
@@ -292,7 +292,7 @@ func _CloudService_GetOrganization_Handler(srv interface{}, ctx context.Context,
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/CloudProject.CloudService/GetOrganization",
+		FullMethod: "/Cloud.CloudService/GetOrganization",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CloudServiceServer).GetOrganization(ctx, req.(*CloudRequest))
@@ -310,7 +310,7 @@ func _CloudService_GetUserOrganizations_Handler(srv interface{}, ctx context.Con
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/CloudProject.CloudService/GetUserOrganizations",
+		FullMethod: "/Cloud.CloudService/GetUserOrganizations",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CloudServiceServer).GetUserOrganizations(ctx, req.(*CloudRequest))
@@ -328,7 +328,7 @@ func _CloudService_UpdateOrganization_Handler(srv interface{}, ctx context.Conte
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/CloudProject.CloudService/UpdateOrganization",
+		FullMethod: "/Cloud.CloudService/UpdateOrganization",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CloudServiceServer).UpdateOrganization(ctx, req.(*CloudRequest))
@@ -346,7 +346,7 @@ func _CloudService_CreateProject_Handler(srv interface{}, ctx context.Context, d
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/CloudProject.CloudService/CreateProject",
+		FullMethod: "/Cloud.CloudService/CreateProject",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CloudServiceServer).CreateProject(ctx, req.(*CloudRequest))
@@ -364,7 +364,7 @@ func _CloudService_RollPrivateKey_Handler(srv interface{}, ctx context.Context, 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/CloudProject.CloudService/RollPrivateKey",
+		FullMethod: "/Cloud.CloudService/RollPrivateKey",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CloudServiceServer).RollPrivateKey(ctx, req.(*CloudRequest))
@@ -382,7 +382,7 @@ func _CloudService_GenerateAccessToken_Handler(srv interface{}, ctx context.Cont
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/CloudProject.CloudService/GenerateAccessToken",
+		FullMethod: "/Cloud.CloudService/GenerateAccessToken",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CloudServiceServer).GenerateAccessToken(ctx, req.(*CloudRequest))
@@ -400,7 +400,7 @@ func _CloudService_ValidateAccessToken_Handler(srv interface{}, ctx context.Cont
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/CloudProject.CloudService/ValidateAccessToken",
+		FullMethod: "/Cloud.CloudService/ValidateAccessToken",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CloudServiceServer).ValidateAccessToken(ctx, req.(*CloudRequest))
@@ -418,7 +418,7 @@ func _CloudService_UpdateProject_Handler(srv interface{}, ctx context.Context, d
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/CloudProject.CloudService/UpdateProject",
+		FullMethod: "/Cloud.CloudService/UpdateProject",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CloudServiceServer).UpdateProject(ctx, req.(*CloudRequest))
@@ -436,7 +436,7 @@ func _CloudService_GetProject_Handler(srv interface{}, ctx context.Context, dec 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/CloudProject.CloudService/GetProject",
+		FullMethod: "/Cloud.CloudService/GetProject",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CloudServiceServer).GetProject(ctx, req.(*CloudRequest))
@@ -454,7 +454,7 @@ func _CloudService_GetUserProjects_Handler(srv interface{}, ctx context.Context,
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/CloudProject.CloudService/GetUserProjects",
+		FullMethod: "/Cloud.CloudService/GetUserProjects",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CloudServiceServer).GetUserProjects(ctx, req.(*CloudRequest))
@@ -472,7 +472,7 @@ func _CloudService_GetProjectsInOrganization_Handler(srv interface{}, ctx contex
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/CloudProject.CloudService/GetProjectsInOrganization",
+		FullMethod: "/Cloud.CloudService/GetProjectsInOrganization",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CloudServiceServer).GetProjectsInOrganization(ctx, req.(*CloudRequest))
@@ -490,7 +490,7 @@ func _CloudService_DeleteProject_Handler(srv interface{}, ctx context.Context, d
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/CloudProject.CloudService/DeleteProject",
+		FullMethod: "/Cloud.CloudService/DeleteProject",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CloudServiceServer).DeleteProject(ctx, req.(*CloudRequest))
@@ -502,7 +502,7 @@ func _CloudService_DeleteProject_Handler(srv interface{}, ctx context.Context, d
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var CloudService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "CloudProject.CloudService",
+	ServiceName: "Cloud.CloudService",
 	HandlerType: (*CloudServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
