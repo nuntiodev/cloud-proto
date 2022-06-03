@@ -926,7 +926,8 @@ proto.Cloud.Project.toObject = function(includeInstance, msg) {
     updatedAt: (f = msg.getUpdatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
     privateKeyGeneratedAt: (f = msg.getPrivateKeyGeneratedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
     privateKeySecuredAt: (f = msg.getPrivateKeySecuredAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
-    logo: jspb.Message.getFieldWithDefault(msg, 11, "")
+    logo: jspb.Message.getFieldWithDefault(msg, 11, ""),
+    publicKey: jspb.Message.getFieldWithDefault(msg, 12, "")
   };
 
   if (includeInstance) {
@@ -1010,6 +1011,10 @@ proto.Cloud.Project.deserializeBinaryFromReader = function(msg, reader) {
     case 11:
       var value = /** @type {string} */ (reader.readString());
       msg.setLogo(value);
+      break;
+    case 12:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setPublicKey(value);
       break;
     default:
       reader.skipField();
@@ -1118,6 +1123,13 @@ proto.Cloud.Project.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeString(
       11,
+      f
+    );
+  }
+  f = message.getPublicKey();
+  if (f.length > 0) {
+    writer.writeString(
+      12,
       f
     );
   }
@@ -1395,6 +1407,24 @@ proto.Cloud.Project.prototype.getLogo = function() {
  */
 proto.Cloud.Project.prototype.setLogo = function(value) {
   return jspb.Message.setProto3StringField(this, 11, value);
+};
+
+
+/**
+ * optional string public_key = 12;
+ * @return {string}
+ */
+proto.Cloud.Project.prototype.getPublicKey = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 12, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.Cloud.Project} returns this
+ */
+proto.Cloud.Project.prototype.setPublicKey = function(value) {
+  return jspb.Message.setProto3StringField(this, 12, value);
 };
 
 

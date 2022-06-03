@@ -286,6 +286,7 @@ class Project extends $pb.GeneratedMessage {
     ..aOM<$1.Timestamp>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKeyGeneratedAt', subBuilder: $1.Timestamp.create)
     ..aOM<$1.Timestamp>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKeySecuredAt', subBuilder: $1.Timestamp.create)
     ..aOS(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'logo')
+    ..aOS(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'publicKey')
     ..hasRequiredFields = false
   ;
 
@@ -302,6 +303,7 @@ class Project extends $pb.GeneratedMessage {
     $1.Timestamp? privateKeyGeneratedAt,
     $1.Timestamp? privateKeySecuredAt,
     $core.String? logo,
+    $core.String? publicKey,
   }) {
     final _result = create();
     if (id != null) {
@@ -336,6 +338,9 @@ class Project extends $pb.GeneratedMessage {
     }
     if (logo != null) {
       _result.logo = logo;
+    }
+    if (publicKey != null) {
+      _result.publicKey = publicKey;
     }
     return _result;
   }
@@ -466,6 +471,15 @@ class Project extends $pb.GeneratedMessage {
   $core.bool hasLogo() => $_has(10);
   @$pb.TagNumber(11)
   void clearLogo() => clearField(11);
+
+  @$pb.TagNumber(12)
+  $core.String get publicKey => $_getSZ(11);
+  @$pb.TagNumber(12)
+  set publicKey($core.String v) { $_setString(11, v); }
+  @$pb.TagNumber(12)
+  $core.bool hasPublicKey() => $_has(11);
+  @$pb.TagNumber(12)
+  void clearPublicKey() => clearField(12);
 }
 
 class CloudRequest extends $pb.GeneratedMessage {
