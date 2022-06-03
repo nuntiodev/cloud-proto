@@ -71,6 +71,11 @@ message CustomClaims {
     KeyType type = 3;
 }
 
+message CloudLocation {
+    INVALID_LOCATION = 0;
+    DK_1 = 1;
+}
+
 message Project {
     string id = 1;
     string organization_id = 2;
@@ -84,6 +89,7 @@ message Project {
     google.protobuf.Timestamp private_key_secured_at = 10;
     string logo = 11;
     string public_key = 12;
+    CloudLocation location = 13;
 }
 
 message CloudRequest {
