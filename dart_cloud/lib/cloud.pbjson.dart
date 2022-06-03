@@ -35,6 +35,18 @@ const MemberType$json = const {
 
 /// Descriptor for `MemberType`. Decode as a `google.protobuf.EnumDescriptorProto`.
 final $typed_data.Uint8List memberTypeDescriptor = $convert.base64Decode('CgpNZW1iZXJUeXBlEhcKE0lOVkFMSURfTUVNQkVSX1RZUEUQABIJCgVPV05FUhABEgoKBkVESVRPUhACEgoKBlZJRVdFUhAD');
+@$core.Deprecated('Use keyTypeDescriptor instead')
+const KeyType$json = const {
+  '1': 'KeyType',
+  '2': const [
+    const {'1': 'INVALID_TOKEN_TYPE', '2': 0},
+    const {'1': 'PRIVATE_KEY', '2': 1},
+    const {'1': 'PUBLIC_KEY', '2': 2},
+  ],
+};
+
+/// Descriptor for `KeyType`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List keyTypeDescriptor = $convert.base64Decode('CgdLZXlUeXBlEhYKEklOVkFMSURfVE9LRU5fVFlQRRAAEg8KC1BSSVZBVEVfS0VZEAESDgoKUFVCTElDX0tFWRAC');
 @$core.Deprecated('Use memberDescriptor instead')
 const Member$json = const {
   '1': 'Member',
@@ -67,6 +79,18 @@ const Organization$json = const {
 
 /// Descriptor for `Organization`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List organizationDescriptor = $convert.base64Decode('CgxPcmdhbml6YXRpb24SDgoCaWQYASABKAlSAmlkEhIKBG5hbWUYAiABKAlSBG5hbWUSIgoNb3duZXJfdXNlcl9pZBgDIAEoCVILb3duZXJVc2VySWQSOQoKY3JlYXRlZF9hdBgEIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCWNyZWF0ZWRBdBI5Cgp1cGRhdGVkX2F0GAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJdXBkYXRlZEF0EhgKB3ZpZXdlcnMYBiADKAlSB3ZpZXdlcnMSGAoHZWRpdG9ycxgHIAMoCVIHZWRpdG9ycxJEChFzdWJzY3JpcHRpb25fdHlwZRgIIAEoDjIXLkNsb3VkLlN1YnNjcmlwdGlvblR5cGVSEHN1YnNjcmlwdGlvblR5cGU=');
+@$core.Deprecated('Use customClaimsDescriptor instead')
+const CustomClaims$json = const {
+  '1': 'CustomClaims',
+  '2': const [
+    const {'1': 'projectId', '3': 1, '4': 1, '5': 9, '10': 'projectId'},
+    const {'1': 'password', '3': 2, '4': 1, '5': 9, '10': 'password'},
+    const {'1': 'type', '3': 3, '4': 1, '5': 14, '6': '.Cloud.KeyType', '10': 'type'},
+  ],
+};
+
+/// Descriptor for `CustomClaims`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List customClaimsDescriptor = $convert.base64Decode('CgxDdXN0b21DbGFpbXMSHAoJcHJvamVjdElkGAEgASgJUglwcm9qZWN0SWQSGgoIcGFzc3dvcmQYAiABKAlSCHBhc3N3b3JkEiIKBHR5cGUYAyABKA4yDi5DbG91ZC5LZXlUeXBlUgR0eXBl');
 @$core.Deprecated('Use projectDescriptor instead')
 const Project$json = const {
   '1': 'Project',
