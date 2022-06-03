@@ -58,6 +58,18 @@ message Organization {
     SubscriptionType subscription_type = 8;
 }
 
+enum KeyType {
+    INVALID_TOKEN_TYPE = 0;
+    PRIVATE_KEY = 1;
+    PUBLIC_KEY = 2;
+}
+
+message CustomClaims {
+    string projectId = 1;
+    string password = 2;
+    KeyType type = 3;
+}
+
 message Project {
     string id = 1;
     string organization_id = 2;
