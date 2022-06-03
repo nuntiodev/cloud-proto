@@ -53,11 +53,13 @@ class KeyType extends $pb.ProtobufEnum {
   static const KeyType INVALID_TOKEN_TYPE = KeyType._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'INVALID_TOKEN_TYPE');
   static const KeyType PRIVATE_KEY = KeyType._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'PRIVATE_KEY');
   static const KeyType PUBLIC_KEY = KeyType._(2, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'PUBLIC_KEY');
+  static const KeyType ACCESS_KEY = KeyType._(3, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'ACCESS_KEY');
 
   static const $core.List<KeyType> values = <KeyType> [
     INVALID_TOKEN_TYPE,
     PRIVATE_KEY,
     PUBLIC_KEY,
+    ACCESS_KEY,
   ];
 
   static final $core.Map<$core.int, KeyType> _byValue = $pb.ProtobufEnum.initByValue(values);

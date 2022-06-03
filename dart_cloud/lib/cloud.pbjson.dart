@@ -42,11 +42,12 @@ const KeyType$json = const {
     const {'1': 'INVALID_TOKEN_TYPE', '2': 0},
     const {'1': 'PRIVATE_KEY', '2': 1},
     const {'1': 'PUBLIC_KEY', '2': 2},
+    const {'1': 'ACCESS_KEY', '2': 3},
   ],
 };
 
 /// Descriptor for `KeyType`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List keyTypeDescriptor = $convert.base64Decode('CgdLZXlUeXBlEhYKEklOVkFMSURfVE9LRU5fVFlQRRAAEg8KC1BSSVZBVEVfS0VZEAESDgoKUFVCTElDX0tFWRAC');
+final $typed_data.Uint8List keyTypeDescriptor = $convert.base64Decode('CgdLZXlUeXBlEhYKEklOVkFMSURfVE9LRU5fVFlQRRAAEg8KC1BSSVZBVEVfS0VZEAESDgoKUFVCTElDX0tFWRACEg4KCkFDQ0VTU19LRVkQAw==');
 @$core.Deprecated('Use memberDescriptor instead')
 const Member$json = const {
   '1': 'Member',

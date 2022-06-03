@@ -2520,7 +2520,8 @@ proto.Cloud.MemberType = {
 proto.Cloud.KeyType = {
   INVALID_TOKEN_TYPE: 0,
   PRIVATE_KEY: 1,
-  PUBLIC_KEY: 2
+  PUBLIC_KEY: 2,
+  ACCESS_KEY: 3
 };
 
 goog.object.extend(exports, proto.Cloud);
