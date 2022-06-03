@@ -62,6 +62,7 @@ enum KeyType {
     INVALID_TOKEN_TYPE = 0;
     PRIVATE_KEY = 1;
     PUBLIC_KEY = 2;
+    ACCESS_KEY = 3;
 }
 
 message CustomClaims {
