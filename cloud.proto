@@ -92,6 +92,7 @@ message Project {
     string public_key = 12;
     CloudLocation location = 13;
     string organization_name = 14;
+    MemberType member_type = 15;
 }
 
 message CloudRequest {
