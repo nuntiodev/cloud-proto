@@ -196,7 +196,8 @@ proto.Cloud.Member.toObject = function(includeInstance, msg) {
     userId: jspb.Message.getFieldWithDefault(msg, 3, ""),
     type: jspb.Message.getFieldWithDefault(msg, 4, 0),
     createdAt: (f = msg.getCreatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
-    updatedAt: (f = msg.getUpdatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
+    updatedAt: (f = msg.getUpdatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
+    organizationId: jspb.Message.getFieldWithDefault(msg, 7, "")
   };
 
   if (includeInstance) {
@@ -258,6 +259,10 @@ proto.Cloud.Member.deserializeBinaryFromReader = function(msg, reader) {
       var value = new google_protobuf_timestamp_pb.Timestamp;
       reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
       msg.setUpdatedAt(value);
+      break;
+    case 7:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setOrganizationId(value);
       break;
     default:
       reader.skipField();
@@ -330,6 +335,13 @@ proto.Cloud.Member.serializeBinaryToWriter = function(message, writer) {
       6,
       f,
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
+    );
+  }
+  f = message.getOrganizationId();
+  if (f.length > 0) {
+    writer.writeString(
+      7,
+      f
     );
   }
 };
@@ -478,6 +490,24 @@ proto.Cloud.Member.prototype.clearUpdatedAt = function() {
  */
 proto.Cloud.Member.prototype.hasUpdatedAt = function() {
   return jspb.Message.getField(this, 6) != null;
+};
+
+
+/**
+ * optional string organization_id = 7;
+ * @return {string}
+ */
+proto.Cloud.Member.prototype.getOrganizationId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 7, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.Cloud.Member} returns this
+ */
+proto.Cloud.Member.prototype.setOrganizationId = function(value) {
+  return jspb.Message.setProto3StringField(this, 7, value);
 };
 
 

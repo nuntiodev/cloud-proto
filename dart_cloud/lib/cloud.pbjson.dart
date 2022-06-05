@@ -69,11 +69,12 @@ const Member$json = const {
     const {'1': 'type', '3': 4, '4': 1, '5': 14, '6': '.Cloud.MemberType', '10': 'type'},
     const {'1': 'created_at', '3': 5, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'createdAt'},
     const {'1': 'updated_at', '3': 6, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'updatedAt'},
+    const {'1': 'organization_id', '3': 7, '4': 1, '5': 9, '10': 'organizationId'},
   ],
 };
 
 /// Descriptor for `Member`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List memberDescriptor = $convert.base64Decode('CgZNZW1iZXISDgoCaWQYASABKAlSAmlkEh0KCnByb2plY3RfaWQYAiABKAlSCXByb2plY3RJZBIXCgd1c2VyX2lkGAMgASgJUgZ1c2VySWQSJQoEdHlwZRgEIAEoDjIRLkNsb3VkLk1lbWJlclR5cGVSBHR5cGUSOQoKY3JlYXRlZF9hdBgFIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCWNyZWF0ZWRBdBI5Cgp1cGRhdGVkX2F0GAYgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJdXBkYXRlZEF0');
+final $typed_data.Uint8List memberDescriptor = $convert.base64Decode('CgZNZW1iZXISDgoCaWQYASABKAlSAmlkEh0KCnByb2plY3RfaWQYAiABKAlSCXByb2plY3RJZBIXCgd1c2VyX2lkGAMgASgJUgZ1c2VySWQSJQoEdHlwZRgEIAEoDjIRLkNsb3VkLk1lbWJlclR5cGVSBHR5cGUSOQoKY3JlYXRlZF9hdBgFIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCWNyZWF0ZWRBdBI5Cgp1cGRhdGVkX2F0GAYgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJdXBkYXRlZEF0EicKD29yZ2FuaXphdGlvbl9pZBgHIAEoCVIOb3JnYW5pemF0aW9uSWQ=');
 @$core.Deprecated('Use organizationDescriptor instead')
 const Organization$json = const {
   '1': 'Organization',

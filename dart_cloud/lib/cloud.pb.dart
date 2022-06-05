@@ -23,6 +23,7 @@ class Member extends $pb.GeneratedMessage {
     ..e<MemberType>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'type', $pb.PbFieldType.OE, defaultOrMaker: MemberType.INVALID_MEMBER_TYPE, valueOf: MemberType.valueOf, enumValues: MemberType.values)
     ..aOM<$1.Timestamp>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'createdAt', subBuilder: $1.Timestamp.create)
     ..aOM<$1.Timestamp>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'updatedAt', subBuilder: $1.Timestamp.create)
+    ..aOS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'organizationId')
     ..hasRequiredFields = false
   ;
 
@@ -34,6 +35,7 @@ class Member extends $pb.GeneratedMessage {
     MemberType? type,
     $1.Timestamp? createdAt,
     $1.Timestamp? updatedAt,
+    $core.String? organizationId,
   }) {
     final _result = create();
     if (id != null) {
@@ -53,6 +55,9 @@ class Member extends $pb.GeneratedMessage {
     }
     if (updatedAt != null) {
       _result.updatedAt = updatedAt;
+    }
+    if (organizationId != null) {
+      _result.organizationId = organizationId;
     }
     return _result;
   }
@@ -134,6 +139,15 @@ class Member extends $pb.GeneratedMessage {
   void clearUpdatedAt() => clearField(6);
   @$pb.TagNumber(6)
   $1.Timestamp ensureUpdatedAt() => $_ensure(5);
+
+  @$pb.TagNumber(7)
+  $core.String get organizationId => $_getSZ(6);
+  @$pb.TagNumber(7)
+  set organizationId($core.String v) { $_setString(6, v); }
+  @$pb.TagNumber(7)
+  $core.bool hasOrganizationId() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearOrganizationId() => clearField(7);
 }
 
 class Organization extends $pb.GeneratedMessage {
