@@ -71,7 +71,7 @@ message CustomClaims {
     KeyType type = 3;
 }
 
-message CloudLocation {
+enum CloudLocation {
     INVALID_LOCATION = 0;
     DK_1 = 1;
 }
