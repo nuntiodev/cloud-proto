@@ -362,6 +362,8 @@ class Project extends $pb.GeneratedMessage {
     ..aOM<$1.Timestamp>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKeySecuredAt', subBuilder: $1.Timestamp.create)
     ..aOS(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'logo')
     ..aOS(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'publicKey')
+    ..e<CloudLocation>(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'location', $pb.PbFieldType.OE, defaultOrMaker: CloudLocation.INVALID_LOCATION, valueOf: CloudLocation.valueOf, enumValues: CloudLocation.values)
+    ..aOS(14, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'organizationName')
     ..hasRequiredFields = false
   ;
 
@@ -379,6 +381,8 @@ class Project extends $pb.GeneratedMessage {
     $1.Timestamp? privateKeySecuredAt,
     $core.String? logo,
     $core.String? publicKey,
+    CloudLocation? location,
+    $core.String? organizationName,
   }) {
     final _result = create();
     if (id != null) {
@@ -416,6 +420,12 @@ class Project extends $pb.GeneratedMessage {
     }
     if (publicKey != null) {
       _result.publicKey = publicKey;
+    }
+    if (location != null) {
+      _result.location = location;
+    }
+    if (organizationName != null) {
+      _result.organizationName = organizationName;
     }
     return _result;
   }
@@ -555,6 +565,24 @@ class Project extends $pb.GeneratedMessage {
   $core.bool hasPublicKey() => $_has(11);
   @$pb.TagNumber(12)
   void clearPublicKey() => clearField(12);
+
+  @$pb.TagNumber(13)
+  CloudLocation get location => $_getN(12);
+  @$pb.TagNumber(13)
+  set location(CloudLocation v) { setField(13, v); }
+  @$pb.TagNumber(13)
+  $core.bool hasLocation() => $_has(12);
+  @$pb.TagNumber(13)
+  void clearLocation() => clearField(13);
+
+  @$pb.TagNumber(14)
+  $core.String get organizationName => $_getSZ(13);
+  @$pb.TagNumber(14)
+  set organizationName($core.String v) { $_setString(13, v); }
+  @$pb.TagNumber(14)
+  $core.bool hasOrganizationName() => $_has(13);
+  @$pb.TagNumber(14)
+  void clearOrganizationName() => clearField(14);
 }
 
 class CloudRequest extends $pb.GeneratedMessage {

@@ -48,6 +48,17 @@ const KeyType$json = const {
 
 /// Descriptor for `KeyType`. Decode as a `google.protobuf.EnumDescriptorProto`.
 final $typed_data.Uint8List keyTypeDescriptor = $convert.base64Decode('CgdLZXlUeXBlEhYKEklOVkFMSURfVE9LRU5fVFlQRRAAEg8KC1BSSVZBVEVfS0VZEAESDgoKUFVCTElDX0tFWRACEg4KCkFDQ0VTU19LRVkQAw==');
+@$core.Deprecated('Use cloudLocationDescriptor instead')
+const CloudLocation$json = const {
+  '1': 'CloudLocation',
+  '2': const [
+    const {'1': 'INVALID_LOCATION', '2': 0},
+    const {'1': 'DK_1', '2': 1},
+  ],
+};
+
+/// Descriptor for `CloudLocation`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List cloudLocationDescriptor = $convert.base64Decode('Cg1DbG91ZExvY2F0aW9uEhQKEElOVkFMSURfTE9DQVRJT04QABIICgRES18xEAE=');
 @$core.Deprecated('Use memberDescriptor instead')
 const Member$json = const {
   '1': 'Member',
@@ -108,11 +119,13 @@ const Project$json = const {
     const {'1': 'private_key_secured_at', '3': 10, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'privateKeySecuredAt'},
     const {'1': 'logo', '3': 11, '4': 1, '5': 9, '10': 'logo'},
     const {'1': 'public_key', '3': 12, '4': 1, '5': 9, '10': 'publicKey'},
+    const {'1': 'location', '3': 13, '4': 1, '5': 14, '6': '.Cloud.CloudLocation', '10': 'location'},
+    const {'1': 'organization_name', '3': 14, '4': 1, '5': 9, '10': 'organizationName'},
   ],
 };
 
 /// Descriptor for `Project`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List projectDescriptor = $convert.base64Decode('CgdQcm9qZWN0Eg4KAmlkGAEgASgJUgJpZBInCg9vcmdhbml6YXRpb25faWQYAiABKAlSDm9yZ2FuaXphdGlvbklkEiIKDW93bmVyX3VzZXJfaWQYAyABKAlSC293bmVyVXNlcklkEhIKBG5hbWUYBCABKAlSBG5hbWUSHwoLcHJpdmF0ZV9rZXkYBSABKAlSCnByaXZhdGVLZXkSLgoTcHJpdmF0ZV9rZXlfc2VjdXJlZBgGIAEoCFIRcHJpdmF0ZUtleVNlY3VyZWQSOQoKY3JlYXRlZF9hdBgHIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCWNyZWF0ZWRBdBI5Cgp1cGRhdGVkX2F0GAggASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJdXBkYXRlZEF0ElMKGHByaXZhdGVfa2V5X2dlbmVyYXRlZF9hdBgJIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSFXByaXZhdGVLZXlHZW5lcmF0ZWRBdBJPChZwcml2YXRlX2tleV9zZWN1cmVkX2F0GAogASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFITcHJpdmF0ZUtleVNlY3VyZWRBdBISCgRsb2dvGAsgASgJUgRsb2dvEh0KCnB1YmxpY19rZXkYDCABKAlSCXB1YmxpY0tleQ==');
+final $typed_data.Uint8List projectDescriptor = $convert.base64Decode('CgdQcm9qZWN0Eg4KAmlkGAEgASgJUgJpZBInCg9vcmdhbml6YXRpb25faWQYAiABKAlSDm9yZ2FuaXphdGlvbklkEiIKDW93bmVyX3VzZXJfaWQYAyABKAlSC293bmVyVXNlcklkEhIKBG5hbWUYBCABKAlSBG5hbWUSHwoLcHJpdmF0ZV9rZXkYBSABKAlSCnByaXZhdGVLZXkSLgoTcHJpdmF0ZV9rZXlfc2VjdXJlZBgGIAEoCFIRcHJpdmF0ZUtleVNlY3VyZWQSOQoKY3JlYXRlZF9hdBgHIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCWNyZWF0ZWRBdBI5Cgp1cGRhdGVkX2F0GAggASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJdXBkYXRlZEF0ElMKGHByaXZhdGVfa2V5X2dlbmVyYXRlZF9hdBgJIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSFXByaXZhdGVLZXlHZW5lcmF0ZWRBdBJPChZwcml2YXRlX2tleV9zZWN1cmVkX2F0GAogASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFITcHJpdmF0ZUtleVNlY3VyZWRBdBISCgRsb2dvGAsgASgJUgRsb2dvEh0KCnB1YmxpY19rZXkYDCABKAlSCXB1YmxpY0tleRIwCghsb2NhdGlvbhgNIAEoDjIULkNsb3VkLkNsb3VkTG9jYXRpb25SCGxvY2F0aW9uEisKEW9yZ2FuaXphdGlvbl9uYW1lGA4gASgJUhBvcmdhbml6YXRpb25OYW1l');
 @$core.Deprecated('Use cloudRequestDescriptor instead')
 const CloudRequest$json = const {
   '1': 'CloudRequest',
