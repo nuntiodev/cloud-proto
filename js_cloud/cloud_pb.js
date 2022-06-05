@@ -23,6 +23,7 @@ var global = (function() {
 
 var google_protobuf_timestamp_pb = require('google-protobuf/google/protobuf/timestamp_pb.js');
 goog.object.extend(proto, google_protobuf_timestamp_pb);
+goog.exportSymbol('proto.Cloud.CloudLocation', null, global);
 goog.exportSymbol('proto.Cloud.CloudRequest', null, global);
 goog.exportSymbol('proto.Cloud.CloudResponse', null, global);
 goog.exportSymbol('proto.Cloud.CustomClaims', null, global);
@@ -1140,7 +1141,9 @@ proto.Cloud.Project.toObject = function(includeInstance, msg) {
     privateKeyGeneratedAt: (f = msg.getPrivateKeyGeneratedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
     privateKeySecuredAt: (f = msg.getPrivateKeySecuredAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
     logo: jspb.Message.getFieldWithDefault(msg, 11, ""),
-    publicKey: jspb.Message.getFieldWithDefault(msg, 12, "")
+    publicKey: jspb.Message.getFieldWithDefault(msg, 12, ""),
+    location: jspb.Message.getFieldWithDefault(msg, 13, 0),
+    organizationName: jspb.Message.getFieldWithDefault(msg, 14, "")
   };
 
   if (includeInstance) {
@@ -1228,6 +1231,14 @@ proto.Cloud.Project.deserializeBinaryFromReader = function(msg, reader) {
     case 12:
       var value = /** @type {string} */ (reader.readString());
       msg.setPublicKey(value);
+      break;
+    case 13:
+      var value = /** @type {!proto.Cloud.CloudLocation} */ (reader.readEnum());
+      msg.setLocation(value);
+      break;
+    case 14:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setOrganizationName(value);
       break;
     default:
       reader.skipField();
@@ -1343,6 +1354,20 @@ proto.Cloud.Project.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeString(
       12,
+      f
+    );
+  }
+  f = message.getLocation();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      13,
+      f
+    );
+  }
+  f = message.getOrganizationName();
+  if (f.length > 0) {
+    writer.writeString(
+      14,
       f
     );
   }
@@ -1638,6 +1663,42 @@ proto.Cloud.Project.prototype.getPublicKey = function() {
  */
 proto.Cloud.Project.prototype.setPublicKey = function(value) {
   return jspb.Message.setProto3StringField(this, 12, value);
+};
+
+
+/**
+ * optional CloudLocation location = 13;
+ * @return {!proto.Cloud.CloudLocation}
+ */
+proto.Cloud.Project.prototype.getLocation = function() {
+  return /** @type {!proto.Cloud.CloudLocation} */ (jspb.Message.getFieldWithDefault(this, 13, 0));
+};
+
+
+/**
+ * @param {!proto.Cloud.CloudLocation} value
+ * @return {!proto.Cloud.Project} returns this
+ */
+proto.Cloud.Project.prototype.setLocation = function(value) {
+  return jspb.Message.setProto3EnumField(this, 13, value);
+};
+
+
+/**
+ * optional string organization_name = 14;
+ * @return {string}
+ */
+proto.Cloud.Project.prototype.getOrganizationName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 14, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.Cloud.Project} returns this
+ */
+proto.Cloud.Project.prototype.setOrganizationName = function(value) {
+  return jspb.Message.setProto3StringField(this, 14, value);
 };
 
 
@@ -2522,6 +2583,14 @@ proto.Cloud.KeyType = {
   PRIVATE_KEY: 1,
   PUBLIC_KEY: 2,
   ACCESS_KEY: 3
+};
+
+/**
+ * @enum {number}
+ */
+proto.Cloud.CloudLocation = {
+  INVALID_LOCATION: 0,
+  DK_1: 1
 };
 
 goog.object.extend(exports, proto.Cloud);
