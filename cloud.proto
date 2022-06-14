@@ -46,7 +46,7 @@ message Member {
     google.protobuf.Timestamp created_at = 5;
     google.protobuf.Timestamp updated_at = 6;
     string organization_id = 7;
-    string member_email = 8;
+    string email = 8;
 }
 
 message Organization {
