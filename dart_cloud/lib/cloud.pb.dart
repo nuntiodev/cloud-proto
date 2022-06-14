@@ -24,6 +24,7 @@ class Member extends $pb.GeneratedMessage {
     ..aOM<$1.Timestamp>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'createdAt', subBuilder: $1.Timestamp.create)
     ..aOM<$1.Timestamp>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'updatedAt', subBuilder: $1.Timestamp.create)
     ..aOS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'organizationId')
+    ..aOS(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'email')
     ..hasRequiredFields = false
   ;
 
@@ -36,6 +37,7 @@ class Member extends $pb.GeneratedMessage {
     $1.Timestamp? createdAt,
     $1.Timestamp? updatedAt,
     $core.String? organizationId,
+    $core.String? email,
   }) {
     final _result = create();
     if (id != null) {
@@ -58,6 +60,9 @@ class Member extends $pb.GeneratedMessage {
     }
     if (organizationId != null) {
       _result.organizationId = organizationId;
+    }
+    if (email != null) {
+      _result.email = email;
     }
     return _result;
   }
@@ -148,6 +153,15 @@ class Member extends $pb.GeneratedMessage {
   $core.bool hasOrganizationId() => $_has(6);
   @$pb.TagNumber(7)
   void clearOrganizationId() => clearField(7);
+
+  @$pb.TagNumber(8)
+  $core.String get email => $_getSZ(7);
+  @$pb.TagNumber(8)
+  set email($core.String v) { $_setString(7, v); }
+  @$pb.TagNumber(8)
+  $core.bool hasEmail() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearEmail() => clearField(8);
 }
 
 class Organization extends $pb.GeneratedMessage {

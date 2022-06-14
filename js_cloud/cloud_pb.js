@@ -197,7 +197,8 @@ proto.Cloud.Member.toObject = function(includeInstance, msg) {
     type: jspb.Message.getFieldWithDefault(msg, 4, 0),
     createdAt: (f = msg.getCreatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
     updatedAt: (f = msg.getUpdatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
-    organizationId: jspb.Message.getFieldWithDefault(msg, 7, "")
+    organizationId: jspb.Message.getFieldWithDefault(msg, 7, ""),
+    email: jspb.Message.getFieldWithDefault(msg, 8, "")
   };
 
   if (includeInstance) {
@@ -263,6 +264,10 @@ proto.Cloud.Member.deserializeBinaryFromReader = function(msg, reader) {
     case 7:
       var value = /** @type {string} */ (reader.readString());
       msg.setOrganizationId(value);
+      break;
+    case 8:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setEmail(value);
       break;
     default:
       reader.skipField();
@@ -341,6 +346,13 @@ proto.Cloud.Member.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeString(
       7,
+      f
+    );
+  }
+  f = message.getEmail();
+  if (f.length > 0) {
+    writer.writeString(
+      8,
       f
     );
   }
@@ -508,6 +520,24 @@ proto.Cloud.Member.prototype.getOrganizationId = function() {
  */
 proto.Cloud.Member.prototype.setOrganizationId = function(value) {
   return jspb.Message.setProto3StringField(this, 7, value);
+};
+
+
+/**
+ * optional string email = 8;
+ * @return {string}
+ */
+proto.Cloud.Member.prototype.getEmail = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 8, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.Cloud.Member} returns this
+ */
+proto.Cloud.Member.prototype.setEmail = function(value) {
+  return jspb.Message.setProto3StringField(this, 8, value);
 };
 
 
