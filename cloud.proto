@@ -46,6 +46,7 @@ message Member {
     google.protobuf.Timestamp created_at = 5;
     google.protobuf.Timestamp updated_at = 6;
     string organization_id = 7;
+    string member_email = 8;
 }
 
 message Organization {
@@ -92,7 +93,6 @@ message Project {
     string public_key = 12;
     CloudLocation location = 13;
     string organization_name = 14;
-    MemberType member_type = 15;
 }
 
 message CloudRequest {
