@@ -68,18 +68,16 @@ class KeyType extends $pb.ProtobufEnum {
   const KeyType._($core.int v, $core.String n) : super(v, n);
 }
 
-class CloudLocation extends $pb.ProtobufEnum {
-  static const CloudLocation INVALID_LOCATION = CloudLocation._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'INVALID_LOCATION');
-  static const CloudLocation DK_1 = CloudLocation._(1, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'DK_1');
+class Country extends $pb.ProtobufEnum {
+  static const Country DK = Country._(0, const $core.bool.fromEnvironment('protobuf.omit_enum_names') ? '' : 'DK');
 
-  static const $core.List<CloudLocation> values = <CloudLocation> [
-    INVALID_LOCATION,
-    DK_1,
+  static const $core.List<Country> values = <Country> [
+    DK,
   ];
 
-  static final $core.Map<$core.int, CloudLocation> _byValue = $pb.ProtobufEnum.initByValue(values);
-  static CloudLocation? valueOf($core.int value) => _byValue[value];
+  static final $core.Map<$core.int, Country> _byValue = $pb.ProtobufEnum.initByValue(values);
+  static Country? valueOf($core.int value) => _byValue[value];
 
-  const CloudLocation._($core.int v, $core.String n) : super(v, n);
+  const Country._($core.int v, $core.String n) : super(v, n);
 }
 

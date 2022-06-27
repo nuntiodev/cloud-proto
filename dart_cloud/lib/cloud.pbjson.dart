@@ -48,17 +48,16 @@ const KeyType$json = const {
 
 /// Descriptor for `KeyType`. Decode as a `google.protobuf.EnumDescriptorProto`.
 final $typed_data.Uint8List keyTypeDescriptor = $convert.base64Decode('CgdLZXlUeXBlEhYKEklOVkFMSURfVE9LRU5fVFlQRRAAEg8KC1BSSVZBVEVfS0VZEAESDgoKUFVCTElDX0tFWRACEg4KCkFDQ0VTU19LRVkQAw==');
-@$core.Deprecated('Use cloudLocationDescriptor instead')
-const CloudLocation$json = const {
-  '1': 'CloudLocation',
+@$core.Deprecated('Use countryDescriptor instead')
+const Country$json = const {
+  '1': 'Country',
   '2': const [
-    const {'1': 'INVALID_LOCATION', '2': 0},
-    const {'1': 'DK_1', '2': 1},
+    const {'1': 'DK', '2': 0},
   ],
 };
 
-/// Descriptor for `CloudLocation`. Decode as a `google.protobuf.EnumDescriptorProto`.
-final $typed_data.Uint8List cloudLocationDescriptor = $convert.base64Decode('Cg1DbG91ZExvY2F0aW9uEhQKEElOVkFMSURfTE9DQVRJT04QABIICgRES18xEAE=');
+/// Descriptor for `Country`. Decode as a `google.protobuf.EnumDescriptorProto`.
+final $typed_data.Uint8List countryDescriptor = $convert.base64Decode('CgdDb3VudHJ5EgYKAkRLEAA=');
 @$core.Deprecated('Use memberDescriptor instead')
 const Member$json = const {
   '1': 'Member',
@@ -97,13 +96,29 @@ final $typed_data.Uint8List organizationDescriptor = $convert.base64Decode('CgxP
 const CustomClaims$json = const {
   '1': 'CustomClaims',
   '2': const [
-    const {'1': 'projectId', '3': 1, '4': 1, '5': 9, '10': 'projectId'},
+    const {'1': 'project_id', '3': 1, '4': 1, '5': 9, '10': 'projectId'},
     const {'1': 'type', '3': 2, '4': 1, '5': 14, '6': '.Cloud.KeyType', '10': 'type'},
+    const {'1': 'partner_id', '3': 3, '4': 1, '5': 9, '10': 'partnerId'},
+    const {'1': 'api_url', '3': 4, '4': 1, '5': 9, '10': 'apiUrl'},
   ],
 };
 
 /// Descriptor for `CustomClaims`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List customClaimsDescriptor = $convert.base64Decode('CgxDdXN0b21DbGFpbXMSHAoJcHJvamVjdElkGAEgASgJUglwcm9qZWN0SWQSIgoEdHlwZRgCIAEoDjIOLkNsb3VkLktleVR5cGVSBHR5cGU=');
+final $typed_data.Uint8List customClaimsDescriptor = $convert.base64Decode('CgxDdXN0b21DbGFpbXMSHQoKcHJvamVjdF9pZBgBIAEoCVIJcHJvamVjdElkEiIKBHR5cGUYAiABKA4yDi5DbG91ZC5LZXlUeXBlUgR0eXBlEh0KCnBhcnRuZXJfaWQYAyABKAlSCXBhcnRuZXJJZBIXCgdhcGlfdXJsGAQgASgJUgZhcGlVcmw=');
+@$core.Deprecated('Use partnerDescriptor instead')
+const Partner$json = const {
+  '1': 'Partner',
+  '2': const [
+    const {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+    const {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
+    const {'1': 'country', '3': 3, '4': 1, '5': 14, '6': '.Cloud.Country', '10': 'country'},
+    const {'1': 'api_url', '3': 4, '4': 1, '5': 9, '10': 'apiUrl'},
+    const {'1': 'image', '3': 5, '4': 1, '5': 9, '10': 'image'},
+  ],
+};
+
+/// Descriptor for `Partner`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List partnerDescriptor = $convert.base64Decode('CgdQYXJ0bmVyEg4KAmlkGAEgASgJUgJpZBISCgRuYW1lGAIgASgJUgRuYW1lEigKB2NvdW50cnkYAyABKA4yDi5DbG91ZC5Db3VudHJ5Ugdjb3VudHJ5EhcKB2FwaV91cmwYBCABKAlSBmFwaVVybBIUCgVpbWFnZRgFIAEoCVIFaW1hZ2U=');
 @$core.Deprecated('Use projectDescriptor instead')
 const Project$json = const {
   '1': 'Project',
@@ -120,13 +135,14 @@ const Project$json = const {
     const {'1': 'private_key_secured_at', '3': 10, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'privateKeySecuredAt'},
     const {'1': 'logo', '3': 11, '4': 1, '5': 9, '10': 'logo'},
     const {'1': 'public_key', '3': 12, '4': 1, '5': 9, '10': 'publicKey'},
-    const {'1': 'location', '3': 13, '4': 1, '5': 14, '6': '.Cloud.CloudLocation', '10': 'location'},
-    const {'1': 'organization_name', '3': 14, '4': 1, '5': 9, '10': 'organizationName'},
+    const {'1': 'organization_name', '3': 13, '4': 1, '5': 9, '10': 'organizationName'},
+    const {'1': 'api_url', '3': 14, '4': 1, '5': 9, '10': 'apiUrl'},
+    const {'1': 'partner_id', '3': 15, '4': 1, '5': 9, '10': 'partnerId'},
   ],
 };
 
 /// Descriptor for `Project`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List projectDescriptor = $convert.base64Decode('CgdQcm9qZWN0Eg4KAmlkGAEgASgJUgJpZBInCg9vcmdhbml6YXRpb25faWQYAiABKAlSDm9yZ2FuaXphdGlvbklkEiIKDW93bmVyX3VzZXJfaWQYAyABKAlSC293bmVyVXNlcklkEhIKBG5hbWUYBCABKAlSBG5hbWUSHwoLcHJpdmF0ZV9rZXkYBSABKAlSCnByaXZhdGVLZXkSLgoTcHJpdmF0ZV9rZXlfc2VjdXJlZBgGIAEoCFIRcHJpdmF0ZUtleVNlY3VyZWQSOQoKY3JlYXRlZF9hdBgHIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCWNyZWF0ZWRBdBI5Cgp1cGRhdGVkX2F0GAggASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJdXBkYXRlZEF0ElMKGHByaXZhdGVfa2V5X2dlbmVyYXRlZF9hdBgJIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSFXByaXZhdGVLZXlHZW5lcmF0ZWRBdBJPChZwcml2YXRlX2tleV9zZWN1cmVkX2F0GAogASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFITcHJpdmF0ZUtleVNlY3VyZWRBdBISCgRsb2dvGAsgASgJUgRsb2dvEh0KCnB1YmxpY19rZXkYDCABKAlSCXB1YmxpY0tleRIwCghsb2NhdGlvbhgNIAEoDjIULkNsb3VkLkNsb3VkTG9jYXRpb25SCGxvY2F0aW9uEisKEW9yZ2FuaXphdGlvbl9uYW1lGA4gASgJUhBvcmdhbml6YXRpb25OYW1l');
+final $typed_data.Uint8List projectDescriptor = $convert.base64Decode('CgdQcm9qZWN0Eg4KAmlkGAEgASgJUgJpZBInCg9vcmdhbml6YXRpb25faWQYAiABKAlSDm9yZ2FuaXphdGlvbklkEiIKDW93bmVyX3VzZXJfaWQYAyABKAlSC293bmVyVXNlcklkEhIKBG5hbWUYBCABKAlSBG5hbWUSHwoLcHJpdmF0ZV9rZXkYBSABKAlSCnByaXZhdGVLZXkSLgoTcHJpdmF0ZV9rZXlfc2VjdXJlZBgGIAEoCFIRcHJpdmF0ZUtleVNlY3VyZWQSOQoKY3JlYXRlZF9hdBgHIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCWNyZWF0ZWRBdBI5Cgp1cGRhdGVkX2F0GAggASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJdXBkYXRlZEF0ElMKGHByaXZhdGVfa2V5X2dlbmVyYXRlZF9hdBgJIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSFXByaXZhdGVLZXlHZW5lcmF0ZWRBdBJPChZwcml2YXRlX2tleV9zZWN1cmVkX2F0GAogASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFITcHJpdmF0ZUtleVNlY3VyZWRBdBISCgRsb2dvGAsgASgJUgRsb2dvEh0KCnB1YmxpY19rZXkYDCABKAlSCXB1YmxpY0tleRIrChFvcmdhbml6YXRpb25fbmFtZRgNIAEoCVIQb3JnYW5pemF0aW9uTmFtZRIXCgdhcGlfdXJsGA4gASgJUgZhcGlVcmwSHQoKcGFydG5lcl9pZBgPIAEoCVIJcGFydG5lcklk');
 @$core.Deprecated('Use cloudRequestDescriptor instead')
 const CloudRequest$json = const {
   '1': 'CloudRequest',
