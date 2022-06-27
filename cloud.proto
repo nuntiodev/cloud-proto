@@ -71,13 +71,22 @@ enum KeyType {
 }
 
 message CustomClaims {
-    string projectId = 1;
+    string project_id = 1;
     KeyType type = 2;
+    string partner_id = 3;
+    string api_url = 4;
 }
 
-enum CloudLocation {
-    INVALID_LOCATION = 0;
-    DK_1 = 1;
+enum Country {
+    DK = 0;
+}
+
+message Partner {
+    string id = 1;
+    string name = 2;
+    Country country = 3;
+    string api_url = 4;
+    string image = 5;
 }
 
 message Project {
@@ -93,8 +102,9 @@ message Project {
     google.protobuf.Timestamp private_key_secured_at = 10;
     string logo = 11;
     string public_key = 12;
-    CloudLocation location = 13;
-    string organization_name = 14;
+    string organization_name = 13;
+    string api_url = 14;
+    string partner_id = 15;
 }
 
 message CloudRequest {
