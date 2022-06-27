@@ -308,6 +308,7 @@ class Partner extends $pb.GeneratedMessage {
     ..e<Country>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'country', $pb.PbFieldType.OE, defaultOrMaker: Country.DK, valueOf: Country.valueOf, enumValues: Country.values)
     ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'apiUrl')
     ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'image')
+    ..aOB(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nuntio')
     ..hasRequiredFields = false
   ;
 
@@ -318,6 +319,7 @@ class Partner extends $pb.GeneratedMessage {
     Country? country,
     $core.String? apiUrl,
     $core.String? image,
+    $core.bool? nuntio,
   }) {
     final _result = create();
     if (id != null) {
@@ -334,6 +336,9 @@ class Partner extends $pb.GeneratedMessage {
     }
     if (image != null) {
       _result.image = image;
+    }
+    if (nuntio != null) {
+      _result.nuntio = nuntio;
     }
     return _result;
   }
@@ -402,6 +407,15 @@ class Partner extends $pb.GeneratedMessage {
   $core.bool hasImage() => $_has(4);
   @$pb.TagNumber(5)
   void clearImage() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.bool get nuntio => $_getBF(5);
+  @$pb.TagNumber(6)
+  set nuntio($core.bool v) { $_setBool(5, v); }
+  @$pb.TagNumber(6)
+  $core.bool hasNuntio() => $_has(5);
+  @$pb.TagNumber(6)
+  void clearNuntio() => clearField(6);
 }
 
 class Project extends $pb.GeneratedMessage {

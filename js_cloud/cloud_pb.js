@@ -1004,7 +1004,8 @@ proto.Cloud.Partner.toObject = function(includeInstance, msg) {
     name: jspb.Message.getFieldWithDefault(msg, 2, ""),
     country: jspb.Message.getFieldWithDefault(msg, 3, 0),
     apiUrl: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    image: jspb.Message.getFieldWithDefault(msg, 5, "")
+    image: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    nuntio: jspb.Message.getBooleanFieldWithDefault(msg, 6, false)
   };
 
   if (includeInstance) {
@@ -1060,6 +1061,10 @@ proto.Cloud.Partner.deserializeBinaryFromReader = function(msg, reader) {
     case 5:
       var value = /** @type {string} */ (reader.readString());
       msg.setImage(value);
+      break;
+    case 6:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setNuntio(value);
       break;
     default:
       reader.skipField();
@@ -1122,6 +1127,13 @@ proto.Cloud.Partner.serializeBinaryToWriter = function(message, writer) {
   if (f.length > 0) {
     writer.writeString(
       5,
+      f
+    );
+  }
+  f = message.getNuntio();
+  if (f) {
+    writer.writeBool(
+      6,
       f
     );
   }
@@ -1215,6 +1227,24 @@ proto.Cloud.Partner.prototype.getImage = function() {
  */
 proto.Cloud.Partner.prototype.setImage = function(value) {
   return jspb.Message.setProto3StringField(this, 5, value);
+};
+
+
+/**
+ * optional bool nuntio = 6;
+ * @return {boolean}
+ */
+proto.Cloud.Partner.prototype.getNuntio = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 6, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.Cloud.Partner} returns this
+ */
+proto.Cloud.Partner.prototype.setNuntio = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 6, value);
 };
 
 

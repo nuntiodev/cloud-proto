@@ -101,11 +101,12 @@ const Partner$json = const {
     const {'1': 'country', '3': 3, '4': 1, '5': 14, '6': '.Cloud.Country', '10': 'country'},
     const {'1': 'api_url', '3': 4, '4': 1, '5': 9, '10': 'apiUrl'},
     const {'1': 'image', '3': 5, '4': 1, '5': 9, '10': 'image'},
+    const {'1': 'nuntio', '3': 6, '4': 1, '5': 8, '10': 'nuntio'},
   ],
 };
 
 /// Descriptor for `Partner`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List partnerDescriptor = $convert.base64Decode('CgdQYXJ0bmVyEg4KAmlkGAEgASgJUgJpZBISCgRuYW1lGAIgASgJUgRuYW1lEigKB2NvdW50cnkYAyABKA4yDi5DbG91ZC5Db3VudHJ5Ugdjb3VudHJ5EhcKB2FwaV91cmwYBCABKAlSBmFwaVVybBIUCgVpbWFnZRgFIAEoCVIFaW1hZ2U=');
+final $typed_data.Uint8List partnerDescriptor = $convert.base64Decode('CgdQYXJ0bmVyEg4KAmlkGAEgASgJUgJpZBISCgRuYW1lGAIgASgJUgRuYW1lEigKB2NvdW50cnkYAyABKA4yDi5DbG91ZC5Db3VudHJ5Ugdjb3VudHJ5EhcKB2FwaV91cmwYBCABKAlSBmFwaVVybBIUCgVpbWFnZRgFIAEoCVIFaW1hZ2USFgoGbnVudGlvGAYgASgIUgZudW50aW8=');
 @$core.Deprecated('Use projectDescriptor instead')
 const Project$json = const {
   '1': 'Project',
