@@ -303,8 +303,10 @@ class Organization extends $pb.GeneratedMessage {
 
 class CustomClaims extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CustomClaims', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Cloud'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'projectId', protoName: 'projectId')
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'projectId')
     ..e<KeyType>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'type', $pb.PbFieldType.OE, defaultOrMaker: KeyType.INVALID_TOKEN_TYPE, valueOf: KeyType.valueOf, enumValues: KeyType.values)
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'partnerId')
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'apiUrl')
     ..hasRequiredFields = false
   ;
 
@@ -312,6 +314,8 @@ class CustomClaims extends $pb.GeneratedMessage {
   factory CustomClaims({
     $core.String? projectId,
     KeyType? type,
+    $core.String? partnerId,
+    $core.String? apiUrl,
   }) {
     final _result = create();
     if (projectId != null) {
@@ -319,6 +323,12 @@ class CustomClaims extends $pb.GeneratedMessage {
     }
     if (type != null) {
       _result.type = type;
+    }
+    if (partnerId != null) {
+      _result.partnerId = partnerId;
+    }
+    if (apiUrl != null) {
+      _result.apiUrl = apiUrl;
     }
     return _result;
   }
@@ -360,6 +370,127 @@ class CustomClaims extends $pb.GeneratedMessage {
   $core.bool hasType() => $_has(1);
   @$pb.TagNumber(2)
   void clearType() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get partnerId => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set partnerId($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasPartnerId() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearPartnerId() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get apiUrl => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set apiUrl($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasApiUrl() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearApiUrl() => clearField(4);
+}
+
+class Partner extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Partner', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Cloud'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
+    ..e<Country>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'country', $pb.PbFieldType.OE, defaultOrMaker: Country.DK, valueOf: Country.valueOf, enumValues: Country.values)
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'apiUrl')
+    ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'image')
+    ..hasRequiredFields = false
+  ;
+
+  Partner._() : super();
+  factory Partner({
+    $core.String? id,
+    $core.String? name,
+    Country? country,
+    $core.String? apiUrl,
+    $core.String? image,
+  }) {
+    final _result = create();
+    if (id != null) {
+      _result.id = id;
+    }
+    if (name != null) {
+      _result.name = name;
+    }
+    if (country != null) {
+      _result.country = country;
+    }
+    if (apiUrl != null) {
+      _result.apiUrl = apiUrl;
+    }
+    if (image != null) {
+      _result.image = image;
+    }
+    return _result;
+  }
+  factory Partner.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Partner.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  Partner clone() => Partner()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  Partner copyWith(void Function(Partner) updates) => super.copyWith((message) => updates(message as Partner)) as Partner; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static Partner create() => Partner._();
+  Partner createEmptyInstance() => create();
+  static $pb.PbList<Partner> createRepeated() => $pb.PbList<Partner>();
+  @$core.pragma('dart2js:noInline')
+  static Partner getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Partner>(create);
+  static Partner? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get id => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set id($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get name => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set name($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasName() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearName() => clearField(2);
+
+  @$pb.TagNumber(3)
+  Country get country => $_getN(2);
+  @$pb.TagNumber(3)
+  set country(Country v) { setField(3, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasCountry() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearCountry() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get apiUrl => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set apiUrl($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasApiUrl() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearApiUrl() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get image => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set image($core.String v) { $_setString(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasImage() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearImage() => clearField(5);
 }
 
 class Project extends $pb.GeneratedMessage {
@@ -376,8 +507,9 @@ class Project extends $pb.GeneratedMessage {
     ..aOM<$1.Timestamp>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKeySecuredAt', subBuilder: $1.Timestamp.create)
     ..aOS(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'logo')
     ..aOS(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'publicKey')
-    ..e<CloudLocation>(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'location', $pb.PbFieldType.OE, defaultOrMaker: CloudLocation.INVALID_LOCATION, valueOf: CloudLocation.valueOf, enumValues: CloudLocation.values)
-    ..aOS(14, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'organizationName')
+    ..aOS(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'organizationName')
+    ..aOS(14, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'apiUrl')
+    ..aOS(15, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'partnerId')
     ..hasRequiredFields = false
   ;
 
@@ -395,8 +527,9 @@ class Project extends $pb.GeneratedMessage {
     $1.Timestamp? privateKeySecuredAt,
     $core.String? logo,
     $core.String? publicKey,
-    CloudLocation? location,
     $core.String? organizationName,
+    $core.String? apiUrl,
+    $core.String? partnerId,
   }) {
     final _result = create();
     if (id != null) {
@@ -435,11 +568,14 @@ class Project extends $pb.GeneratedMessage {
     if (publicKey != null) {
       _result.publicKey = publicKey;
     }
-    if (location != null) {
-      _result.location = location;
-    }
     if (organizationName != null) {
       _result.organizationName = organizationName;
+    }
+    if (apiUrl != null) {
+      _result.apiUrl = apiUrl;
+    }
+    if (partnerId != null) {
+      _result.partnerId = partnerId;
     }
     return _result;
   }
@@ -581,22 +717,31 @@ class Project extends $pb.GeneratedMessage {
   void clearPublicKey() => clearField(12);
 
   @$pb.TagNumber(13)
-  CloudLocation get location => $_getN(12);
+  $core.String get organizationName => $_getSZ(12);
   @$pb.TagNumber(13)
-  set location(CloudLocation v) { setField(13, v); }
+  set organizationName($core.String v) { $_setString(12, v); }
   @$pb.TagNumber(13)
-  $core.bool hasLocation() => $_has(12);
+  $core.bool hasOrganizationName() => $_has(12);
   @$pb.TagNumber(13)
-  void clearLocation() => clearField(13);
+  void clearOrganizationName() => clearField(13);
 
   @$pb.TagNumber(14)
-  $core.String get organizationName => $_getSZ(13);
+  $core.String get apiUrl => $_getSZ(13);
   @$pb.TagNumber(14)
-  set organizationName($core.String v) { $_setString(13, v); }
+  set apiUrl($core.String v) { $_setString(13, v); }
   @$pb.TagNumber(14)
-  $core.bool hasOrganizationName() => $_has(13);
+  $core.bool hasApiUrl() => $_has(13);
   @$pb.TagNumber(14)
-  void clearOrganizationName() => clearField(14);
+  void clearApiUrl() => clearField(14);
+
+  @$pb.TagNumber(15)
+  $core.String get partnerId => $_getSZ(14);
+  @$pb.TagNumber(15)
+  set partnerId($core.String v) { $_setString(14, v); }
+  @$pb.TagNumber(15)
+  $core.bool hasPartnerId() => $_has(14);
+  @$pb.TagNumber(15)
+  void clearPartnerId() => clearField(15);
 }
 
 class CloudRequest extends $pb.GeneratedMessage {
