@@ -71,13 +71,6 @@ enum KeyType {
     ACCESS_KEY = 3;
 }
 
-message CustomClaims {
-    string project_id = 1;
-    KeyType type = 2;
-    string partner_id = 3;
-    string api_url = 4;
-}
-
 enum Country {
     DK = 0;
 }
