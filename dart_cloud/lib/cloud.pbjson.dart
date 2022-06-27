@@ -116,7 +116,7 @@ const Project$json = const {
     const {'1': 'owner_user_id', '3': 3, '4': 1, '5': 9, '10': 'ownerUserId'},
     const {'1': 'name', '3': 4, '4': 1, '5': 9, '10': 'name'},
     const {'1': 'private_key', '3': 5, '4': 1, '5': 9, '10': 'privateKey'},
-    const {'1': 'private_key_secured', '3': 6, '4': 1, '5': 8, '10': 'privateKeySecured'},
+    const {'1': 'private_key_id', '3': 6, '4': 1, '5': 9, '10': 'privateKeyId'},
     const {'1': 'created_at', '3': 7, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'createdAt'},
     const {'1': 'updated_at', '3': 8, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'updatedAt'},
     const {'1': 'private_key_generated_at', '3': 9, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'privateKeyGeneratedAt'},
@@ -130,7 +130,7 @@ const Project$json = const {
 };
 
 /// Descriptor for `Project`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List projectDescriptor = $convert.base64Decode('CgdQcm9qZWN0Eg4KAmlkGAEgASgJUgJpZBInCg9vcmdhbml6YXRpb25faWQYAiABKAlSDm9yZ2FuaXphdGlvbklkEiIKDW93bmVyX3VzZXJfaWQYAyABKAlSC293bmVyVXNlcklkEhIKBG5hbWUYBCABKAlSBG5hbWUSHwoLcHJpdmF0ZV9rZXkYBSABKAlSCnByaXZhdGVLZXkSLgoTcHJpdmF0ZV9rZXlfc2VjdXJlZBgGIAEoCFIRcHJpdmF0ZUtleVNlY3VyZWQSOQoKY3JlYXRlZF9hdBgHIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCWNyZWF0ZWRBdBI5Cgp1cGRhdGVkX2F0GAggASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJdXBkYXRlZEF0ElMKGHByaXZhdGVfa2V5X2dlbmVyYXRlZF9hdBgJIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSFXByaXZhdGVLZXlHZW5lcmF0ZWRBdBJPChZwcml2YXRlX2tleV9zZWN1cmVkX2F0GAogASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFITcHJpdmF0ZUtleVNlY3VyZWRBdBISCgRsb2dvGAsgASgJUgRsb2dvEh0KCnB1YmxpY19rZXkYDCABKAlSCXB1YmxpY0tleRIrChFvcmdhbml6YXRpb25fbmFtZRgNIAEoCVIQb3JnYW5pemF0aW9uTmFtZRIXCgdhcGlfdXJsGA4gASgJUgZhcGlVcmwSHQoKcGFydG5lcl9pZBgPIAEoCVIJcGFydG5lcklk');
+final $typed_data.Uint8List projectDescriptor = $convert.base64Decode('CgdQcm9qZWN0Eg4KAmlkGAEgASgJUgJpZBInCg9vcmdhbml6YXRpb25faWQYAiABKAlSDm9yZ2FuaXphdGlvbklkEiIKDW93bmVyX3VzZXJfaWQYAyABKAlSC293bmVyVXNlcklkEhIKBG5hbWUYBCABKAlSBG5hbWUSHwoLcHJpdmF0ZV9rZXkYBSABKAlSCnByaXZhdGVLZXkSJAoOcHJpdmF0ZV9rZXlfaWQYBiABKAlSDHByaXZhdGVLZXlJZBI5CgpjcmVhdGVkX2F0GAcgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJY3JlYXRlZEF0EjkKCnVwZGF0ZWRfYXQYCCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgl1cGRhdGVkQXQSUwoYcHJpdmF0ZV9rZXlfZ2VuZXJhdGVkX2F0GAkgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIVcHJpdmF0ZUtleUdlbmVyYXRlZEF0Ek8KFnByaXZhdGVfa2V5X3NlY3VyZWRfYXQYCiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUhNwcml2YXRlS2V5U2VjdXJlZEF0EhIKBGxvZ28YCyABKAlSBGxvZ28SHQoKcHVibGljX2tleRgMIAEoCVIJcHVibGljS2V5EisKEW9yZ2FuaXphdGlvbl9uYW1lGA0gASgJUhBvcmdhbml6YXRpb25OYW1lEhcKB2FwaV91cmwYDiABKAlSBmFwaVVybBIdCgpwYXJ0bmVyX2lkGA8gASgJUglwYXJ0bmVySWQ=');
 @$core.Deprecated('Use cloudRequestDescriptor instead')
 const CloudRequest$json = const {
   '1': 'CloudRequest',

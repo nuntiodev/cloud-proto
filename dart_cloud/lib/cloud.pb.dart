@@ -425,7 +425,7 @@ class Project extends $pb.GeneratedMessage {
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ownerUserId')
     ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
     ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKey')
-    ..aOB(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKeySecured')
+    ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKeyId')
     ..aOM<$1.Timestamp>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'createdAt', subBuilder: $1.Timestamp.create)
     ..aOM<$1.Timestamp>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'updatedAt', subBuilder: $1.Timestamp.create)
     ..aOM<$1.Timestamp>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privateKeyGeneratedAt', subBuilder: $1.Timestamp.create)
@@ -445,7 +445,7 @@ class Project extends $pb.GeneratedMessage {
     $core.String? ownerUserId,
     $core.String? name,
     $core.String? privateKey,
-    $core.bool? privateKeySecured,
+    $core.String? privateKeyId,
     $1.Timestamp? createdAt,
     $1.Timestamp? updatedAt,
     $1.Timestamp? privateKeyGeneratedAt,
@@ -472,8 +472,8 @@ class Project extends $pb.GeneratedMessage {
     if (privateKey != null) {
       _result.privateKey = privateKey;
     }
-    if (privateKeySecured != null) {
-      _result.privateKeySecured = privateKeySecured;
+    if (privateKeyId != null) {
+      _result.privateKeyId = privateKeyId;
     }
     if (createdAt != null) {
       _result.createdAt = createdAt;
@@ -571,13 +571,13 @@ class Project extends $pb.GeneratedMessage {
   void clearPrivateKey() => clearField(5);
 
   @$pb.TagNumber(6)
-  $core.bool get privateKeySecured => $_getBF(5);
+  $core.String get privateKeyId => $_getSZ(5);
   @$pb.TagNumber(6)
-  set privateKeySecured($core.bool v) { $_setBool(5, v); }
+  set privateKeyId($core.String v) { $_setString(5, v); }
   @$pb.TagNumber(6)
-  $core.bool hasPrivateKeySecured() => $_has(5);
+  $core.bool hasPrivateKeyId() => $_has(5);
   @$pb.TagNumber(6)
-  void clearPrivateKeySecured() => clearField(6);
+  void clearPrivateKeyId() => clearField(6);
 
   @$pb.TagNumber(7)
   $1.Timestamp get createdAt => $_getN(6);

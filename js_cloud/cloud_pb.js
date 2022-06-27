@@ -1285,7 +1285,7 @@ proto.Cloud.Project.toObject = function(includeInstance, msg) {
     ownerUserId: jspb.Message.getFieldWithDefault(msg, 3, ""),
     name: jspb.Message.getFieldWithDefault(msg, 4, ""),
     privateKey: jspb.Message.getFieldWithDefault(msg, 5, ""),
-    privateKeySecured: jspb.Message.getBooleanFieldWithDefault(msg, 6, false),
+    privateKeyId: jspb.Message.getFieldWithDefault(msg, 6, ""),
     createdAt: (f = msg.getCreatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
     updatedAt: (f = msg.getUpdatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
     privateKeyGeneratedAt: (f = msg.getPrivateKeyGeneratedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
@@ -1352,8 +1352,8 @@ proto.Cloud.Project.deserializeBinaryFromReader = function(msg, reader) {
       msg.setPrivateKey(value);
       break;
     case 6:
-      var value = /** @type {boolean} */ (reader.readBool());
-      msg.setPrivateKeySecured(value);
+      var value = /** @type {string} */ (reader.readString());
+      msg.setPrivateKeyId(value);
       break;
     case 7:
       var value = new google_protobuf_timestamp_pb.Timestamp;
@@ -1459,9 +1459,9 @@ proto.Cloud.Project.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getPrivateKeySecured();
-  if (f) {
-    writer.writeBool(
+  f = message.getPrivateKeyId();
+  if (f.length > 0) {
+    writer.writeString(
       6,
       f
     );
@@ -1627,20 +1627,20 @@ proto.Cloud.Project.prototype.setPrivateKey = function(value) {
 
 
 /**
- * optional bool private_key_secured = 6;
- * @return {boolean}
+ * optional string private_key_id = 6;
+ * @return {string}
  */
-proto.Cloud.Project.prototype.getPrivateKeySecured = function() {
-  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 6, false));
+proto.Cloud.Project.prototype.getPrivateKeyId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
 };
 
 
 /**
- * @param {boolean} value
+ * @param {string} value
  * @return {!proto.Cloud.Project} returns this
  */
-proto.Cloud.Project.prototype.setPrivateKeySecured = function(value) {
-  return jspb.Message.setProto3BooleanField(this, 6, value);
+proto.Cloud.Project.prototype.setPrivateKeyId = function(value) {
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
