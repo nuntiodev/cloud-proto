@@ -16,6 +16,7 @@ service CloudService {
     rpc RollPrivateKey(CloudRequest) returns (CloudResponse) {}
     rpc GenerateAccessToken(CloudRequest) returns (CloudResponse) {}
     rpc ValidateAccessToken(CloudRequest) returns (CloudResponse) {}
+    rpc PublicKeys(CloudRequest)  returns (CloudResponse) {}
     rpc UpdateProject(CloudRequest) returns (CloudResponse) {}
     rpc GetProject(CloudRequest) returns (CloudResponse) {}
     rpc GetUserProjects(CloudRequest) returns (CloudResponse) {}
