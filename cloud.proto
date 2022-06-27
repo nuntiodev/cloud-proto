@@ -89,7 +89,7 @@ message Project {
     string owner_user_id = 3;
     string name = 4;
     string private_key = 5;
-    bool private_key_secured = 6;
+    string private_key_id = 6;
     google.protobuf.Timestamp created_at = 7;
     google.protobuf.Timestamp updated_at = 8;
     google.protobuf.Timestamp private_key_generated_at = 9;
