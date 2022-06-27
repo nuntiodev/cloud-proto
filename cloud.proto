@@ -80,6 +80,7 @@ message Partner {
     Country country = 3;
     string api_url = 4;
     string image = 5;
+    bool nuntio = 6;
 }
 
 message Project {
