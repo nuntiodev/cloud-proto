@@ -932,67 +932,6 @@ proto.Cloud.CloudServicePromiseClient.prototype.deleteProject =
  *   !proto.Cloud.CloudRequest,
  *   !proto.Cloud.CloudResponse>}
  */
-const methodDescriptor_CloudService_CreatePartner = new grpc.web.MethodDescriptor(
-  '/Cloud.CloudService/CreatePartner',
-  grpc.web.MethodType.UNARY,
-  proto.Cloud.CloudRequest,
-  proto.Cloud.CloudResponse,
-  /**
-   * @param {!proto.Cloud.CloudRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.Cloud.CloudResponse.deserializeBinary
-);
-
-
-/**
- * @param {!proto.Cloud.CloudRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.Cloud.CloudResponse)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.Cloud.CloudServiceClient.prototype.createPartner =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/Cloud.CloudService/CreatePartner',
-      request,
-      metadata || {},
-      methodDescriptor_CloudService_CreatePartner,
-      callback);
-};
-
-
-/**
- * @param {!proto.Cloud.CloudRequest} request The
- *     request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.Cloud.CloudResponse>}
- *     Promise that resolves to the response
- */
-proto.Cloud.CloudServicePromiseClient.prototype.createPartner =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/Cloud.CloudService/CreatePartner',
-      request,
-      metadata || {},
-      methodDescriptor_CloudService_CreatePartner);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.Cloud.CloudRequest,
- *   !proto.Cloud.CloudResponse>}
- */
 const methodDescriptor_CloudService_GetPartner = new grpc.web.MethodDescriptor(
   '/Cloud.CloudService/GetPartner',
   grpc.web.MethodType.UNARY,
@@ -1106,67 +1045,6 @@ proto.Cloud.CloudServicePromiseClient.prototype.getPartners =
       request,
       metadata || {},
       methodDescriptor_CloudService_GetPartners);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.Cloud.CloudRequest,
- *   !proto.Cloud.CloudResponse>}
- */
-const methodDescriptor_CloudService_DeletePartner = new grpc.web.MethodDescriptor(
-  '/Cloud.CloudService/DeletePartner',
-  grpc.web.MethodType.UNARY,
-  proto.Cloud.CloudRequest,
-  proto.Cloud.CloudResponse,
-  /**
-   * @param {!proto.Cloud.CloudRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.Cloud.CloudResponse.deserializeBinary
-);
-
-
-/**
- * @param {!proto.Cloud.CloudRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.Cloud.CloudResponse)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.Cloud.CloudServiceClient.prototype.deletePartner =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/Cloud.CloudService/DeletePartner',
-      request,
-      metadata || {},
-      methodDescriptor_CloudService_DeletePartner,
-      callback);
-};
-
-
-/**
- * @param {!proto.Cloud.CloudRequest} request The
- *     request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.Cloud.CloudResponse>}
- *     Promise that resolves to the response
- */
-proto.Cloud.CloudServicePromiseClient.prototype.deletePartner =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/Cloud.CloudService/DeletePartner',
-      request,
-      metadata || {},
-      methodDescriptor_CloudService_DeletePartner);
 };
 
 

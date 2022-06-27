@@ -32,10 +32,8 @@ type CloudServiceClient interface {
 	GetUserProjects(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	GetProjectsInOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	DeleteProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
-	CreatePartner(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	GetPartner(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	GetPartners(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
-	DeletePartner(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 }
 
 type cloudServiceClient struct {
@@ -172,15 +170,6 @@ func (c *cloudServiceClient) DeleteProject(ctx context.Context, in *CloudRequest
 	return out, nil
 }
 
-func (c *cloudServiceClient) CreatePartner(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
-	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/Cloud.CloudService/CreatePartner", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *cloudServiceClient) GetPartner(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
 	err := c.cc.Invoke(ctx, "/Cloud.CloudService/GetPartner", in, out, opts...)
@@ -193,15 +182,6 @@ func (c *cloudServiceClient) GetPartner(ctx context.Context, in *CloudRequest, o
 func (c *cloudServiceClient) GetPartners(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
 	err := c.cc.Invoke(ctx, "/Cloud.CloudService/GetPartners", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *cloudServiceClient) DeletePartner(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
-	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/Cloud.CloudService/DeletePartner", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -226,10 +206,8 @@ type CloudServiceServer interface {
 	GetUserProjects(context.Context, *CloudRequest) (*CloudResponse, error)
 	GetProjectsInOrganization(context.Context, *CloudRequest) (*CloudResponse, error)
 	DeleteProject(context.Context, *CloudRequest) (*CloudResponse, error)
-	CreatePartner(context.Context, *CloudRequest) (*CloudResponse, error)
 	GetPartner(context.Context, *CloudRequest) (*CloudResponse, error)
 	GetPartners(context.Context, *CloudRequest) (*CloudResponse, error)
-	DeletePartner(context.Context, *CloudRequest) (*CloudResponse, error)
 }
 
 // UnimplementedCloudServiceServer should be embedded to have forward compatible implementations.
@@ -278,17 +256,11 @@ func (UnimplementedCloudServiceServer) GetProjectsInOrganization(context.Context
 func (UnimplementedCloudServiceServer) DeleteProject(context.Context, *CloudRequest) (*CloudResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteProject not implemented")
 }
-func (UnimplementedCloudServiceServer) CreatePartner(context.Context, *CloudRequest) (*CloudResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method CreatePartner not implemented")
-}
 func (UnimplementedCloudServiceServer) GetPartner(context.Context, *CloudRequest) (*CloudResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPartner not implemented")
 }
 func (UnimplementedCloudServiceServer) GetPartners(context.Context, *CloudRequest) (*CloudResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetPartners not implemented")
-}
-func (UnimplementedCloudServiceServer) DeletePartner(context.Context, *CloudRequest) (*CloudResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method DeletePartner not implemented")
 }
 
 // UnsafeCloudServiceServer may be embedded to opt out of forward compatibility for this service.
@@ -554,24 +526,6 @@ func _CloudService_DeleteProject_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CloudService_CreatePartner_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloudRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CloudServiceServer).CreatePartner(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/Cloud.CloudService/CreatePartner",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CloudServiceServer).CreatePartner(ctx, req.(*CloudRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _CloudService_GetPartner_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CloudRequest)
 	if err := dec(in); err != nil {
@@ -604,24 +558,6 @@ func _CloudService_GetPartners_Handler(srv interface{}, ctx context.Context, dec
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(CloudServiceServer).GetPartners(ctx, req.(*CloudRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _CloudService_DeletePartner_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloudRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CloudServiceServer).DeletePartner(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/Cloud.CloudService/DeletePartner",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CloudServiceServer).DeletePartner(ctx, req.(*CloudRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -690,20 +626,12 @@ var CloudService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CloudService_DeleteProject_Handler,
 		},
 		{
-			MethodName: "CreatePartner",
-			Handler:    _CloudService_CreatePartner_Handler,
-		},
-		{
 			MethodName: "GetPartner",
 			Handler:    _CloudService_GetPartner_Handler,
 		},
 		{
 			MethodName: "GetPartners",
 			Handler:    _CloudService_GetPartners_Handler,
-		},
-		{
-			MethodName: "DeletePartner",
-			Handler:    _CloudService_DeletePartner_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

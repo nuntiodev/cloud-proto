@@ -84,11 +84,6 @@ class CloudServiceClient extends $grpc.Client {
           '/Cloud.CloudService/DeleteProject',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
-  static final _$createPartner =
-      $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/Cloud.CloudService/CreatePartner',
-          ($0.CloudRequest value) => value.writeToBuffer(),
-          ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
   static final _$getPartner =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
           '/Cloud.CloudService/GetPartner',
@@ -97,11 +92,6 @@ class CloudServiceClient extends $grpc.Client {
   static final _$getPartners =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
           '/Cloud.CloudService/GetPartners',
-          ($0.CloudRequest value) => value.writeToBuffer(),
-          ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
-  static final _$deletePartner =
-      $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/Cloud.CloudService/DeletePartner',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
 
@@ -188,11 +178,6 @@ class CloudServiceClient extends $grpc.Client {
     return $createUnaryCall(_$deleteProject, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.CloudResponse> createPartner($0.CloudRequest request,
-      {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$createPartner, request, options: options);
-  }
-
   $grpc.ResponseFuture<$0.CloudResponse> getPartner($0.CloudRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getPartner, request, options: options);
@@ -201,11 +186,6 @@ class CloudServiceClient extends $grpc.Client {
   $grpc.ResponseFuture<$0.CloudResponse> getPartners($0.CloudRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$getPartners, request, options: options);
-  }
-
-  $grpc.ResponseFuture<$0.CloudResponse> deletePartner($0.CloudRequest request,
-      {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$deletePartner, request, options: options);
   }
 }
 
@@ -312,13 +292,6 @@ abstract class CloudServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) => $0.CloudRequest.fromBuffer(value),
         ($0.CloudResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.CloudRequest, $0.CloudResponse>(
-        'CreatePartner',
-        createPartner_Pre,
-        false,
-        false,
-        ($core.List<$core.int> value) => $0.CloudRequest.fromBuffer(value),
-        ($0.CloudResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CloudRequest, $0.CloudResponse>(
         'GetPartner',
         getPartner_Pre,
         false,
@@ -328,13 +301,6 @@ abstract class CloudServiceBase extends $grpc.Service {
     $addMethod($grpc.ServiceMethod<$0.CloudRequest, $0.CloudResponse>(
         'GetPartners',
         getPartners_Pre,
-        false,
-        false,
-        ($core.List<$core.int> value) => $0.CloudRequest.fromBuffer(value),
-        ($0.CloudResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CloudRequest, $0.CloudResponse>(
-        'DeletePartner',
-        deletePartner_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $0.CloudRequest.fromBuffer(value),
@@ -411,11 +377,6 @@ abstract class CloudServiceBase extends $grpc.Service {
     return deleteProject(call, await request);
   }
 
-  $async.Future<$0.CloudResponse> createPartner_Pre(
-      $grpc.ServiceCall call, $async.Future<$0.CloudRequest> request) async {
-    return createPartner(call, await request);
-  }
-
   $async.Future<$0.CloudResponse> getPartner_Pre(
       $grpc.ServiceCall call, $async.Future<$0.CloudRequest> request) async {
     return getPartner(call, await request);
@@ -424,11 +385,6 @@ abstract class CloudServiceBase extends $grpc.Service {
   $async.Future<$0.CloudResponse> getPartners_Pre(
       $grpc.ServiceCall call, $async.Future<$0.CloudRequest> request) async {
     return getPartners(call, await request);
-  }
-
-  $async.Future<$0.CloudResponse> deletePartner_Pre(
-      $grpc.ServiceCall call, $async.Future<$0.CloudRequest> request) async {
-    return deletePartner(call, await request);
   }
 
   $async.Future<$0.CloudResponse> heartbeat(
@@ -459,12 +415,8 @@ abstract class CloudServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.CloudRequest request);
   $async.Future<$0.CloudResponse> deleteProject(
       $grpc.ServiceCall call, $0.CloudRequest request);
-  $async.Future<$0.CloudResponse> createPartner(
-      $grpc.ServiceCall call, $0.CloudRequest request);
   $async.Future<$0.CloudResponse> getPartner(
       $grpc.ServiceCall call, $0.CloudRequest request);
   $async.Future<$0.CloudResponse> getPartners(
-      $grpc.ServiceCall call, $0.CloudRequest request);
-  $async.Future<$0.CloudResponse> deletePartner(
       $grpc.ServiceCall call, $0.CloudRequest request);
 }
