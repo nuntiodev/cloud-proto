@@ -13,17 +13,18 @@ service CloudService {
     rpc GetUserOrganizations(CloudRequest) returns (CloudResponse) {}
     rpc UpdateOrganization(CloudRequest) returns (CloudResponse) {}
     rpc CreateProject(CloudRequest) returns (CloudResponse) {}
-
     rpc RollPrivateKey(CloudRequest) returns (CloudResponse) {}
     rpc GenerateAccessToken(CloudRequest) returns (CloudResponse) {}
-    rpc ValidateAccessToken(CloudRequest) returns (CloudResponse) {}
-
     rpc PublicKeys(CloudRequest)  returns (CloudResponse) {}
     rpc UpdateProject(CloudRequest) returns (CloudResponse) {}
     rpc GetProject(CloudRequest) returns (CloudResponse) {}
     rpc GetUserProjects(CloudRequest) returns (CloudResponse) {}
     rpc GetProjectsInOrganization(CloudRequest) returns (CloudResponse) {}
     rpc DeleteProject(CloudRequest) returns (CloudResponse) {}
+    rpc CreatePartner(CloudRequest) returns (CloudResponse) {}
+    rpc GetPartner(CloudRequest) returns (CloudResponse) {}
+    rpc GetPartners(CloudRequest) returns (CloudResponse) {}
+    rpc DeletePartner(CloudRequest) returns (CloudResponse) {}
 }
 
 enum SubscriptionType {
@@ -115,6 +116,7 @@ message CloudRequest {
     string cloud_token = 5;
     Member member = 6;
     repeated Member members = 7;
+    Partner partner = 8;
 }
 
 message CloudResponse {
@@ -125,4 +127,6 @@ message CloudResponse {
     Member member = 5;
     repeated Member members = 6;
     repeated Organization organizations = 7;
+    Partner partner = 8;
+    repeated Partner partners = 9;
 }
