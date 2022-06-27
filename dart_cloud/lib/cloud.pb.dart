@@ -753,6 +753,7 @@ class CloudRequest extends $pb.GeneratedMessage {
     ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'cloudToken')
     ..aOM<Member>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'member', subBuilder: Member.create)
     ..pc<Member>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'members', $pb.PbFieldType.PM, subBuilder: Member.create)
+    ..aOM<Partner>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'partner', subBuilder: Partner.create)
     ..hasRequiredFields = false
   ;
 
@@ -765,6 +766,7 @@ class CloudRequest extends $pb.GeneratedMessage {
     $core.String? cloudToken,
     Member? member,
     $core.Iterable<Member>? members,
+    Partner? partner,
   }) {
     final _result = create();
     if (project != null) {
@@ -787,6 +789,9 @@ class CloudRequest extends $pb.GeneratedMessage {
     }
     if (members != null) {
       _result.members.addAll(members);
+    }
+    if (partner != null) {
+      _result.partner = partner;
     }
     return _result;
   }
@@ -873,6 +878,17 @@ class CloudRequest extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(7)
   $core.List<Member> get members => $_getList(6);
+
+  @$pb.TagNumber(8)
+  Partner get partner => $_getN(7);
+  @$pb.TagNumber(8)
+  set partner(Partner v) { setField(8, v); }
+  @$pb.TagNumber(8)
+  $core.bool hasPartner() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearPartner() => clearField(8);
+  @$pb.TagNumber(8)
+  Partner ensurePartner() => $_ensure(7);
 }
 
 class CloudResponse extends $pb.GeneratedMessage {
@@ -884,6 +900,8 @@ class CloudResponse extends $pb.GeneratedMessage {
     ..aOM<Member>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'member', subBuilder: Member.create)
     ..pc<Member>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'members', $pb.PbFieldType.PM, subBuilder: Member.create)
     ..pc<Organization>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'organizations', $pb.PbFieldType.PM, subBuilder: Organization.create)
+    ..aOM<Partner>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'partner', subBuilder: Partner.create)
+    ..pc<Partner>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'partners', $pb.PbFieldType.PM, subBuilder: Partner.create)
     ..hasRequiredFields = false
   ;
 
@@ -896,6 +914,8 @@ class CloudResponse extends $pb.GeneratedMessage {
     Member? member,
     $core.Iterable<Member>? members,
     $core.Iterable<Organization>? organizations,
+    Partner? partner,
+    $core.Iterable<Partner>? partners,
   }) {
     final _result = create();
     if (project != null) {
@@ -918,6 +938,12 @@ class CloudResponse extends $pb.GeneratedMessage {
     }
     if (organizations != null) {
       _result.organizations.addAll(organizations);
+    }
+    if (partner != null) {
+      _result.partner = partner;
+    }
+    if (partners != null) {
+      _result.partners.addAll(partners);
     }
     return _result;
   }
@@ -992,5 +1018,19 @@ class CloudResponse extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(7)
   $core.List<Organization> get organizations => $_getList(6);
+
+  @$pb.TagNumber(8)
+  Partner get partner => $_getN(7);
+  @$pb.TagNumber(8)
+  set partner(Partner v) { setField(8, v); }
+  @$pb.TagNumber(8)
+  $core.bool hasPartner() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearPartner() => clearField(8);
+  @$pb.TagNumber(8)
+  Partner ensurePartner() => $_ensure(7);
+
+  @$pb.TagNumber(9)
+  $core.List<Partner> get partners => $_getList(8);
 }
 

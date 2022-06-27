@@ -154,11 +154,12 @@ const CloudRequest$json = const {
     const {'1': 'cloud_token', '3': 5, '4': 1, '5': 9, '10': 'cloudToken'},
     const {'1': 'member', '3': 6, '4': 1, '5': 11, '6': '.Cloud.Member', '10': 'member'},
     const {'1': 'members', '3': 7, '4': 3, '5': 11, '6': '.Cloud.Member', '10': 'members'},
+    const {'1': 'partner', '3': 8, '4': 1, '5': 11, '6': '.Cloud.Partner', '10': 'partner'},
   ],
 };
 
 /// Descriptor for `CloudRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List cloudRequestDescriptor = $convert.base64Decode('CgxDbG91ZFJlcXVlc3QSKAoHcHJvamVjdBgBIAEoCzIOLkNsb3VkLlByb2plY3RSB3Byb2plY3QSHwoLcHJpdmF0ZV9rZXkYAiABKAlSCnByaXZhdGVLZXkSIQoMYWNjZXNzX3Rva2VuGAMgASgJUgthY2Nlc3NUb2tlbhI3Cgxvcmdhbml6YXRpb24YBCABKAsyEy5DbG91ZC5Pcmdhbml6YXRpb25SDG9yZ2FuaXphdGlvbhIfCgtjbG91ZF90b2tlbhgFIAEoCVIKY2xvdWRUb2tlbhIlCgZtZW1iZXIYBiABKAsyDS5DbG91ZC5NZW1iZXJSBm1lbWJlchInCgdtZW1iZXJzGAcgAygLMg0uQ2xvdWQuTWVtYmVyUgdtZW1iZXJz');
+final $typed_data.Uint8List cloudRequestDescriptor = $convert.base64Decode('CgxDbG91ZFJlcXVlc3QSKAoHcHJvamVjdBgBIAEoCzIOLkNsb3VkLlByb2plY3RSB3Byb2plY3QSHwoLcHJpdmF0ZV9rZXkYAiABKAlSCnByaXZhdGVLZXkSIQoMYWNjZXNzX3Rva2VuGAMgASgJUgthY2Nlc3NUb2tlbhI3Cgxvcmdhbml6YXRpb24YBCABKAsyEy5DbG91ZC5Pcmdhbml6YXRpb25SDG9yZ2FuaXphdGlvbhIfCgtjbG91ZF90b2tlbhgFIAEoCVIKY2xvdWRUb2tlbhIlCgZtZW1iZXIYBiABKAsyDS5DbG91ZC5NZW1iZXJSBm1lbWJlchInCgdtZW1iZXJzGAcgAygLMg0uQ2xvdWQuTWVtYmVyUgdtZW1iZXJzEigKB3BhcnRuZXIYCCABKAsyDi5DbG91ZC5QYXJ0bmVyUgdwYXJ0bmVy');
 @$core.Deprecated('Use cloudResponseDescriptor instead')
 const CloudResponse$json = const {
   '1': 'CloudResponse',
@@ -170,8 +171,10 @@ const CloudResponse$json = const {
     const {'1': 'member', '3': 5, '4': 1, '5': 11, '6': '.Cloud.Member', '10': 'member'},
     const {'1': 'members', '3': 6, '4': 3, '5': 11, '6': '.Cloud.Member', '10': 'members'},
     const {'1': 'organizations', '3': 7, '4': 3, '5': 11, '6': '.Cloud.Organization', '10': 'organizations'},
+    const {'1': 'partner', '3': 8, '4': 1, '5': 11, '6': '.Cloud.Partner', '10': 'partner'},
+    const {'1': 'partners', '3': 9, '4': 3, '5': 11, '6': '.Cloud.Partner', '10': 'partners'},
   ],
 };
 
 /// Descriptor for `CloudResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List cloudResponseDescriptor = $convert.base64Decode('Cg1DbG91ZFJlc3BvbnNlEigKB3Byb2plY3QYASABKAsyDi5DbG91ZC5Qcm9qZWN0Ugdwcm9qZWN0EioKCHByb2plY3RzGAIgAygLMg4uQ2xvdWQuUHJvamVjdFIIcHJvamVjdHMSIQoMYWNjZXNzX3Rva2VuGAMgASgJUgthY2Nlc3NUb2tlbhI3Cgxvcmdhbml6YXRpb24YBCABKAsyEy5DbG91ZC5Pcmdhbml6YXRpb25SDG9yZ2FuaXphdGlvbhIlCgZtZW1iZXIYBSABKAsyDS5DbG91ZC5NZW1iZXJSBm1lbWJlchInCgdtZW1iZXJzGAYgAygLMg0uQ2xvdWQuTWVtYmVyUgdtZW1iZXJzEjkKDW9yZ2FuaXphdGlvbnMYByADKAsyEy5DbG91ZC5Pcmdhbml6YXRpb25SDW9yZ2FuaXphdGlvbnM=');
+final $typed_data.Uint8List cloudResponseDescriptor = $convert.base64Decode('Cg1DbG91ZFJlc3BvbnNlEigKB3Byb2plY3QYASABKAsyDi5DbG91ZC5Qcm9qZWN0Ugdwcm9qZWN0EioKCHByb2plY3RzGAIgAygLMg4uQ2xvdWQuUHJvamVjdFIIcHJvamVjdHMSIQoMYWNjZXNzX3Rva2VuGAMgASgJUgthY2Nlc3NUb2tlbhI3Cgxvcmdhbml6YXRpb24YBCABKAsyEy5DbG91ZC5Pcmdhbml6YXRpb25SDG9yZ2FuaXphdGlvbhIlCgZtZW1iZXIYBSABKAsyDS5DbG91ZC5NZW1iZXJSBm1lbWJlchInCgdtZW1iZXJzGAYgAygLMg0uQ2xvdWQuTWVtYmVyUgdtZW1iZXJzEjkKDW9yZ2FuaXphdGlvbnMYByADKAsyEy5DbG91ZC5Pcmdhbml6YXRpb25SDW9yZ2FuaXphdGlvbnMSKAoHcGFydG5lchgIIAEoCzIOLkNsb3VkLlBhcnRuZXJSB3BhcnRuZXISKgoIcGFydG5lcnMYCSADKAsyDi5DbG91ZC5QYXJ0bmVyUghwYXJ0bmVycw==');

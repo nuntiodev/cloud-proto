@@ -26,13 +26,16 @@ type CloudServiceClient interface {
 	CreateProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	RollPrivateKey(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	GenerateAccessToken(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
-	ValidateAccessToken(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	PublicKeys(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	UpdateProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	GetProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	GetUserProjects(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	GetProjectsInOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	DeleteProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
+	CreatePartner(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
+	GetPartner(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
+	GetPartners(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
+	DeletePartner(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 }
 
 type cloudServiceClient struct {
@@ -115,15 +118,6 @@ func (c *cloudServiceClient) GenerateAccessToken(ctx context.Context, in *CloudR
 	return out, nil
 }
 
-func (c *cloudServiceClient) ValidateAccessToken(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
-	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/Cloud.CloudService/ValidateAccessToken", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *cloudServiceClient) PublicKeys(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
 	err := c.cc.Invoke(ctx, "/Cloud.CloudService/PublicKeys", in, out, opts...)
@@ -178,6 +172,42 @@ func (c *cloudServiceClient) DeleteProject(ctx context.Context, in *CloudRequest
 	return out, nil
 }
 
+func (c *cloudServiceClient) CreatePartner(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
+	out := new(CloudResponse)
+	err := c.cc.Invoke(ctx, "/Cloud.CloudService/CreatePartner", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) GetPartner(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
+	out := new(CloudResponse)
+	err := c.cc.Invoke(ctx, "/Cloud.CloudService/GetPartner", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) GetPartners(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
+	out := new(CloudResponse)
+	err := c.cc.Invoke(ctx, "/Cloud.CloudService/GetPartners", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cloudServiceClient) DeletePartner(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
+	out := new(CloudResponse)
+	err := c.cc.Invoke(ctx, "/Cloud.CloudService/DeletePartner", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // CloudServiceServer is the server API for CloudService service.
 // All implementations should embed UnimplementedCloudServiceServer
 // for forward compatibility
@@ -190,13 +220,16 @@ type CloudServiceServer interface {
 	CreateProject(context.Context, *CloudRequest) (*CloudResponse, error)
 	RollPrivateKey(context.Context, *CloudRequest) (*CloudResponse, error)
 	GenerateAccessToken(context.Context, *CloudRequest) (*CloudResponse, error)
-	ValidateAccessToken(context.Context, *CloudRequest) (*CloudResponse, error)
 	PublicKeys(context.Context, *CloudRequest) (*CloudResponse, error)
 	UpdateProject(context.Context, *CloudRequest) (*CloudResponse, error)
 	GetProject(context.Context, *CloudRequest) (*CloudResponse, error)
 	GetUserProjects(context.Context, *CloudRequest) (*CloudResponse, error)
 	GetProjectsInOrganization(context.Context, *CloudRequest) (*CloudResponse, error)
 	DeleteProject(context.Context, *CloudRequest) (*CloudResponse, error)
+	CreatePartner(context.Context, *CloudRequest) (*CloudResponse, error)
+	GetPartner(context.Context, *CloudRequest) (*CloudResponse, error)
+	GetPartners(context.Context, *CloudRequest) (*CloudResponse, error)
+	DeletePartner(context.Context, *CloudRequest) (*CloudResponse, error)
 }
 
 // UnimplementedCloudServiceServer should be embedded to have forward compatible implementations.
@@ -227,9 +260,6 @@ func (UnimplementedCloudServiceServer) RollPrivateKey(context.Context, *CloudReq
 func (UnimplementedCloudServiceServer) GenerateAccessToken(context.Context, *CloudRequest) (*CloudResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GenerateAccessToken not implemented")
 }
-func (UnimplementedCloudServiceServer) ValidateAccessToken(context.Context, *CloudRequest) (*CloudResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ValidateAccessToken not implemented")
-}
 func (UnimplementedCloudServiceServer) PublicKeys(context.Context, *CloudRequest) (*CloudResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method PublicKeys not implemented")
 }
@@ -247,6 +277,18 @@ func (UnimplementedCloudServiceServer) GetProjectsInOrganization(context.Context
 }
 func (UnimplementedCloudServiceServer) DeleteProject(context.Context, *CloudRequest) (*CloudResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteProject not implemented")
+}
+func (UnimplementedCloudServiceServer) CreatePartner(context.Context, *CloudRequest) (*CloudResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreatePartner not implemented")
+}
+func (UnimplementedCloudServiceServer) GetPartner(context.Context, *CloudRequest) (*CloudResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPartner not implemented")
+}
+func (UnimplementedCloudServiceServer) GetPartners(context.Context, *CloudRequest) (*CloudResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPartners not implemented")
+}
+func (UnimplementedCloudServiceServer) DeletePartner(context.Context, *CloudRequest) (*CloudResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeletePartner not implemented")
 }
 
 // UnsafeCloudServiceServer may be embedded to opt out of forward compatibility for this service.
@@ -404,24 +446,6 @@ func _CloudService_GenerateAccessToken_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
-func _CloudService_ValidateAccessToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(CloudRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CloudServiceServer).ValidateAccessToken(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/Cloud.CloudService/ValidateAccessToken",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CloudServiceServer).ValidateAccessToken(ctx, req.(*CloudRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _CloudService_PublicKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CloudRequest)
 	if err := dec(in); err != nil {
@@ -530,6 +554,78 @@ func _CloudService_DeleteProject_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CloudService_CreatePartner_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloudRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).CreatePartner(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/Cloud.CloudService/CreatePartner",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).CreatePartner(ctx, req.(*CloudRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_GetPartner_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloudRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).GetPartner(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/Cloud.CloudService/GetPartner",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).GetPartner(ctx, req.(*CloudRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_GetPartners_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloudRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).GetPartners(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/Cloud.CloudService/GetPartners",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).GetPartners(ctx, req.(*CloudRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CloudService_DeletePartner_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloudRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).DeletePartner(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/Cloud.CloudService/DeletePartner",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).DeletePartner(ctx, req.(*CloudRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // CloudService_ServiceDesc is the grpc.ServiceDesc for CloudService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -570,10 +666,6 @@ var CloudService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _CloudService_GenerateAccessToken_Handler,
 		},
 		{
-			MethodName: "ValidateAccessToken",
-			Handler:    _CloudService_ValidateAccessToken_Handler,
-		},
-		{
 			MethodName: "PublicKeys",
 			Handler:    _CloudService_PublicKeys_Handler,
 		},
@@ -596,6 +688,22 @@ var CloudService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DeleteProject",
 			Handler:    _CloudService_DeleteProject_Handler,
+		},
+		{
+			MethodName: "CreatePartner",
+			Handler:    _CloudService_CreatePartner_Handler,
+		},
+		{
+			MethodName: "GetPartner",
+			Handler:    _CloudService_GetPartner_Handler,
+		},
+		{
+			MethodName: "GetPartners",
+			Handler:    _CloudService_GetPartners_Handler,
+		},
+		{
+			MethodName: "DeletePartner",
+			Handler:    _CloudService_DeletePartner_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

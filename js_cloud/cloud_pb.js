@@ -2140,7 +2140,8 @@ proto.Cloud.CloudRequest.toObject = function(includeInstance, msg) {
     cloudToken: jspb.Message.getFieldWithDefault(msg, 5, ""),
     member: (f = msg.getMember()) && proto.Cloud.Member.toObject(includeInstance, f),
     membersList: jspb.Message.toObjectList(msg.getMembersList(),
-    proto.Cloud.Member.toObject, includeInstance)
+    proto.Cloud.Member.toObject, includeInstance),
+    partner: (f = msg.getPartner()) && proto.Cloud.Partner.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -2208,6 +2209,11 @@ proto.Cloud.CloudRequest.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.Cloud.Member;
       reader.readMessage(value,proto.Cloud.Member.deserializeBinaryFromReader);
       msg.addMembers(value);
+      break;
+    case 8:
+      var value = new proto.Cloud.Partner;
+      reader.readMessage(value,proto.Cloud.Partner.deserializeBinaryFromReader);
+      msg.setPartner(value);
       break;
     default:
       reader.skipField();
@@ -2289,6 +2295,14 @@ proto.Cloud.CloudRequest.serializeBinaryToWriter = function(message, writer) {
       7,
       f,
       proto.Cloud.Member.serializeBinaryToWriter
+    );
+  }
+  f = message.getPartner();
+  if (f != null) {
+    writer.writeMessage(
+      8,
+      f,
+      proto.Cloud.Partner.serializeBinaryToWriter
     );
   }
 };
@@ -2497,13 +2511,50 @@ proto.Cloud.CloudRequest.prototype.clearMembersList = function() {
 };
 
 
+/**
+ * optional Partner partner = 8;
+ * @return {?proto.Cloud.Partner}
+ */
+proto.Cloud.CloudRequest.prototype.getPartner = function() {
+  return /** @type{?proto.Cloud.Partner} */ (
+    jspb.Message.getWrapperField(this, proto.Cloud.Partner, 8));
+};
+
+
+/**
+ * @param {?proto.Cloud.Partner|undefined} value
+ * @return {!proto.Cloud.CloudRequest} returns this
+*/
+proto.Cloud.CloudRequest.prototype.setPartner = function(value) {
+  return jspb.Message.setWrapperField(this, 8, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.Cloud.CloudRequest} returns this
+ */
+proto.Cloud.CloudRequest.prototype.clearPartner = function() {
+  return this.setPartner(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.Cloud.CloudRequest.prototype.hasPartner = function() {
+  return jspb.Message.getField(this, 8) != null;
+};
+
+
 
 /**
  * List of repeated fields within this message type.
  * @private {!Array<number>}
  * @const
  */
-proto.Cloud.CloudResponse.repeatedFields_ = [2,6,7];
+proto.Cloud.CloudResponse.repeatedFields_ = [2,6,7,9];
 
 
 
@@ -2545,7 +2596,10 @@ proto.Cloud.CloudResponse.toObject = function(includeInstance, msg) {
     membersList: jspb.Message.toObjectList(msg.getMembersList(),
     proto.Cloud.Member.toObject, includeInstance),
     organizationsList: jspb.Message.toObjectList(msg.getOrganizationsList(),
-    proto.Cloud.Organization.toObject, includeInstance)
+    proto.Cloud.Organization.toObject, includeInstance),
+    partner: (f = msg.getPartner()) && proto.Cloud.Partner.toObject(includeInstance, f),
+    partnersList: jspb.Message.toObjectList(msg.getPartnersList(),
+    proto.Cloud.Partner.toObject, includeInstance)
   };
 
   if (includeInstance) {
@@ -2615,6 +2669,16 @@ proto.Cloud.CloudResponse.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.Cloud.Organization;
       reader.readMessage(value,proto.Cloud.Organization.deserializeBinaryFromReader);
       msg.addOrganizations(value);
+      break;
+    case 8:
+      var value = new proto.Cloud.Partner;
+      reader.readMessage(value,proto.Cloud.Partner.deserializeBinaryFromReader);
+      msg.setPartner(value);
+      break;
+    case 9:
+      var value = new proto.Cloud.Partner;
+      reader.readMessage(value,proto.Cloud.Partner.deserializeBinaryFromReader);
+      msg.addPartners(value);
       break;
     default:
       reader.skipField();
@@ -2698,6 +2762,22 @@ proto.Cloud.CloudResponse.serializeBinaryToWriter = function(message, writer) {
       7,
       f,
       proto.Cloud.Organization.serializeBinaryToWriter
+    );
+  }
+  f = message.getPartner();
+  if (f != null) {
+    writer.writeMessage(
+      8,
+      f,
+      proto.Cloud.Partner.serializeBinaryToWriter
+    );
+  }
+  f = message.getPartnersList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      9,
+      f,
+      proto.Cloud.Partner.serializeBinaryToWriter
     );
   }
 };
@@ -2943,6 +3023,81 @@ proto.Cloud.CloudResponse.prototype.addOrganizations = function(opt_value, opt_i
  */
 proto.Cloud.CloudResponse.prototype.clearOrganizationsList = function() {
   return this.setOrganizationsList([]);
+};
+
+
+/**
+ * optional Partner partner = 8;
+ * @return {?proto.Cloud.Partner}
+ */
+proto.Cloud.CloudResponse.prototype.getPartner = function() {
+  return /** @type{?proto.Cloud.Partner} */ (
+    jspb.Message.getWrapperField(this, proto.Cloud.Partner, 8));
+};
+
+
+/**
+ * @param {?proto.Cloud.Partner|undefined} value
+ * @return {!proto.Cloud.CloudResponse} returns this
+*/
+proto.Cloud.CloudResponse.prototype.setPartner = function(value) {
+  return jspb.Message.setWrapperField(this, 8, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.Cloud.CloudResponse} returns this
+ */
+proto.Cloud.CloudResponse.prototype.clearPartner = function() {
+  return this.setPartner(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.Cloud.CloudResponse.prototype.hasPartner = function() {
+  return jspb.Message.getField(this, 8) != null;
+};
+
+
+/**
+ * repeated Partner partners = 9;
+ * @return {!Array<!proto.Cloud.Partner>}
+ */
+proto.Cloud.CloudResponse.prototype.getPartnersList = function() {
+  return /** @type{!Array<!proto.Cloud.Partner>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.Cloud.Partner, 9));
+};
+
+
+/**
+ * @param {!Array<!proto.Cloud.Partner>} value
+ * @return {!proto.Cloud.CloudResponse} returns this
+*/
+proto.Cloud.CloudResponse.prototype.setPartnersList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 9, value);
+};
+
+
+/**
+ * @param {!proto.Cloud.Partner=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.Cloud.Partner}
+ */
+proto.Cloud.CloudResponse.prototype.addPartners = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 9, opt_value, proto.Cloud.Partner, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.Cloud.CloudResponse} returns this
+ */
+proto.Cloud.CloudResponse.prototype.clearPartnersList = function() {
+  return this.setPartnersList([]);
 };
 
 
