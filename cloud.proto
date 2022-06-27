@@ -13,9 +13,11 @@ service CloudService {
     rpc GetUserOrganizations(CloudRequest) returns (CloudResponse) {}
     rpc UpdateOrganization(CloudRequest) returns (CloudResponse) {}
     rpc CreateProject(CloudRequest) returns (CloudResponse) {}
+
     rpc RollPrivateKey(CloudRequest) returns (CloudResponse) {}
     rpc GenerateAccessToken(CloudRequest) returns (CloudResponse) {}
     rpc ValidateAccessToken(CloudRequest) returns (CloudResponse) {}
+
     rpc PublicKeys(CloudRequest)  returns (CloudResponse) {}
     rpc UpdateProject(CloudRequest) returns (CloudResponse) {}
     rpc GetProject(CloudRequest) returns (CloudResponse) {}
@@ -70,8 +72,7 @@ enum KeyType {
 
 message CustomClaims {
     string projectId = 1;
-    string password = 2;
-    KeyType type = 3;
+    KeyType type = 2;
 }
 
 enum CloudLocation {
