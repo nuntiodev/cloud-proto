@@ -21,10 +21,9 @@ service CloudService {
     rpc GetUserProjects(CloudRequest) returns (CloudResponse) {}
     rpc GetProjectsInOrganization(CloudRequest) returns (CloudResponse) {}
     rpc DeleteProject(CloudRequest) returns (CloudResponse) {}
-    rpc CreatePartner(CloudRequest) returns (CloudResponse) {}
+
     rpc GetPartner(CloudRequest) returns (CloudResponse) {}
     rpc GetPartners(CloudRequest) returns (CloudResponse) {}
-    rpc DeletePartner(CloudRequest) returns (CloudResponse) {}
 }
 
 enum SubscriptionType {
