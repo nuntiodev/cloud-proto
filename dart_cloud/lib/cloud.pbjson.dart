@@ -92,19 +92,6 @@ const Organization$json = const {
 
 /// Descriptor for `Organization`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List organizationDescriptor = $convert.base64Decode('CgxPcmdhbml6YXRpb24SDgoCaWQYASABKAlSAmlkEhIKBG5hbWUYAiABKAlSBG5hbWUSIgoNb3duZXJfdXNlcl9pZBgDIAEoCVILb3duZXJVc2VySWQSOQoKY3JlYXRlZF9hdBgEIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCWNyZWF0ZWRBdBI5Cgp1cGRhdGVkX2F0GAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJdXBkYXRlZEF0EhgKB3ZpZXdlcnMYBiADKAlSB3ZpZXdlcnMSGAoHZWRpdG9ycxgHIAMoCVIHZWRpdG9ycxJEChFzdWJzY3JpcHRpb25fdHlwZRgIIAEoDjIXLkNsb3VkLlN1YnNjcmlwdGlvblR5cGVSEHN1YnNjcmlwdGlvblR5cGU=');
-@$core.Deprecated('Use customClaimsDescriptor instead')
-const CustomClaims$json = const {
-  '1': 'CustomClaims',
-  '2': const [
-    const {'1': 'project_id', '3': 1, '4': 1, '5': 9, '10': 'projectId'},
-    const {'1': 'type', '3': 2, '4': 1, '5': 14, '6': '.Cloud.KeyType', '10': 'type'},
-    const {'1': 'partner_id', '3': 3, '4': 1, '5': 9, '10': 'partnerId'},
-    const {'1': 'api_url', '3': 4, '4': 1, '5': 9, '10': 'apiUrl'},
-  ],
-};
-
-/// Descriptor for `CustomClaims`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List customClaimsDescriptor = $convert.base64Decode('CgxDdXN0b21DbGFpbXMSHQoKcHJvamVjdF9pZBgBIAEoCVIJcHJvamVjdElkEiIKBHR5cGUYAiABKA4yDi5DbG91ZC5LZXlUeXBlUgR0eXBlEh0KCnBhcnRuZXJfaWQYAyABKAlSCXBhcnRuZXJJZBIXCgdhcGlfdXJsGAQgASgJUgZhcGlVcmw=');
 @$core.Deprecated('Use partnerDescriptor instead')
 const Partner$json = const {
   '1': 'Partner',
