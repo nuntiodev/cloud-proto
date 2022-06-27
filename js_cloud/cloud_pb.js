@@ -1001,8 +1001,7 @@ proto.Cloud.CustomClaims.prototype.toObject = function(opt_includeInstance) {
 proto.Cloud.CustomClaims.toObject = function(includeInstance, msg) {
   var f, obj = {
     projectid: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    password: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    type: jspb.Message.getFieldWithDefault(msg, 3, 0)
+    type: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -1044,10 +1043,6 @@ proto.Cloud.CustomClaims.deserializeBinaryFromReader = function(msg, reader) {
       msg.setProjectid(value);
       break;
     case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setPassword(value);
-      break;
-    case 3:
       var value = /** @type {!proto.Cloud.KeyType} */ (reader.readEnum());
       msg.setType(value);
       break;
@@ -1087,17 +1082,10 @@ proto.Cloud.CustomClaims.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getPassword();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
-  }
   f = message.getType();
   if (f !== 0.0) {
     writer.writeEnum(
-      3,
+      2,
       f
     );
   }
@@ -1123,29 +1111,11 @@ proto.Cloud.CustomClaims.prototype.setProjectid = function(value) {
 
 
 /**
- * optional string password = 2;
- * @return {string}
- */
-proto.Cloud.CustomClaims.prototype.getPassword = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.Cloud.CustomClaims} returns this
- */
-proto.Cloud.CustomClaims.prototype.setPassword = function(value) {
-  return jspb.Message.setProto3StringField(this, 2, value);
-};
-
-
-/**
- * optional KeyType type = 3;
+ * optional KeyType type = 2;
  * @return {!proto.Cloud.KeyType}
  */
 proto.Cloud.CustomClaims.prototype.getType = function() {
-  return /** @type {!proto.Cloud.KeyType} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+  return /** @type {!proto.Cloud.KeyType} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
 };
 
 
@@ -1154,7 +1124,7 @@ proto.Cloud.CustomClaims.prototype.getType = function() {
  * @return {!proto.Cloud.CustomClaims} returns this
  */
 proto.Cloud.CustomClaims.prototype.setType = function(value) {
-  return jspb.Message.setProto3EnumField(this, 3, value);
+  return jspb.Message.setProto3EnumField(this, 2, value);
 };
 
 

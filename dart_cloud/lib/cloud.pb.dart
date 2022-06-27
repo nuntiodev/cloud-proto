@@ -304,23 +304,18 @@ class Organization extends $pb.GeneratedMessage {
 class CustomClaims extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CustomClaims', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Cloud'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'projectId', protoName: 'projectId')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'password')
-    ..e<KeyType>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'type', $pb.PbFieldType.OE, defaultOrMaker: KeyType.INVALID_TOKEN_TYPE, valueOf: KeyType.valueOf, enumValues: KeyType.values)
+    ..e<KeyType>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'type', $pb.PbFieldType.OE, defaultOrMaker: KeyType.INVALID_TOKEN_TYPE, valueOf: KeyType.valueOf, enumValues: KeyType.values)
     ..hasRequiredFields = false
   ;
 
   CustomClaims._() : super();
   factory CustomClaims({
     $core.String? projectId,
-    $core.String? password,
     KeyType? type,
   }) {
     final _result = create();
     if (projectId != null) {
       _result.projectId = projectId;
-    }
-    if (password != null) {
-      _result.password = password;
     }
     if (type != null) {
       _result.type = type;
@@ -358,22 +353,13 @@ class CustomClaims extends $pb.GeneratedMessage {
   void clearProjectId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get password => $_getSZ(1);
+  KeyType get type => $_getN(1);
   @$pb.TagNumber(2)
-  set password($core.String v) { $_setString(1, v); }
+  set type(KeyType v) { setField(2, v); }
   @$pb.TagNumber(2)
-  $core.bool hasPassword() => $_has(1);
+  $core.bool hasType() => $_has(1);
   @$pb.TagNumber(2)
-  void clearPassword() => clearField(2);
-
-  @$pb.TagNumber(3)
-  KeyType get type => $_getN(2);
-  @$pb.TagNumber(3)
-  set type(KeyType v) { setField(3, v); }
-  @$pb.TagNumber(3)
-  $core.bool hasType() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearType() => clearField(3);
+  void clearType() => clearField(2);
 }
 
 class Project extends $pb.GeneratedMessage {

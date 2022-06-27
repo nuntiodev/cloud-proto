@@ -98,13 +98,12 @@ const CustomClaims$json = const {
   '1': 'CustomClaims',
   '2': const [
     const {'1': 'projectId', '3': 1, '4': 1, '5': 9, '10': 'projectId'},
-    const {'1': 'password', '3': 2, '4': 1, '5': 9, '10': 'password'},
-    const {'1': 'type', '3': 3, '4': 1, '5': 14, '6': '.Cloud.KeyType', '10': 'type'},
+    const {'1': 'type', '3': 2, '4': 1, '5': 14, '6': '.Cloud.KeyType', '10': 'type'},
   ],
 };
 
 /// Descriptor for `CustomClaims`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List customClaimsDescriptor = $convert.base64Decode('CgxDdXN0b21DbGFpbXMSHAoJcHJvamVjdElkGAEgASgJUglwcm9qZWN0SWQSGgoIcGFzc3dvcmQYAiABKAlSCHBhc3N3b3JkEiIKBHR5cGUYAyABKA4yDi5DbG91ZC5LZXlUeXBlUgR0eXBl');
+final $typed_data.Uint8List customClaimsDescriptor = $convert.base64Decode('CgxDdXN0b21DbGFpbXMSHAoJcHJvamVjdElkGAEgASgJUglwcm9qZWN0SWQSIgoEdHlwZRgCIAEoDjIOLkNsb3VkLktleVR5cGVSBHR5cGU=');
 @$core.Deprecated('Use projectDescriptor instead')
 const Project$json = const {
   '1': 'Project',
