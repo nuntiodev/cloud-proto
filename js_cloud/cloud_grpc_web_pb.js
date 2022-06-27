@@ -627,6 +627,67 @@ proto.Cloud.CloudServicePromiseClient.prototype.validateAccessToken =
  *   !proto.Cloud.CloudRequest,
  *   !proto.Cloud.CloudResponse>}
  */
+const methodDescriptor_CloudService_PublicKeys = new grpc.web.MethodDescriptor(
+  '/Cloud.CloudService/PublicKeys',
+  grpc.web.MethodType.UNARY,
+  proto.Cloud.CloudRequest,
+  proto.Cloud.CloudResponse,
+  /**
+   * @param {!proto.Cloud.CloudRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.Cloud.CloudResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.Cloud.CloudRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.Cloud.CloudResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.Cloud.CloudServiceClient.prototype.publicKeys =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/Cloud.CloudService/PublicKeys',
+      request,
+      metadata || {},
+      methodDescriptor_CloudService_PublicKeys,
+      callback);
+};
+
+
+/**
+ * @param {!proto.Cloud.CloudRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.Cloud.CloudResponse>}
+ *     Promise that resolves to the response
+ */
+proto.Cloud.CloudServicePromiseClient.prototype.publicKeys =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/Cloud.CloudService/PublicKeys',
+      request,
+      metadata || {},
+      methodDescriptor_CloudService_PublicKeys);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.Cloud.CloudRequest,
+ *   !proto.Cloud.CloudResponse>}
+ */
 const methodDescriptor_CloudService_UpdateProject = new grpc.web.MethodDescriptor(
   '/Cloud.CloudService/UpdateProject',
   grpc.web.MethodType.UNARY,

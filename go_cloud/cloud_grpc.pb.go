@@ -27,6 +27,7 @@ type CloudServiceClient interface {
 	RollPrivateKey(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	GenerateAccessToken(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	ValidateAccessToken(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
+	PublicKeys(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	UpdateProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	GetProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	GetUserProjects(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
@@ -123,6 +124,15 @@ func (c *cloudServiceClient) ValidateAccessToken(ctx context.Context, in *CloudR
 	return out, nil
 }
 
+func (c *cloudServiceClient) PublicKeys(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
+	out := new(CloudResponse)
+	err := c.cc.Invoke(ctx, "/Cloud.CloudService/PublicKeys", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *cloudServiceClient) UpdateProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
 	err := c.cc.Invoke(ctx, "/Cloud.CloudService/UpdateProject", in, out, opts...)
@@ -181,6 +191,7 @@ type CloudServiceServer interface {
 	RollPrivateKey(context.Context, *CloudRequest) (*CloudResponse, error)
 	GenerateAccessToken(context.Context, *CloudRequest) (*CloudResponse, error)
 	ValidateAccessToken(context.Context, *CloudRequest) (*CloudResponse, error)
+	PublicKeys(context.Context, *CloudRequest) (*CloudResponse, error)
 	UpdateProject(context.Context, *CloudRequest) (*CloudResponse, error)
 	GetProject(context.Context, *CloudRequest) (*CloudResponse, error)
 	GetUserProjects(context.Context, *CloudRequest) (*CloudResponse, error)
@@ -218,6 +229,9 @@ func (UnimplementedCloudServiceServer) GenerateAccessToken(context.Context, *Clo
 }
 func (UnimplementedCloudServiceServer) ValidateAccessToken(context.Context, *CloudRequest) (*CloudResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ValidateAccessToken not implemented")
+}
+func (UnimplementedCloudServiceServer) PublicKeys(context.Context, *CloudRequest) (*CloudResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PublicKeys not implemented")
 }
 func (UnimplementedCloudServiceServer) UpdateProject(context.Context, *CloudRequest) (*CloudResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateProject not implemented")
@@ -408,6 +422,24 @@ func _CloudService_ValidateAccessToken_Handler(srv interface{}, ctx context.Cont
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CloudService_PublicKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloudRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CloudServiceServer).PublicKeys(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/Cloud.CloudService/PublicKeys",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CloudServiceServer).PublicKeys(ctx, req.(*CloudRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _CloudService_UpdateProject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CloudRequest)
 	if err := dec(in); err != nil {
@@ -540,6 +572,10 @@ var CloudService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "ValidateAccessToken",
 			Handler:    _CloudService_ValidateAccessToken_Handler,
+		},
+		{
+			MethodName: "PublicKeys",
+			Handler:    _CloudService_PublicKeys_Handler,
 		},
 		{
 			MethodName: "UpdateProject",

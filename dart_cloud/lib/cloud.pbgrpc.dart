@@ -3,7 +3,7 @@
 //  source: cloud.proto
 //
 // @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,unnecessary_const,non_constant_identifier_names,library_prefixes,unused_import,unused_shown_name,return_of_invalid_type,unnecessary_this,prefer_final_fields
+// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
 
 import 'dart:async' as $async;
 
@@ -57,6 +57,11 @@ class CloudServiceClient extends $grpc.Client {
   static final _$validateAccessToken =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
           '/Cloud.CloudService/ValidateAccessToken',
+          ($0.CloudRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
+  static final _$publicKeys =
+      $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
+          '/Cloud.CloudService/PublicKeys',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
   static final _$updateProject =
@@ -139,6 +144,11 @@ class CloudServiceClient extends $grpc.Client {
       $0.CloudRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$validateAccessToken, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.CloudResponse> publicKeys($0.CloudRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$publicKeys, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.CloudResponse> updateProject($0.CloudRequest request,
@@ -238,6 +248,13 @@ abstract class CloudServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) => $0.CloudRequest.fromBuffer(value),
         ($0.CloudResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.CloudRequest, $0.CloudResponse>(
+        'PublicKeys',
+        publicKeys_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CloudRequest.fromBuffer(value),
+        ($0.CloudResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CloudRequest, $0.CloudResponse>(
         'UpdateProject',
         updateProject_Pre,
         false,
@@ -319,6 +336,11 @@ abstract class CloudServiceBase extends $grpc.Service {
     return validateAccessToken(call, await request);
   }
 
+  $async.Future<$0.CloudResponse> publicKeys_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.CloudRequest> request) async {
+    return publicKeys(call, await request);
+  }
+
   $async.Future<$0.CloudResponse> updateProject_Pre(
       $grpc.ServiceCall call, $async.Future<$0.CloudRequest> request) async {
     return updateProject(call, await request);
@@ -361,6 +383,8 @@ abstract class CloudServiceBase extends $grpc.Service {
   $async.Future<$0.CloudResponse> generateAccessToken(
       $grpc.ServiceCall call, $0.CloudRequest request);
   $async.Future<$0.CloudResponse> validateAccessToken(
+      $grpc.ServiceCall call, $0.CloudRequest request);
+  $async.Future<$0.CloudResponse> publicKeys(
       $grpc.ServiceCall call, $0.CloudRequest request);
   $async.Future<$0.CloudResponse> updateProject(
       $grpc.ServiceCall call, $0.CloudRequest request);
