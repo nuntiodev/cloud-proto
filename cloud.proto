@@ -116,6 +116,7 @@ message CloudRequest {
     repeated Member members = 7;
     Partner partner = 8;
     string current_user_id = 9;
+    Access access = 10;
 }
 
 message CloudResponse {
