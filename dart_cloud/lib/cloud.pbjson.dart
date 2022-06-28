@@ -100,13 +100,16 @@ const Partner$json = const {
     const {'1': 'name', '3': 2, '4': 1, '5': 9, '10': 'name'},
     const {'1': 'country', '3': 3, '4': 1, '5': 14, '6': '.Cloud.Country', '10': 'country'},
     const {'1': 'api_url', '3': 4, '4': 1, '5': 9, '10': 'apiUrl'},
-    const {'1': 'image', '3': 5, '4': 1, '5': 9, '10': 'image'},
+    const {'1': 'logo', '3': 5, '4': 1, '5': 9, '10': 'logo'},
     const {'1': 'nuntio', '3': 6, '4': 1, '5': 8, '10': 'nuntio'},
+    const {'1': 'dedicated', '3': 7, '4': 1, '5': 8, '10': 'dedicated'},
+    const {'1': 'created_at', '3': 8, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'createdAt'},
+    const {'1': 'updated_at', '3': 9, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'updatedAt'},
   ],
 };
 
 /// Descriptor for `Partner`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List partnerDescriptor = $convert.base64Decode('CgdQYXJ0bmVyEg4KAmlkGAEgASgJUgJpZBISCgRuYW1lGAIgASgJUgRuYW1lEigKB2NvdW50cnkYAyABKA4yDi5DbG91ZC5Db3VudHJ5Ugdjb3VudHJ5EhcKB2FwaV91cmwYBCABKAlSBmFwaVVybBIUCgVpbWFnZRgFIAEoCVIFaW1hZ2USFgoGbnVudGlvGAYgASgIUgZudW50aW8=');
+final $typed_data.Uint8List partnerDescriptor = $convert.base64Decode('CgdQYXJ0bmVyEg4KAmlkGAEgASgJUgJpZBISCgRuYW1lGAIgASgJUgRuYW1lEigKB2NvdW50cnkYAyABKA4yDi5DbG91ZC5Db3VudHJ5Ugdjb3VudHJ5EhcKB2FwaV91cmwYBCABKAlSBmFwaVVybBISCgRsb2dvGAUgASgJUgRsb2dvEhYKBm51bnRpbxgGIAEoCFIGbnVudGlvEhwKCWRlZGljYXRlZBgHIAEoCFIJZGVkaWNhdGVkEjkKCmNyZWF0ZWRfYXQYCCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgljcmVhdGVkQXQSOQoKdXBkYXRlZF9hdBgJIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCXVwZGF0ZWRBdA==');
 @$core.Deprecated('Use projectDescriptor instead')
 const Project$json = const {
   '1': 'Project',

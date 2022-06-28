@@ -307,8 +307,11 @@ class Partner extends $pb.GeneratedMessage {
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
     ..e<Country>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'country', $pb.PbFieldType.OE, defaultOrMaker: Country.DK, valueOf: Country.valueOf, enumValues: Country.values)
     ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'apiUrl')
-    ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'image')
+    ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'logo')
     ..aOB(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nuntio')
+    ..aOB(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'dedicated')
+    ..aOM<$1.Timestamp>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'createdAt', subBuilder: $1.Timestamp.create)
+    ..aOM<$1.Timestamp>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'updatedAt', subBuilder: $1.Timestamp.create)
     ..hasRequiredFields = false
   ;
 
@@ -318,8 +321,11 @@ class Partner extends $pb.GeneratedMessage {
     $core.String? name,
     Country? country,
     $core.String? apiUrl,
-    $core.String? image,
+    $core.String? logo,
     $core.bool? nuntio,
+    $core.bool? dedicated,
+    $1.Timestamp? createdAt,
+    $1.Timestamp? updatedAt,
   }) {
     final _result = create();
     if (id != null) {
@@ -334,11 +340,20 @@ class Partner extends $pb.GeneratedMessage {
     if (apiUrl != null) {
       _result.apiUrl = apiUrl;
     }
-    if (image != null) {
-      _result.image = image;
+    if (logo != null) {
+      _result.logo = logo;
     }
     if (nuntio != null) {
       _result.nuntio = nuntio;
+    }
+    if (dedicated != null) {
+      _result.dedicated = dedicated;
+    }
+    if (createdAt != null) {
+      _result.createdAt = createdAt;
+    }
+    if (updatedAt != null) {
+      _result.updatedAt = updatedAt;
     }
     return _result;
   }
@@ -400,13 +415,13 @@ class Partner extends $pb.GeneratedMessage {
   void clearApiUrl() => clearField(4);
 
   @$pb.TagNumber(5)
-  $core.String get image => $_getSZ(4);
+  $core.String get logo => $_getSZ(4);
   @$pb.TagNumber(5)
-  set image($core.String v) { $_setString(4, v); }
+  set logo($core.String v) { $_setString(4, v); }
   @$pb.TagNumber(5)
-  $core.bool hasImage() => $_has(4);
+  $core.bool hasLogo() => $_has(4);
   @$pb.TagNumber(5)
-  void clearImage() => clearField(5);
+  void clearLogo() => clearField(5);
 
   @$pb.TagNumber(6)
   $core.bool get nuntio => $_getBF(5);
@@ -416,6 +431,37 @@ class Partner extends $pb.GeneratedMessage {
   $core.bool hasNuntio() => $_has(5);
   @$pb.TagNumber(6)
   void clearNuntio() => clearField(6);
+
+  @$pb.TagNumber(7)
+  $core.bool get dedicated => $_getBF(6);
+  @$pb.TagNumber(7)
+  set dedicated($core.bool v) { $_setBool(6, v); }
+  @$pb.TagNumber(7)
+  $core.bool hasDedicated() => $_has(6);
+  @$pb.TagNumber(7)
+  void clearDedicated() => clearField(7);
+
+  @$pb.TagNumber(8)
+  $1.Timestamp get createdAt => $_getN(7);
+  @$pb.TagNumber(8)
+  set createdAt($1.Timestamp v) { setField(8, v); }
+  @$pb.TagNumber(8)
+  $core.bool hasCreatedAt() => $_has(7);
+  @$pb.TagNumber(8)
+  void clearCreatedAt() => clearField(8);
+  @$pb.TagNumber(8)
+  $1.Timestamp ensureCreatedAt() => $_ensure(7);
+
+  @$pb.TagNumber(9)
+  $1.Timestamp get updatedAt => $_getN(8);
+  @$pb.TagNumber(9)
+  set updatedAt($1.Timestamp v) { setField(9, v); }
+  @$pb.TagNumber(9)
+  $core.bool hasUpdatedAt() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearUpdatedAt() => clearField(9);
+  @$pb.TagNumber(9)
+  $1.Timestamp ensureUpdatedAt() => $_ensure(8);
 }
 
 class Project extends $pb.GeneratedMessage {

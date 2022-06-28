@@ -1004,8 +1004,11 @@ proto.Cloud.Partner.toObject = function(includeInstance, msg) {
     name: jspb.Message.getFieldWithDefault(msg, 2, ""),
     country: jspb.Message.getFieldWithDefault(msg, 3, 0),
     apiUrl: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    image: jspb.Message.getFieldWithDefault(msg, 5, ""),
-    nuntio: jspb.Message.getBooleanFieldWithDefault(msg, 6, false)
+    logo: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    nuntio: jspb.Message.getBooleanFieldWithDefault(msg, 6, false),
+    dedicated: jspb.Message.getBooleanFieldWithDefault(msg, 7, false),
+    createdAt: (f = msg.getCreatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
+    updatedAt: (f = msg.getUpdatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -1060,11 +1063,25 @@ proto.Cloud.Partner.deserializeBinaryFromReader = function(msg, reader) {
       break;
     case 5:
       var value = /** @type {string} */ (reader.readString());
-      msg.setImage(value);
+      msg.setLogo(value);
       break;
     case 6:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setNuntio(value);
+      break;
+    case 7:
+      var value = /** @type {boolean} */ (reader.readBool());
+      msg.setDedicated(value);
+      break;
+    case 8:
+      var value = new google_protobuf_timestamp_pb.Timestamp;
+      reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
+      msg.setCreatedAt(value);
+      break;
+    case 9:
+      var value = new google_protobuf_timestamp_pb.Timestamp;
+      reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
+      msg.setUpdatedAt(value);
       break;
     default:
       reader.skipField();
@@ -1123,7 +1140,7 @@ proto.Cloud.Partner.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getImage();
+  f = message.getLogo();
   if (f.length > 0) {
     writer.writeString(
       5,
@@ -1135,6 +1152,29 @@ proto.Cloud.Partner.serializeBinaryToWriter = function(message, writer) {
     writer.writeBool(
       6,
       f
+    );
+  }
+  f = message.getDedicated();
+  if (f) {
+    writer.writeBool(
+      7,
+      f
+    );
+  }
+  f = message.getCreatedAt();
+  if (f != null) {
+    writer.writeMessage(
+      8,
+      f,
+      google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
+    );
+  }
+  f = message.getUpdatedAt();
+  if (f != null) {
+    writer.writeMessage(
+      9,
+      f,
+      google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
     );
   }
 };
@@ -1213,10 +1253,10 @@ proto.Cloud.Partner.prototype.setApiUrl = function(value) {
 
 
 /**
- * optional string image = 5;
+ * optional string logo = 5;
  * @return {string}
  */
-proto.Cloud.Partner.prototype.getImage = function() {
+proto.Cloud.Partner.prototype.getLogo = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
 };
 
@@ -1225,7 +1265,7 @@ proto.Cloud.Partner.prototype.getImage = function() {
  * @param {string} value
  * @return {!proto.Cloud.Partner} returns this
  */
-proto.Cloud.Partner.prototype.setImage = function(value) {
+proto.Cloud.Partner.prototype.setLogo = function(value) {
   return jspb.Message.setProto3StringField(this, 5, value);
 };
 
@@ -1245,6 +1285,98 @@ proto.Cloud.Partner.prototype.getNuntio = function() {
  */
 proto.Cloud.Partner.prototype.setNuntio = function(value) {
   return jspb.Message.setProto3BooleanField(this, 6, value);
+};
+
+
+/**
+ * optional bool dedicated = 7;
+ * @return {boolean}
+ */
+proto.Cloud.Partner.prototype.getDedicated = function() {
+  return /** @type {boolean} */ (jspb.Message.getBooleanFieldWithDefault(this, 7, false));
+};
+
+
+/**
+ * @param {boolean} value
+ * @return {!proto.Cloud.Partner} returns this
+ */
+proto.Cloud.Partner.prototype.setDedicated = function(value) {
+  return jspb.Message.setProto3BooleanField(this, 7, value);
+};
+
+
+/**
+ * optional google.protobuf.Timestamp created_at = 8;
+ * @return {?proto.google.protobuf.Timestamp}
+ */
+proto.Cloud.Partner.prototype.getCreatedAt = function() {
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
+    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 8));
+};
+
+
+/**
+ * @param {?proto.google.protobuf.Timestamp|undefined} value
+ * @return {!proto.Cloud.Partner} returns this
+*/
+proto.Cloud.Partner.prototype.setCreatedAt = function(value) {
+  return jspb.Message.setWrapperField(this, 8, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.Cloud.Partner} returns this
+ */
+proto.Cloud.Partner.prototype.clearCreatedAt = function() {
+  return this.setCreatedAt(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.Cloud.Partner.prototype.hasCreatedAt = function() {
+  return jspb.Message.getField(this, 8) != null;
+};
+
+
+/**
+ * optional google.protobuf.Timestamp updated_at = 9;
+ * @return {?proto.google.protobuf.Timestamp}
+ */
+proto.Cloud.Partner.prototype.getUpdatedAt = function() {
+  return /** @type{?proto.google.protobuf.Timestamp} */ (
+    jspb.Message.getWrapperField(this, google_protobuf_timestamp_pb.Timestamp, 9));
+};
+
+
+/**
+ * @param {?proto.google.protobuf.Timestamp|undefined} value
+ * @return {!proto.Cloud.Partner} returns this
+*/
+proto.Cloud.Partner.prototype.setUpdatedAt = function(value) {
+  return jspb.Message.setWrapperField(this, 9, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.Cloud.Partner} returns this
+ */
+proto.Cloud.Partner.prototype.clearUpdatedAt = function() {
+  return this.setUpdatedAt(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.Cloud.Partner.prototype.hasUpdatedAt = function() {
+  return jspb.Message.getField(this, 9) != null;
 };
 
 
