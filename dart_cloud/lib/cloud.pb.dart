@@ -725,6 +725,7 @@ class CloudRequest extends $pb.GeneratedMessage {
     ..aOM<Member>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'member', subBuilder: Member.create)
     ..pc<Member>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'members', $pb.PbFieldType.PM, subBuilder: Member.create)
     ..aOM<Partner>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'partner', subBuilder: Partner.create)
+    ..aOS(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'currentUserId')
     ..hasRequiredFields = false
   ;
 
@@ -738,6 +739,7 @@ class CloudRequest extends $pb.GeneratedMessage {
     Member? member,
     $core.Iterable<Member>? members,
     Partner? partner,
+    $core.String? currentUserId,
   }) {
     final _result = create();
     if (project != null) {
@@ -763,6 +765,9 @@ class CloudRequest extends $pb.GeneratedMessage {
     }
     if (partner != null) {
       _result.partner = partner;
+    }
+    if (currentUserId != null) {
+      _result.currentUserId = currentUserId;
     }
     return _result;
   }
@@ -860,6 +865,15 @@ class CloudRequest extends $pb.GeneratedMessage {
   void clearPartner() => clearField(8);
   @$pb.TagNumber(8)
   Partner ensurePartner() => $_ensure(7);
+
+  @$pb.TagNumber(9)
+  $core.String get currentUserId => $_getSZ(8);
+  @$pb.TagNumber(9)
+  set currentUserId($core.String v) { $_setString(8, v); }
+  @$pb.TagNumber(9)
+  $core.bool hasCurrentUserId() => $_has(8);
+  @$pb.TagNumber(9)
+  void clearCurrentUserId() => clearField(9);
 }
 
 class CloudResponse extends $pb.GeneratedMessage {

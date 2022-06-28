@@ -2061,7 +2061,8 @@ proto.Cloud.CloudRequest.toObject = function(includeInstance, msg) {
     member: (f = msg.getMember()) && proto.Cloud.Member.toObject(includeInstance, f),
     membersList: jspb.Message.toObjectList(msg.getMembersList(),
     proto.Cloud.Member.toObject, includeInstance),
-    partner: (f = msg.getPartner()) && proto.Cloud.Partner.toObject(includeInstance, f)
+    partner: (f = msg.getPartner()) && proto.Cloud.Partner.toObject(includeInstance, f),
+    currentUserId: jspb.Message.getFieldWithDefault(msg, 9, "")
   };
 
   if (includeInstance) {
@@ -2134,6 +2135,10 @@ proto.Cloud.CloudRequest.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.Cloud.Partner;
       reader.readMessage(value,proto.Cloud.Partner.deserializeBinaryFromReader);
       msg.setPartner(value);
+      break;
+    case 9:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setCurrentUserId(value);
       break;
     default:
       reader.skipField();
@@ -2223,6 +2228,13 @@ proto.Cloud.CloudRequest.serializeBinaryToWriter = function(message, writer) {
       8,
       f,
       proto.Cloud.Partner.serializeBinaryToWriter
+    );
+  }
+  f = message.getCurrentUserId();
+  if (f.length > 0) {
+    writer.writeString(
+      9,
+      f
     );
   }
 };
@@ -2465,6 +2477,24 @@ proto.Cloud.CloudRequest.prototype.clearPartner = function() {
  */
 proto.Cloud.CloudRequest.prototype.hasPartner = function() {
   return jspb.Message.getField(this, 8) != null;
+};
+
+
+/**
+ * optional string current_user_id = 9;
+ * @return {string}
+ */
+proto.Cloud.CloudRequest.prototype.getCurrentUserId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 9, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.Cloud.CloudRequest} returns this
+ */
+proto.Cloud.CloudRequest.prototype.setCurrentUserId = function(value) {
+  return jspb.Message.setProto3StringField(this, 9, value);
 };
 
 

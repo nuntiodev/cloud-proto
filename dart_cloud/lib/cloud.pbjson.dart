@@ -146,11 +146,12 @@ const CloudRequest$json = const {
     const {'1': 'member', '3': 6, '4': 1, '5': 11, '6': '.Cloud.Member', '10': 'member'},
     const {'1': 'members', '3': 7, '4': 3, '5': 11, '6': '.Cloud.Member', '10': 'members'},
     const {'1': 'partner', '3': 8, '4': 1, '5': 11, '6': '.Cloud.Partner', '10': 'partner'},
+    const {'1': 'current_user_id', '3': 9, '4': 1, '5': 9, '10': 'currentUserId'},
   ],
 };
 
 /// Descriptor for `CloudRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List cloudRequestDescriptor = $convert.base64Decode('CgxDbG91ZFJlcXVlc3QSKAoHcHJvamVjdBgBIAEoCzIOLkNsb3VkLlByb2plY3RSB3Byb2plY3QSHwoLcHJpdmF0ZV9rZXkYAiABKAlSCnByaXZhdGVLZXkSIQoMYWNjZXNzX3Rva2VuGAMgASgJUgthY2Nlc3NUb2tlbhI3Cgxvcmdhbml6YXRpb24YBCABKAsyEy5DbG91ZC5Pcmdhbml6YXRpb25SDG9yZ2FuaXphdGlvbhIfCgtjbG91ZF90b2tlbhgFIAEoCVIKY2xvdWRUb2tlbhIlCgZtZW1iZXIYBiABKAsyDS5DbG91ZC5NZW1iZXJSBm1lbWJlchInCgdtZW1iZXJzGAcgAygLMg0uQ2xvdWQuTWVtYmVyUgdtZW1iZXJzEigKB3BhcnRuZXIYCCABKAsyDi5DbG91ZC5QYXJ0bmVyUgdwYXJ0bmVy');
+final $typed_data.Uint8List cloudRequestDescriptor = $convert.base64Decode('CgxDbG91ZFJlcXVlc3QSKAoHcHJvamVjdBgBIAEoCzIOLkNsb3VkLlByb2plY3RSB3Byb2plY3QSHwoLcHJpdmF0ZV9rZXkYAiABKAlSCnByaXZhdGVLZXkSIQoMYWNjZXNzX3Rva2VuGAMgASgJUgthY2Nlc3NUb2tlbhI3Cgxvcmdhbml6YXRpb24YBCABKAsyEy5DbG91ZC5Pcmdhbml6YXRpb25SDG9yZ2FuaXphdGlvbhIfCgtjbG91ZF90b2tlbhgFIAEoCVIKY2xvdWRUb2tlbhIlCgZtZW1iZXIYBiABKAsyDS5DbG91ZC5NZW1iZXJSBm1lbWJlchInCgdtZW1iZXJzGAcgAygLMg0uQ2xvdWQuTWVtYmVyUgdtZW1iZXJzEigKB3BhcnRuZXIYCCABKAsyDi5DbG91ZC5QYXJ0bmVyUgdwYXJ0bmVyEiYKD2N1cnJlbnRfdXNlcl9pZBgJIAEoCVINY3VycmVudFVzZXJJZA==');
 @$core.Deprecated('Use cloudResponseDescriptor instead')
 const CloudResponse$json = const {
   '1': 'CloudResponse',
