@@ -105,11 +105,12 @@ const Partner$json = const {
     const {'1': 'dedicated', '3': 7, '4': 1, '5': 8, '10': 'dedicated'},
     const {'1': 'created_at', '3': 8, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'createdAt'},
     const {'1': 'updated_at', '3': 9, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'updatedAt'},
+    const {'1': 'website', '3': 10, '4': 1, '5': 9, '10': 'website'},
   ],
 };
 
 /// Descriptor for `Partner`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List partnerDescriptor = $convert.base64Decode('CgdQYXJ0bmVyEg4KAmlkGAEgASgJUgJpZBISCgRuYW1lGAIgASgJUgRuYW1lEigKB2NvdW50cnkYAyABKA4yDi5DbG91ZC5Db3VudHJ5Ugdjb3VudHJ5EhcKB2FwaV91cmwYBCABKAlSBmFwaVVybBISCgRsb2dvGAUgASgJUgRsb2dvEhYKBm51bnRpbxgGIAEoCFIGbnVudGlvEhwKCWRlZGljYXRlZBgHIAEoCFIJZGVkaWNhdGVkEjkKCmNyZWF0ZWRfYXQYCCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgljcmVhdGVkQXQSOQoKdXBkYXRlZF9hdBgJIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCXVwZGF0ZWRBdA==');
+final $typed_data.Uint8List partnerDescriptor = $convert.base64Decode('CgdQYXJ0bmVyEg4KAmlkGAEgASgJUgJpZBISCgRuYW1lGAIgASgJUgRuYW1lEigKB2NvdW50cnkYAyABKA4yDi5DbG91ZC5Db3VudHJ5Ugdjb3VudHJ5EhcKB2FwaV91cmwYBCABKAlSBmFwaVVybBISCgRsb2dvGAUgASgJUgRsb2dvEhYKBm51bnRpbxgGIAEoCFIGbnVudGlvEhwKCWRlZGljYXRlZBgHIAEoCFIJZGVkaWNhdGVkEjkKCmNyZWF0ZWRfYXQYCCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgljcmVhdGVkQXQSOQoKdXBkYXRlZF9hdBgJIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCXVwZGF0ZWRBdBIYCgd3ZWJzaXRlGAogASgJUgd3ZWJzaXRl');
 @$core.Deprecated('Use projectDescriptor instead')
 const Project$json = const {
   '1': 'Project',

@@ -312,6 +312,7 @@ class Partner extends $pb.GeneratedMessage {
     ..aOB(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'dedicated')
     ..aOM<$1.Timestamp>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'createdAt', subBuilder: $1.Timestamp.create)
     ..aOM<$1.Timestamp>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'updatedAt', subBuilder: $1.Timestamp.create)
+    ..aOS(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'website')
     ..hasRequiredFields = false
   ;
 
@@ -326,6 +327,7 @@ class Partner extends $pb.GeneratedMessage {
     $core.bool? dedicated,
     $1.Timestamp? createdAt,
     $1.Timestamp? updatedAt,
+    $core.String? website,
   }) {
     final _result = create();
     if (id != null) {
@@ -354,6 +356,9 @@ class Partner extends $pb.GeneratedMessage {
     }
     if (updatedAt != null) {
       _result.updatedAt = updatedAt;
+    }
+    if (website != null) {
+      _result.website = website;
     }
     return _result;
   }
@@ -462,6 +467,15 @@ class Partner extends $pb.GeneratedMessage {
   void clearUpdatedAt() => clearField(9);
   @$pb.TagNumber(9)
   $1.Timestamp ensureUpdatedAt() => $_ensure(8);
+
+  @$pb.TagNumber(10)
+  $core.String get website => $_getSZ(9);
+  @$pb.TagNumber(10)
+  set website($core.String v) { $_setString(9, v); }
+  @$pb.TagNumber(10)
+  $core.bool hasWebsite() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearWebsite() => clearField(10);
 }
 
 class Project extends $pb.GeneratedMessage {

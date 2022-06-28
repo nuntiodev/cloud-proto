@@ -1008,7 +1008,8 @@ proto.Cloud.Partner.toObject = function(includeInstance, msg) {
     nuntio: jspb.Message.getBooleanFieldWithDefault(msg, 6, false),
     dedicated: jspb.Message.getBooleanFieldWithDefault(msg, 7, false),
     createdAt: (f = msg.getCreatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
-    updatedAt: (f = msg.getUpdatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f)
+    updatedAt: (f = msg.getUpdatedAt()) && google_protobuf_timestamp_pb.Timestamp.toObject(includeInstance, f),
+    website: jspb.Message.getFieldWithDefault(msg, 10, "")
   };
 
   if (includeInstance) {
@@ -1082,6 +1083,10 @@ proto.Cloud.Partner.deserializeBinaryFromReader = function(msg, reader) {
       var value = new google_protobuf_timestamp_pb.Timestamp;
       reader.readMessage(value,google_protobuf_timestamp_pb.Timestamp.deserializeBinaryFromReader);
       msg.setUpdatedAt(value);
+      break;
+    case 10:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setWebsite(value);
       break;
     default:
       reader.skipField();
@@ -1175,6 +1180,13 @@ proto.Cloud.Partner.serializeBinaryToWriter = function(message, writer) {
       9,
       f,
       google_protobuf_timestamp_pb.Timestamp.serializeBinaryToWriter
+    );
+  }
+  f = message.getWebsite();
+  if (f.length > 0) {
+    writer.writeString(
+      10,
+      f
     );
   }
 };
@@ -1377,6 +1389,24 @@ proto.Cloud.Partner.prototype.clearUpdatedAt = function() {
  */
 proto.Cloud.Partner.prototype.hasUpdatedAt = function() {
   return jspb.Message.getField(this, 9) != null;
+};
+
+
+/**
+ * optional string website = 10;
+ * @return {string}
+ */
+proto.Cloud.Partner.prototype.getWebsite = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 10, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.Cloud.Partner} returns this
+ */
+proto.Cloud.Partner.prototype.setWebsite = function(value) {
+  return jspb.Message.setProto3StringField(this, 10, value);
 };
 
 
