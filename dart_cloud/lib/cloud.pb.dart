@@ -433,8 +433,7 @@ class Project extends $pb.GeneratedMessage {
     ..aOS(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'logo')
     ..aOS(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'publicKey')
     ..aOS(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'organizationName')
-    ..aOS(14, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'apiUrl')
-    ..aOS(15, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'partnerId')
+    ..aOS(14, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'partnerId')
     ..hasRequiredFields = false
   ;
 
@@ -453,7 +452,6 @@ class Project extends $pb.GeneratedMessage {
     $core.String? logo,
     $core.String? publicKey,
     $core.String? organizationName,
-    $core.String? apiUrl,
     $core.String? partnerId,
   }) {
     final _result = create();
@@ -495,9 +493,6 @@ class Project extends $pb.GeneratedMessage {
     }
     if (organizationName != null) {
       _result.organizationName = organizationName;
-    }
-    if (apiUrl != null) {
-      _result.apiUrl = apiUrl;
     }
     if (partnerId != null) {
       _result.partnerId = partnerId;
@@ -651,22 +646,13 @@ class Project extends $pb.GeneratedMessage {
   void clearOrganizationName() => clearField(13);
 
   @$pb.TagNumber(14)
-  $core.String get apiUrl => $_getSZ(13);
+  $core.String get partnerId => $_getSZ(13);
   @$pb.TagNumber(14)
-  set apiUrl($core.String v) { $_setString(13, v); }
+  set partnerId($core.String v) { $_setString(13, v); }
   @$pb.TagNumber(14)
-  $core.bool hasApiUrl() => $_has(13);
+  $core.bool hasPartnerId() => $_has(13);
   @$pb.TagNumber(14)
-  void clearApiUrl() => clearField(14);
-
-  @$pb.TagNumber(15)
-  $core.String get partnerId => $_getSZ(14);
-  @$pb.TagNumber(15)
-  set partnerId($core.String v) { $_setString(14, v); }
-  @$pb.TagNumber(15)
-  $core.bool hasPartnerId() => $_has(14);
-  @$pb.TagNumber(15)
-  void clearPartnerId() => clearField(15);
+  void clearPartnerId() => clearField(14);
 }
 
 class CloudRequest extends $pb.GeneratedMessage {

@@ -1293,8 +1293,7 @@ proto.Cloud.Project.toObject = function(includeInstance, msg) {
     logo: jspb.Message.getFieldWithDefault(msg, 11, ""),
     publicKey: jspb.Message.getFieldWithDefault(msg, 12, ""),
     organizationName: jspb.Message.getFieldWithDefault(msg, 13, ""),
-    apiUrl: jspb.Message.getFieldWithDefault(msg, 14, ""),
-    partnerId: jspb.Message.getFieldWithDefault(msg, 15, "")
+    partnerId: jspb.Message.getFieldWithDefault(msg, 14, "")
   };
 
   if (includeInstance) {
@@ -1388,10 +1387,6 @@ proto.Cloud.Project.deserializeBinaryFromReader = function(msg, reader) {
       msg.setOrganizationName(value);
       break;
     case 14:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setApiUrl(value);
-      break;
-    case 15:
       var value = /** @type {string} */ (reader.readString());
       msg.setPartnerId(value);
       break;
@@ -1519,17 +1514,10 @@ proto.Cloud.Project.serializeBinaryToWriter = function(message, writer) {
       f
     );
   }
-  f = message.getApiUrl();
-  if (f.length > 0) {
-    writer.writeString(
-      14,
-      f
-    );
-  }
   f = message.getPartnerId();
   if (f.length > 0) {
     writer.writeString(
-      15,
+      14,
       f
     );
   }
@@ -1847,10 +1835,10 @@ proto.Cloud.Project.prototype.setOrganizationName = function(value) {
 
 
 /**
- * optional string api_url = 14;
+ * optional string partner_id = 14;
  * @return {string}
  */
-proto.Cloud.Project.prototype.getApiUrl = function() {
+proto.Cloud.Project.prototype.getPartnerId = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 14, ""));
 };
 
@@ -1859,26 +1847,8 @@ proto.Cloud.Project.prototype.getApiUrl = function() {
  * @param {string} value
  * @return {!proto.Cloud.Project} returns this
  */
-proto.Cloud.Project.prototype.setApiUrl = function(value) {
-  return jspb.Message.setProto3StringField(this, 14, value);
-};
-
-
-/**
- * optional string partner_id = 15;
- * @return {string}
- */
-proto.Cloud.Project.prototype.getPartnerId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 15, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.Cloud.Project} returns this
- */
 proto.Cloud.Project.prototype.setPartnerId = function(value) {
-  return jspb.Message.setProto3StringField(this, 15, value);
+  return jspb.Message.setProto3StringField(this, 14, value);
 };
 
 

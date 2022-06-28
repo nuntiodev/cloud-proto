@@ -124,13 +124,12 @@ const Project$json = const {
     const {'1': 'logo', '3': 11, '4': 1, '5': 9, '10': 'logo'},
     const {'1': 'public_key', '3': 12, '4': 1, '5': 9, '10': 'publicKey'},
     const {'1': 'organization_name', '3': 13, '4': 1, '5': 9, '10': 'organizationName'},
-    const {'1': 'api_url', '3': 14, '4': 1, '5': 9, '10': 'apiUrl'},
-    const {'1': 'partner_id', '3': 15, '4': 1, '5': 9, '10': 'partnerId'},
+    const {'1': 'partner_id', '3': 14, '4': 1, '5': 9, '10': 'partnerId'},
   ],
 };
 
 /// Descriptor for `Project`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List projectDescriptor = $convert.base64Decode('CgdQcm9qZWN0Eg4KAmlkGAEgASgJUgJpZBInCg9vcmdhbml6YXRpb25faWQYAiABKAlSDm9yZ2FuaXphdGlvbklkEiIKDW93bmVyX3VzZXJfaWQYAyABKAlSC293bmVyVXNlcklkEhIKBG5hbWUYBCABKAlSBG5hbWUSHwoLcHJpdmF0ZV9rZXkYBSABKAlSCnByaXZhdGVLZXkSJAoOcHJpdmF0ZV9rZXlfaWQYBiABKAlSDHByaXZhdGVLZXlJZBI5CgpjcmVhdGVkX2F0GAcgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJY3JlYXRlZEF0EjkKCnVwZGF0ZWRfYXQYCCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgl1cGRhdGVkQXQSUwoYcHJpdmF0ZV9rZXlfZ2VuZXJhdGVkX2F0GAkgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIVcHJpdmF0ZUtleUdlbmVyYXRlZEF0Ek8KFnByaXZhdGVfa2V5X3NlY3VyZWRfYXQYCiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUhNwcml2YXRlS2V5U2VjdXJlZEF0EhIKBGxvZ28YCyABKAlSBGxvZ28SHQoKcHVibGljX2tleRgMIAEoCVIJcHVibGljS2V5EisKEW9yZ2FuaXphdGlvbl9uYW1lGA0gASgJUhBvcmdhbml6YXRpb25OYW1lEhcKB2FwaV91cmwYDiABKAlSBmFwaVVybBIdCgpwYXJ0bmVyX2lkGA8gASgJUglwYXJ0bmVySWQ=');
+final $typed_data.Uint8List projectDescriptor = $convert.base64Decode('CgdQcm9qZWN0Eg4KAmlkGAEgASgJUgJpZBInCg9vcmdhbml6YXRpb25faWQYAiABKAlSDm9yZ2FuaXphdGlvbklkEiIKDW93bmVyX3VzZXJfaWQYAyABKAlSC293bmVyVXNlcklkEhIKBG5hbWUYBCABKAlSBG5hbWUSHwoLcHJpdmF0ZV9rZXkYBSABKAlSCnByaXZhdGVLZXkSJAoOcHJpdmF0ZV9rZXlfaWQYBiABKAlSDHByaXZhdGVLZXlJZBI5CgpjcmVhdGVkX2F0GAcgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJY3JlYXRlZEF0EjkKCnVwZGF0ZWRfYXQYCCABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUgl1cGRhdGVkQXQSUwoYcHJpdmF0ZV9rZXlfZ2VuZXJhdGVkX2F0GAkgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIVcHJpdmF0ZUtleUdlbmVyYXRlZEF0Ek8KFnByaXZhdGVfa2V5X3NlY3VyZWRfYXQYCiABKAsyGi5nb29nbGUucHJvdG9idWYuVGltZXN0YW1wUhNwcml2YXRlS2V5U2VjdXJlZEF0EhIKBGxvZ28YCyABKAlSBGxvZ28SHQoKcHVibGljX2tleRgMIAEoCVIJcHVibGljS2V5EisKEW9yZ2FuaXphdGlvbl9uYW1lGA0gASgJUhBvcmdhbml6YXRpb25OYW1lEh0KCnBhcnRuZXJfaWQYDiABKAlSCXBhcnRuZXJJZA==');
 @$core.Deprecated('Use cloudRequestDescriptor instead')
 const CloudRequest$json = const {
   '1': 'CloudRequest',
