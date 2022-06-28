@@ -6,7 +6,7 @@ option go_package = "./go_cloud";
 
 import "google/protobuf/timestamp.proto";
 
-service CloudService {
+service AdminService {
     rpc Heartbeat(CloudRequest) returns (CloudResponse) {}
     rpc CreateOrganization(CloudRequest) returns (CloudResponse) {}
     rpc GetOrganization(CloudRequest) returns (CloudResponse) {}
@@ -15,13 +15,15 @@ service CloudService {
     rpc CreateProject(CloudRequest) returns (CloudResponse) {}
     rpc RollPrivateKey(CloudRequest) returns (CloudResponse) {}
     rpc GenerateAccessToken(CloudRequest) returns (CloudResponse) {}
-    rpc PublicKeys(CloudRequest)  returns (CloudResponse) {}
     rpc UpdateProject(CloudRequest) returns (CloudResponse) {}
     rpc GetProject(CloudRequest) returns (CloudResponse) {}
     rpc GetUserProjects(CloudRequest) returns (CloudResponse) {}
     rpc GetProjectsInOrganization(CloudRequest) returns (CloudResponse) {}
     rpc DeleteProject(CloudRequest) returns (CloudResponse) {}
+}
 
+service PublicService {
+    rpc PublicKeys(CloudRequest)  returns (CloudResponse) {}
     rpc GetPartner(CloudRequest) returns (CloudResponse) {}
     rpc GetPartners(CloudRequest) returns (CloudResponse) {}
 }
