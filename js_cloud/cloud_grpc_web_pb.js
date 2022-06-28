@@ -505,67 +505,6 @@ proto.Cloud.AdminServicePromiseClient.prototype.rollPrivateKey =
  *   !proto.Cloud.CloudRequest,
  *   !proto.Cloud.CloudResponse>}
  */
-const methodDescriptor_AdminService_SecurePrivateKey = new grpc.web.MethodDescriptor(
-  '/Cloud.AdminService/SecurePrivateKey',
-  grpc.web.MethodType.UNARY,
-  proto.Cloud.CloudRequest,
-  proto.Cloud.CloudResponse,
-  /**
-   * @param {!proto.Cloud.CloudRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.Cloud.CloudResponse.deserializeBinary
-);
-
-
-/**
- * @param {!proto.Cloud.CloudRequest} request The
- *     request proto
- * @param {?Object<string, string>} metadata User defined
- *     call metadata
- * @param {function(?grpc.web.RpcError, ?proto.Cloud.CloudResponse)}
- *     callback The callback function(error, response)
- * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
- *     The XHR Node Readable Stream
- */
-proto.Cloud.AdminServiceClient.prototype.securePrivateKey =
-    function(request, metadata, callback) {
-  return this.client_.rpcCall(this.hostname_ +
-      '/Cloud.AdminService/SecurePrivateKey',
-      request,
-      metadata || {},
-      methodDescriptor_AdminService_SecurePrivateKey,
-      callback);
-};
-
-
-/**
- * @param {!proto.Cloud.CloudRequest} request The
- *     request proto
- * @param {?Object<string, string>=} metadata User defined
- *     call metadata
- * @return {!Promise<!proto.Cloud.CloudResponse>}
- *     Promise that resolves to the response
- */
-proto.Cloud.AdminServicePromiseClient.prototype.securePrivateKey =
-    function(request, metadata) {
-  return this.client_.unaryCall(this.hostname_ +
-      '/Cloud.AdminService/SecurePrivateKey',
-      request,
-      metadata || {},
-      methodDescriptor_AdminService_SecurePrivateKey);
-};
-
-
-/**
- * @const
- * @type {!grpc.web.MethodDescriptor<
- *   !proto.Cloud.CloudRequest,
- *   !proto.Cloud.CloudResponse>}
- */
 const methodDescriptor_AdminService_GenerateAccessToken = new grpc.web.MethodDescriptor(
   '/Cloud.AdminService/GenerateAccessToken',
   grpc.web.MethodType.UNARY,
@@ -1036,6 +975,67 @@ proto.Cloud.PublicServicePromiseClient.prototype.publicKeys =
       request,
       metadata || {},
       methodDescriptor_PublicService_PublicKeys);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.Cloud.CloudRequest,
+ *   !proto.Cloud.CloudResponse>}
+ */
+const methodDescriptor_PublicService_GetMembers = new grpc.web.MethodDescriptor(
+  '/Cloud.PublicService/GetMembers',
+  grpc.web.MethodType.UNARY,
+  proto.Cloud.CloudRequest,
+  proto.Cloud.CloudResponse,
+  /**
+   * @param {!proto.Cloud.CloudRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.Cloud.CloudResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.Cloud.CloudRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.Cloud.CloudResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.Cloud.PublicServiceClient.prototype.getMembers =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/Cloud.PublicService/GetMembers',
+      request,
+      metadata || {},
+      methodDescriptor_PublicService_GetMembers,
+      callback);
+};
+
+
+/**
+ * @param {!proto.Cloud.CloudRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.Cloud.CloudResponse>}
+ *     Promise that resolves to the response
+ */
+proto.Cloud.PublicServicePromiseClient.prototype.getMembers =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/Cloud.PublicService/GetMembers',
+      request,
+      metadata || {},
+      methodDescriptor_PublicService_GetMembers);
 };
 
 
