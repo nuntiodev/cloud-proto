@@ -22,13 +22,6 @@ service AdminService {
     rpc DeleteProject(CloudRequest) returns (CloudResponse) {}
 }
 
-service PublicService {
-    rpc PublicKeys(CloudRequest)  returns (CloudResponse) {}
-    rpc GetMembers(CloudRequest) returns (CloudResponse) {}
-    rpc GetPartner(CloudRequest) returns (CloudResponse) {}
-    rpc GetPartners(CloudRequest) returns (CloudResponse) {}
-}
-
 enum SubscriptionType {
     INVALID_SUBSCRIPTION = 0;
     FREEMIUM = 1;
@@ -75,6 +68,12 @@ enum KeyType {
 
 enum Country {
     DK = 0;
+}
+
+message Access {
+    bool OnlyOwner = 1;
+    bool AllowViewer = 2;
+    bool AllowEditor = 3;
 }
 
 message Partner {
