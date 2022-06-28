@@ -301,6 +301,81 @@ class Organization extends $pb.GeneratedMessage {
   void clearSubscriptionType() => clearField(8);
 }
 
+class Access extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Access', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Cloud'), createEmptyInstance: create)
+    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'OnlyOwner', protoName: 'OnlyOwner')
+    ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'AllowViewer', protoName: 'AllowViewer')
+    ..aOB(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'AllowEditor', protoName: 'AllowEditor')
+    ..hasRequiredFields = false
+  ;
+
+  Access._() : super();
+  factory Access({
+    $core.bool? onlyOwner,
+    $core.bool? allowViewer,
+    $core.bool? allowEditor,
+  }) {
+    final _result = create();
+    if (onlyOwner != null) {
+      _result.onlyOwner = onlyOwner;
+    }
+    if (allowViewer != null) {
+      _result.allowViewer = allowViewer;
+    }
+    if (allowEditor != null) {
+      _result.allowEditor = allowEditor;
+    }
+    return _result;
+  }
+  factory Access.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Access.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  Access clone() => Access()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  Access copyWith(void Function(Access) updates) => super.copyWith((message) => updates(message as Access)) as Access; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static Access create() => Access._();
+  Access createEmptyInstance() => create();
+  static $pb.PbList<Access> createRepeated() => $pb.PbList<Access>();
+  @$core.pragma('dart2js:noInline')
+  static Access getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Access>(create);
+  static Access? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get onlyOwner => $_getBF(0);
+  @$pb.TagNumber(1)
+  set onlyOwner($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasOnlyOwner() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearOnlyOwner() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.bool get allowViewer => $_getBF(1);
+  @$pb.TagNumber(2)
+  set allowViewer($core.bool v) { $_setBool(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasAllowViewer() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearAllowViewer() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.bool get allowEditor => $_getBF(2);
+  @$pb.TagNumber(3)
+  set allowEditor($core.bool v) { $_setBool(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasAllowEditor() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearAllowEditor() => clearField(3);
+}
+
 class Partner extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Partner', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Cloud'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
@@ -726,6 +801,7 @@ class CloudRequest extends $pb.GeneratedMessage {
     ..pc<Member>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'members', $pb.PbFieldType.PM, subBuilder: Member.create)
     ..aOM<Partner>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'partner', subBuilder: Partner.create)
     ..aOS(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'currentUserId')
+    ..aOM<Access>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'access', subBuilder: Access.create)
     ..hasRequiredFields = false
   ;
 
@@ -740,6 +816,7 @@ class CloudRequest extends $pb.GeneratedMessage {
     $core.Iterable<Member>? members,
     Partner? partner,
     $core.String? currentUserId,
+    Access? access,
   }) {
     final _result = create();
     if (project != null) {
@@ -768,6 +845,9 @@ class CloudRequest extends $pb.GeneratedMessage {
     }
     if (currentUserId != null) {
       _result.currentUserId = currentUserId;
+    }
+    if (access != null) {
+      _result.access = access;
     }
     return _result;
   }
@@ -874,6 +954,17 @@ class CloudRequest extends $pb.GeneratedMessage {
   $core.bool hasCurrentUserId() => $_has(8);
   @$pb.TagNumber(9)
   void clearCurrentUserId() => clearField(9);
+
+  @$pb.TagNumber(10)
+  Access get access => $_getN(9);
+  @$pb.TagNumber(10)
+  set access(Access v) { setField(10, v); }
+  @$pb.TagNumber(10)
+  $core.bool hasAccess() => $_has(9);
+  @$pb.TagNumber(10)
+  void clearAccess() => clearField(10);
+  @$pb.TagNumber(10)
+  Access ensureAccess() => $_ensure(9);
 }
 
 class CloudResponse extends $pb.GeneratedMessage {

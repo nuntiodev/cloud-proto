@@ -92,6 +92,18 @@ const Organization$json = const {
 
 /// Descriptor for `Organization`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List organizationDescriptor = $convert.base64Decode('CgxPcmdhbml6YXRpb24SDgoCaWQYASABKAlSAmlkEhIKBG5hbWUYAiABKAlSBG5hbWUSIgoNb3duZXJfdXNlcl9pZBgDIAEoCVILb3duZXJVc2VySWQSOQoKY3JlYXRlZF9hdBgEIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSCWNyZWF0ZWRBdBI5Cgp1cGRhdGVkX2F0GAUgASgLMhouZ29vZ2xlLnByb3RvYnVmLlRpbWVzdGFtcFIJdXBkYXRlZEF0EhgKB3ZpZXdlcnMYBiADKAlSB3ZpZXdlcnMSGAoHZWRpdG9ycxgHIAMoCVIHZWRpdG9ycxJEChFzdWJzY3JpcHRpb25fdHlwZRgIIAEoDjIXLkNsb3VkLlN1YnNjcmlwdGlvblR5cGVSEHN1YnNjcmlwdGlvblR5cGU=');
+@$core.Deprecated('Use accessDescriptor instead')
+const Access$json = const {
+  '1': 'Access',
+  '2': const [
+    const {'1': 'OnlyOwner', '3': 1, '4': 1, '5': 8, '10': 'OnlyOwner'},
+    const {'1': 'AllowViewer', '3': 2, '4': 1, '5': 8, '10': 'AllowViewer'},
+    const {'1': 'AllowEditor', '3': 3, '4': 1, '5': 8, '10': 'AllowEditor'},
+  ],
+};
+
+/// Descriptor for `Access`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List accessDescriptor = $convert.base64Decode('CgZBY2Nlc3MSHAoJT25seU93bmVyGAEgASgIUglPbmx5T3duZXISIAoLQWxsb3dWaWV3ZXIYAiABKAhSC0FsbG93Vmlld2VyEiAKC0FsbG93RWRpdG9yGAMgASgIUgtBbGxvd0VkaXRvcg==');
 @$core.Deprecated('Use partnerDescriptor instead')
 const Partner$json = const {
   '1': 'Partner',
@@ -147,11 +159,12 @@ const CloudRequest$json = const {
     const {'1': 'members', '3': 7, '4': 3, '5': 11, '6': '.Cloud.Member', '10': 'members'},
     const {'1': 'partner', '3': 8, '4': 1, '5': 11, '6': '.Cloud.Partner', '10': 'partner'},
     const {'1': 'current_user_id', '3': 9, '4': 1, '5': 9, '10': 'currentUserId'},
+    const {'1': 'access', '3': 10, '4': 1, '5': 11, '6': '.Cloud.Access', '10': 'access'},
   ],
 };
 
 /// Descriptor for `CloudRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List cloudRequestDescriptor = $convert.base64Decode('CgxDbG91ZFJlcXVlc3QSKAoHcHJvamVjdBgBIAEoCzIOLkNsb3VkLlByb2plY3RSB3Byb2plY3QSHwoLcHJpdmF0ZV9rZXkYAiABKAlSCnByaXZhdGVLZXkSIQoMYWNjZXNzX3Rva2VuGAMgASgJUgthY2Nlc3NUb2tlbhI3Cgxvcmdhbml6YXRpb24YBCABKAsyEy5DbG91ZC5Pcmdhbml6YXRpb25SDG9yZ2FuaXphdGlvbhIfCgtjbG91ZF90b2tlbhgFIAEoCVIKY2xvdWRUb2tlbhIlCgZtZW1iZXIYBiABKAsyDS5DbG91ZC5NZW1iZXJSBm1lbWJlchInCgdtZW1iZXJzGAcgAygLMg0uQ2xvdWQuTWVtYmVyUgdtZW1iZXJzEigKB3BhcnRuZXIYCCABKAsyDi5DbG91ZC5QYXJ0bmVyUgdwYXJ0bmVyEiYKD2N1cnJlbnRfdXNlcl9pZBgJIAEoCVINY3VycmVudFVzZXJJZA==');
+final $typed_data.Uint8List cloudRequestDescriptor = $convert.base64Decode('CgxDbG91ZFJlcXVlc3QSKAoHcHJvamVjdBgBIAEoCzIOLkNsb3VkLlByb2plY3RSB3Byb2plY3QSHwoLcHJpdmF0ZV9rZXkYAiABKAlSCnByaXZhdGVLZXkSIQoMYWNjZXNzX3Rva2VuGAMgASgJUgthY2Nlc3NUb2tlbhI3Cgxvcmdhbml6YXRpb24YBCABKAsyEy5DbG91ZC5Pcmdhbml6YXRpb25SDG9yZ2FuaXphdGlvbhIfCgtjbG91ZF90b2tlbhgFIAEoCVIKY2xvdWRUb2tlbhIlCgZtZW1iZXIYBiABKAsyDS5DbG91ZC5NZW1iZXJSBm1lbWJlchInCgdtZW1iZXJzGAcgAygLMg0uQ2xvdWQuTWVtYmVyUgdtZW1iZXJzEigKB3BhcnRuZXIYCCABKAsyDi5DbG91ZC5QYXJ0bmVyUgdwYXJ0bmVyEiYKD2N1cnJlbnRfdXNlcl9pZBgJIAEoCVINY3VycmVudFVzZXJJZBIlCgZhY2Nlc3MYCiABKAsyDS5DbG91ZC5BY2Nlc3NSBmFjY2Vzcw==');
 @$core.Deprecated('Use cloudResponseDescriptor instead')
 const CloudResponse$json = const {
   '1': 'CloudResponse',
