@@ -164,20 +164,9 @@ const CloudResponse$json = const {
     const {'1': 'organizations', '3': 7, '4': 3, '5': 11, '6': '.Cloud.Organization', '10': 'organizations'},
     const {'1': 'partner', '3': 8, '4': 1, '5': 11, '6': '.Cloud.Partner', '10': 'partner'},
     const {'1': 'partners', '3': 9, '4': 3, '5': 11, '6': '.Cloud.Partner', '10': 'partners'},
-    const {'1': 'public_keys', '3': 10, '4': 3, '5': 11, '6': '.Cloud.CloudResponse.PublicKeysEntry', '10': 'publicKeys'},
+    const {'1': 'public_key', '3': 10, '4': 1, '5': 9, '10': 'publicKey'},
   ],
-  '3': const [CloudResponse_PublicKeysEntry$json],
-};
-
-@$core.Deprecated('Use cloudResponseDescriptor instead')
-const CloudResponse_PublicKeysEntry$json = const {
-  '1': 'PublicKeysEntry',
-  '2': const [
-    const {'1': 'key', '3': 1, '4': 1, '5': 9, '10': 'key'},
-    const {'1': 'value', '3': 2, '4': 1, '5': 9, '10': 'value'},
-  ],
-  '7': const {'7': true},
 };
 
 /// Descriptor for `CloudResponse`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List cloudResponseDescriptor = $convert.base64Decode('Cg1DbG91ZFJlc3BvbnNlEigKB3Byb2plY3QYASABKAsyDi5DbG91ZC5Qcm9qZWN0Ugdwcm9qZWN0EioKCHByb2plY3RzGAIgAygLMg4uQ2xvdWQuUHJvamVjdFIIcHJvamVjdHMSIQoMYWNjZXNzX3Rva2VuGAMgASgJUgthY2Nlc3NUb2tlbhI3Cgxvcmdhbml6YXRpb24YBCABKAsyEy5DbG91ZC5Pcmdhbml6YXRpb25SDG9yZ2FuaXphdGlvbhIlCgZtZW1iZXIYBSABKAsyDS5DbG91ZC5NZW1iZXJSBm1lbWJlchInCgdtZW1iZXJzGAYgAygLMg0uQ2xvdWQuTWVtYmVyUgdtZW1iZXJzEjkKDW9yZ2FuaXphdGlvbnMYByADKAsyEy5DbG91ZC5Pcmdhbml6YXRpb25SDW9yZ2FuaXphdGlvbnMSKAoHcGFydG5lchgIIAEoCzIOLkNsb3VkLlBhcnRuZXJSB3BhcnRuZXISKgoIcGFydG5lcnMYCSADKAsyDi5DbG91ZC5QYXJ0bmVyUghwYXJ0bmVycxJFCgtwdWJsaWNfa2V5cxgKIAMoCzIkLkNsb3VkLkNsb3VkUmVzcG9uc2UuUHVibGljS2V5c0VudHJ5UgpwdWJsaWNLZXlzGj0KD1B1YmxpY0tleXNFbnRyeRIQCgNrZXkYASABKAlSA2tleRIUCgV2YWx1ZRgCIAEoCVIFdmFsdWU6AjgB');
+final $typed_data.Uint8List cloudResponseDescriptor = $convert.base64Decode('Cg1DbG91ZFJlc3BvbnNlEigKB3Byb2plY3QYASABKAsyDi5DbG91ZC5Qcm9qZWN0Ugdwcm9qZWN0EioKCHByb2plY3RzGAIgAygLMg4uQ2xvdWQuUHJvamVjdFIIcHJvamVjdHMSIQoMYWNjZXNzX3Rva2VuGAMgASgJUgthY2Nlc3NUb2tlbhI3Cgxvcmdhbml6YXRpb24YBCABKAsyEy5DbG91ZC5Pcmdhbml6YXRpb25SDG9yZ2FuaXphdGlvbhIlCgZtZW1iZXIYBSABKAsyDS5DbG91ZC5NZW1iZXJSBm1lbWJlchInCgdtZW1iZXJzGAYgAygLMg0uQ2xvdWQuTWVtYmVyUgdtZW1iZXJzEjkKDW9yZ2FuaXphdGlvbnMYByADKAsyEy5DbG91ZC5Pcmdhbml6YXRpb25SDW9yZ2FuaXphdGlvbnMSKAoHcGFydG5lchgIIAEoCzIOLkNsb3VkLlBhcnRuZXJSB3BhcnRuZXISKgoIcGFydG5lcnMYCSADKAsyDi5DbG91ZC5QYXJ0bmVyUghwYXJ0bmVycxIdCgpwdWJsaWNfa2V5GAogASgJUglwdWJsaWNLZXk=');
