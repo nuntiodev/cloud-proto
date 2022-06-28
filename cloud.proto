@@ -14,7 +14,6 @@ service AdminService {
     rpc UpdateOrganization(CloudRequest) returns (CloudResponse) {}
     rpc CreateProject(CloudRequest) returns (CloudResponse) {}
     rpc RollPrivateKey(CloudRequest) returns (CloudResponse) {}
-    rpc SecurePrivateKey(CloudRequest) returns (CloudResponse) {}
     rpc GenerateAccessToken(CloudRequest) returns (CloudResponse) {}
     rpc UpdateProject(CloudRequest) returns (CloudResponse) {}
     rpc GetProject(CloudRequest) returns (CloudResponse) {}
@@ -25,6 +24,7 @@ service AdminService {
 
 service PublicService {
     rpc PublicKeys(CloudRequest)  returns (CloudResponse) {}
+    rpc GetMembers(CloudRequest) returns (CloudResponse) {}
     rpc GetPartner(CloudRequest) returns (CloudResponse) {}
     rpc GetPartners(CloudRequest) returns (CloudResponse) {}
 }
