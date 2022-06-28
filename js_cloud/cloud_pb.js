@@ -2519,7 +2519,8 @@ proto.Cloud.CloudResponse.toObject = function(includeInstance, msg) {
     proto.Cloud.Organization.toObject, includeInstance),
     partner: (f = msg.getPartner()) && proto.Cloud.Partner.toObject(includeInstance, f),
     partnersList: jspb.Message.toObjectList(msg.getPartnersList(),
-    proto.Cloud.Partner.toObject, includeInstance)
+    proto.Cloud.Partner.toObject, includeInstance),
+    publicKeysMap: (f = msg.getPublicKeysMap()) ? f.toObject(includeInstance, undefined) : []
   };
 
   if (includeInstance) {
@@ -2599,6 +2600,12 @@ proto.Cloud.CloudResponse.deserializeBinaryFromReader = function(msg, reader) {
       var value = new proto.Cloud.Partner;
       reader.readMessage(value,proto.Cloud.Partner.deserializeBinaryFromReader);
       msg.addPartners(value);
+      break;
+    case 10:
+      var value = msg.getPublicKeysMap();
+      reader.readMessage(value, function(message, reader) {
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "", "");
+         });
       break;
     default:
       reader.skipField();
@@ -2699,6 +2706,10 @@ proto.Cloud.CloudResponse.serializeBinaryToWriter = function(message, writer) {
       f,
       proto.Cloud.Partner.serializeBinaryToWriter
     );
+  }
+  f = message.getPublicKeysMap(true);
+  if (f && f.getLength() > 0) {
+    f.serializeBinary(10, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
   }
 };
 
@@ -3019,6 +3030,28 @@ proto.Cloud.CloudResponse.prototype.addPartners = function(opt_value, opt_index)
 proto.Cloud.CloudResponse.prototype.clearPartnersList = function() {
   return this.setPartnersList([]);
 };
+
+
+/**
+ * map<string, string> public_keys = 10;
+ * @param {boolean=} opt_noLazyCreate Do not create the map if
+ * empty, instead returning `undefined`
+ * @return {!jspb.Map<string,string>}
+ */
+proto.Cloud.CloudResponse.prototype.getPublicKeysMap = function(opt_noLazyCreate) {
+  return /** @type {!jspb.Map<string,string>} */ (
+      jspb.Message.getMapField(this, 10, opt_noLazyCreate,
+      null));
+};
+
+
+/**
+ * Clears values from the map. The map will be non-null.
+ * @return {!proto.Cloud.CloudResponse} returns this
+ */
+proto.Cloud.CloudResponse.prototype.clearPublicKeysMap = function() {
+  this.getPublicKeysMap().clear();
+  return this;};
 
 
 /**

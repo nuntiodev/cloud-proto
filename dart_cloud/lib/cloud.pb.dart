@@ -873,6 +873,7 @@ class CloudResponse extends $pb.GeneratedMessage {
     ..pc<Organization>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'organizations', $pb.PbFieldType.PM, subBuilder: Organization.create)
     ..aOM<Partner>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'partner', subBuilder: Partner.create)
     ..pc<Partner>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'partners', $pb.PbFieldType.PM, subBuilder: Partner.create)
+    ..m<$core.String, $core.String>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'publicKeys', entryClassName: 'CloudResponse.PublicKeysEntry', keyFieldType: $pb.PbFieldType.OS, valueFieldType: $pb.PbFieldType.OS, packageName: const $pb.PackageName('Cloud'))
     ..hasRequiredFields = false
   ;
 
@@ -887,6 +888,7 @@ class CloudResponse extends $pb.GeneratedMessage {
     $core.Iterable<Organization>? organizations,
     Partner? partner,
     $core.Iterable<Partner>? partners,
+    $core.Map<$core.String, $core.String>? publicKeys,
   }) {
     final _result = create();
     if (project != null) {
@@ -915,6 +917,9 @@ class CloudResponse extends $pb.GeneratedMessage {
     }
     if (partners != null) {
       _result.partners.addAll(partners);
+    }
+    if (publicKeys != null) {
+      _result.publicKeys.addAll(publicKeys);
     }
     return _result;
   }
@@ -1003,5 +1008,8 @@ class CloudResponse extends $pb.GeneratedMessage {
 
   @$pb.TagNumber(9)
   $core.List<Partner> get partners => $_getList(8);
+
+  @$pb.TagNumber(10)
+  $core.Map<$core.String, $core.String> get publicKeys => $_getMap(9);
 }
 
