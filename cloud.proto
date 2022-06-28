@@ -97,8 +97,7 @@ message Project {
     string logo = 11;
     string public_key = 12;
     string organization_name = 13;
-    string api_url = 14;
-    string partner_id = 15;
+    string partner_id = 14;
 }
 
 message CloudRequest {
