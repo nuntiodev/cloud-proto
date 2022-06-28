@@ -25,6 +25,7 @@ type AdminServiceClient interface {
 	UpdateOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	CreateProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	RollPrivateKey(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
+	SecurePrivateKey(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	GenerateAccessToken(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	UpdateProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	GetProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
@@ -104,6 +105,15 @@ func (c *adminServiceClient) RollPrivateKey(ctx context.Context, in *CloudReques
 	return out, nil
 }
 
+func (c *adminServiceClient) SecurePrivateKey(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
+	out := new(CloudResponse)
+	err := c.cc.Invoke(ctx, "/Cloud.AdminService/SecurePrivateKey", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *adminServiceClient) GenerateAccessToken(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
 	err := c.cc.Invoke(ctx, "/Cloud.AdminService/GenerateAccessToken", in, out, opts...)
@@ -169,6 +179,7 @@ type AdminServiceServer interface {
 	UpdateOrganization(context.Context, *CloudRequest) (*CloudResponse, error)
 	CreateProject(context.Context, *CloudRequest) (*CloudResponse, error)
 	RollPrivateKey(context.Context, *CloudRequest) (*CloudResponse, error)
+	SecurePrivateKey(context.Context, *CloudRequest) (*CloudResponse, error)
 	GenerateAccessToken(context.Context, *CloudRequest) (*CloudResponse, error)
 	UpdateProject(context.Context, *CloudRequest) (*CloudResponse, error)
 	GetProject(context.Context, *CloudRequest) (*CloudResponse, error)
@@ -201,6 +212,9 @@ func (UnimplementedAdminServiceServer) CreateProject(context.Context, *CloudRequ
 }
 func (UnimplementedAdminServiceServer) RollPrivateKey(context.Context, *CloudRequest) (*CloudResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RollPrivateKey not implemented")
+}
+func (UnimplementedAdminServiceServer) SecurePrivateKey(context.Context, *CloudRequest) (*CloudResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SecurePrivateKey not implemented")
 }
 func (UnimplementedAdminServiceServer) GenerateAccessToken(context.Context, *CloudRequest) (*CloudResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GenerateAccessToken not implemented")
@@ -358,6 +372,24 @@ func _AdminService_RollPrivateKey_Handler(srv interface{}, ctx context.Context, 
 	return interceptor(ctx, in, info, handler)
 }
 
+func _AdminService_SecurePrivateKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloudRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServiceServer).SecurePrivateKey(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/Cloud.AdminService/SecurePrivateKey",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServiceServer).SecurePrivateKey(ctx, req.(*CloudRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _AdminService_GenerateAccessToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CloudRequest)
 	if err := dec(in); err != nil {
@@ -500,6 +532,10 @@ var AdminService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "RollPrivateKey",
 			Handler:    _AdminService_RollPrivateKey_Handler,
+		},
+		{
+			MethodName: "SecurePrivateKey",
+			Handler:    _AdminService_SecurePrivateKey_Handler,
 		},
 		{
 			MethodName: "GenerateAccessToken",
