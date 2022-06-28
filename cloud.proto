@@ -125,5 +125,5 @@ message CloudResponse {
     repeated Organization organizations = 7;
     Partner partner = 8;
     repeated Partner partners = 9;
-    string public_key = 10;
+    map<string, string> public_keys = 10;
 }
