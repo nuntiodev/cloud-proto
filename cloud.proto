@@ -79,8 +79,11 @@ message Partner {
     string name = 2;
     Country country = 3;
     string api_url = 4;
-    string image = 5;
+    string logo = 5;
     bool nuntio = 6;
+    bool dedicated = 7;
+    google.protobuf.Timestamp created_at = 8;
+    google.protobuf.Timestamp updated_at = 9;
 }
 
 message Project {
