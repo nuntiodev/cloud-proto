@@ -6,20 +6,10 @@ option go_package = "./go_cloud";
 
 import "google/protobuf/timestamp.proto";
 
-service AdminService {
+service Service {
     rpc Heartbeat(CloudRequest) returns (CloudResponse) {}
-    rpc CreateOrganization(CloudRequest) returns (CloudResponse) {}
-    rpc GetOrganization(CloudRequest) returns (CloudResponse) {}
-    rpc GetUserOrganizations(CloudRequest) returns (CloudResponse) {}
-    rpc UpdateOrganization(CloudRequest) returns (CloudResponse) {}
-    rpc CreateProject(CloudRequest) returns (CloudResponse) {}
-    rpc RollPrivateKey(CloudRequest) returns (CloudResponse) {}
     rpc GenerateAccessToken(CloudRequest) returns (CloudResponse) {}
-    rpc UpdateProject(CloudRequest) returns (CloudResponse) {}
-    rpc GetProject(CloudRequest) returns (CloudResponse) {}
-    rpc GetUserProjects(CloudRequest) returns (CloudResponse) {}
-    rpc GetProjectsInOrganization(CloudRequest) returns (CloudResponse) {}
-    rpc DeleteProject(CloudRequest) returns (CloudResponse) {}
+    rpc ValidateAccess(CloudRequest) returns (CloudResponse) {}
 }
 
 enum SubscriptionType {
