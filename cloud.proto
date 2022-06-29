@@ -26,6 +26,7 @@ service Admin {
 service Public {
     rpc GenerateAccessToken(CloudRequest) returns (CloudResponse) {}
     rpc ValidateAccess(CloudRequest) returns (CloudResponse) {}
+    rpc PublicKeys(CloudRequest) returns (CloudResponse) {}
 }
 
 enum SubscriptionType {
