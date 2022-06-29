@@ -28,7 +28,7 @@ proto.Cloud = require('./cloud_pb.js');
  * @struct
  * @final
  */
-proto.Cloud.AdminServiceClient =
+proto.Cloud.AdminClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
   options.format = 'text';
@@ -54,7 +54,7 @@ proto.Cloud.AdminServiceClient =
  * @struct
  * @final
  */
-proto.Cloud.AdminServicePromiseClient =
+proto.Cloud.AdminPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
   options.format = 'text';
@@ -78,8 +78,8 @@ proto.Cloud.AdminServicePromiseClient =
  *   !proto.Cloud.CloudRequest,
  *   !proto.Cloud.CloudResponse>}
  */
-const methodDescriptor_AdminService_Heartbeat = new grpc.web.MethodDescriptor(
-  '/Cloud.AdminService/Heartbeat',
+const methodDescriptor_Admin_Heartbeat = new grpc.web.MethodDescriptor(
+  '/Cloud.Admin/Heartbeat',
   grpc.web.MethodType.UNARY,
   proto.Cloud.CloudRequest,
   proto.Cloud.CloudResponse,
@@ -104,13 +104,13 @@ const methodDescriptor_AdminService_Heartbeat = new grpc.web.MethodDescriptor(
  * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.Cloud.AdminServiceClient.prototype.heartbeat =
+proto.Cloud.AdminClient.prototype.heartbeat =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/Cloud.AdminService/Heartbeat',
+      '/Cloud.Admin/Heartbeat',
       request,
       metadata || {},
-      methodDescriptor_AdminService_Heartbeat,
+      methodDescriptor_Admin_Heartbeat,
       callback);
 };
 
@@ -123,13 +123,13 @@ proto.Cloud.AdminServiceClient.prototype.heartbeat =
  * @return {!Promise<!proto.Cloud.CloudResponse>}
  *     Promise that resolves to the response
  */
-proto.Cloud.AdminServicePromiseClient.prototype.heartbeat =
+proto.Cloud.AdminPromiseClient.prototype.heartbeat =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/Cloud.AdminService/Heartbeat',
+      '/Cloud.Admin/Heartbeat',
       request,
       metadata || {},
-      methodDescriptor_AdminService_Heartbeat);
+      methodDescriptor_Admin_Heartbeat);
 };
 
 
@@ -139,8 +139,8 @@ proto.Cloud.AdminServicePromiseClient.prototype.heartbeat =
  *   !proto.Cloud.CloudRequest,
  *   !proto.Cloud.CloudResponse>}
  */
-const methodDescriptor_AdminService_CreateOrganization = new grpc.web.MethodDescriptor(
-  '/Cloud.AdminService/CreateOrganization',
+const methodDescriptor_Admin_CreateOrganization = new grpc.web.MethodDescriptor(
+  '/Cloud.Admin/CreateOrganization',
   grpc.web.MethodType.UNARY,
   proto.Cloud.CloudRequest,
   proto.Cloud.CloudResponse,
@@ -165,13 +165,13 @@ const methodDescriptor_AdminService_CreateOrganization = new grpc.web.MethodDesc
  * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.Cloud.AdminServiceClient.prototype.createOrganization =
+proto.Cloud.AdminClient.prototype.createOrganization =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/Cloud.AdminService/CreateOrganization',
+      '/Cloud.Admin/CreateOrganization',
       request,
       metadata || {},
-      methodDescriptor_AdminService_CreateOrganization,
+      methodDescriptor_Admin_CreateOrganization,
       callback);
 };
 
@@ -184,13 +184,13 @@ proto.Cloud.AdminServiceClient.prototype.createOrganization =
  * @return {!Promise<!proto.Cloud.CloudResponse>}
  *     Promise that resolves to the response
  */
-proto.Cloud.AdminServicePromiseClient.prototype.createOrganization =
+proto.Cloud.AdminPromiseClient.prototype.createOrganization =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/Cloud.AdminService/CreateOrganization',
+      '/Cloud.Admin/CreateOrganization',
       request,
       metadata || {},
-      methodDescriptor_AdminService_CreateOrganization);
+      methodDescriptor_Admin_CreateOrganization);
 };
 
 
@@ -200,8 +200,8 @@ proto.Cloud.AdminServicePromiseClient.prototype.createOrganization =
  *   !proto.Cloud.CloudRequest,
  *   !proto.Cloud.CloudResponse>}
  */
-const methodDescriptor_AdminService_GetOrganization = new grpc.web.MethodDescriptor(
-  '/Cloud.AdminService/GetOrganization',
+const methodDescriptor_Admin_GetOrganization = new grpc.web.MethodDescriptor(
+  '/Cloud.Admin/GetOrganization',
   grpc.web.MethodType.UNARY,
   proto.Cloud.CloudRequest,
   proto.Cloud.CloudResponse,
@@ -226,13 +226,13 @@ const methodDescriptor_AdminService_GetOrganization = new grpc.web.MethodDescrip
  * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.Cloud.AdminServiceClient.prototype.getOrganization =
+proto.Cloud.AdminClient.prototype.getOrganization =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/Cloud.AdminService/GetOrganization',
+      '/Cloud.Admin/GetOrganization',
       request,
       metadata || {},
-      methodDescriptor_AdminService_GetOrganization,
+      methodDescriptor_Admin_GetOrganization,
       callback);
 };
 
@@ -245,13 +245,13 @@ proto.Cloud.AdminServiceClient.prototype.getOrganization =
  * @return {!Promise<!proto.Cloud.CloudResponse>}
  *     Promise that resolves to the response
  */
-proto.Cloud.AdminServicePromiseClient.prototype.getOrganization =
+proto.Cloud.AdminPromiseClient.prototype.getOrganization =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/Cloud.AdminService/GetOrganization',
+      '/Cloud.Admin/GetOrganization',
       request,
       metadata || {},
-      methodDescriptor_AdminService_GetOrganization);
+      methodDescriptor_Admin_GetOrganization);
 };
 
 
@@ -261,8 +261,8 @@ proto.Cloud.AdminServicePromiseClient.prototype.getOrganization =
  *   !proto.Cloud.CloudRequest,
  *   !proto.Cloud.CloudResponse>}
  */
-const methodDescriptor_AdminService_GetUserOrganizations = new grpc.web.MethodDescriptor(
-  '/Cloud.AdminService/GetUserOrganizations',
+const methodDescriptor_Admin_GetUserOrganizations = new grpc.web.MethodDescriptor(
+  '/Cloud.Admin/GetUserOrganizations',
   grpc.web.MethodType.UNARY,
   proto.Cloud.CloudRequest,
   proto.Cloud.CloudResponse,
@@ -287,13 +287,13 @@ const methodDescriptor_AdminService_GetUserOrganizations = new grpc.web.MethodDe
  * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.Cloud.AdminServiceClient.prototype.getUserOrganizations =
+proto.Cloud.AdminClient.prototype.getUserOrganizations =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/Cloud.AdminService/GetUserOrganizations',
+      '/Cloud.Admin/GetUserOrganizations',
       request,
       metadata || {},
-      methodDescriptor_AdminService_GetUserOrganizations,
+      methodDescriptor_Admin_GetUserOrganizations,
       callback);
 };
 
@@ -306,13 +306,13 @@ proto.Cloud.AdminServiceClient.prototype.getUserOrganizations =
  * @return {!Promise<!proto.Cloud.CloudResponse>}
  *     Promise that resolves to the response
  */
-proto.Cloud.AdminServicePromiseClient.prototype.getUserOrganizations =
+proto.Cloud.AdminPromiseClient.prototype.getUserOrganizations =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/Cloud.AdminService/GetUserOrganizations',
+      '/Cloud.Admin/GetUserOrganizations',
       request,
       metadata || {},
-      methodDescriptor_AdminService_GetUserOrganizations);
+      methodDescriptor_Admin_GetUserOrganizations);
 };
 
 
@@ -322,8 +322,8 @@ proto.Cloud.AdminServicePromiseClient.prototype.getUserOrganizations =
  *   !proto.Cloud.CloudRequest,
  *   !proto.Cloud.CloudResponse>}
  */
-const methodDescriptor_AdminService_UpdateOrganization = new grpc.web.MethodDescriptor(
-  '/Cloud.AdminService/UpdateOrganization',
+const methodDescriptor_Admin_UpdateOrganization = new grpc.web.MethodDescriptor(
+  '/Cloud.Admin/UpdateOrganization',
   grpc.web.MethodType.UNARY,
   proto.Cloud.CloudRequest,
   proto.Cloud.CloudResponse,
@@ -348,13 +348,13 @@ const methodDescriptor_AdminService_UpdateOrganization = new grpc.web.MethodDesc
  * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.Cloud.AdminServiceClient.prototype.updateOrganization =
+proto.Cloud.AdminClient.prototype.updateOrganization =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/Cloud.AdminService/UpdateOrganization',
+      '/Cloud.Admin/UpdateOrganization',
       request,
       metadata || {},
-      methodDescriptor_AdminService_UpdateOrganization,
+      methodDescriptor_Admin_UpdateOrganization,
       callback);
 };
 
@@ -367,13 +367,13 @@ proto.Cloud.AdminServiceClient.prototype.updateOrganization =
  * @return {!Promise<!proto.Cloud.CloudResponse>}
  *     Promise that resolves to the response
  */
-proto.Cloud.AdminServicePromiseClient.prototype.updateOrganization =
+proto.Cloud.AdminPromiseClient.prototype.updateOrganization =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/Cloud.AdminService/UpdateOrganization',
+      '/Cloud.Admin/UpdateOrganization',
       request,
       metadata || {},
-      methodDescriptor_AdminService_UpdateOrganization);
+      methodDescriptor_Admin_UpdateOrganization);
 };
 
 
@@ -383,8 +383,8 @@ proto.Cloud.AdminServicePromiseClient.prototype.updateOrganization =
  *   !proto.Cloud.CloudRequest,
  *   !proto.Cloud.CloudResponse>}
  */
-const methodDescriptor_AdminService_CreateProject = new grpc.web.MethodDescriptor(
-  '/Cloud.AdminService/CreateProject',
+const methodDescriptor_Admin_CreateProject = new grpc.web.MethodDescriptor(
+  '/Cloud.Admin/CreateProject',
   grpc.web.MethodType.UNARY,
   proto.Cloud.CloudRequest,
   proto.Cloud.CloudResponse,
@@ -409,13 +409,13 @@ const methodDescriptor_AdminService_CreateProject = new grpc.web.MethodDescripto
  * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.Cloud.AdminServiceClient.prototype.createProject =
+proto.Cloud.AdminClient.prototype.createProject =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/Cloud.AdminService/CreateProject',
+      '/Cloud.Admin/CreateProject',
       request,
       metadata || {},
-      methodDescriptor_AdminService_CreateProject,
+      methodDescriptor_Admin_CreateProject,
       callback);
 };
 
@@ -428,13 +428,13 @@ proto.Cloud.AdminServiceClient.prototype.createProject =
  * @return {!Promise<!proto.Cloud.CloudResponse>}
  *     Promise that resolves to the response
  */
-proto.Cloud.AdminServicePromiseClient.prototype.createProject =
+proto.Cloud.AdminPromiseClient.prototype.createProject =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/Cloud.AdminService/CreateProject',
+      '/Cloud.Admin/CreateProject',
       request,
       metadata || {},
-      methodDescriptor_AdminService_CreateProject);
+      methodDescriptor_Admin_CreateProject);
 };
 
 
@@ -444,8 +444,8 @@ proto.Cloud.AdminServicePromiseClient.prototype.createProject =
  *   !proto.Cloud.CloudRequest,
  *   !proto.Cloud.CloudResponse>}
  */
-const methodDescriptor_AdminService_RollPrivateKey = new grpc.web.MethodDescriptor(
-  '/Cloud.AdminService/RollPrivateKey',
+const methodDescriptor_Admin_RollPrivateKey = new grpc.web.MethodDescriptor(
+  '/Cloud.Admin/RollPrivateKey',
   grpc.web.MethodType.UNARY,
   proto.Cloud.CloudRequest,
   proto.Cloud.CloudResponse,
@@ -470,13 +470,13 @@ const methodDescriptor_AdminService_RollPrivateKey = new grpc.web.MethodDescript
  * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.Cloud.AdminServiceClient.prototype.rollPrivateKey =
+proto.Cloud.AdminClient.prototype.rollPrivateKey =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/Cloud.AdminService/RollPrivateKey',
+      '/Cloud.Admin/RollPrivateKey',
       request,
       metadata || {},
-      methodDescriptor_AdminService_RollPrivateKey,
+      methodDescriptor_Admin_RollPrivateKey,
       callback);
 };
 
@@ -489,13 +489,13 @@ proto.Cloud.AdminServiceClient.prototype.rollPrivateKey =
  * @return {!Promise<!proto.Cloud.CloudResponse>}
  *     Promise that resolves to the response
  */
-proto.Cloud.AdminServicePromiseClient.prototype.rollPrivateKey =
+proto.Cloud.AdminPromiseClient.prototype.rollPrivateKey =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/Cloud.AdminService/RollPrivateKey',
+      '/Cloud.Admin/RollPrivateKey',
       request,
       metadata || {},
-      methodDescriptor_AdminService_RollPrivateKey);
+      methodDescriptor_Admin_RollPrivateKey);
 };
 
 
@@ -505,8 +505,8 @@ proto.Cloud.AdminServicePromiseClient.prototype.rollPrivateKey =
  *   !proto.Cloud.CloudRequest,
  *   !proto.Cloud.CloudResponse>}
  */
-const methodDescriptor_AdminService_GenerateAccessToken = new grpc.web.MethodDescriptor(
-  '/Cloud.AdminService/GenerateAccessToken',
+const methodDescriptor_Admin_UpdateProject = new grpc.web.MethodDescriptor(
+  '/Cloud.Admin/UpdateProject',
   grpc.web.MethodType.UNARY,
   proto.Cloud.CloudRequest,
   proto.Cloud.CloudResponse,
@@ -531,13 +531,13 @@ const methodDescriptor_AdminService_GenerateAccessToken = new grpc.web.MethodDes
  * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.Cloud.AdminServiceClient.prototype.generateAccessToken =
+proto.Cloud.AdminClient.prototype.updateProject =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/Cloud.AdminService/GenerateAccessToken',
+      '/Cloud.Admin/UpdateProject',
       request,
       metadata || {},
-      methodDescriptor_AdminService_GenerateAccessToken,
+      methodDescriptor_Admin_UpdateProject,
       callback);
 };
 
@@ -550,13 +550,13 @@ proto.Cloud.AdminServiceClient.prototype.generateAccessToken =
  * @return {!Promise<!proto.Cloud.CloudResponse>}
  *     Promise that resolves to the response
  */
-proto.Cloud.AdminServicePromiseClient.prototype.generateAccessToken =
+proto.Cloud.AdminPromiseClient.prototype.updateProject =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/Cloud.AdminService/GenerateAccessToken',
+      '/Cloud.Admin/UpdateProject',
       request,
       metadata || {},
-      methodDescriptor_AdminService_GenerateAccessToken);
+      methodDescriptor_Admin_UpdateProject);
 };
 
 
@@ -566,8 +566,8 @@ proto.Cloud.AdminServicePromiseClient.prototype.generateAccessToken =
  *   !proto.Cloud.CloudRequest,
  *   !proto.Cloud.CloudResponse>}
  */
-const methodDescriptor_AdminService_UpdateProject = new grpc.web.MethodDescriptor(
-  '/Cloud.AdminService/UpdateProject',
+const methodDescriptor_Admin_GetProject = new grpc.web.MethodDescriptor(
+  '/Cloud.Admin/GetProject',
   grpc.web.MethodType.UNARY,
   proto.Cloud.CloudRequest,
   proto.Cloud.CloudResponse,
@@ -592,13 +592,13 @@ const methodDescriptor_AdminService_UpdateProject = new grpc.web.MethodDescripto
  * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.Cloud.AdminServiceClient.prototype.updateProject =
+proto.Cloud.AdminClient.prototype.getProject =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/Cloud.AdminService/UpdateProject',
+      '/Cloud.Admin/GetProject',
       request,
       metadata || {},
-      methodDescriptor_AdminService_UpdateProject,
+      methodDescriptor_Admin_GetProject,
       callback);
 };
 
@@ -611,13 +611,13 @@ proto.Cloud.AdminServiceClient.prototype.updateProject =
  * @return {!Promise<!proto.Cloud.CloudResponse>}
  *     Promise that resolves to the response
  */
-proto.Cloud.AdminServicePromiseClient.prototype.updateProject =
+proto.Cloud.AdminPromiseClient.prototype.getProject =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/Cloud.AdminService/UpdateProject',
+      '/Cloud.Admin/GetProject',
       request,
       metadata || {},
-      methodDescriptor_AdminService_UpdateProject);
+      methodDescriptor_Admin_GetProject);
 };
 
 
@@ -627,8 +627,8 @@ proto.Cloud.AdminServicePromiseClient.prototype.updateProject =
  *   !proto.Cloud.CloudRequest,
  *   !proto.Cloud.CloudResponse>}
  */
-const methodDescriptor_AdminService_GetProject = new grpc.web.MethodDescriptor(
-  '/Cloud.AdminService/GetProject',
+const methodDescriptor_Admin_GetUserProjects = new grpc.web.MethodDescriptor(
+  '/Cloud.Admin/GetUserProjects',
   grpc.web.MethodType.UNARY,
   proto.Cloud.CloudRequest,
   proto.Cloud.CloudResponse,
@@ -653,13 +653,13 @@ const methodDescriptor_AdminService_GetProject = new grpc.web.MethodDescriptor(
  * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.Cloud.AdminServiceClient.prototype.getProject =
+proto.Cloud.AdminClient.prototype.getUserProjects =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/Cloud.AdminService/GetProject',
+      '/Cloud.Admin/GetUserProjects',
       request,
       metadata || {},
-      methodDescriptor_AdminService_GetProject,
+      methodDescriptor_Admin_GetUserProjects,
       callback);
 };
 
@@ -672,13 +672,13 @@ proto.Cloud.AdminServiceClient.prototype.getProject =
  * @return {!Promise<!proto.Cloud.CloudResponse>}
  *     Promise that resolves to the response
  */
-proto.Cloud.AdminServicePromiseClient.prototype.getProject =
+proto.Cloud.AdminPromiseClient.prototype.getUserProjects =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/Cloud.AdminService/GetProject',
+      '/Cloud.Admin/GetUserProjects',
       request,
       metadata || {},
-      methodDescriptor_AdminService_GetProject);
+      methodDescriptor_Admin_GetUserProjects);
 };
 
 
@@ -688,8 +688,8 @@ proto.Cloud.AdminServicePromiseClient.prototype.getProject =
  *   !proto.Cloud.CloudRequest,
  *   !proto.Cloud.CloudResponse>}
  */
-const methodDescriptor_AdminService_GetUserProjects = new grpc.web.MethodDescriptor(
-  '/Cloud.AdminService/GetUserProjects',
+const methodDescriptor_Admin_GetProjectsInOrganization = new grpc.web.MethodDescriptor(
+  '/Cloud.Admin/GetProjectsInOrganization',
   grpc.web.MethodType.UNARY,
   proto.Cloud.CloudRequest,
   proto.Cloud.CloudResponse,
@@ -714,13 +714,13 @@ const methodDescriptor_AdminService_GetUserProjects = new grpc.web.MethodDescrip
  * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.Cloud.AdminServiceClient.prototype.getUserProjects =
+proto.Cloud.AdminClient.prototype.getProjectsInOrganization =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/Cloud.AdminService/GetUserProjects',
+      '/Cloud.Admin/GetProjectsInOrganization',
       request,
       metadata || {},
-      methodDescriptor_AdminService_GetUserProjects,
+      methodDescriptor_Admin_GetProjectsInOrganization,
       callback);
 };
 
@@ -733,13 +733,13 @@ proto.Cloud.AdminServiceClient.prototype.getUserProjects =
  * @return {!Promise<!proto.Cloud.CloudResponse>}
  *     Promise that resolves to the response
  */
-proto.Cloud.AdminServicePromiseClient.prototype.getUserProjects =
+proto.Cloud.AdminPromiseClient.prototype.getProjectsInOrganization =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/Cloud.AdminService/GetUserProjects',
+      '/Cloud.Admin/GetProjectsInOrganization',
       request,
       metadata || {},
-      methodDescriptor_AdminService_GetUserProjects);
+      methodDescriptor_Admin_GetProjectsInOrganization);
 };
 
 
@@ -749,8 +749,8 @@ proto.Cloud.AdminServicePromiseClient.prototype.getUserProjects =
  *   !proto.Cloud.CloudRequest,
  *   !proto.Cloud.CloudResponse>}
  */
-const methodDescriptor_AdminService_GetProjectsInOrganization = new grpc.web.MethodDescriptor(
-  '/Cloud.AdminService/GetProjectsInOrganization',
+const methodDescriptor_Admin_DeleteProject = new grpc.web.MethodDescriptor(
+  '/Cloud.Admin/DeleteProject',
   grpc.web.MethodType.UNARY,
   proto.Cloud.CloudRequest,
   proto.Cloud.CloudResponse,
@@ -775,13 +775,13 @@ const methodDescriptor_AdminService_GetProjectsInOrganization = new grpc.web.Met
  * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.Cloud.AdminServiceClient.prototype.getProjectsInOrganization =
+proto.Cloud.AdminClient.prototype.deleteProject =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/Cloud.AdminService/GetProjectsInOrganization',
+      '/Cloud.Admin/DeleteProject',
       request,
       metadata || {},
-      methodDescriptor_AdminService_GetProjectsInOrganization,
+      methodDescriptor_Admin_DeleteProject,
       callback);
 };
 
@@ -794,13 +794,13 @@ proto.Cloud.AdminServiceClient.prototype.getProjectsInOrganization =
  * @return {!Promise<!proto.Cloud.CloudResponse>}
  *     Promise that resolves to the response
  */
-proto.Cloud.AdminServicePromiseClient.prototype.getProjectsInOrganization =
+proto.Cloud.AdminPromiseClient.prototype.deleteProject =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/Cloud.AdminService/GetProjectsInOrganization',
+      '/Cloud.Admin/DeleteProject',
       request,
       metadata || {},
-      methodDescriptor_AdminService_GetProjectsInOrganization);
+      methodDescriptor_Admin_DeleteProject);
 };
 
 
@@ -810,8 +810,8 @@ proto.Cloud.AdminServicePromiseClient.prototype.getProjectsInOrganization =
  *   !proto.Cloud.CloudRequest,
  *   !proto.Cloud.CloudResponse>}
  */
-const methodDescriptor_AdminService_DeleteProject = new grpc.web.MethodDescriptor(
-  '/Cloud.AdminService/DeleteProject',
+const methodDescriptor_Admin_GetPartner = new grpc.web.MethodDescriptor(
+  '/Cloud.Admin/GetPartner',
   grpc.web.MethodType.UNARY,
   proto.Cloud.CloudRequest,
   proto.Cloud.CloudResponse,
@@ -836,13 +836,13 @@ const methodDescriptor_AdminService_DeleteProject = new grpc.web.MethodDescripto
  * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
  *     The XHR Node Readable Stream
  */
-proto.Cloud.AdminServiceClient.prototype.deleteProject =
+proto.Cloud.AdminClient.prototype.getPartner =
     function(request, metadata, callback) {
   return this.client_.rpcCall(this.hostname_ +
-      '/Cloud.AdminService/DeleteProject',
+      '/Cloud.Admin/GetPartner',
       request,
       metadata || {},
-      methodDescriptor_AdminService_DeleteProject,
+      methodDescriptor_Admin_GetPartner,
       callback);
 };
 
@@ -855,13 +855,309 @@ proto.Cloud.AdminServiceClient.prototype.deleteProject =
  * @return {!Promise<!proto.Cloud.CloudResponse>}
  *     Promise that resolves to the response
  */
-proto.Cloud.AdminServicePromiseClient.prototype.deleteProject =
+proto.Cloud.AdminPromiseClient.prototype.getPartner =
     function(request, metadata) {
   return this.client_.unaryCall(this.hostname_ +
-      '/Cloud.AdminService/DeleteProject',
+      '/Cloud.Admin/GetPartner',
       request,
       metadata || {},
-      methodDescriptor_AdminService_DeleteProject);
+      methodDescriptor_Admin_GetPartner);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.Cloud.CloudRequest,
+ *   !proto.Cloud.CloudResponse>}
+ */
+const methodDescriptor_Admin_GetPartners = new grpc.web.MethodDescriptor(
+  '/Cloud.Admin/GetPartners',
+  grpc.web.MethodType.UNARY,
+  proto.Cloud.CloudRequest,
+  proto.Cloud.CloudResponse,
+  /**
+   * @param {!proto.Cloud.CloudRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.Cloud.CloudResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.Cloud.CloudRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.Cloud.CloudResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.Cloud.AdminClient.prototype.getPartners =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/Cloud.Admin/GetPartners',
+      request,
+      metadata || {},
+      methodDescriptor_Admin_GetPartners,
+      callback);
+};
+
+
+/**
+ * @param {!proto.Cloud.CloudRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.Cloud.CloudResponse>}
+ *     Promise that resolves to the response
+ */
+proto.Cloud.AdminPromiseClient.prototype.getPartners =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/Cloud.Admin/GetPartners',
+      request,
+      metadata || {},
+      methodDescriptor_Admin_GetPartners);
+};
+
+
+/**
+ * @param {string} hostname
+ * @param {?Object} credentials
+ * @param {?grpc.web.ClientOptions} options
+ * @constructor
+ * @struct
+ * @final
+ */
+proto.Cloud.PublicClient =
+    function(hostname, credentials, options) {
+  if (!options) options = {};
+  options.format = 'text';
+
+  /**
+   * @private @const {!grpc.web.GrpcWebClientBase} The client
+   */
+  this.client_ = new grpc.web.GrpcWebClientBase(options);
+
+  /**
+   * @private @const {string} The hostname
+   */
+  this.hostname_ = hostname;
+
+};
+
+
+/**
+ * @param {string} hostname
+ * @param {?Object} credentials
+ * @param {?grpc.web.ClientOptions} options
+ * @constructor
+ * @struct
+ * @final
+ */
+proto.Cloud.PublicPromiseClient =
+    function(hostname, credentials, options) {
+  if (!options) options = {};
+  options.format = 'text';
+
+  /**
+   * @private @const {!grpc.web.GrpcWebClientBase} The client
+   */
+  this.client_ = new grpc.web.GrpcWebClientBase(options);
+
+  /**
+   * @private @const {string} The hostname
+   */
+  this.hostname_ = hostname;
+
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.Cloud.CloudRequest,
+ *   !proto.Cloud.CloudResponse>}
+ */
+const methodDescriptor_Public_GenerateAccessToken = new grpc.web.MethodDescriptor(
+  '/Cloud.Public/GenerateAccessToken',
+  grpc.web.MethodType.UNARY,
+  proto.Cloud.CloudRequest,
+  proto.Cloud.CloudResponse,
+  /**
+   * @param {!proto.Cloud.CloudRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.Cloud.CloudResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.Cloud.CloudRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.Cloud.CloudResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.Cloud.PublicClient.prototype.generateAccessToken =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/Cloud.Public/GenerateAccessToken',
+      request,
+      metadata || {},
+      methodDescriptor_Public_GenerateAccessToken,
+      callback);
+};
+
+
+/**
+ * @param {!proto.Cloud.CloudRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.Cloud.CloudResponse>}
+ *     Promise that resolves to the response
+ */
+proto.Cloud.PublicPromiseClient.prototype.generateAccessToken =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/Cloud.Public/GenerateAccessToken',
+      request,
+      metadata || {},
+      methodDescriptor_Public_GenerateAccessToken);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.Cloud.CloudRequest,
+ *   !proto.Cloud.CloudResponse>}
+ */
+const methodDescriptor_Public_ValidateAccess = new grpc.web.MethodDescriptor(
+  '/Cloud.Public/ValidateAccess',
+  grpc.web.MethodType.UNARY,
+  proto.Cloud.CloudRequest,
+  proto.Cloud.CloudResponse,
+  /**
+   * @param {!proto.Cloud.CloudRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.Cloud.CloudResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.Cloud.CloudRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.Cloud.CloudResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.Cloud.PublicClient.prototype.validateAccess =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/Cloud.Public/ValidateAccess',
+      request,
+      metadata || {},
+      methodDescriptor_Public_ValidateAccess,
+      callback);
+};
+
+
+/**
+ * @param {!proto.Cloud.CloudRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.Cloud.CloudResponse>}
+ *     Promise that resolves to the response
+ */
+proto.Cloud.PublicPromiseClient.prototype.validateAccess =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/Cloud.Public/ValidateAccess',
+      request,
+      metadata || {},
+      methodDescriptor_Public_ValidateAccess);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.Cloud.CloudRequest,
+ *   !proto.Cloud.CloudResponse>}
+ */
+const methodDescriptor_Public_PublicKeys = new grpc.web.MethodDescriptor(
+  '/Cloud.Public/PublicKeys',
+  grpc.web.MethodType.UNARY,
+  proto.Cloud.CloudRequest,
+  proto.Cloud.CloudResponse,
+  /**
+   * @param {!proto.Cloud.CloudRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.Cloud.CloudResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.Cloud.CloudRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.Cloud.CloudResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.Cloud.CloudResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.Cloud.PublicClient.prototype.publicKeys =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/Cloud.Public/PublicKeys',
+      request,
+      metadata || {},
+      methodDescriptor_Public_PublicKeys,
+      callback);
+};
+
+
+/**
+ * @param {!proto.Cloud.CloudRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.Cloud.CloudResponse>}
+ *     Promise that resolves to the response
+ */
+proto.Cloud.PublicPromiseClient.prototype.publicKeys =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/Cloud.Public/PublicKeys',
+      request,
+      metadata || {},
+      methodDescriptor_Public_PublicKeys);
 };
 
 

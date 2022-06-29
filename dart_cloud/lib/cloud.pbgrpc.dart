@@ -13,74 +13,79 @@ import 'package:grpc/service_api.dart' as $grpc;
 import 'cloud.pb.dart' as $0;
 export 'cloud.pb.dart';
 
-class AdminServiceClient extends $grpc.Client {
+class AdminClient extends $grpc.Client {
   static final _$heartbeat =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/Cloud.AdminService/Heartbeat',
+          '/Cloud.Admin/Heartbeat',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
   static final _$createOrganization =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/Cloud.AdminService/CreateOrganization',
+          '/Cloud.Admin/CreateOrganization',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
   static final _$getOrganization =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/Cloud.AdminService/GetOrganization',
+          '/Cloud.Admin/GetOrganization',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
   static final _$getUserOrganizations =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/Cloud.AdminService/GetUserOrganizations',
+          '/Cloud.Admin/GetUserOrganizations',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
   static final _$updateOrganization =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/Cloud.AdminService/UpdateOrganization',
+          '/Cloud.Admin/UpdateOrganization',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
   static final _$createProject =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/Cloud.AdminService/CreateProject',
+          '/Cloud.Admin/CreateProject',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
   static final _$rollPrivateKey =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/Cloud.AdminService/RollPrivateKey',
-          ($0.CloudRequest value) => value.writeToBuffer(),
-          ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
-  static final _$generateAccessToken =
-      $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/Cloud.AdminService/GenerateAccessToken',
+          '/Cloud.Admin/RollPrivateKey',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
   static final _$updateProject =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/Cloud.AdminService/UpdateProject',
+          '/Cloud.Admin/UpdateProject',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
   static final _$getProject =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/Cloud.AdminService/GetProject',
+          '/Cloud.Admin/GetProject',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
   static final _$getUserProjects =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/Cloud.AdminService/GetUserProjects',
+          '/Cloud.Admin/GetUserProjects',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
   static final _$getProjectsInOrganization =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/Cloud.AdminService/GetProjectsInOrganization',
+          '/Cloud.Admin/GetProjectsInOrganization',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
   static final _$deleteProject =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/Cloud.AdminService/DeleteProject',
+          '/Cloud.Admin/DeleteProject',
+          ($0.CloudRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
+  static final _$getPartner =
+      $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
+          '/Cloud.Admin/GetPartner',
+          ($0.CloudRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
+  static final _$getPartners =
+      $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
+          '/Cloud.Admin/GetPartners',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
 
-  AdminServiceClient($grpc.ClientChannel channel,
+  AdminClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
       $core.Iterable<$grpc.ClientInterceptor>? interceptors})
       : super(channel, options: options, interceptors: interceptors);
@@ -124,12 +129,6 @@ class AdminServiceClient extends $grpc.Client {
     return $createUnaryCall(_$rollPrivateKey, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.CloudResponse> generateAccessToken(
-      $0.CloudRequest request,
-      {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$generateAccessToken, request, options: options);
-  }
-
   $grpc.ResponseFuture<$0.CloudResponse> updateProject($0.CloudRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$updateProject, request, options: options);
@@ -157,10 +156,20 @@ class AdminServiceClient extends $grpc.Client {
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$deleteProject, request, options: options);
   }
+
+  $grpc.ResponseFuture<$0.CloudResponse> getPartner($0.CloudRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getPartner, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.CloudResponse> getPartners($0.CloudRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getPartners, request, options: options);
+  }
 }
 
 abstract class AdminServiceBase extends $grpc.Service {
-  $core.String get $name => 'Cloud.AdminService';
+  $core.String get $name => 'Cloud.Admin';
 
   AdminServiceBase() {
     $addMethod($grpc.ServiceMethod<$0.CloudRequest, $0.CloudResponse>(
@@ -213,13 +222,6 @@ abstract class AdminServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) => $0.CloudRequest.fromBuffer(value),
         ($0.CloudResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.CloudRequest, $0.CloudResponse>(
-        'GenerateAccessToken',
-        generateAccessToken_Pre,
-        false,
-        false,
-        ($core.List<$core.int> value) => $0.CloudRequest.fromBuffer(value),
-        ($0.CloudResponse value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CloudRequest, $0.CloudResponse>(
         'UpdateProject',
         updateProject_Pre,
         false,
@@ -250,6 +252,20 @@ abstract class AdminServiceBase extends $grpc.Service {
     $addMethod($grpc.ServiceMethod<$0.CloudRequest, $0.CloudResponse>(
         'DeleteProject',
         deleteProject_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CloudRequest.fromBuffer(value),
+        ($0.CloudResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CloudRequest, $0.CloudResponse>(
+        'GetPartner',
+        getPartner_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CloudRequest.fromBuffer(value),
+        ($0.CloudResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CloudRequest, $0.CloudResponse>(
+        'GetPartners',
+        getPartners_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $0.CloudRequest.fromBuffer(value),
@@ -291,11 +307,6 @@ abstract class AdminServiceBase extends $grpc.Service {
     return rollPrivateKey(call, await request);
   }
 
-  $async.Future<$0.CloudResponse> generateAccessToken_Pre(
-      $grpc.ServiceCall call, $async.Future<$0.CloudRequest> request) async {
-    return generateAccessToken(call, await request);
-  }
-
   $async.Future<$0.CloudResponse> updateProject_Pre(
       $grpc.ServiceCall call, $async.Future<$0.CloudRequest> request) async {
     return updateProject(call, await request);
@@ -321,6 +332,16 @@ abstract class AdminServiceBase extends $grpc.Service {
     return deleteProject(call, await request);
   }
 
+  $async.Future<$0.CloudResponse> getPartner_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.CloudRequest> request) async {
+    return getPartner(call, await request);
+  }
+
+  $async.Future<$0.CloudResponse> getPartners_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.CloudRequest> request) async {
+    return getPartners(call, await request);
+  }
+
   $async.Future<$0.CloudResponse> heartbeat(
       $grpc.ServiceCall call, $0.CloudRequest request);
   $async.Future<$0.CloudResponse> createOrganization(
@@ -335,8 +356,6 @@ abstract class AdminServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.CloudRequest request);
   $async.Future<$0.CloudResponse> rollPrivateKey(
       $grpc.ServiceCall call, $0.CloudRequest request);
-  $async.Future<$0.CloudResponse> generateAccessToken(
-      $grpc.ServiceCall call, $0.CloudRequest request);
   $async.Future<$0.CloudResponse> updateProject(
       $grpc.ServiceCall call, $0.CloudRequest request);
   $async.Future<$0.CloudResponse> getProject(
@@ -346,5 +365,98 @@ abstract class AdminServiceBase extends $grpc.Service {
   $async.Future<$0.CloudResponse> getProjectsInOrganization(
       $grpc.ServiceCall call, $0.CloudRequest request);
   $async.Future<$0.CloudResponse> deleteProject(
+      $grpc.ServiceCall call, $0.CloudRequest request);
+  $async.Future<$0.CloudResponse> getPartner(
+      $grpc.ServiceCall call, $0.CloudRequest request);
+  $async.Future<$0.CloudResponse> getPartners(
+      $grpc.ServiceCall call, $0.CloudRequest request);
+}
+
+class PublicClient extends $grpc.Client {
+  static final _$generateAccessToken =
+      $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
+          '/Cloud.Public/GenerateAccessToken',
+          ($0.CloudRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
+  static final _$validateAccess =
+      $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
+          '/Cloud.Public/ValidateAccess',
+          ($0.CloudRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
+  static final _$publicKeys =
+      $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
+          '/Cloud.Public/PublicKeys',
+          ($0.CloudRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
+
+  PublicClient($grpc.ClientChannel channel,
+      {$grpc.CallOptions? options,
+      $core.Iterable<$grpc.ClientInterceptor>? interceptors})
+      : super(channel, options: options, interceptors: interceptors);
+
+  $grpc.ResponseFuture<$0.CloudResponse> generateAccessToken(
+      $0.CloudRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$generateAccessToken, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.CloudResponse> validateAccess($0.CloudRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$validateAccess, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.CloudResponse> publicKeys($0.CloudRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$publicKeys, request, options: options);
+  }
+}
+
+abstract class PublicServiceBase extends $grpc.Service {
+  $core.String get $name => 'Cloud.Public';
+
+  PublicServiceBase() {
+    $addMethod($grpc.ServiceMethod<$0.CloudRequest, $0.CloudResponse>(
+        'GenerateAccessToken',
+        generateAccessToken_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CloudRequest.fromBuffer(value),
+        ($0.CloudResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CloudRequest, $0.CloudResponse>(
+        'ValidateAccess',
+        validateAccess_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CloudRequest.fromBuffer(value),
+        ($0.CloudResponse value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CloudRequest, $0.CloudResponse>(
+        'PublicKeys',
+        publicKeys_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CloudRequest.fromBuffer(value),
+        ($0.CloudResponse value) => value.writeToBuffer()));
+  }
+
+  $async.Future<$0.CloudResponse> generateAccessToken_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.CloudRequest> request) async {
+    return generateAccessToken(call, await request);
+  }
+
+  $async.Future<$0.CloudResponse> validateAccess_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.CloudRequest> request) async {
+    return validateAccess(call, await request);
+  }
+
+  $async.Future<$0.CloudResponse> publicKeys_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.CloudRequest> request) async {
+    return publicKeys(call, await request);
+  }
+
+  $async.Future<$0.CloudResponse> generateAccessToken(
+      $grpc.ServiceCall call, $0.CloudRequest request);
+  $async.Future<$0.CloudResponse> validateAccess(
+      $grpc.ServiceCall call, $0.CloudRequest request);
+  $async.Future<$0.CloudResponse> publicKeys(
       $grpc.ServiceCall call, $0.CloudRequest request);
 }

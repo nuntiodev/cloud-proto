@@ -14,10 +14,10 @@ import (
 // Requires gRPC-Go v1.32.0 or later.
 const _ = grpc.SupportPackageIsVersion7
 
-// AdminServiceClient is the client API for AdminService service.
+// AdminClient is the client API for Admin service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type AdminServiceClient interface {
+type AdminClient interface {
 	Heartbeat(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	CreateOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	GetOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
@@ -25,143 +25,153 @@ type AdminServiceClient interface {
 	UpdateOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	CreateProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	RollPrivateKey(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
-	GenerateAccessToken(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	UpdateProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	GetProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	GetUserProjects(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	GetProjectsInOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	DeleteProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
+	GetPartner(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
+	GetPartners(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 }
 
-type adminServiceClient struct {
+type adminClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewAdminServiceClient(cc grpc.ClientConnInterface) AdminServiceClient {
-	return &adminServiceClient{cc}
+func NewAdminClient(cc grpc.ClientConnInterface) AdminClient {
+	return &adminClient{cc}
 }
 
-func (c *adminServiceClient) Heartbeat(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
+func (c *adminClient) Heartbeat(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/Cloud.AdminService/Heartbeat", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Cloud.Admin/Heartbeat", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adminServiceClient) CreateOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
+func (c *adminClient) CreateOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/Cloud.AdminService/CreateOrganization", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Cloud.Admin/CreateOrganization", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adminServiceClient) GetOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
+func (c *adminClient) GetOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/Cloud.AdminService/GetOrganization", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Cloud.Admin/GetOrganization", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adminServiceClient) GetUserOrganizations(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
+func (c *adminClient) GetUserOrganizations(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/Cloud.AdminService/GetUserOrganizations", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Cloud.Admin/GetUserOrganizations", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adminServiceClient) UpdateOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
+func (c *adminClient) UpdateOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/Cloud.AdminService/UpdateOrganization", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Cloud.Admin/UpdateOrganization", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adminServiceClient) CreateProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
+func (c *adminClient) CreateProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/Cloud.AdminService/CreateProject", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Cloud.Admin/CreateProject", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adminServiceClient) RollPrivateKey(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
+func (c *adminClient) RollPrivateKey(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/Cloud.AdminService/RollPrivateKey", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Cloud.Admin/RollPrivateKey", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adminServiceClient) GenerateAccessToken(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
+func (c *adminClient) UpdateProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/Cloud.AdminService/GenerateAccessToken", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Cloud.Admin/UpdateProject", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adminServiceClient) UpdateProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
+func (c *adminClient) GetProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/Cloud.AdminService/UpdateProject", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Cloud.Admin/GetProject", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adminServiceClient) GetProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
+func (c *adminClient) GetUserProjects(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/Cloud.AdminService/GetProject", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Cloud.Admin/GetUserProjects", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adminServiceClient) GetUserProjects(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
+func (c *adminClient) GetProjectsInOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/Cloud.AdminService/GetUserProjects", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Cloud.Admin/GetProjectsInOrganization", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adminServiceClient) GetProjectsInOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
+func (c *adminClient) DeleteProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/Cloud.AdminService/GetProjectsInOrganization", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Cloud.Admin/DeleteProject", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *adminServiceClient) DeleteProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
+func (c *adminClient) GetPartner(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/Cloud.AdminService/DeleteProject", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Cloud.Admin/GetPartner", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// AdminServiceServer is the server API for AdminService service.
-// All implementations should embed UnimplementedAdminServiceServer
+func (c *adminClient) GetPartners(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
+	out := new(CloudResponse)
+	err := c.cc.Invoke(ctx, "/Cloud.Admin/GetPartners", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// AdminServer is the server API for Admin service.
+// All implementations should embed UnimplementedAdminServer
 // for forward compatibility
-type AdminServiceServer interface {
+type AdminServer interface {
 	Heartbeat(context.Context, *CloudRequest) (*CloudResponse, error)
 	CreateOrganization(context.Context, *CloudRequest) (*CloudResponse, error)
 	GetOrganization(context.Context, *CloudRequest) (*CloudResponse, error)
@@ -169,361 +179,543 @@ type AdminServiceServer interface {
 	UpdateOrganization(context.Context, *CloudRequest) (*CloudResponse, error)
 	CreateProject(context.Context, *CloudRequest) (*CloudResponse, error)
 	RollPrivateKey(context.Context, *CloudRequest) (*CloudResponse, error)
-	GenerateAccessToken(context.Context, *CloudRequest) (*CloudResponse, error)
 	UpdateProject(context.Context, *CloudRequest) (*CloudResponse, error)
 	GetProject(context.Context, *CloudRequest) (*CloudResponse, error)
 	GetUserProjects(context.Context, *CloudRequest) (*CloudResponse, error)
 	GetProjectsInOrganization(context.Context, *CloudRequest) (*CloudResponse, error)
 	DeleteProject(context.Context, *CloudRequest) (*CloudResponse, error)
+	GetPartner(context.Context, *CloudRequest) (*CloudResponse, error)
+	GetPartners(context.Context, *CloudRequest) (*CloudResponse, error)
 }
 
-// UnimplementedAdminServiceServer should be embedded to have forward compatible implementations.
-type UnimplementedAdminServiceServer struct {
+// UnimplementedAdminServer should be embedded to have forward compatible implementations.
+type UnimplementedAdminServer struct {
 }
 
-func (UnimplementedAdminServiceServer) Heartbeat(context.Context, *CloudRequest) (*CloudResponse, error) {
+func (UnimplementedAdminServer) Heartbeat(context.Context, *CloudRequest) (*CloudResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Heartbeat not implemented")
 }
-func (UnimplementedAdminServiceServer) CreateOrganization(context.Context, *CloudRequest) (*CloudResponse, error) {
+func (UnimplementedAdminServer) CreateOrganization(context.Context, *CloudRequest) (*CloudResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateOrganization not implemented")
 }
-func (UnimplementedAdminServiceServer) GetOrganization(context.Context, *CloudRequest) (*CloudResponse, error) {
+func (UnimplementedAdminServer) GetOrganization(context.Context, *CloudRequest) (*CloudResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetOrganization not implemented")
 }
-func (UnimplementedAdminServiceServer) GetUserOrganizations(context.Context, *CloudRequest) (*CloudResponse, error) {
+func (UnimplementedAdminServer) GetUserOrganizations(context.Context, *CloudRequest) (*CloudResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserOrganizations not implemented")
 }
-func (UnimplementedAdminServiceServer) UpdateOrganization(context.Context, *CloudRequest) (*CloudResponse, error) {
+func (UnimplementedAdminServer) UpdateOrganization(context.Context, *CloudRequest) (*CloudResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateOrganization not implemented")
 }
-func (UnimplementedAdminServiceServer) CreateProject(context.Context, *CloudRequest) (*CloudResponse, error) {
+func (UnimplementedAdminServer) CreateProject(context.Context, *CloudRequest) (*CloudResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateProject not implemented")
 }
-func (UnimplementedAdminServiceServer) RollPrivateKey(context.Context, *CloudRequest) (*CloudResponse, error) {
+func (UnimplementedAdminServer) RollPrivateKey(context.Context, *CloudRequest) (*CloudResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RollPrivateKey not implemented")
 }
-func (UnimplementedAdminServiceServer) GenerateAccessToken(context.Context, *CloudRequest) (*CloudResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GenerateAccessToken not implemented")
-}
-func (UnimplementedAdminServiceServer) UpdateProject(context.Context, *CloudRequest) (*CloudResponse, error) {
+func (UnimplementedAdminServer) UpdateProject(context.Context, *CloudRequest) (*CloudResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateProject not implemented")
 }
-func (UnimplementedAdminServiceServer) GetProject(context.Context, *CloudRequest) (*CloudResponse, error) {
+func (UnimplementedAdminServer) GetProject(context.Context, *CloudRequest) (*CloudResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetProject not implemented")
 }
-func (UnimplementedAdminServiceServer) GetUserProjects(context.Context, *CloudRequest) (*CloudResponse, error) {
+func (UnimplementedAdminServer) GetUserProjects(context.Context, *CloudRequest) (*CloudResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserProjects not implemented")
 }
-func (UnimplementedAdminServiceServer) GetProjectsInOrganization(context.Context, *CloudRequest) (*CloudResponse, error) {
+func (UnimplementedAdminServer) GetProjectsInOrganization(context.Context, *CloudRequest) (*CloudResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetProjectsInOrganization not implemented")
 }
-func (UnimplementedAdminServiceServer) DeleteProject(context.Context, *CloudRequest) (*CloudResponse, error) {
+func (UnimplementedAdminServer) DeleteProject(context.Context, *CloudRequest) (*CloudResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteProject not implemented")
 }
+func (UnimplementedAdminServer) GetPartner(context.Context, *CloudRequest) (*CloudResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPartner not implemented")
+}
+func (UnimplementedAdminServer) GetPartners(context.Context, *CloudRequest) (*CloudResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPartners not implemented")
+}
 
-// UnsafeAdminServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to AdminServiceServer will
+// UnsafeAdminServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to AdminServer will
 // result in compilation errors.
-type UnsafeAdminServiceServer interface {
-	mustEmbedUnimplementedAdminServiceServer()
+type UnsafeAdminServer interface {
+	mustEmbedUnimplementedAdminServer()
 }
 
-func RegisterAdminServiceServer(s grpc.ServiceRegistrar, srv AdminServiceServer) {
-	s.RegisterService(&AdminService_ServiceDesc, srv)
+func RegisterAdminServer(s grpc.ServiceRegistrar, srv AdminServer) {
+	s.RegisterService(&Admin_ServiceDesc, srv)
 }
 
-func _AdminService_Heartbeat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Admin_Heartbeat_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CloudRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdminServiceServer).Heartbeat(ctx, in)
+		return srv.(AdminServer).Heartbeat(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/Cloud.AdminService/Heartbeat",
+		FullMethod: "/Cloud.Admin/Heartbeat",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdminServiceServer).Heartbeat(ctx, req.(*CloudRequest))
+		return srv.(AdminServer).Heartbeat(ctx, req.(*CloudRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdminService_CreateOrganization_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Admin_CreateOrganization_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CloudRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdminServiceServer).CreateOrganization(ctx, in)
+		return srv.(AdminServer).CreateOrganization(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/Cloud.AdminService/CreateOrganization",
+		FullMethod: "/Cloud.Admin/CreateOrganization",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdminServiceServer).CreateOrganization(ctx, req.(*CloudRequest))
+		return srv.(AdminServer).CreateOrganization(ctx, req.(*CloudRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdminService_GetOrganization_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Admin_GetOrganization_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CloudRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdminServiceServer).GetOrganization(ctx, in)
+		return srv.(AdminServer).GetOrganization(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/Cloud.AdminService/GetOrganization",
+		FullMethod: "/Cloud.Admin/GetOrganization",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdminServiceServer).GetOrganization(ctx, req.(*CloudRequest))
+		return srv.(AdminServer).GetOrganization(ctx, req.(*CloudRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdminService_GetUserOrganizations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Admin_GetUserOrganizations_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CloudRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdminServiceServer).GetUserOrganizations(ctx, in)
+		return srv.(AdminServer).GetUserOrganizations(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/Cloud.AdminService/GetUserOrganizations",
+		FullMethod: "/Cloud.Admin/GetUserOrganizations",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdminServiceServer).GetUserOrganizations(ctx, req.(*CloudRequest))
+		return srv.(AdminServer).GetUserOrganizations(ctx, req.(*CloudRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdminService_UpdateOrganization_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Admin_UpdateOrganization_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CloudRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdminServiceServer).UpdateOrganization(ctx, in)
+		return srv.(AdminServer).UpdateOrganization(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/Cloud.AdminService/UpdateOrganization",
+		FullMethod: "/Cloud.Admin/UpdateOrganization",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdminServiceServer).UpdateOrganization(ctx, req.(*CloudRequest))
+		return srv.(AdminServer).UpdateOrganization(ctx, req.(*CloudRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdminService_CreateProject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Admin_CreateProject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CloudRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdminServiceServer).CreateProject(ctx, in)
+		return srv.(AdminServer).CreateProject(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/Cloud.AdminService/CreateProject",
+		FullMethod: "/Cloud.Admin/CreateProject",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdminServiceServer).CreateProject(ctx, req.(*CloudRequest))
+		return srv.(AdminServer).CreateProject(ctx, req.(*CloudRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdminService_RollPrivateKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Admin_RollPrivateKey_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CloudRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdminServiceServer).RollPrivateKey(ctx, in)
+		return srv.(AdminServer).RollPrivateKey(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/Cloud.AdminService/RollPrivateKey",
+		FullMethod: "/Cloud.Admin/RollPrivateKey",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdminServiceServer).RollPrivateKey(ctx, req.(*CloudRequest))
+		return srv.(AdminServer).RollPrivateKey(ctx, req.(*CloudRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdminService_GenerateAccessToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Admin_UpdateProject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CloudRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdminServiceServer).GenerateAccessToken(ctx, in)
+		return srv.(AdminServer).UpdateProject(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/Cloud.AdminService/GenerateAccessToken",
+		FullMethod: "/Cloud.Admin/UpdateProject",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdminServiceServer).GenerateAccessToken(ctx, req.(*CloudRequest))
+		return srv.(AdminServer).UpdateProject(ctx, req.(*CloudRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdminService_UpdateProject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Admin_GetProject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CloudRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdminServiceServer).UpdateProject(ctx, in)
+		return srv.(AdminServer).GetProject(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/Cloud.AdminService/UpdateProject",
+		FullMethod: "/Cloud.Admin/GetProject",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdminServiceServer).UpdateProject(ctx, req.(*CloudRequest))
+		return srv.(AdminServer).GetProject(ctx, req.(*CloudRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdminService_GetProject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Admin_GetUserProjects_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CloudRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdminServiceServer).GetProject(ctx, in)
+		return srv.(AdminServer).GetUserProjects(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/Cloud.AdminService/GetProject",
+		FullMethod: "/Cloud.Admin/GetUserProjects",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdminServiceServer).GetProject(ctx, req.(*CloudRequest))
+		return srv.(AdminServer).GetUserProjects(ctx, req.(*CloudRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdminService_GetUserProjects_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Admin_GetProjectsInOrganization_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CloudRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdminServiceServer).GetUserProjects(ctx, in)
+		return srv.(AdminServer).GetProjectsInOrganization(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/Cloud.AdminService/GetUserProjects",
+		FullMethod: "/Cloud.Admin/GetProjectsInOrganization",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdminServiceServer).GetUserProjects(ctx, req.(*CloudRequest))
+		return srv.(AdminServer).GetProjectsInOrganization(ctx, req.(*CloudRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdminService_GetProjectsInOrganization_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Admin_DeleteProject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CloudRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdminServiceServer).GetProjectsInOrganization(ctx, in)
+		return srv.(AdminServer).DeleteProject(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/Cloud.AdminService/GetProjectsInOrganization",
+		FullMethod: "/Cloud.Admin/DeleteProject",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdminServiceServer).GetProjectsInOrganization(ctx, req.(*CloudRequest))
+		return srv.(AdminServer).DeleteProject(ctx, req.(*CloudRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AdminService_DeleteProject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Admin_GetPartner_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CloudRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdminServiceServer).DeleteProject(ctx, in)
+		return srv.(AdminServer).GetPartner(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/Cloud.AdminService/DeleteProject",
+		FullMethod: "/Cloud.Admin/GetPartner",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdminServiceServer).DeleteProject(ctx, req.(*CloudRequest))
+		return srv.(AdminServer).GetPartner(ctx, req.(*CloudRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// AdminService_ServiceDesc is the grpc.ServiceDesc for AdminService service.
+func _Admin_GetPartners_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloudRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AdminServer).GetPartners(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/Cloud.Admin/GetPartners",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AdminServer).GetPartners(ctx, req.(*CloudRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// Admin_ServiceDesc is the grpc.ServiceDesc for Admin service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var AdminService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "Cloud.AdminService",
-	HandlerType: (*AdminServiceServer)(nil),
+var Admin_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "Cloud.Admin",
+	HandlerType: (*AdminServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "Heartbeat",
-			Handler:    _AdminService_Heartbeat_Handler,
+			Handler:    _Admin_Heartbeat_Handler,
 		},
 		{
 			MethodName: "CreateOrganization",
-			Handler:    _AdminService_CreateOrganization_Handler,
+			Handler:    _Admin_CreateOrganization_Handler,
 		},
 		{
 			MethodName: "GetOrganization",
-			Handler:    _AdminService_GetOrganization_Handler,
+			Handler:    _Admin_GetOrganization_Handler,
 		},
 		{
 			MethodName: "GetUserOrganizations",
-			Handler:    _AdminService_GetUserOrganizations_Handler,
+			Handler:    _Admin_GetUserOrganizations_Handler,
 		},
 		{
 			MethodName: "UpdateOrganization",
-			Handler:    _AdminService_UpdateOrganization_Handler,
+			Handler:    _Admin_UpdateOrganization_Handler,
 		},
 		{
 			MethodName: "CreateProject",
-			Handler:    _AdminService_CreateProject_Handler,
+			Handler:    _Admin_CreateProject_Handler,
 		},
 		{
 			MethodName: "RollPrivateKey",
-			Handler:    _AdminService_RollPrivateKey_Handler,
-		},
-		{
-			MethodName: "GenerateAccessToken",
-			Handler:    _AdminService_GenerateAccessToken_Handler,
+			Handler:    _Admin_RollPrivateKey_Handler,
 		},
 		{
 			MethodName: "UpdateProject",
-			Handler:    _AdminService_UpdateProject_Handler,
+			Handler:    _Admin_UpdateProject_Handler,
 		},
 		{
 			MethodName: "GetProject",
-			Handler:    _AdminService_GetProject_Handler,
+			Handler:    _Admin_GetProject_Handler,
 		},
 		{
 			MethodName: "GetUserProjects",
-			Handler:    _AdminService_GetUserProjects_Handler,
+			Handler:    _Admin_GetUserProjects_Handler,
 		},
 		{
 			MethodName: "GetProjectsInOrganization",
-			Handler:    _AdminService_GetProjectsInOrganization_Handler,
+			Handler:    _Admin_GetProjectsInOrganization_Handler,
 		},
 		{
 			MethodName: "DeleteProject",
-			Handler:    _AdminService_DeleteProject_Handler,
+			Handler:    _Admin_DeleteProject_Handler,
+		},
+		{
+			MethodName: "GetPartner",
+			Handler:    _Admin_GetPartner_Handler,
+		},
+		{
+			MethodName: "GetPartners",
+			Handler:    _Admin_GetPartners_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "cloud.proto",
+}
+
+// PublicClient is the client API for Public service.
+//
+// For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
+type PublicClient interface {
+	GenerateAccessToken(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
+	ValidateAccess(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
+	PublicKeys(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
+}
+
+type publicClient struct {
+	cc grpc.ClientConnInterface
+}
+
+func NewPublicClient(cc grpc.ClientConnInterface) PublicClient {
+	return &publicClient{cc}
+}
+
+func (c *publicClient) GenerateAccessToken(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
+	out := new(CloudResponse)
+	err := c.cc.Invoke(ctx, "/Cloud.Public/GenerateAccessToken", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *publicClient) ValidateAccess(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
+	out := new(CloudResponse)
+	err := c.cc.Invoke(ctx, "/Cloud.Public/ValidateAccess", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *publicClient) PublicKeys(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
+	out := new(CloudResponse)
+	err := c.cc.Invoke(ctx, "/Cloud.Public/PublicKeys", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// PublicServer is the server API for Public service.
+// All implementations should embed UnimplementedPublicServer
+// for forward compatibility
+type PublicServer interface {
+	GenerateAccessToken(context.Context, *CloudRequest) (*CloudResponse, error)
+	ValidateAccess(context.Context, *CloudRequest) (*CloudResponse, error)
+	PublicKeys(context.Context, *CloudRequest) (*CloudResponse, error)
+}
+
+// UnimplementedPublicServer should be embedded to have forward compatible implementations.
+type UnimplementedPublicServer struct {
+}
+
+func (UnimplementedPublicServer) GenerateAccessToken(context.Context, *CloudRequest) (*CloudResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GenerateAccessToken not implemented")
+}
+func (UnimplementedPublicServer) ValidateAccess(context.Context, *CloudRequest) (*CloudResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ValidateAccess not implemented")
+}
+func (UnimplementedPublicServer) PublicKeys(context.Context, *CloudRequest) (*CloudResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method PublicKeys not implemented")
+}
+
+// UnsafePublicServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to PublicServer will
+// result in compilation errors.
+type UnsafePublicServer interface {
+	mustEmbedUnimplementedPublicServer()
+}
+
+func RegisterPublicServer(s grpc.ServiceRegistrar, srv PublicServer) {
+	s.RegisterService(&Public_ServiceDesc, srv)
+}
+
+func _Public_GenerateAccessToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloudRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PublicServer).GenerateAccessToken(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/Cloud.Public/GenerateAccessToken",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PublicServer).GenerateAccessToken(ctx, req.(*CloudRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Public_ValidateAccess_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloudRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PublicServer).ValidateAccess(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/Cloud.Public/ValidateAccess",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PublicServer).ValidateAccess(ctx, req.(*CloudRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Public_PublicKeys_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CloudRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PublicServer).PublicKeys(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/Cloud.Public/PublicKeys",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PublicServer).PublicKeys(ctx, req.(*CloudRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+// Public_ServiceDesc is the grpc.ServiceDesc for Public service.
+// It's only intended for direct use with grpc.RegisterService,
+// and not to be introspected or modified (even as a copy)
+var Public_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "Cloud.Public",
+	HandlerType: (*PublicServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "GenerateAccessToken",
+			Handler:    _Public_GenerateAccessToken_Handler,
+		},
+		{
+			MethodName: "ValidateAccess",
+			Handler:    _Public_ValidateAccess_Handler,
+		},
+		{
+			MethodName: "PublicKeys",
+			Handler:    _Public_PublicKeys_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
