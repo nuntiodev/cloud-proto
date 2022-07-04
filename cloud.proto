@@ -16,7 +16,7 @@ service Admin {
     rpc RollPrivateKey(CloudRequest) returns (CloudResponse) {}
     rpc UpdateProject(CloudRequest) returns (CloudResponse) {}
     rpc GetProject(CloudRequest) returns (CloudResponse) {}
-    rpc GetUserProjects(CloudRequest) returns (CloudResponse) {}
+    rpc InitializeCloud(CloudRequest) returns (CloudResponse) {}
     rpc GetProjectsInOrganization(CloudRequest) returns (CloudResponse) {}
     rpc DeleteProject(CloudRequest) returns (CloudResponse) {}
     rpc GetPartner(CloudRequest) returns (CloudResponse) {}
