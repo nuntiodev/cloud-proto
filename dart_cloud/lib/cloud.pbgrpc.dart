@@ -59,9 +59,9 @@ class AdminClient extends $grpc.Client {
           '/Cloud.Admin/GetProject',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
-  static final _$getUserProjects =
+  static final _$initializeCloud =
       $grpc.ClientMethod<$0.CloudRequest, $0.CloudResponse>(
-          '/Cloud.Admin/GetUserProjects',
+          '/Cloud.Admin/InitializeCloud',
           ($0.CloudRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.CloudResponse.fromBuffer(value));
   static final _$getProjectsInOrganization =
@@ -139,10 +139,10 @@ class AdminClient extends $grpc.Client {
     return $createUnaryCall(_$getProject, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.CloudResponse> getUserProjects(
+  $grpc.ResponseFuture<$0.CloudResponse> initializeCloud(
       $0.CloudRequest request,
       {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$getUserProjects, request, options: options);
+    return $createUnaryCall(_$initializeCloud, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.CloudResponse> getProjectsInOrganization(
@@ -236,8 +236,8 @@ abstract class AdminServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) => $0.CloudRequest.fromBuffer(value),
         ($0.CloudResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.CloudRequest, $0.CloudResponse>(
-        'GetUserProjects',
-        getUserProjects_Pre,
+        'InitializeCloud',
+        initializeCloud_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $0.CloudRequest.fromBuffer(value),
@@ -317,9 +317,9 @@ abstract class AdminServiceBase extends $grpc.Service {
     return getProject(call, await request);
   }
 
-  $async.Future<$0.CloudResponse> getUserProjects_Pre(
+  $async.Future<$0.CloudResponse> initializeCloud_Pre(
       $grpc.ServiceCall call, $async.Future<$0.CloudRequest> request) async {
-    return getUserProjects(call, await request);
+    return initializeCloud(call, await request);
   }
 
   $async.Future<$0.CloudResponse> getProjectsInOrganization_Pre(
@@ -360,7 +360,7 @@ abstract class AdminServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.CloudRequest request);
   $async.Future<$0.CloudResponse> getProject(
       $grpc.ServiceCall call, $0.CloudRequest request);
-  $async.Future<$0.CloudResponse> getUserProjects(
+  $async.Future<$0.CloudResponse> initializeCloud(
       $grpc.ServiceCall call, $0.CloudRequest request);
   $async.Future<$0.CloudResponse> getProjectsInOrganization(
       $grpc.ServiceCall call, $0.CloudRequest request);

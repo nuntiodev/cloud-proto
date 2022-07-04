@@ -27,7 +27,7 @@ type AdminClient interface {
 	RollPrivateKey(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	UpdateProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	GetProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
-	GetUserProjects(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
+	InitializeCloud(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	GetProjectsInOrganization(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	DeleteProject(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
 	GetPartner(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error)
@@ -123,9 +123,9 @@ func (c *adminClient) GetProject(ctx context.Context, in *CloudRequest, opts ...
 	return out, nil
 }
 
-func (c *adminClient) GetUserProjects(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
+func (c *adminClient) InitializeCloud(ctx context.Context, in *CloudRequest, opts ...grpc.CallOption) (*CloudResponse, error) {
 	out := new(CloudResponse)
-	err := c.cc.Invoke(ctx, "/Cloud.Admin/GetUserProjects", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/Cloud.Admin/InitializeCloud", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -181,7 +181,7 @@ type AdminServer interface {
 	RollPrivateKey(context.Context, *CloudRequest) (*CloudResponse, error)
 	UpdateProject(context.Context, *CloudRequest) (*CloudResponse, error)
 	GetProject(context.Context, *CloudRequest) (*CloudResponse, error)
-	GetUserProjects(context.Context, *CloudRequest) (*CloudResponse, error)
+	InitializeCloud(context.Context, *CloudRequest) (*CloudResponse, error)
 	GetProjectsInOrganization(context.Context, *CloudRequest) (*CloudResponse, error)
 	DeleteProject(context.Context, *CloudRequest) (*CloudResponse, error)
 	GetPartner(context.Context, *CloudRequest) (*CloudResponse, error)
@@ -219,8 +219,8 @@ func (UnimplementedAdminServer) UpdateProject(context.Context, *CloudRequest) (*
 func (UnimplementedAdminServer) GetProject(context.Context, *CloudRequest) (*CloudResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetProject not implemented")
 }
-func (UnimplementedAdminServer) GetUserProjects(context.Context, *CloudRequest) (*CloudResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetUserProjects not implemented")
+func (UnimplementedAdminServer) InitializeCloud(context.Context, *CloudRequest) (*CloudResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InitializeCloud not implemented")
 }
 func (UnimplementedAdminServer) GetProjectsInOrganization(context.Context, *CloudRequest) (*CloudResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetProjectsInOrganization not implemented")
@@ -408,20 +408,20 @@ func _Admin_GetProject_Handler(srv interface{}, ctx context.Context, dec func(in
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Admin_GetUserProjects_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Admin_InitializeCloud_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(CloudRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AdminServer).GetUserProjects(ctx, in)
+		return srv.(AdminServer).InitializeCloud(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/Cloud.Admin/GetUserProjects",
+		FullMethod: "/Cloud.Admin/InitializeCloud",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AdminServer).GetUserProjects(ctx, req.(*CloudRequest))
+		return srv.(AdminServer).InitializeCloud(ctx, req.(*CloudRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -542,8 +542,8 @@ var Admin_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _Admin_GetProject_Handler,
 		},
 		{
-			MethodName: "GetUserProjects",
-			Handler:    _Admin_GetUserProjects_Handler,
+			MethodName: "InitializeCloud",
+			Handler:    _Admin_InitializeCloud_Handler,
 		},
 		{
 			MethodName: "GetProjectsInOrganization",
